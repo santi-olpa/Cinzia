@@ -12,7 +12,7 @@
 //    - CINZI_MODEL          (opcional · default 'claude-haiku-4-5-20251001')
 // ===================================================================
 
-import Anthropic from "@anthropic-ai/sdk";
+// Sin dependencias npm — usamos `fetch` nativo (Node 18+)
 
 // ─────────────────────────────────────────────────────────────────
 // SYSTEM PROMPT — la "personalidad" + conocimiento de Cinzi
@@ -345,32 +345,68 @@ export default async (request, context) => {
   // Truncar historial para no exceder contexto
   const trimmed = messages.slice(-MAX_HISTORY);
 
-  // Cliente Anthropic
-  const client = new Anthropic({ apiKey });
+  // Body común para Anthropic API
+  const anthropicBody = {
+    model: MODEL,
+    max_tokens: MAX_TOKENS,
+    system: SYSTEM_PROMPT,
+    messages: trimmed,
+  };
+
+  const anthropicHeaders = {
+    "x-api-key": apiKey,
+    "anthropic-version": "2023-06-01",
+    "content-type": "application/json",
+  };
 
   // ─── Modo STREAMING (Server-Sent Events) ───
   if (stream) {
     const encoder = new TextEncoder();
+    const decoder = new TextDecoder();
     const readable = new ReadableStream({
       async start(controller) {
+        const send = (data) =>
+          controller.enqueue(encoder.encode(`data: ${JSON.stringify(data)}\n\n`));
         try {
-          const send = (data) =>
-            controller.enqueue(encoder.encode(`data: ${JSON.stringify(data)}\n\n`));
-
-          let fullText = "";
-
-          const apiStream = await client.messages.stream({
-            model: MODEL,
-            max_tokens: MAX_TOKENS,
-            system: SYSTEM_PROMPT,
-            messages: trimmed,
+          const upstream = await fetch("https://api.anthropic.com/v1/messages", {
+            method: "POST",
+            headers: anthropicHeaders,
+            body: JSON.stringify({ ...anthropicBody, stream: true }),
           });
 
-          for await (const event of apiStream) {
-            if (event.type === "content_block_delta" && event.delta?.type === "text_delta") {
-              const chunk = event.delta.text;
-              fullText += chunk;
-              send({ type: "chunk", text: chunk });
+          if (!upstream.ok) {
+            const errText = await upstream.text();
+            throw new Error(`Anthropic ${upstream.status}: ${errText.slice(0, 200)}`);
+          }
+
+          const reader = upstream.body.getReader();
+          let buffer = "";
+          let fullText = "";
+
+          while (true) {
+            const { done, value } = await reader.read();
+            if (done) break;
+            buffer += decoder.decode(value, { stream: true });
+            // Procesar eventos SSE completos
+            const parts = buffer.split("\n\n");
+            buffer = parts.pop();
+            for (const part of parts) {
+              const lines = part.split("\n");
+              for (const line of lines) {
+                if (!line.startsWith("data:")) continue;
+                const data = line.slice(5).trim();
+                if (!data || data === "[DONE]") continue;
+                try {
+                  const obj = JSON.parse(data);
+                  if (obj.type === "content_block_delta" && obj.delta?.type === "text_delta") {
+                    const chunk = obj.delta.text;
+                    fullText += chunk;
+                    send({ type: "chunk", text: chunk });
+                  }
+                } catch {
+                  // ignorar líneas malformadas
+                }
+              }
             }
           }
 
@@ -379,14 +415,7 @@ export default async (request, context) => {
           controller.close();
         } catch (err) {
           console.error("Stream error:", err);
-          controller.enqueue(
-            encoder.encode(
-              `data: ${JSON.stringify({
-                type: "error",
-                message: err.message || "Error generando respuesta",
-              })}\n\n`
-            )
-          );
+          send({ type: "error", message: err.message || "Error generando respuesta" });
           controller.close();
         }
       },
@@ -404,13 +433,28 @@ export default async (request, context) => {
 
   // ─── Modo NO-STREAMING (respuesta completa de una vez) ───
   try {
-    const result = await client.messages.create({
-      model: MODEL,
-      max_tokens: MAX_TOKENS,
-      system: SYSTEM_PROMPT,
-      messages: trimmed,
+    const upstream = await fetch("https://api.anthropic.com/v1/messages", {
+      method: "POST",
+      headers: anthropicHeaders,
+      body: JSON.stringify(anthropicBody),
     });
 
+    if (!upstream.ok) {
+      const errText = await upstream.text();
+      const message =
+        upstream.status === 401
+          ? "Credencial de Anthropic inválida — revisar ANTHROPIC_API_KEY en Netlify."
+          : upstream.status === 429
+          ? "Demasiados pedidos al asistente — probá en unos segundos."
+          : "El asistente tuvo un problema. Intentá de nuevo.";
+      console.error(`Anthropic ${upstream.status}: ${errText.slice(0, 200)}`);
+      return new Response(JSON.stringify({ error: "anthropic", message }), {
+        status: 502,
+        headers: corsHeaders({ "Content-Type": "application/json" }),
+      });
+    }
+
+    const result = await upstream.json();
     const rawText =
       result.content
         ?.filter((b) => b.type === "text")
@@ -424,17 +468,13 @@ export default async (request, context) => {
       headers: corsHeaders({ "Content-Type": "application/json" }),
     });
   } catch (err) {
-    console.error("Anthropic error:", err);
-    const message =
-      err?.status === 401
-        ? "Credencial de Anthropic inválida — revisar ANTHROPIC_API_KEY en Netlify."
-        : err?.status === 429
-        ? "Demasiados pedidos al asistente — probá en unos segundos."
-        : "El asistente tuvo un problema. Intentá de nuevo.";
-
-    return new Response(JSON.stringify({ error: "anthropic", message }), {
-      status: 502,
-      headers: corsHeaders({ "Content-Type": "application/json" }),
-    });
+    console.error("Network error:", err);
+    return new Response(
+      JSON.stringify({
+        error: "network",
+        message: "No pude conectar con el servicio. Probá de nuevo.",
+      }),
+      { status: 502, headers: corsHeaders({ "Content-Type": "application/json" }) }
+    );
   }
 };
