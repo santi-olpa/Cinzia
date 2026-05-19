@@ -41,10 +41,5 @@
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "geolocation=(), microphone=(), camera=()"
 
-# Config específica para las functions (timeout y memoria)
-[functions]
-  node_bundler = "esbuild"
-
-[functions."cinzi"]
-  # Hasta 26 segundos por request (default es 10s) — para streaming largo
-  timeout = 26
+# Config de las functions
+# (en Netlify Functions 2.0 esbuild es el default, no hace falta declararlo)

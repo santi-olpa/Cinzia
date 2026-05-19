@@ -438,8 +438,3 @@ export default async (request, context) => {
     });
   }
 };
-
-// Para que Netlify use Edge Functions runtime si está disponible
-export const config = {
-  path: "/.netlify/functions/cinzi",
-};
