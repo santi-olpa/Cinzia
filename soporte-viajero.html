@@ -3125,6 +3125,7 @@
         let buffer = '';
         let fullText = '';
         let escalate = false;
+        let chips = [];
 
         while (true) {
           const { done, value } = await reader.read();
@@ -3146,6 +3147,7 @@
                 onChunk(fullText);
               } else if (obj.type === 'done') {
                 escalate = !!obj.escalate;
+                chips = Array.isArray(obj.chips) ? obj.chips : [];
               } else if (obj.type === 'error') {
                 throw new Error(obj.message || 'Error en stream');
               }
@@ -3155,7 +3157,7 @@
           }
         }
 
-        onDone(fullText, escalate);
+        onDone(fullText, escalate, chips);
       } catch (err) {
         onError(err);
       }
@@ -3175,20 +3177,34 @@
       lucide.createIcons();
       cinziBody.scrollTop = cinziBody.scrollHeight;
       const bubble = document.querySelector(`#${id} .cz-bubble`);
+      // Función para limpiar markers del texto que se muestra en pantalla
+      function stripMarkers(t) {
+        // Si aparece [CHIPS: o [ESCALATE], cortar el texto ahí
+        // (regex tolera el marker incompleto durante streaming)
+        let cleaned = t;
+        const chipIdx = cleaned.search(/\s*\[CHIPS:/i);
+        if (chipIdx !== -1) cleaned = cleaned.slice(0, chipIdx);
+        const escIdx = cleaned.search(/\s*\[ESCALATE\]?/i);
+        if (escIdx !== -1) cleaned = cleaned.slice(0, escIdx);
+        return cleaned.trim();
+      }
+
       return {
         update: (text) => {
           if (!bubble) return;
-          bubble.innerHTML = mdToHtml(escapeHtml(text));
+          bubble.innerHTML = mdToHtml(escapeHtml(stripMarkers(text)));
           cinziBody.scrollTop = cinziBody.scrollHeight;
         },
-        finalize: (text, escalate) => {
+        finalize: (text, escalate, chips) => {
           // Reemplazar el live por un mensaje "oficial" en el array
           const el = document.getElementById(id);
           if (el) el.remove();
+          // Limpiar el texto final (por si el backend no lo hizo o falla algo)
+          const cleanText = stripMarkers(text);
           cinziCtx.messages.push({
             who: 'bot',
-            html: mdToHtml(escapeHtml(text)),
-            chips: null,
+            html: mdToHtml(escapeHtml(cleanText)),
+            chips: Array.isArray(chips) && chips.length ? chips : null,
             escalate,
             deepLink: null,
           });
@@ -3213,9 +3229,9 @@
       await streamFromBackend(
         buildBackendMessages(),
         (partial) => { backendOk = true; live.update(partial); },
-        (full, escalate) => {
+        (full, escalate, chips) => {
           backendOk = true;
-          live.finalize(full, escalate);
+          live.finalize(full, escalate, chips);
           cinziInput.disabled = false;
           cinziInput.focus();
         },

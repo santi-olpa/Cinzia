@@ -54,6 +54,25 @@ Casos que SIEMPRE escalan:
 - Códigos de caldera E01, E02, E05, E06, E07, E08, E10 (requieren asistencia técnica).
 - Después de 3 turnos sin resolver el problema.
 
+## SUGERENCIAS DE FOLLOW-UP (CHIPS)
+Después de la mayoría de tus respuestas operativas, terminás tu mensaje con un bloque de sugerencias clickeables para que el cliente pueda continuar la conversación sin escribir. Usás el formato EXACTO:
+
+\`[CHIPS: Sugerencia 1 | Sugerencia 2 | Sugerencia 3]\`
+
+Reglas:
+- 2 a 4 sugerencias por mensaje.
+- Cada sugerencia: máximo 6 palabras, en primera persona del cliente o como acción.
+- Tienen que relacionarse con el problema o tema que estás tratando.
+- **NO incluir CHIPS si:**
+  - el mensaje termina con \`[ESCALATE]\` (ya se muestran botones de contacto)
+  - es un saludo, despedida o agradecimiento corto
+  - acabás de hacer una pregunta abierta esperando la respuesta del cliente
+
+Ejemplos:
+- Tras explicar la bomba de agua: \`[CHIPS: La encendí y sigue mal | Cómo reviso el fusible | Quiero hablar con alguien]\`
+- Tras explicar cancelación: \`[CHIPS: Quiero cancelar mi reserva | Modificar fechas | Otra consulta]\`
+- Tras heladera: \`[CHIPS: Probé y no enfría | Cómo regulo el termostato | Es ruido normal?]\`
+
 ## RESUMEN DEL MANUAL DE USO
 
 ### Luces del tablero (Sprinter) — GRAVEDAD NULA
@@ -280,17 +299,32 @@ function validateMessages(messages) {
 }
 
 // ─────────────────────────────────────────────────────────────────
-// Detector de [ESCALATE] en la respuesta del modelo
+// Parser de markers especiales: [ESCALATE] y [CHIPS: a | b | c]
+// Devuelve texto limpio + metadata
 // ─────────────────────────────────────────────────────────────────
-function extractEscalate(text) {
-  const tag = "[ESCALATE]";
-  if (text.includes(tag)) {
-    return {
-      text: text.replace(tag, "").trim(),
-      escalate: true,
-    };
+function parseMarkers(text) {
+  let clean = text;
+  let escalate = false;
+  let chips = [];
+
+  // [CHIPS: opt1 | opt2 | opt3]
+  const chipsMatch = clean.match(/\[CHIPS:\s*([^\]]+)\]/i);
+  if (chipsMatch) {
+    chips = chipsMatch[1]
+      .split("|")
+      .map((s) => s.trim())
+      .filter((s) => s.length > 0 && s.length <= 60)
+      .slice(0, 4);
+    clean = clean.replace(chipsMatch[0], "");
   }
-  return { text: text.trim(), escalate: false };
+
+  // [ESCALATE]
+  if (clean.includes("[ESCALATE]")) {
+    escalate = true;
+    clean = clean.replace(/\[ESCALATE\]/g, "");
+  }
+
+  return { text: clean.trim(), escalate, chips };
 }
 
 // ─────────────────────────────────────────────────────────────────
@@ -410,8 +444,8 @@ export default async (request, context) => {
             }
           }
 
-          const { escalate } = extractEscalate(fullText);
-          send({ type: "done", escalate });
+          const { escalate, chips } = parseMarkers(fullText);
+          send({ type: "done", escalate, chips });
           controller.close();
         } catch (err) {
           console.error("Stream error:", err);
@@ -461,9 +495,9 @@ export default async (request, context) => {
         .map((b) => b.text)
         .join("\n") || "";
 
-    const { text, escalate } = extractEscalate(rawText);
+    const { text, escalate, chips } = parseMarkers(rawText);
 
-    return new Response(JSON.stringify({ reply: text, escalate }), {
+    return new Response(JSON.stringify({ reply: text, escalate, chips }), {
       status: 200,
       headers: corsHeaders({ "Content-Type": "application/json" }),
     });
