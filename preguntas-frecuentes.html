@@ -1,0 +1,1440 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Preguntas frecuentes — Cinzia · Motorhomes a medida</title>
+  <meta name="description" content="Respuestas a las preguntas más frecuentes sobre fabricación, alquiler, financiación, garantía y soporte de Cinzia Vehículos.">
+
+  <meta property="og:title" content="Preguntas frecuentes — Cinzia">
+  <meta property="og:description" content="Todo lo que querés saber antes de empezar tu proyecto Cinzia.">
+  <meta property="og:image" content="./cinzia-hero.png">
+  <meta property="og:locale" content="es_AR">
+  <meta name="theme-color" content="#E9580C">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            orange: {
+              DEFAULT: '#E9580C',
+              dark: '#C84A0A',
+              light: '#FF6F1F',
+            },
+            ink: '#0B0B0B',
+            soft: '#F5F5F5',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      color: #0B0B0B;
+      background: #FFFFFF;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    .display-black {
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      line-height: 0.95;
+    }
+    .mono-caps {
+      font-family: 'Inter', monospace;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.6875rem;
+      font-weight: 600;
+    }
+    .btn-primary {
+      background: #E9580C;
+      color: #FFFFFF;
+      padding: 14px 24px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 200ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .btn-primary:hover {
+      background: #C84A0A;
+      transform: translateY(-1px);
+    }
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    [data-reveal].in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .float-wa {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 60;
+      width: 56px;
+      height: 56px;
+      border-radius: 999px;
+      background: #25D366;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 24px rgba(37, 211, 102, 0.32);
+      transition: transform 200ms;
+    }
+    .float-wa:hover { transform: scale(1.05); }
+
+    /* Hero con imagen de fondo */
+    .page-hero {
+      position: relative;
+      min-height: 480px;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url('../assets/Soporte.png');
+      background-size: cover;
+      background-position: center;
+      z-index: 0;
+    }
+    .page-hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(11,11,11,0.5) 0%, rgba(11,11,11,0.3) 40%, rgba(11,11,11,0.85) 100%);
+      z-index: 1;
+    }
+    .page-hero > * { position: relative; z-index: 2; }
+
+    /* MEGA MENU */
+    .nav-item-with-dropdown { position: relative; }
+    .mega-menu { position: absolute; top: calc(100% + 14px); left: 50%; transform: translateX(-50%) translateY(8px); width: 720px; max-width: calc(100vw - 40px); background: white; border-radius: 24px; box-shadow: 0 20px 60px rgba(11,11,11,0.18); border: 1px solid rgba(11,11,11,0.06); padding: 22px; opacity: 0; pointer-events: none; transition: all 220ms cubic-bezier(0.22, 1, 0.36, 1); z-index: 100; }
+    .nav-item-with-dropdown:hover .mega-menu { opacity: 1; transform: translateX(-50%) translateY(0); pointer-events: auto; }
+    .mega-menu::before { content: ''; position: absolute; top: -14px; left: 0; right: 0; height: 14px; }
+    .mega-link { display: flex; gap: 14px; padding: 14px; border-radius: 14px; transition: background 180ms; }
+    .mega-link:hover { background: #F5F5F5; }
+    .mega-link .ico-wrap { width: 44px; height: 44px; border-radius: 12px; background: rgba(233, 88, 12, 0.1); color: #E9580C; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .mega-link:hover .ico-wrap { background: #E9580C; color: white; }
+
+    /* FAQ */
+    details.faq-item summary {
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+    details.faq-item summary::-webkit-details-marker { display: none; }
+    details.faq-item {
+      transition: all 250ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    details.faq-item[open] {
+      background: white !important;
+      box-shadow: 0 20px 60px rgba(11,11,11,0.08);
+      border-color: rgba(233,88,12,0.2) !important;
+    }
+    /* Cuando una FAQ está abierta, que ocupe las dos columnas para que el contenido respire */
+    @media (min-width: 768px) {
+      details.faq-item[open] { grid-column: 1 / -1; }
+    }
+    details.faq-item .icon-toggle {
+      transition: transform 280ms cubic-bezier(0.22, 1, 0.36, 1);
+      flex-shrink: 0;
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: rgba(233,88,12,0.1);
+      color: #E9580C;
+      display: flex; align-items: center; justify-content: center;
+    }
+    details.faq-item[open] .icon-toggle {
+      transform: rotate(45deg);
+      background: #E9580C;
+      color: white;
+    }
+    @keyframes faqOpen {
+      from { opacity: 0; transform: translateY(-8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    details.faq-item[open] .faq-content {
+      animation: faqOpen 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+    .category-pill {
+      cursor: pointer;
+      padding: 8px 18px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      border: 1.5px solid rgba(11,11,11,0.15);
+      color: rgba(11,11,11,0.7);
+      background: white;
+      transition: all 200ms;
+      white-space: nowrap;
+    }
+    .category-pill:hover {
+      border-color: #E9580C;
+      color: #E9580C;
+    }
+    .category-pill.active {
+      background: #0B0B0B;
+      color: #FFFFFF;
+      border-color: #0B0B0B;
+    }
+
+    /* DUAL PATH SWITCH */
+    .path-tab {
+      cursor: pointer;
+      padding: 22px 26px;
+      border-radius: 22px;
+      background: white;
+      border: 2px solid rgba(11,11,11,0.08);
+      transition: all 260ms cubic-bezier(0.22, 1, 0.36, 1);
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      text-align: left;
+      width: 100%;
+      position: relative;
+    }
+    .path-tab:hover {
+      border-color: rgba(233,88,12,0.4);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(11,11,11,0.06);
+    }
+    .path-tab.active {
+      background: #0B0B0B;
+      border-color: #0B0B0B;
+      color: white;
+      box-shadow: 0 16px 40px rgba(11,11,11,0.18);
+    }
+    .path-tab .ico {
+      width: 56px; height: 56px;
+      border-radius: 16px;
+      background: rgba(233,88,12,0.1);
+      color: #E9580C;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      transition: all 260ms;
+    }
+    .path-tab.active .ico { background: #E9580C; color: white; }
+    .path-tab .title { font-weight: 800; font-size: 1.15rem; color: #0B0B0B; transition: color 200ms; }
+    .path-tab.active .title { color: white; }
+    .path-tab .desc { font-size: 0.78rem; color: rgba(11,11,11,0.55); margin-top: 2px; transition: color 200ms; }
+    .path-tab.active .desc { color: rgba(255,255,255,0.7); }
+    .path-tab .count {
+      position: absolute; top: 14px; right: 14px;
+      background: rgba(233,88,12,0.1); color: #C84A0A;
+      font-size: 0.65rem; font-weight: 700;
+      padding: 4px 10px; border-radius: 999px;
+      letter-spacing: 0.04em;
+    }
+    .path-tab.active .count { background: #E9580C; color: white; }
+
+    /* SEARCH */
+    .faq-search-wrap {
+      display: flex; align-items: center; gap: 10px;
+      background: white;
+      border: 2px solid rgba(11,11,11,0.08);
+      border-radius: 999px;
+      padding: 6px 6px 6px 22px;
+      transition: all 200ms;
+    }
+    .faq-search-wrap:focus-within {
+      border-color: #E9580C;
+      box-shadow: 0 0 0 4px rgba(233,88,12,0.08);
+    }
+    .faq-search-wrap input {
+      flex: 1; background: transparent; border: none; outline: none;
+      font-size: 0.95rem; font-family: 'Inter', sans-serif; color: #0B0B0B;
+      padding: 10px 0;
+    }
+    .faq-search-wrap input::placeholder { color: rgba(11,11,11,0.4); }
+
+    /* POPULAR TOPIC CARD */
+    .topic-card {
+      background: white;
+      border: 1px solid rgba(11,11,11,0.07);
+      border-radius: 18px;
+      padding: 18px;
+      cursor: pointer;
+      transition: all 240ms;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .topic-card:hover {
+      border-color: rgba(233,88,12,0.3);
+      background: rgba(233,88,12,0.03);
+      transform: translateY(-2px);
+    }
+    .topic-card .ico-sm {
+      width: 42px; height: 42px;
+      border-radius: 12px;
+      background: rgba(233,88,12,0.1);
+      color: #E9580C;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .topic-card:hover .ico-sm { background: #E9580C; color: white; }
+
+    /* HIGHLIGHT search match */
+    mark.faq-highlight {
+      background: rgba(233,88,12,0.18);
+      color: inherit;
+      padding: 0 2px;
+      border-radius: 3px;
+    }
+  
+    /* ============================================ */
+    /* MOBILE MENU                                  */
+    /* ============================================ */
+    .mobile-menu-btn {
+      width: 44px; height: 44px; border-radius: 999px;
+      background: #0B0B0B; color: white;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 200ms;
+      flex-shrink: 0;
+    }
+    .mobile-menu-btn:hover { background: #E9580C; }
+
+    .mobile-menu-backdrop {
+      position: fixed; inset: 0; z-index: 90;
+      background: rgba(11,11,11,0.5);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      opacity: 0; pointer-events: none;
+      transition: opacity 300ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .mobile-menu-backdrop.open { opacity: 1; pointer-events: auto; }
+
+    .mobile-menu {
+      position: fixed; top: 0; right: 0; bottom: 0; z-index: 100;
+      width: min(420px, 92vw);
+      background: white;
+      box-shadow: -20px 0 60px rgba(11,11,11,0.18);
+      transform: translateX(100%);
+      transition: transform 380ms cubic-bezier(0.22, 1, 0.36, 1);
+      display: flex; flex-direction: column;
+      overflow-y: auto;
+    }
+    .mobile-menu.open { transform: translateX(0); }
+
+    .mm-header {
+      padding: 22px 26px;
+      display: flex; align-items: center; justify-content: space-between;
+      border-bottom: 1px solid rgba(11,11,11,0.06);
+      flex-shrink: 0;
+    }
+    .mm-close {
+      width: 40px; height: 40px; border-radius: 999px;
+      background: #F5F5F5; color: #0B0B0B;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 180ms;
+    }
+    .mm-close:hover { background: #E9580C; color: white; transform: rotate(90deg); }
+
+    .mm-body { flex: 1; padding: 20px 26px; }
+    .mm-nav-link {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 0;
+      font-size: 1.1rem; font-weight: 700; color: #0B0B0B;
+      border-bottom: 1px solid rgba(11,11,11,0.06);
+      transition: all 180ms;
+    }
+    .mm-nav-link:last-child { border-bottom: none; }
+    .mm-nav-link:hover { color: #E9580C; padding-left: 8px; }
+    .mm-nav-link.active { color: #E9580C; }
+    .mm-nav-link i { color: rgba(11,11,11,0.3); transition: all 180ms; }
+    .mm-nav-link:hover i { color: #E9580C; transform: translateX(4px); }
+
+    /* Submenu Modelos */
+    .mm-submenu { overflow: hidden; max-height: 0; transition: max-height 380ms cubic-bezier(0.22,1,0.36,1); }
+    .mm-submenu.open { max-height: 800px; }
+    .mm-submenu-inner { padding: 8px 0 4px; }
+    .mm-sublink {
+      display: flex; align-items: center; gap: 12px;
+      padding: 12px 14px; border-radius: 12px;
+      transition: background 180ms;
+    }
+    .mm-sublink:hover { background: #F5F5F5; }
+    .mm-sublink .ico-wrap {
+      width: 36px; height: 36px; border-radius: 10px;
+      background: rgba(233,88,12,0.1); color: #E9580C;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .mm-sublink-text p { font-weight: 700; font-size: 0.88rem; color: #0B0B0B; }
+    .mm-sublink-text span { font-size: 0.7rem; color: rgba(11,11,11,0.55); }
+
+    .mm-modelos-toggle {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 0; cursor: pointer;
+      font-size: 1.1rem; font-weight: 700; color: #0B0B0B;
+      border-bottom: 1px solid rgba(11,11,11,0.06);
+      transition: color 180ms;
+      width: 100%; background: transparent; border-left: none; border-right: none; border-top: none;
+      text-align: left;
+    }
+    .mm-modelos-toggle:hover { color: #E9580C; }
+    .mm-modelos-toggle .chev { transition: transform 380ms cubic-bezier(0.22,1,0.36,1); }
+    .mm-modelos-toggle.open .chev { transform: rotate(180deg); color: #E9580C; }
+
+    .mm-footer {
+      padding: 20px 26px 28px;
+      border-top: 1px solid rgba(11,11,11,0.06);
+      background: #FAFAFA;
+      flex-shrink: 0;
+    }
+    .mm-cta {
+      background: #E9580C; color: white;
+      padding: 16px 24px; border-radius: 999px;
+      font-weight: 700; font-size: 1rem;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      width: 100%; transition: all 200ms;
+      margin-bottom: 16px;
+    }
+    .mm-cta:hover { background: #C84A0A; transform: translateY(-2px); box-shadow: 0 12px 28px rgba(233,88,12,0.28); }
+    .mm-cta.wa { background: #25D366; }
+    .mm-cta.wa:hover { background: #1FBE5C; box-shadow: 0 12px 28px rgba(37,211,102,0.32); }
+    .mm-contact { display: flex; gap: 8px; }
+    .mm-contact a {
+      flex: 1; display: flex; align-items: center; justify-content: center; gap: 6px;
+      padding: 12px 14px; border-radius: 14px;
+      font-size: 0.78rem; font-weight: 600;
+      background: white; border: 1px solid rgba(11,11,11,0.08);
+      color: #0B0B0B; transition: all 180ms;
+    }
+    .mm-contact a:hover { border-color: #E9580C; color: #E9580C; }
+    .mm-contact a.wa { background: #25D366; color: white; border-color: #25D366; }
+    .mm-contact a.wa:hover { filter: brightness(0.92); border-color: #25D366; color: white; }
+
+    body.menu-open { overflow: hidden; }
+  
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="fixed top-5 left-5 right-5 z-50">
+    <div class="max-w-[1400px] mx-auto bg-white rounded-full shadow-xl border border-ink/5 pl-5 pr-3 lg:pl-7 lg:pr-4 py-2.5 flex items-center justify-between gap-4">
+      <a href="index.html" class="flex items-center shrink-0 py-1">
+        <img src="https://www.cinziavehiculos.com/assets/image/logo.svg" alt="Cinzia" class="h-9 w-auto" onerror="this.outerHTML='<div style=&quot;font-weight:900;font-size:1.25rem;letter-spacing:-0.04em;color:#0B0B0B;&quot;>CINZIA</div>'">
+      </a>
+      <nav class="hidden lg:flex items-center gap-7 text-sm font-semibold text-ink/85">
+        <div class="nav-item-with-dropdown">
+          <a href="productos.html" class="hover:text-orange transition-colors inline-flex items-center gap-1">
+            Modelos
+            <i data-lucide="chevron-down" class="w-3.5 h-3.5"></i>
+          </a>
+          <div class="mega-menu">
+            <p class="mono-caps text-ink/40 mb-3 pl-3.5">EXPLORÁ POR CATEGORÍA</p>
+            <div class="grid grid-cols-2 gap-1">
+              <a href="productos.html#campers" class="mega-link"><div class="ico-wrap"><i data-lucide="caravan" class="w-5 h-5"></i></div><div><p class="font-bold text-ink text-sm">Campers</p><p class="text-xs text-ink/60 mt-0.5">4 modelos · Desde US$ 24.119</p></div></a>
+              <a href="productos.html#casas-rodantes" class="mega-link"><div class="ico-wrap"><i data-lucide="home" class="w-5 h-5"></i></div><div><p class="font-bold text-ink text-sm">Casas Rodantes</p><p class="text-xs text-ink/60 mt-0.5">1 modelo · Desde US$ 27.000</p></div></a>
+              <a href="productos.html#motorhome-chasis" class="mega-link"><div class="ico-wrap"><i data-lucide="truck" class="w-5 h-5"></i></div><div><p class="font-bold text-ink text-sm">Motorhome Chasis</p><p class="text-xs text-ink/60 mt-0.5">10 modelos · Desde US$ 40.523</p></div></a>
+              <a href="productos.html#motorhome-furgon" class="mega-link"><div class="ico-wrap"><i data-lucide="bus" class="w-5 h-5"></i></div><div><p class="font-bold text-ink text-sm">Motorhome Furgón</p><p class="text-xs text-ink/60 mt-0.5">6 modelos · Desde US$ 28.120</p></div></a>
+              <a href="productos.html#vehiculos-especiales" class="mega-link"><div class="ico-wrap"><i data-lucide="ambulance" class="w-5 h-5"></i></div><div><p class="font-bold text-ink text-sm">Vehículos Especiales</p><p class="text-xs text-ink/60 mt-0.5">9 modelos · B2B a medida</p></div></a>
+              <a href="productos.html#entrega-inmediata" class="mega-link"><div class="ico-wrap"><i data-lucide="zap" class="w-5 h-5"></i></div><div><p class="font-bold text-ink text-sm">Entrega Inmediata</p><p class="text-xs text-ink/60 mt-0.5">3 unidades · Listo para retirar</p></div></a>
+            </div>
+            <a href="productos.html" class="block mt-3 pt-4 border-t border-ink/5 text-center text-sm font-semibold text-orange hover:text-orange-dark transition-colors">Ver los 32 modelos →</a>
+          </div>
+        </div>
+        <a href="index.html#destacados" class="hover:text-orange transition-colors">Destacados</a>
+        <a href="rental.html" class="hover:text-orange transition-colors">Rental</a>
+        <a href="points.html" class="hover:text-orange transition-colors">Points</a>
+        <a href="soporte-viajero.html" class="hover:text-orange transition-colors">Soporte</a>
+        <a href="nosotros.html" class="hover:text-orange transition-colors">Nosotros</a>
+        <a href="preguntas-frecuentes.html" class="text-orange transition-colors">FAQ</a>
+        <a href="contacto.html" class="hover:text-orange transition-colors">Contacto</a>
+      </nav>
+      <div class="flex items-center gap-2">
+        <div class="hidden md:flex items-center gap-1.5 text-xs font-bold text-ink/70 px-3 py-1.5 rounded-full border border-ink/15">
+          <span>🇦🇷</span>
+          <span>ESP</span>
+        </div>
+        <a href="rental.html" class="btn-primary text-sm hidden lg:inline-flex" style="padding: 10px 18px;">
+          Alquilá un motorhome
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+        <button id="mobile-menu-toggle" class="mobile-menu-btn lg:hidden" aria-label="Abrir menú">
+          <i data-lucide="menu" class="w-5 h-5"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu-backdrop" id="mobile-menu-backdrop"></div>
+  <aside class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <div class="mm-header">
+      <a href="index.html" class="flex items-center shrink-0">
+        <img src="https://www.cinziavehiculos.com/assets/image/logo.svg" alt="Cinzia" class="h-8 w-auto" onerror="this.outerHTML='<div style=&quot;font-weight:900;font-size:1.15rem;letter-spacing:-0.04em;color:#0B0B0B;&quot;>CINZIA</div>'">
+      </a>
+      <button id="mobile-menu-close" class="mm-close" aria-label="Cerrar menú">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+    </div>
+
+    <div class="mm-body">
+      <button class="mm-modelos-toggle" id="mm-modelos-toggle">
+        <span>Modelos</span>
+        <i data-lucide="chevron-down" class="w-4 h-4 chev"></i>
+      </button>
+      <div class="mm-submenu" id="mm-modelos-submenu">
+        <div class="mm-submenu-inner">
+          <a href="productos.html#campers" class="mm-sublink"><div class="ico-wrap"><i data-lucide="caravan" class="w-4 h-4"></i></div><div class="mm-sublink-text"><p>Campers</p><span>4 modelos</span></div></a>
+          <a href="productos.html#casas-rodantes" class="mm-sublink"><div class="ico-wrap"><i data-lucide="home" class="w-4 h-4"></i></div><div class="mm-sublink-text"><p>Casas Rodantes</p><span>1 modelo</span></div></a>
+          <a href="productos.html#motorhome-chasis" class="mm-sublink"><div class="ico-wrap"><i data-lucide="truck" class="w-4 h-4"></i></div><div class="mm-sublink-text"><p>Motorhome Chasis</p><span>10 modelos</span></div></a>
+          <a href="productos.html#motorhome-furgon" class="mm-sublink"><div class="ico-wrap"><i data-lucide="bus" class="w-4 h-4"></i></div><div class="mm-sublink-text"><p>Motorhome Furgón</p><span>6 modelos</span></div></a>
+          <a href="productos.html#vehiculos-especiales" class="mm-sublink"><div class="ico-wrap"><i data-lucide="ambulance" class="w-4 h-4"></i></div><div class="mm-sublink-text"><p>Vehículos Especiales</p><span>9 modelos · B2B</span></div></a>
+          <a href="productos.html#entrega-inmediata" class="mm-sublink"><div class="ico-wrap"><i data-lucide="zap" class="w-4 h-4"></i></div><div class="mm-sublink-text"><p>Entrega Inmediata</p><span>3 unidades</span></div></a>
+          <a href="productos.html" class="mm-sublink" style="justify-content:center; color:#E9580C; font-weight:700; font-size:0.85rem; margin-top:6px;">
+            Ver los 32 modelos →
+          </a>
+        </div>
+      </div>
+
+      <a href="rental.html" class="mm-nav-link">
+        Rental
+        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </a>
+      <a href="points.html" class="mm-nav-link">
+        Points
+        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </a>
+      <a href="soporte-viajero.html" class="mm-nav-link">
+        Soporte
+        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </a>
+      <a href="nosotros.html" class="mm-nav-link">
+        Nosotros
+        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </a>
+      <a href="preguntas-frecuentes.html" class="mm-nav-link active">
+        FAQ
+        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </a>
+      <a href="contacto.html" class="mm-nav-link">
+        Contacto
+        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </a>
+    </div>
+
+    <div class="mm-footer">
+      <a href="rental.html" class="mm-cta">
+        Alquilá un motorhome
+        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </a>
+      <div class="mm-contact">
+        <a href="tel:+5493515293858">
+          <i data-lucide="phone" class="w-3.5 h-3.5"></i>
+          Llamar
+        </a>
+        <a href="https://api.whatsapp.com/send?phone=5493515293858&text=Hola!%20Quiero%20info" class="wa">
+          <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
+          WhatsApp
+        </a>
+      </div>
+    </div>
+  </aside>
+
+
+  <main>
+
+    <!-- HERO con imagen de fondo -->
+    <section class="page-hero pt-32 lg:pt-40 pb-20 lg:pb-24 text-white">
+      <div class="max-w-[1400px] w-full mx-auto px-6 lg:px-10">
+        <p class="mono-caps text-orange mb-4" data-reveal>— FAQ · CENTRO DE AYUDA</p>
+        <h1 class="display-black text-[clamp(40px,6vw,80px)] max-w-3xl leading-[0.95]" data-reveal>
+          ¿En qué te<br>podemos ayudar?
+        </h1>
+        <p class="text-white/80 text-lg mt-5 max-w-xl leading-relaxed" data-reveal>
+          Encontrá respuestas sobre comprar un motorhome a medida o alquilar una unidad para tu próximo viaje.
+        </p>
+      </div>
+    </section>
+
+    <!-- DUAL PATH SWITCH + SEARCH -->
+    <section class="bg-soft pt-10 pb-10 lg:pt-14 lg:pb-12 border-b border-ink/5">
+      <div class="max-w-[1100px] mx-auto px-6 lg:px-10">
+        <div class="grid sm:grid-cols-2 gap-3 lg:gap-4 mb-8" data-reveal>
+          <button class="path-tab active" data-path="rental">
+            <div class="ico"><i data-lucide="key-round" class="w-7 h-7"></i></div>
+            <div class="flex-1 min-w-0">
+              <p class="title">Alquiler / Rental</p>
+              <p class="desc">Reservas, kilometraje, horarios y cancelación</p>
+            </div>
+            <span class="count">14 PREGUNTAS</span>
+          </button>
+          <button class="path-tab" data-path="compra">
+            <div class="ico"><i data-lucide="caravan" class="w-7 h-7"></i></div>
+            <div class="flex-1 min-w-0">
+              <p class="title">Compra de motorhome</p>
+              <p class="desc">Fabricación, financiación, garantía y entrega</p>
+            </div>
+            <span class="count">12 PREGUNTAS</span>
+          </button>
+        </div>
+
+        <div class="faq-search-wrap" data-reveal>
+          <i data-lucide="search" class="w-4 h-4 text-ink/45 flex-shrink-0"></i>
+          <input type="text" id="faq-search" placeholder="Buscá una pregunta… (ej: cancelación, kilometraje, financiación)">
+          <button id="faq-search-clear" class="hidden w-9 h-9 rounded-full bg-soft hover:bg-ink/8 flex items-center justify-center text-ink/55 transition-colors" aria-label="Limpiar">
+            <i data-lucide="x" class="w-4 h-4"></i>
+          </button>
+        </div>
+
+        <p class="text-center text-xs text-ink/45 mt-4">
+          <span id="faq-count">26 preguntas disponibles</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- TEMAS POPULARES (atajos) -->
+    <section class="bg-white pt-14 pb-10 lg:pt-20" id="topics-section">
+      <div class="max-w-[1100px] mx-auto px-6 lg:px-10">
+        <div class="mb-6" data-reveal>
+          <p class="mono-caps text-orange mb-2">— TEMAS POPULARES</p>
+          <h2 class="display-black text-2xl lg:text-3xl">Los más consultados.</h2>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-3" id="topics-grid" data-reveal>
+          <!-- Se renderizan según el path activo -->
+        </div>
+      </div>
+    </section>
+
+    <!-- SUBFILTROS POR PATH -->
+    <section class="bg-white pt-4 pb-6">
+      <div class="max-w-[1100px] mx-auto px-6 lg:px-10">
+        <div class="flex items-center gap-3 mb-4 flex-wrap" data-reveal>
+          <span class="mono-caps text-ink/50">FILTRAR POR TEMA:</span>
+          <div class="flex flex-wrap gap-2" id="subfilter-bar">
+            <!-- Pills generadas por JS según path -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ ACORDEÓN -->
+    <section class="bg-white pb-20 lg:pb-28">
+      <div class="max-w-[1200px] mx-auto px-6 lg:px-10">
+
+        <div id="faq-list" class="grid gap-3 md:grid-cols-2 items-start" data-reveal>
+          <!-- ============================================ -->
+          <!-- RENTAL — Reserva y pago -->
+          <!-- ============================================ -->
+          <details class="faq-item bg-soft border-2 border-transparent rounded-2xl p-5 lg:p-6 transition-colors" data-path="rental" data-cat="reserva">
+            <summary>
+              <div class="flex-1 min-w-0 flex flex-col gap-1">
+                <span class="mono-caps text-orange">RENTAL · RESERVA</span>
+                <span class="font-bold text-base lg:text-lg text-ink leading-snug">¿Cómo es el proceso de reserva?</span>
+              </div>
+              <span class="icon-toggle"><i data-lucide="plus" class="w-4 h-4"></i></span>
+            </summary>
+            <div class="faq-content text-ink/70 mt-4 leading-relaxed text-sm lg:text-base">
+              <p>100% online: elegís fechas, sucursal y tipo de vehículo, abonás una <strong class="text-ink">seña del 30%</strong> y el saldo lo pagás antes del retiro. Te pedimos una <strong class="text-ink">preautorización en tarjeta de USD 1.500</strong> como garantía, que se libera al devolver el vehículo en condiciones.</p>
+            </div>
+          </details>
+
+          <details class="faq-item bg-soft border-2 border-transparent rounded-2xl p-5 lg:p-6 transition-colors" data-path="rental" data-cat="reserva">
+            <summary>
+              <div class="flex-1 min-w-0 flex flex-col gap-1">
+                <span class="mono-caps text-orange">RENTAL · DOCUMENTOS</span>
+                <span class="font-bold text-base lg:text-lg text-ink leading-snug">¿Qué licencia de conducir necesito para alquilar un motorhome?</span>
+              </div>
+              <span class="icon-toggle"><i data-lucide="plus" class="w-4 h-4"></i></span>
+            </summary>
+            <div class="faq-content text-ink/70 mt-4 leading-relaxed text-sm lg:text-base">
+              <p>Necesitás licencia de conducir <strong class="text-ink">categoría B1 o B2</strong> (vehículos particulares) vigente, con al menos 2 años de antigüedad. El conductor debe tener <strong class="text-ink">25 años cumplidos como mínimo</strong>.</p>
+            </div>
+          </details>
+
+          <details class="faq-item bg-soft border-2 border-transparent rounded-2xl p-5 lg:p-6 transition-colors" data-path="rental" data-cat="reserva">
+            <summary>
+              <div class="flex-1 min-w-0 flex flex-col gap-1">
+                <span class="mono-caps text-orange">RENTAL · GARANTÍA</span>
+                <span class="font-bold text-base lg:text-lg text-ink leading-snug">¿El depósito de garantía se puede tomar de una tarjeta de crédito?</span>
+              </div>
+              <span class="icon-toggle"><i data-lucide="plus" class="w-4 h-4"></i></span>
+            </summary>
+            <div class="faq-content text-ink/70 mt-4 leading-relaxed text-sm lg:text-base">
+              <p>Sí. El depósito es una <strong class="text-ink">preautorización en tarjeta de crédito en dólares</strong> (USD 1.500). No se maneja en efectivo. Se libera automáticamente si devolvés la unidad sin daños.</p>
+            </div>
+          </details>
+
+          <details class="faq-item bg-soft border-2 border-transparent rounded-2xl p-5 lg:p-6 transition-colors" data-path="rental" data-cat="reserva">
+            <summary>
+              <div class="flex-1 min-w-0 flex flex-col gap-1">
+                <span class="mono-caps text-orange">RENTAL · PAGO</span>
+                <span class="font-bold text-base lg:text-lg text-ink leading-snug">¿Cómo se paga el saldo del alquiler?</span>
+              </div>
+              <span class="icon-toggle"><i data-lucide="plus" class="w-4 h-4"></i></span>
+            </summary>
+            <div class="faq-content text-ink/70 mt-4 leading-relaxed text-sm lg:text-base">
+              <p>Abonás <strong class="text-ink">30% de seña al reservar</strong>. El saldo se ajusta a valor dólar oficial del día de retiro y se paga antes de recibir la unidad. Aceptamos transferencia, tarjeta de crédito y efectivo.</p>
+            </div>
+          </details>
+
+          <!-- RENTAL — Horarios -->
+          <details class="faq-item bg-soft border-2 border-transparent rounded-2xl p-5 lg:p-6 transition-colors" data-path="rental" data-cat="horarios">
+            <summary>
+              <div class="flex-1 min-w-0 flex flex-col gap-1">
+                <span class="mono-caps text-orange">RENTAL · HORARIOS</span>
+                <span class="font-bold text-base lg:text-lg text-ink leading-snug">¿Cuál es el horario de check-in y check-out?</span>
+              </div>
+              <span class="icon-toggle"><i data-lucide="plus" class="w-4 h-4"></i></span>
+            </summary>
+            <div class="faq-content text-ink/70 mt-4 leading-relaxed text-sm lg:text-base">
+              <p><strong class="text-ink">Check-in (retiro):</strong> lunes a viernes entre las <strong class="text-ink">14:00 y 17:00 hs</strong>.<br>
+              <strong class="text-ink">Check-out (devolución):</strong> lunes a viernes de <strong class="text-ink">8:00 a 10:00 hs</strong>.<br>
+              Coordinamos un briefing técnico de 45 minutos antes de entregarte las llaves.</p>
+            </div>
+          </details>
+
+          <details class="faq-item bg-soft border-2 border-transparent rounded-2xl p-5 lg:p-6 transition-colors" data-path="rental" data-cat="horarios">
+            <summary>
+              <div class="flex-1 min-w-0 flex flex-col gap-1">
+                <span class="mono-caps text-orange">RENTAL · HORARIOS</span>
+                <span class="font-bold text-base lg:text-lg text-ink leading-snug">¿Puedo devolver el vehículo un domingo?</span>
+              </div>
+              <span class="icon-toggle"><i data-lucide="plus" class="w-4 h-4"></i></span>
+            </summary>
+            <div class="faq-content text-ink/70 mt-4 leading-relaxed text-sm lg:text-base">
+              <p>No. Las devoluciones se realizan únicamente <strong class="text-ink">de lunes a viernes en horario de check-out</strong>. No hay excepciones — tenelo en cuenta al planificar las fechas de tu viaje.</p>
+            </div>
+          </details>
+
+          <!-- RENTAL — Vehículo y manejo -->
+          <details class="faq-item bg-soft border-2 border-transparent rounded-2xl p-5 lg:p-6 transition-colors" data-path="rental" data-cat="vehiculo">
+            <summary>
+              <div class="flex-1 min-w-0 flex flex-col gap-1">
+                <span class="mono-caps text-orange">RENTAL · VEHÍCULO</span>
+                <span class="font-bold text-base lg:text-lg text-ink leading-snug">¿Qué incluye el alquiler?</span>
+              </div>
+              <span class="icon-toggle"><i data-lucide="plus" class="w-4 h-4"></i></span>
+            </summary>
+            <div class="faq-content text-ink/70 mt-4 leading-relaxed text-sm lg:text-base">
+              <p>Sábanas y ropa de cama, vajilla y utensilios de cocina, mesa y sillas de camping, kit de seguridad, seguro contra terceros, asistencia mecánica 24/7 y <strong class="text-ink">400 km diarios libres</strong> (promediados sobre el total de días).</p>
+            </div>
+          </details>
+
+          <details class="faq-item bg-soft border-2 border-transparent rounded-2xl p-5 lg:p-6 transition-colors" data-path="rental" data-cat="vehiculo">
+            <summary>
+              <div class="flex-1 min-w-0 flex flex-col gap-1">
+                <span class="mono-caps text-orange">RENTAL · VEHÍCULO</span>
+                <span class="font-bold text-base lg:text-lg text-ink leading-snug">¿Puedo llevar un remolque o arrastrar otro vehículo?</span>
+              </div>
+              <span class="icon-toggle"><i data-lucide="plus" class="w-4 h-4"></i></span>
+            </summary>
+            <div class="faq-content text-ink/70 mt-4 leading-relaxed text-sm lg:text-base">
+              <p>No. <strong class="text-ink">No está permitido en ningún caso, sin excepciones.</strong> El motorhome no puede usarse para remolcar otros vehículos, lanchas, trailers ni casillas.</p>
+            </div>
+          </details>
+
+          <details class="faq-item bg-soft border-2 border-transparent rounded-2xl p-5 lg:p-6 transition-colors" data-path="rental" data-cat="vehiculo">
+            <summary>
+              <div class="flex-1 min-w-0 flex flex-col gap-1">
+                <span class="mono-caps text-orange">RENTAL · CIRCULACIÓN</span>
+                <span class="font-bold text-base lg:text-lg text-ink leading-snug">¿Hay caminos prohibidos para circular?</span>
+              </div>
+              <span class="icon-toggle"><i data-lucide="plus" class="w-4 h-4"></i></span>
+            </summary>
+            <div class="faq-content text-ink/70 mt-4 leading-relaxed text-sm lg:text-base">
+              <p>Sí. No se permite circular por <strong class="text-ink">caminos de ripio sin autorización previa por escrito</strong>. El motorhome está pensado para rutas asfaltadas. Si tu itinerario incluye tramos de tierra, consultanos antes para evaluar autorización.</p>
+            </div>
+          </details>
+
+          <details class="faq-item bg-soft border-2 border-transparent rounded-2xl p-5 lg:p-6 transition-colors" data-path="rental" data-cat="vehiculo">
+            <summary>
+              <div class="flex-1 min-w-0 flex flex-col gap-1">
+                <span class="mono-caps text-orange">RENTAL · VIAJE</span>
+                <span class="font-bold text-base lg:text-lg text-ink leading-snug">¿Puedo viajar con mascota?</span>
+              </div>
+              <span class="icon-toggle"><i data-lucide="plus" class="w-4 h-4"></i></span>
+            </summary>
+            <div class="faq-content text-ink/70 mt-4 leading-relaxed text-sm lg:text-base">
+              <p>Sí, hasta <strong class="text-ink">15 kg</strong>, con un cargo adicional único de <strong class="text-ink">AR$ 50.000</strong> por limpieza profesional al devolver la unidad. Debe informarse al momento de reservar.</p>
+            </div>
+          </details>
+
+          <!-- RENTAL — Combustible y kilometraje -->
+          <details class="faq-item bg-soft border-2 border-transparent rounded-2xl p-5 lg:p-6 transition-colors" data-path="rental" data-cat="combustible">
+            <summary>
+              <div class="flex-1 min-w-0 flex flex-col gap-1">
+                <span class="mono-caps text-orange">RENTAL · COMBUSTIBLE</span>
+                <span class="font-bold text-base lg:text-lg text-ink leading-snug">¿El combustible está incluido en el precio del alquiler?</span>
+              </div>
+              <span class="icon-toggle"><i data-lucide="plus" class="w-4 h-4"></i></span>
+            </summary>
+            <div class="faq-content text-ink/70 mt-4 leading-relaxed text-sm lg:text-base">
+              <p>No. Te entregamos el vehículo con el <strong class="text-ink">tanque lleno</strong> y debe devolverse en las mismas condiciones. Si no, descontamos del depósito el faltante a precio de surtidor en la sucursal de devolución.</p>
+            </div>
+          </details>
+
+          <details class="faq-item bg-soft border-2 border-transparent rounded-2xl p-5 lg:p-6 transition-colors" data-path="rental" data-cat="combustible">
+            <summary>
+              <div class="flex-1 min-w-0 flex flex-col gap-1">
+                <span class="mono-caps text-orange">RENTAL · KILOMETRAJE</span>
+                <span class="font-bold text-base lg:text-lg text-ink leading-snug">¿Cómo funciona el sistema de kilometraje?</span>
+              </div>
+              <span class="icon-toggle"><i data-lucide="plus" class="w-4 h-4"></i></span>
+            </summary>
+            <div class="faq-content text-ink/70 mt-4 leading-relaxed text-sm lg:text-base">
+              <p>Los kilómetros se <strong class="text-ink">promedian sobre el total de días</strong> de tu estadía. Por cada día contratado tenés <strong class="text-ink">400 km libres</strong>. Si excedés, el costo extra es de <strong class="text-ink">USD 0,30 por km adicional</strong>.</p>
+            </div>
+          </details>
+
+          <!-- RENTAL — Cancelación -->
+          <details class="faq-item bg-soft border-2 border-transparent rounded-2xl p-5 lg:p-6 transition-colors" data-path="rental" data-cat="cancelacion">
+            <summary>
+              <div class="flex-1 min-w-0 flex flex-col gap-1">
+                <span class="mono-caps text-orange">RENTAL · CANCELACIÓN</span>
+                <span class="font-bold text-base lg:text-lg text-ink leading-snug">¿Qué pasa si quiero cancelar mi reserva?</span>
+              </div>
+              <span class="icon-toggle"><i data-lucide="plus" class="w-4 h-4"></i></span>
+            </summary>
+            <div class="faq-content text-ink/70 mt-4 leading-relaxed text-sm lg:text-base">
+              <p>La política de cancelación se aplica sobre el total reservado:</p>
+              <ul class="list-disc pl-5 mt-2 space-y-1">
+                <li><strong class="text-ink">Hasta 60 días antes</strong> del alquiler: se pierde el 50%.</li>
+                <li><strong class="text-ink">Entre 59 y 31 días antes:</strong> se pierde el 75%.</li>
+                <li><strong class="text-ink">A menos de 30 días:</strong> se abona el 100% del alquiler, esté o no utilizado.</li>
+              </ul>
+            </div>
+          </details>
+
+          <!-- ============================================ -->
+          <!-- COMPRA — Fabricación -->
+          <!-- ============================================ -->
+          <details class="faq-item bg-soft border-2 border-transparent rounded-2xl p-5 lg:p-6 transition-colors" data-path="compra" data-cat="fabricacion">
+            <summary>
+              <div class="flex-1 min-w-0 flex flex-col gap-1">
+                <span class="mono-caps text-orange">COMPRA · FABRICACIÓN</span>
+                <span class="font-bold text-base lg:text-lg text-ink leading-snug">¿Cuánto tarda fabricar mi motorhome?</span>
+              </div>
+              <span class="icon-toggle"><i data-lucide="plus" class="w-4 h-4"></i></span>
+            </summary>
+            <div class="faq-content text-ink/70 mt-4 leading-relaxed text-sm lg:text-base">
+              <p>Entre <strong class="text-ink">16 y 24 semanas</strong> desde la firma del proyecto, según modelo y nivel de personalización. Te entregamos un cronograma claro y actualizado en cada etapa: diseño, ingeniería, carpintería, eléctrica, plomería, terminaciones y entrega.</p>
+            </div>
+          </details>
+
+          <details class="faq-item bg-soft border-2 border-transparent rounded-2xl p-5 lg:p-6 transition-colors" data-path="compra" data-cat="fabricacion">
+            <summary>
+              <div class="flex-1 min-w-0 flex flex-col gap-1">
+                <span class="mono-caps text-orange">COMPRA · FABRICACIÓN</span>
+                <span class="font-bold text-base lg:text-lg text-ink leading-snug">¿Puedo elegir el chasis sobre el que se construye?</span>
+              </div>
+              <span class="icon-toggle"><i data-lucide="plus" class="w-4 h-4"></i></span>
+            </summary>
+            <div class="faq-content text-ink/70 mt-4 leading-relaxed text-sm lg:text-base">
+              <p>Sí. Trabajamos sobre chasis Mercedes-Benz Sprinter, Iveco Daily, Citroën Jumper, Fiat Ducato, Peugeot Boxer, Ford Transit y Ford 4000. Te asesoramos sobre cuál es el más conveniente según el modelo, el uso y tu presupuesto.</p>
+            </div>
+          </details>
+
+          <details class="faq-item bg-soft border-2 border-transparent rounded-2xl p-5 lg:p-6 transition-colors" data-path="compra" data-cat="fabricacion">
+            <summary>
+              <div class="flex-1 min-w-0 flex flex-col gap-1">
+                <span class="mono-caps text-orange">COMPRA · CONFIGURADOR</span>
+                <span class="font-bold text-base lg:text-lg text-ink leading-snug">¿Cómo funciona el configurador de opcionales?</span>
+              </div>
+              <span class="icon-toggle"><i data-lucide="plus" class="w-4 h-4"></i></span>
+            </summary>
+            <div class="faq-content text-ink/70 mt-4 leading-relaxed text-sm lg:text-base">
+              <p>Cada modelo viene con un equipamiento estándar definido. Sobre eso podés sumar <strong class="text-ink">hasta 25 opcionales reales</strong> — antena Starlink, A/C techo 220v, Kit Victron Energy, baterías de litio, climatizador, inodoro cassette, ducha exterior y más. El precio se actualiza en vivo a medida que vas eligiendo.</p>
+            </div>
+          </details>
+
+          <details class="faq-item bg-soft border-2 border-transparent rounded-2xl p-5 lg:p-6 transition-colors" data-path="compra" data-cat="fabricacion">
+            <summary>
+              <div class="flex-1 min-w-0 flex flex-col gap-1">
+                <span class="mono-caps text-orange">COMPRA · REFORMAS</span>
+                <span class="font-bold text-base lg:text-lg text-ink leading-snug">¿Puedo modificar mi motorhome después de comprarlo?</span>
+              </div>
+              <span class="icon-toggle"><i data-lucide="plus" class="w-4 h-4"></i></span>
+            </summary>
+            <div class="faq-content text-ink/70 mt-4 leading-relaxed text-sm lg:text-base">
+              <p>Sí. Modernizamos motorhomes existentes (propios y de otras marcas) en nuestro taller de Córdoba. Podés sumar opcionales, actualizar sistemas eléctricos, mejorar la autonomía o redecorar el interior.</p>
+            </div>
+          </details>
+
+          <!-- COMPRA — Precios y financiación -->
+          <details class="faq-item bg-soft border-2 border-transparent rounded-2xl p-5 lg:p-6 transition-colors" data-path="compra" data-cat="precios">
+            <summary>
+              <div class="flex-1 min-w-0 flex flex-col gap-1">
+                <span class="mono-caps text-orange">COMPRA · PRECIOS</span>
+                <span class="font-bold text-base lg:text-lg text-ink leading-snug">¿Los precios están en pesos o en dólares?</span>
+              </div>
+              <span class="icon-toggle"><i data-lucide="plus" class="w-4 h-4"></i></span>
+            </summary>
+            <div class="faq-content text-ink/70 mt-4 leading-relaxed text-sm lg:text-base">
+              <p>Los motorhomes a la venta cotizan en <strong class="text-ink">dólares estadounidenses</strong>. Aceptamos pago en dólares billete, transferencia bancaria internacional o pesos al tipo de cambio oficial del día.</p>
+            </div>
+          </details>
+
+          <details class="faq-item bg-soft border-2 border-transparent rounded-2xl p-5 lg:p-6 transition-colors" data-path="compra" data-cat="precios">
+            <summary>
+              <div class="flex-1 min-w-0 flex flex-col gap-1">
+                <span class="mono-caps text-orange">COMPRA · FINANCIACIÓN</span>
+                <span class="font-bold text-base lg:text-lg text-ink leading-snug">¿Tienen opciones de financiación?</span>
+              </div>
+              <span class="icon-toggle"><i data-lucide="plus" class="w-4 h-4"></i></span>
+            </summary>
+            <div class="faq-content text-ink/70 mt-4 leading-relaxed text-sm lg:text-base">
+              <p>Sí. Trabajamos con bancos y financieras partners para ofrecer planes a medida según tu perfil. También aceptamos motorhome usado a cuenta. Pedinos asesoramiento por <a href="contacto.html" class="text-orange hover:underline">el formulario de contacto</a>.</p>
+            </div>
+          </details>
+
+          <details class="faq-item bg-soft border-2 border-transparent rounded-2xl p-5 lg:p-6 transition-colors" data-path="compra" data-cat="precios">
+            <summary>
+              <div class="flex-1 min-w-0 flex flex-col gap-1">
+                <span class="mono-caps text-orange">COMPRA · PERMUTA</span>
+                <span class="font-bold text-base lg:text-lg text-ink leading-snug">¿Aceptan mi motorhome usado a cuenta?</span>
+              </div>
+              <span class="icon-toggle"><i data-lucide="plus" class="w-4 h-4"></i></span>
+            </summary>
+            <div class="faq-content text-ink/70 mt-4 leading-relaxed text-sm lg:text-base">
+              <p>Sí. Evaluamos tu motorhome actual (propio o de otra marca) y lo tomamos como parte de pago del nuevo. Pedinos una <strong class="text-ink">tasación sin compromiso</strong> con fotos y ficha técnica de la unidad.</p>
+            </div>
+          </details>
+
+          <!-- COMPRA — Garantía y soporte -->
+          <details class="faq-item bg-soft border-2 border-transparent rounded-2xl p-5 lg:p-6 transition-colors" data-path="compra" data-cat="garantia">
+            <summary>
+              <div class="flex-1 min-w-0 flex flex-col gap-1">
+                <span class="mono-caps text-orange">COMPRA · GARANTÍA</span>
+                <span class="font-bold text-base lg:text-lg text-ink leading-snug">¿Qué garantía tiene mi motorhome?</span>
+              </div>
+              <span class="icon-toggle"><i data-lucide="plus" class="w-4 h-4"></i></span>
+            </summary>
+            <div class="faq-content text-ink/70 mt-4 leading-relaxed text-sm lg:text-base">
+              <p><strong class="text-ink">2 años</strong> de garantía estructural sobre la habitabilidad fabricada por Cinzia, más cobertura técnica completa durante el primer año. El chasis mantiene la garantía oficial de fábrica de la marca correspondiente (Mercedes-Benz, Iveco, Ford, etc.).</p>
+            </div>
+          </details>
+
+          <details class="faq-item bg-soft border-2 border-transparent rounded-2xl p-5 lg:p-6 transition-colors" data-path="compra" data-cat="garantia">
+            <summary>
+              <div class="flex-1 min-w-0 flex flex-col gap-1">
+                <span class="mono-caps text-orange">COMPRA · SOPORTE</span>
+                <span class="font-bold text-base lg:text-lg text-ink leading-snug">¿Qué pasa si se rompe lejos del taller?</span>
+              </div>
+              <span class="icon-toggle"><i data-lucide="plus" class="w-4 h-4"></i></span>
+            </summary>
+            <div class="faq-content text-ink/70 mt-4 leading-relaxed text-sm lg:text-base">
+              <p>Tenemos red de talleres autorizados en Buenos Aires, Mendoza y Bariloche, además de asistencia telefónica y envío de repuestos a todo el país. La garantía cubre las fallas estructurales y eléctricas durante el plazo vigente.</p>
+            </div>
+          </details>
+
+          <details class="faq-item bg-soft border-2 border-transparent rounded-2xl p-5 lg:p-6 transition-colors" data-path="compra" data-cat="garantia">
+            <summary>
+              <div class="flex-1 min-w-0 flex flex-col gap-1">
+                <span class="mono-caps text-orange">COMPRA · REPUESTOS</span>
+                <span class="font-bold text-base lg:text-lg text-ink leading-snug">¿Hay stock de repuestos?</span>
+              </div>
+              <span class="icon-toggle"><i data-lucide="plus" class="w-4 h-4"></i></span>
+            </summary>
+            <div class="faq-content text-ink/70 mt-4 leading-relaxed text-sm lg:text-base">
+              <p>Sí. Tenemos stock permanente de repuestos clave (ventanas, ruedas, bombas, baterías, electrónica) y envío a todo el país. Para repuestos del chasis, derivamos al concesionario oficial correspondiente.</p>
+            </div>
+          </details>
+
+          <!-- COMPRA — Logística y visitas -->
+          <details class="faq-item bg-soft border-2 border-transparent rounded-2xl p-5 lg:p-6 transition-colors" data-path="compra" data-cat="logistica">
+            <summary>
+              <div class="flex-1 min-w-0 flex flex-col gap-1">
+                <span class="mono-caps text-orange">COMPRA · VISITAS</span>
+                <span class="font-bold text-base lg:text-lg text-ink leading-snug">¿Puedo ver un motorhome físicamente antes de comprar?</span>
+              </div>
+              <span class="icon-toggle"><i data-lucide="plus" class="w-4 h-4"></i></span>
+            </summary>
+            <div class="faq-content text-ink/70 mt-4 leading-relaxed text-sm lg:text-base">
+              <p>Sí. Tenemos dos ubicaciones: el <strong class="text-ink">taller central en Córdoba</strong> (Alcira Arias 191, Malvinas Argentinas) y el <strong class="text-ink">showroom de Buenos Aires</strong> (Riobamba 5487, El Triángulo). Agendá tu visita por <a href="contacto.html" class="text-orange hover:underline">el formulario de contacto</a> o por WhatsApp.</p>
+            </div>
+          </details>
+
+          <details class="faq-item bg-soft border-2 border-transparent rounded-2xl p-5 lg:p-6 transition-colors" data-path="compra" data-cat="logistica">
+            <summary>
+              <div class="flex-1 min-w-0 flex flex-col gap-1">
+                <span class="mono-caps text-orange">COMPRA · LOGÍSTICA</span>
+                <span class="font-bold text-base lg:text-lg text-ink leading-snug">¿Hacen entrega en todo el país?</span>
+              </div>
+              <span class="icon-toggle"><i data-lucide="plus" class="w-4 h-4"></i></span>
+            </summary>
+            <div class="faq-content text-ink/70 mt-4 leading-relaxed text-sm lg:text-base">
+              <p>Sí, entregamos en toda Argentina. El costo de transporte se calcula según la distancia desde Córdoba. También coordinamos la entrega en tu domicilio o el lugar que elijas.</p>
+            </div>
+          </details>
+
+          <!-- COMPRA — Empresas (B2B) -->
+          <details class="faq-item bg-soft border-2 border-transparent rounded-2xl p-5 lg:p-6 transition-colors" data-path="compra" data-cat="empresas">
+            <summary>
+              <div class="flex-1 min-w-0 flex flex-col gap-1">
+                <span class="mono-caps text-orange">COMPRA · B2B</span>
+                <span class="font-bold text-base lg:text-lg text-ink leading-snug">¿Hacen ambulancias y foodtrucks?</span>
+              </div>
+              <span class="icon-toggle"><i data-lucide="plus" class="w-4 h-4"></i></span>
+            </summary>
+            <div class="faq-content text-ink/70 mt-4 leading-relaxed text-sm lg:text-base">
+              <p>Sí. Fabricamos vehículos especiales para empresas, gobiernos e instituciones: ambulancias sobre furgón o 4x4, foodtrucks premium, motorhomes de eventos (2 pisos) y vehículos sanitarios a medida. Cada proyecto se cotiza con un brief y un cronograma propio.</p>
+            </div>
+          </details>
+
+        </div>
+        <!-- Mensaje sin resultados -->
+        <div id="faq-empty" class="hidden text-center py-16">
+          <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-orange/10 text-orange mb-4">
+            <i data-lucide="search-x" class="w-7 h-7"></i>
+          </div>
+          <p class="font-bold text-ink mb-1">No encontramos preguntas con ese criterio.</p>
+          <p class="text-sm text-ink/55">Probá con otro término o cambiá de tema.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="bg-ink text-white py-20 lg:py-24">
+      <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
+
+        <div class="grid lg:grid-cols-2 gap-10 items-center">
+          <div data-reveal>
+            <p class="mono-caps text-orange mb-4">— ¿NO ENCONTRASTE LO QUE BUSCÁS?</p>
+            <h2 class="display-black text-[clamp(30px,4.5vw,56px)] leading-[0.95] mb-5">
+              Escribinos directo.
+            </h2>
+            <p class="text-white/80 mb-7 max-w-lg">
+              Si tu consulta no está en esta lista, mandanos un mensaje. Te respondemos en &lt; 24 horas hábiles con asesoramiento personalizado.
+            </p>
+            <div class="flex flex-wrap gap-3">
+              <a href="contacto.html" class="btn-primary">
+                Ir al formulario
+                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </a>
+              <a href="https://api.whatsapp.com/send?phone=5493515293858&text=Hola!" class="bg-[#25D366] text-white font-semibold px-6 py-3.5 rounded-full hover:bg-[#1FBE5C] transition-colors inline-flex items-center gap-2">
+                <i data-lucide="message-circle" class="w-4 h-4"></i>
+                WhatsApp
+              </a>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 gap-3" data-reveal>
+            <a href="index.html#categorias" class="bg-white/5 border border-white/10 rounded-2xl p-5 hover:bg-white/10 transition-colors">
+              <i data-lucide="layers" class="w-6 h-6 text-orange mb-3"></i>
+              <p class="font-semibold mb-1 text-sm">Ver modelos</p>
+              <p class="text-xs text-white/60">32 motorhomes</p>
+            </a>
+            <a href="rental.html" class="bg-white/5 border border-white/10 rounded-2xl p-5 hover:bg-white/10 transition-colors">
+              <i data-lucide="key" class="w-6 h-6 text-orange mb-3"></i>
+              <p class="font-semibold mb-1 text-sm">Alquilar</p>
+              <p class="text-xs text-white/60">6 sucursales · 3 países</p>
+            </a>
+            <a href="nosotros.html" class="bg-white/5 border border-white/10 rounded-2xl p-5 hover:bg-white/10 transition-colors">
+              <i data-lucide="users-2" class="w-6 h-6 text-orange mb-3"></i>
+              <p class="font-semibold mb-1 text-sm">Nosotros</p>
+              <p class="text-xs text-white/60">Quiénes somos</p>
+            </a>
+            <a href="contacto.html" class="bg-white/5 border border-white/10 rounded-2xl p-5 hover:bg-white/10 transition-colors">
+              <i data-lucide="mail" class="w-6 h-6 text-orange mb-3"></i>
+              <p class="font-semibold mb-1 text-sm">Contacto</p>
+              <p class="text-xs text-white/60">Hablemos</p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-ink text-white py-16 lg:py-20 border-t border-white/10">
+    <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
+      <div class="grid lg:grid-cols-4 gap-10 mb-12">
+        <div>
+          <img src="https://www.cinziavehiculos.com/assets/image/logo.svg" alt="Cinzia" class="h-9 w-auto mb-5" onerror="this.outerHTML='<div style=&quot;font-weight:900;font-size:1.5rem;letter-spacing:-0.04em;color:#FFFFFF;margin-bottom:1.25rem;&quot;>CINZIA</div>'">
+          <p class="text-sm text-white/60 leading-relaxed mb-6">Motorhomes a medida, fabricados en nuestro taller de Córdoba, Argentina.</p>
+          <div class="flex gap-2">
+            <a href="https://www.instagram.com/cinziavehiculos/" aria-label="Instagram" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 transition-colors"><i data-lucide="instagram" class="w-4 h-4"></i></a>
+            <a href="https://www.facebook.com/Cinziavehiculos/" aria-label="Facebook" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 transition-colors"><i data-lucide="facebook" class="w-4 h-4"></i></a>
+            <a href="https://www.youtube.com/channel/UCw8Tz-hH6f0ySvpNWsHCY2Q" aria-label="YouTube" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 transition-colors"><i data-lucide="youtube" class="w-4 h-4"></i></a>
+          </div>
+        </div>
+        <div>
+          <p class="mono-caps text-white/40 mb-5">PRODUCTOS</p>
+          <ul class="space-y-3 text-sm">
+            <li><a href="index.html#categorias" class="text-white/80 hover:text-orange transition-colors">Campers</a></li>
+            <li><a href="index.html#categorias" class="text-white/80 hover:text-orange transition-colors">Casas Rodantes</a></li>
+            <li><a href="index.html#categorias" class="text-white/80 hover:text-orange transition-colors">Motorhome Chasis</a></li>
+            <li><a href="index.html#categorias" class="text-white/80 hover:text-orange transition-colors">Motorhome Furgón</a></li>
+            <li><a href="index.html#categorias" class="text-white/80 hover:text-orange transition-colors">Vehículos Especiales</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="mono-caps text-white/40 mb-5">EMPRESA</p>
+          <ul class="space-y-3 text-sm">
+            <li><a href="rental.html" class="text-white/80 hover:text-orange transition-colors">Cinzia Rental</a></li>
+            <li><a href="nosotros.html" class="text-white/80 hover:text-orange transition-colors">Nosotros</a></li>
+            <li><a href="preguntas-frecuentes.html" class="text-white/80 hover:text-orange transition-colors">Preguntas frecuentes</a></li>
+            <li><a href="contacto.html" class="text-white/80 hover:text-orange transition-colors">Contacto</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="mono-caps text-white/40 mb-5">CONTACTO</p>
+          <ul class="space-y-4 text-sm">
+            <li>
+              <p class="text-white/90 font-semibold mb-1">Córdoba · HQ + Taller</p>
+              <p class="text-white/60 leading-relaxed">Alcira Arias 191, Malvinas Argentinas</p>
+              <a href="tel:+5493515293858" class="text-white/80 hover:text-orange transition-colors text-xs font-mono">+54 9 3515 29-3858</a>
+            </li>
+            <li>
+              <p class="text-white/90 font-semibold mb-1">Buenos Aires · Showroom</p>
+              <p class="text-white/60 leading-relaxed">Riobamba 5487, El Triángulo</p>
+              <a href="tel:+5491137716847" class="text-white/80 hover:text-orange transition-colors text-xs font-mono">+54 9 11 3771-6847</a>
+            </li>
+            <li><a href="mailto:ventas@cinziavehiculos.com" class="text-white/80 hover:text-orange transition-colors">ventas@cinziavehiculos.com</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-white/10 pt-7 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 text-xs text-white/40">
+        <p>© 2026 Cinzia Vehículos · Todos los derechos reservados</p>
+        <div class="flex gap-5">
+          <a href="#" class="hover:text-white/70 transition-colors">Términos y Condiciones</a>
+          <a href="#" class="hover:text-white/70 transition-colors">Privacidad</a>
+          <a href="#" class="hover:text-white/70 transition-colors">Cookies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://api.whatsapp.com/send?phone=5493515293858&text=Hola!" aria-label="WhatsApp" class="float-wa">
+    <i data-lucide="message-circle" class="w-6 h-6"></i>
+  </a>
+
+  <script>
+    lucide.createIcons();
+
+    // ============================================
+    // MOBILE MENU
+    // ============================================
+    (function() {
+      const toggle = document.getElementById('mobile-menu-toggle');
+      const closeBtn = document.getElementById('mobile-menu-close');
+      const backdrop = document.getElementById('mobile-menu-backdrop');
+      const menu = document.getElementById('mobile-menu');
+      const modelosToggle = document.getElementById('mm-modelos-toggle');
+      const modelosSub = document.getElementById('mm-modelos-submenu');
+      if (!toggle || !menu) return;
+
+      function openMenu() {
+        menu.classList.add('open');
+        backdrop.classList.add('open');
+        document.body.classList.add('menu-open');
+        menu.setAttribute('aria-hidden', 'false');
+      }
+      function closeMenu() {
+        menu.classList.remove('open');
+        backdrop.classList.remove('open');
+        document.body.classList.remove('menu-open');
+        menu.setAttribute('aria-hidden', 'true');
+      }
+
+      toggle.addEventListener('click', openMenu);
+      closeBtn.addEventListener('click', closeMenu);
+      backdrop.addEventListener('click', closeMenu);
+
+      menu.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => setTimeout(closeMenu, 120));
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && menu.classList.contains('open')) closeMenu();
+      });
+
+      if (modelosToggle && modelosSub) {
+        modelosToggle.addEventListener('click', () => {
+          modelosToggle.classList.toggle('open');
+          modelosSub.classList.toggle('open');
+        });
+      }
+    })();
+
+
+    // ============================================
+    // SCROLL REVEAL
+    // ============================================
+    const revealEls = document.querySelectorAll('[data-reveal]');
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+    revealEls.forEach(el => obs.observe(el));
+
+    // ============================================
+    // FAQ STATE
+    // ============================================
+    const allFaqs = Array.from(document.querySelectorAll('details.faq-item'));
+    const pathTabs = document.querySelectorAll('.path-tab');
+    const subfilterBar = document.getElementById('subfilter-bar');
+    const topicsGrid = document.getElementById('topics-grid');
+    const searchInput = document.getElementById('faq-search');
+    const searchClear = document.getElementById('faq-search-clear');
+    const faqCountEl = document.getElementById('faq-count');
+    const emptyMsg = document.getElementById('faq-empty');
+
+    // Subcategorías y temas populares por path
+    const SUBCATS = {
+      compra: [
+        { id: 'todas',       label: 'Todas',         ico: 'sparkles' },
+        { id: 'fabricacion', label: 'Fabricación',   ico: 'hammer' },
+        { id: 'precios',     label: 'Precios y financiación', ico: 'wallet' },
+        { id: 'garantia',    label: 'Garantía y soporte',     ico: 'shield-check' },
+        { id: 'logistica',   label: 'Logística y visitas',    ico: 'truck' },
+        { id: 'empresas',    label: 'Empresas (B2B)',         ico: 'briefcase' },
+      ],
+      rental: [
+        { id: 'todas',        label: 'Todas',              ico: 'sparkles' },
+        { id: 'reserva',      label: 'Reserva y pago',     ico: 'calendar-check' },
+        { id: 'horarios',     label: 'Horarios y entrega', ico: 'clock' },
+        { id: 'vehiculo',     label: 'Vehículo y manejo',  ico: 'caravan' },
+        { id: 'combustible',  label: 'Combustible y km',   ico: 'fuel' },
+        { id: 'cancelacion',  label: 'Cancelación',        ico: 'x-circle' },
+      ],
+    };
+
+    const TOPICS = {
+      compra: [
+        { ico: 'hammer',         label: 'Plazo de fabricación', q: '¿Cuánto tarda fabricar mi motorhome?' },
+        { ico: 'sliders',        label: 'Configurador',         q: '¿Cómo funciona el configurador de opcionales?' },
+        { ico: 'wallet',         label: 'Financiación',         q: '¿Tienen opciones de financiación?' },
+        { ico: 'shield-check',   label: 'Garantía',             q: '¿Qué garantía tiene mi motorhome?' },
+      ],
+      rental: [
+        { ico: 'calendar-check', label: 'Proceso de reserva',   q: '¿Cómo es el proceso de reserva?' },
+        { ico: 'gauge',          label: 'Kilometraje',          q: '¿Cómo funciona el sistema de kilometraje?' },
+        { ico: 'clock',          label: 'Horarios',             q: '¿Cuál es el horario de check-in y check-out?' },
+        { ico: 'x-circle',       label: 'Cancelar reserva',     q: '¿Qué pasa si quiero cancelar mi reserva?' },
+      ],
+    };
+
+    let currentPath = 'rental';
+    let currentSubcat = 'todas';
+    let currentSearch = '';
+
+    // ============================================
+    // RENDER: subfiltros + temas populares + counts
+    // ============================================
+    function renderSubfilters() {
+      subfilterBar.innerHTML = SUBCATS[currentPath].map(s =>
+        `<button class="category-pill ${s.id === currentSubcat ? 'active' : ''}" data-cat="${s.id}">${s.label}</button>`
+      ).join('');
+      subfilterBar.querySelectorAll('.category-pill').forEach(btn => {
+        btn.addEventListener('click', () => {
+          currentSubcat = btn.dataset.cat;
+          renderSubfilters();
+          applyFilters();
+        });
+      });
+    }
+
+    function renderTopics() {
+      topicsGrid.innerHTML = TOPICS[currentPath].map(t =>
+        `<button class="topic-card" data-q="${t.q}">
+          <div class="ico-sm"><i data-lucide="${t.ico}" class="w-5 h-5"></i></div>
+          <div class="min-w-0">
+            <p class="font-bold text-ink text-sm leading-tight">${t.label}</p>
+            <p class="text-xs text-ink/55 mt-0.5 truncate">${t.q}</p>
+          </div>
+        </button>`
+      ).join('');
+      lucide.createIcons();
+      topicsGrid.querySelectorAll('.topic-card').forEach(card => {
+        card.addEventListener('click', () => {
+          // Encontrar la FAQ que matchee y abrirla
+          const targetQ = card.dataset.q.toLowerCase();
+          for (const faq of allFaqs) {
+            const summaryText = faq.querySelector('summary .font-bold').textContent.toLowerCase();
+            if (summaryText.includes(targetQ.slice(0, 30))) {
+              currentSubcat = 'todas';
+              currentSearch = '';
+              searchInput.value = '';
+              searchClear.classList.add('hidden');
+              renderSubfilters();
+              applyFilters();
+              // Cerrar todos los abiertos primero
+              allFaqs.forEach(f => f.open = false);
+              setTimeout(() => {
+                faq.open = true;
+                faq.scrollIntoView({ behavior: 'smooth', block: 'center' });
+              }, 100);
+              break;
+            }
+          }
+        });
+      });
+    }
+
+    function updatePathCounts() {
+      pathTabs.forEach(tab => {
+        const path = tab.dataset.path;
+        const count = allFaqs.filter(f => f.dataset.path === path).length;
+        const countEl = tab.querySelector('.count');
+        if (countEl) countEl.textContent = `${count} PREGUNTAS`;
+      });
+    }
+
+    // ============================================
+    // FILTRO PRINCIPAL (path + subcat + search)
+    // ============================================
+    function clearHighlights() {
+      allFaqs.forEach(faq => {
+        const summary = faq.querySelector('summary');
+        const content = faq.querySelector('.faq-content');
+        [summary, content].forEach(el => {
+          if (!el) return;
+          el.querySelectorAll('mark.faq-highlight').forEach(m => {
+            const parent = m.parentNode;
+            parent.replaceChild(document.createTextNode(m.textContent), m);
+            parent.normalize();
+          });
+        });
+      });
+    }
+
+    function highlightSearch(text) {
+      if (!text || text.length < 2) return;
+      const re = new RegExp('(' + text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+      allFaqs.forEach(faq => {
+        if (faq.style.display === 'none') return;
+        const summary = faq.querySelector('summary .font-bold');
+        const content = faq.querySelector('.faq-content');
+        [summary, content].forEach(el => {
+          if (!el) return;
+          el.innerHTML = el.innerHTML.replace(re, '<mark class="faq-highlight">$1</mark>');
+        });
+      });
+    }
+
+    function applyFilters() {
+      clearHighlights();
+      let visible = 0;
+      allFaqs.forEach(faq => {
+        const pathMatch = faq.dataset.path === currentPath;
+        const catMatch = currentSubcat === 'todas' || faq.dataset.cat === currentSubcat;
+        const text = (faq.querySelector('summary').textContent + ' ' + faq.querySelector('.faq-content').textContent).toLowerCase();
+        const searchMatch = !currentSearch || text.includes(currentSearch.toLowerCase());
+
+        if (pathMatch && catMatch && searchMatch) {
+          faq.style.display = '';
+          visible++;
+        } else {
+          faq.style.display = 'none';
+          faq.open = false;
+        }
+      });
+
+      // Highlight si hay búsqueda
+      if (currentSearch && currentSearch.length >= 2) highlightSearch(currentSearch);
+
+      // Mostrar/ocultar mensaje sin resultados
+      if (emptyMsg) emptyMsg.classList.toggle('hidden', visible !== 0);
+
+      // Update count text
+      if (faqCountEl) {
+        if (currentSearch) {
+          faqCountEl.textContent = visible === 0
+            ? `Sin resultados para "${currentSearch}"`
+            : `${visible} pregunta${visible === 1 ? '' : 's'} encontrada${visible === 1 ? '' : 's'} para "${currentSearch}"`;
+        } else {
+          faqCountEl.textContent = `${visible} pregunta${visible === 1 ? '' : 's'} disponibles${currentSubcat !== 'todas' ? ' en este tema' : ''}`;
+        }
+      }
+    }
+
+    // ============================================
+    // PATH SWITCHER
+    // ============================================
+    pathTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        pathTabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        currentPath = tab.dataset.path;
+        currentSubcat = 'todas';
+        currentSearch = '';
+        searchInput.value = '';
+        searchClear.classList.add('hidden');
+        renderSubfilters();
+        renderTopics();
+        applyFilters();
+        // Cerrar todos los abiertos
+        allFaqs.forEach(f => f.open = false);
+      });
+    });
+
+    // ============================================
+    // SEARCH
+    // ============================================
+    let searchDebounce;
+    searchInput.addEventListener('input', (e) => {
+      const val = e.target.value.trim();
+      searchClear.classList.toggle('hidden', !val);
+      clearTimeout(searchDebounce);
+      searchDebounce = setTimeout(() => {
+        currentSearch = val;
+        applyFilters();
+      }, 180);
+    });
+    searchClear.addEventListener('click', () => {
+      searchInput.value = '';
+      currentSearch = '';
+      searchClear.classList.add('hidden');
+      applyFilters();
+      searchInput.focus();
+    });
+
+    // ============================================
+    // ACORDEÓN: solo uno abierto a la vez
+    // ============================================
+    allFaqs.forEach(faq => {
+      faq.addEventListener('toggle', () => {
+        if (faq.open) {
+          allFaqs.forEach(other => {
+            if (other !== faq && other.open) other.open = false;
+          });
+        }
+      });
+    });
+
+    // ============================================
+    // INIT
+    // ============================================
+    updatePathCounts();
+    renderSubfilters();
+    renderTopics();
+    applyFilters();
+  </script>
+</body>
+</html>

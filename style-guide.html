@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manual de Marca — Cinzia · Sistema de diseño</title>
+  <meta name="description" content="Manual de marca y sistema de diseño Cinzia. Paleta de colores, tipografía, componentes y patrones de uso.">
+  <meta name="theme-color" content="#E9580C">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            orange: { DEFAULT: '#E9580C', dark: '#C84A0A', light: '#FF6F1F' },
+            ink: '#0B0B0B',
+            soft: '#F5F5F5',
+          },
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] },
+        },
+      },
+    };
+  </script>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, sans-serif; color: #0B0B0B; background: #FFFFFF; }
+    .display-black { font-weight: 900; letter-spacing: -0.04em; line-height: 0.95; }
+    .mono-caps { font-family: 'Inter', monospace; text-transform: uppercase; letter-spacing: 0.16em; font-size: 0.6875rem; font-weight: 600; }
+    .code { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; background: #0B0B0B; color: #F5F5F5; padding: 12px 16px; border-radius: 10px; display: block; overflow-x: auto; line-height: 1.6; }
+    .code .key { color: #FF6F1F; }
+    .code .val { color: #C9BFA7; }
+
+    .btn-primary { background: #E9580C; color: #FFFFFF; padding: 14px 24px; border-radius: 999px; font-weight: 600; font-size: 0.95rem; display: inline-flex; align-items: center; gap: 8px; transition: all 200ms cubic-bezier(0.22, 1, 0.36, 1); }
+    .btn-primary:hover { background: #C84A0A; transform: translateY(-1px); }
+    .btn-outline-orange { background: transparent; color: #E9580C; padding: 12px 22px; border: 1.5px solid #E9580C; border-radius: 999px; font-weight: 600; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 8px; transition: all 200ms; }
+    .btn-outline-orange:hover { background: #E9580C; color: #FFFFFF; }
+    .btn-outline-dark { background: transparent; color: #0B0B0B; padding: 12px 22px; border: 1.5px solid rgba(11,11,11,0.2); border-radius: 999px; font-weight: 600; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 8px; transition: all 200ms; }
+    .btn-outline-dark:hover { background: rgba(11,11,11,0.05); border-color: rgba(11,11,11,0.5); }
+    .btn-wa { background: #25D366; color: white; padding: 14px 24px; border-radius: 999px; font-weight: 600; font-size: 0.95rem; display: inline-flex; align-items: center; gap: 8px; transition: all 200ms; }
+    .btn-wa:hover { background: #1FBE5C; }
+
+    .pill-tag { display: inline-flex; align-items: center; padding: 4px 10px; border-radius: 999px; background: rgba(233,88,12,0.1); color: #C84A0A; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; }
+    .filter-pill { cursor: pointer; padding: 9px 18px; border-radius: 999px; font-weight: 600; font-size: 0.85rem; border: 1.5px solid rgba(11,11,11,0.12); color: rgba(11,11,11,0.7); background: white; transition: all 200ms; }
+    .filter-pill:hover { border-color: #E9580C; color: #E9580C; }
+    .filter-pill.active { background: #0B0B0B; color: #FFFFFF; border-color: #0B0B0B; }
+
+    .color-swatch { aspect-ratio: 4/5; border-radius: 16px; padding: 16px; display: flex; flex-direction: column; justify-content: space-between; transition: transform 200ms; cursor: pointer; }
+    .color-swatch:hover { transform: translateY(-3px); }
+
+    .section-card { background: #FFFFFF; border: 1px solid rgba(11,11,11,0.06); border-radius: 24px; padding: 28px; }
+    .section-card.dark { background: #0B0B0B; color: white; border-color: rgba(255,255,255,0.08); }
+
+    .nav-sidebar a { display: block; padding: 8px 12px; border-radius: 8px; font-size: 0.85rem; color: rgba(11,11,11,0.65); transition: all 180ms; }
+    .nav-sidebar a:hover { background: rgba(233,88,12,0.08); color: #E9580C; }
+    .nav-sidebar a.active { background: #0B0B0B; color: white; }
+
+    /* Mega menu (demo) */
+    .nav-item-with-dropdown { position: relative; }
+    .mega-menu-demo { position: absolute; top: calc(100% + 14px); left: 50%; transform: translateX(-50%); width: 580px; background: white; border-radius: 24px; box-shadow: 0 20px 60px rgba(11,11,11,0.18); border: 1px solid rgba(11,11,11,0.06); padding: 22px; z-index: 100; }
+  </style>
+</head>
+<body>
+
+  <!-- Header simplificado del style guide -->
+  <header class="bg-ink text-white py-5 border-b border-white/10">
+    <div class="max-w-[1400px] mx-auto px-6 lg:px-10 flex items-center justify-between">
+      <a href="cinzia-landing-v2.html" class="flex items-center gap-3">
+        <img src="https://www.cinziavehiculos.com/assets/image/logo.svg" alt="Cinzia" class="h-7 w-auto">
+        <span class="text-white/30">/</span>
+        <span class="mono-caps text-orange">Style guide v1.0</span>
+      </a>
+      <div class="flex items-center gap-4 text-sm">
+        <span class="mono-caps text-white/50">SISTEMA DE DISEÑO</span>
+        <a href="cinzia-landing-v2.html" class="text-white/80 hover:text-orange transition-colors">← Volver al sitio</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="bg-soft">
+
+    <!-- Hero -->
+    <section class="bg-white py-16 lg:py-20 border-b border-ink/5">
+      <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
+        <p class="mono-caps text-orange mb-5">— MANUAL DE MARCA</p>
+        <h1 class="display-black text-[clamp(40px,6vw,80px)] text-ink mb-5">
+          Sistema de diseño<br>Cinzia.
+        </h1>
+        <p class="text-lg text-ink/70 max-w-2xl">
+          Paleta, tipografía, componentes y patrones de uso. Esta guía define el lenguaje visual de todas las páginas — usala como referencia para mantener coherencia en cada landing nueva.
+        </p>
+      </div>
+    </section>
+
+    <!-- Layout principal: sidebar + content -->
+    <div class="max-w-[1400px] mx-auto px-6 lg:px-10 py-12 lg:py-16 grid lg:grid-cols-[220px_1fr] gap-12">
+
+      <!-- Sidebar nav -->
+      <aside class="hidden lg:block">
+        <div class="sticky top-8 nav-sidebar space-y-1">
+          <p class="mono-caps text-ink/40 mb-3 px-3">FUNDAMENTOS</p>
+          <a href="#identidad">01 · Identidad</a>
+          <a href="#paleta">02 · Paleta de color</a>
+          <a href="#tipografia">03 · Tipografía</a>
+          <a href="#espaciado">04 · Espaciado</a>
+
+          <p class="mono-caps text-ink/40 mb-3 mt-6 px-3">COMPONENTES</p>
+          <a href="#botones">05 · Botones</a>
+          <a href="#tags">06 · Tags y pills</a>
+          <a href="#cards">07 · Cards</a>
+          <a href="#forms">08 · Formularios</a>
+          <a href="#navegacion">09 · Navegación</a>
+          <a href="#hero">10 · Hero patterns</a>
+
+          <p class="mono-caps text-ink/40 mb-3 mt-6 px-3">REGLAS</p>
+          <a href="#voz">11 · Tono de voz</a>
+          <a href="#animaciones">12 · Animaciones</a>
+          <a href="#no-hacer">13 · No hacer</a>
+        </div>
+      </aside>
+
+      <div class="space-y-16">
+
+        <!-- 01 IDENTIDAD -->
+        <section id="identidad" class="section-card">
+          <p class="mono-caps text-orange mb-3">01 · IDENTIDAD</p>
+          <h2 class="display-black text-3xl text-ink mb-7">Identidad de marca</h2>
+
+          <div class="grid md:grid-cols-2 gap-8">
+            <div>
+              <p class="mono-caps text-ink/50 mb-3">LOGO PRINCIPAL</p>
+              <div class="bg-ink rounded-2xl p-10 flex items-center justify-center mb-4">
+                <img src="https://www.cinziavehiculos.com/assets/image/logo.svg" alt="Logo Cinzia (versión clara)" class="h-12 w-auto">
+              </div>
+              <p class="text-sm text-ink/60">Versión clara · Sobre fondos oscuros</p>
+              <p class="font-mono text-xs text-ink/40 mt-1 break-all">assets/image/logo.svg</p>
+            </div>
+            <div>
+              <p class="mono-caps text-ink/50 mb-3">LOGO ALTERNATIVO</p>
+              <div class="bg-soft rounded-2xl p-10 flex items-center justify-center mb-4 border border-ink/5">
+                <img src="https://www.cinziavehiculos.com/assets/image/logo-2.svg" alt="Logo Cinzia (versión oscura)" class="h-12 w-auto">
+              </div>
+              <p class="text-sm text-ink/60">Versión oscura · Sobre fondos claros</p>
+              <p class="font-mono text-xs text-ink/40 mt-1 break-all">assets/image/logo-2.svg</p>
+            </div>
+          </div>
+
+          <div class="mt-8 p-5 bg-soft rounded-xl">
+            <p class="mono-caps text-orange mb-2">BRAND ESSENCE</p>
+            <p class="text-ink/80 text-sm leading-relaxed">
+              "Cinzia es una fábrica argentina familiar de motorhomes a medida. Custom craft + manufactura completa + raíz argentina + escala real."
+            </p>
+          </div>
+        </section>
+
+        <!-- 02 PALETA -->
+        <section id="paleta" class="section-card">
+          <p class="mono-caps text-orange mb-3">02 · PALETA DE COLOR</p>
+          <h2 class="display-black text-3xl text-ink mb-3">Colores</h2>
+          <p class="text-ink/65 mb-7 max-w-2xl">
+            La paleta se reduce a 3 tonos fundamentales (blanco / negro / naranja) más auxiliares para texto y fondos. Regla 70/25/5: 70% neutros + 25% gris/soft + 5% naranja como acento.
+          </p>
+
+          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 mb-8">
+
+            <div class="color-swatch" style="background: #E9580C; color: white;">
+              <div>
+                <p class="mono-caps mb-1">PRIMARY · 01</p>
+                <p class="display-black text-lg">Naranja Cinzia</p>
+              </div>
+              <div>
+                <p class="font-mono text-sm">#E9580C</p>
+                <p class="text-xs opacity-80 mt-1">CTAs, accents, brand</p>
+              </div>
+            </div>
+
+            <div class="color-swatch" style="background: #C84A0A; color: white;">
+              <div>
+                <p class="mono-caps mb-1">PRIMARY · 02</p>
+                <p class="display-black text-lg">Naranja oscuro</p>
+              </div>
+              <div>
+                <p class="font-mono text-sm">#C84A0A</p>
+                <p class="text-xs opacity-80 mt-1">Hover state</p>
+              </div>
+            </div>
+
+            <div class="color-swatch" style="background: #0B0B0B; color: white;">
+              <div>
+                <p class="mono-caps mb-1">INK</p>
+                <p class="display-black text-lg">Negro Cinzia</p>
+              </div>
+              <div>
+                <p class="font-mono text-sm">#0B0B0B</p>
+                <p class="text-xs opacity-80 mt-1">Texto, fondos oscuros</p>
+              </div>
+            </div>
+
+            <div class="color-swatch border border-ink/10" style="background: #F5F5F5; color: #0B0B0B;">
+              <div>
+                <p class="mono-caps mb-1 text-ink/50">SOFT</p>
+                <p class="display-black text-lg">Gris claro</p>
+              </div>
+              <div>
+                <p class="font-mono text-sm">#F5F5F5</p>
+                <p class="text-xs text-ink/60 mt-1">Fondos secundarios</p>
+              </div>
+            </div>
+
+            <div class="color-swatch border border-ink/10" style="background: #FFFFFF; color: #0B0B0B;">
+              <div>
+                <p class="mono-caps mb-1 text-ink/50">WHITE</p>
+                <p class="display-black text-lg">Blanco</p>
+              </div>
+              <div>
+                <p class="font-mono text-sm">#FFFFFF</p>
+                <p class="text-xs text-ink/60 mt-1">Fondo principal, cards</p>
+              </div>
+            </div>
+
+            <div class="color-swatch" style="background: #25D366; color: white;">
+              <div>
+                <p class="mono-caps mb-1">SECONDARY</p>
+                <p class="display-black text-lg">WhatsApp</p>
+              </div>
+              <div>
+                <p class="font-mono text-sm">#25D366</p>
+                <p class="text-xs opacity-80 mt-1">Solo botones WA</p>
+              </div>
+            </div>
+
+            <div class="color-swatch border border-ink/10" style="background: rgba(11,11,11,0.6); color: white;">
+              <div>
+                <p class="mono-caps mb-1">TEXT</p>
+                <p class="display-black text-lg">Ink/60</p>
+              </div>
+              <div>
+                <p class="font-mono text-sm">rgba(11,11,11,0.6)</p>
+                <p class="text-xs opacity-80 mt-1">Texto secundario</p>
+              </div>
+            </div>
+
+            <div class="color-swatch border border-ink/10" style="background: rgba(11,11,11,0.1); color: #0B0B0B;">
+              <div>
+                <p class="mono-caps mb-1 text-ink/50">BORDER</p>
+                <p class="display-black text-lg">Ink/10</p>
+              </div>
+              <div>
+                <p class="font-mono text-sm">rgba(11,11,11,0.1)</p>
+                <p class="text-xs text-ink/60 mt-1">Bordes sutiles</p>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="p-5 bg-orange/5 border border-orange/20 rounded-xl">
+            <p class="mono-caps text-orange mb-2">REGLA DE USO 70/25/5</p>
+            <ul class="text-sm text-ink/80 space-y-1.5">
+              <li>• 70% — Neutros (blanco + negro)</li>
+              <li>• 25% — Soft (gris claro #F5F5F5) para fondos secundarios y respiración</li>
+              <li>• 5% — Naranja Cinzia como acento puntual (CTAs, links, tags). Nunca como fondo dominante.</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- 03 TIPOGRAFÍA -->
+        <section id="tipografia" class="section-card">
+          <p class="mono-caps text-orange mb-3">03 · TIPOGRAFÍA</p>
+          <h2 class="display-black text-3xl text-ink mb-3">Tipografía</h2>
+          <p class="text-ink/65 mb-8 max-w-2xl">
+            <strong class="text-ink">Inter</strong> es la única familia tipográfica del sistema. Usá los weights 400, 500, 600, 700 y 900. Máximo 100px en titulares.
+          </p>
+
+          <div class="space-y-7">
+
+            <div>
+              <p class="mono-caps text-ink/40 mb-3">DISPLAY · 900 BLACK · letter-spacing -0.04em</p>
+              <p class="display-black text-[80px] text-ink leading-none mb-2">VIAJAR ES UN ESTILO DE VIDA.</p>
+              <p class="font-mono text-xs text-ink/50">clamp(40px, 6vw, 80px) · usar para H1 de hero · siempre en mayúsculas</p>
+            </div>
+
+            <div>
+              <p class="mono-caps text-ink/40 mb-3">H2 · 900 BLACK · 30-56PX</p>
+              <p class="display-black text-[42px] text-ink leading-tight mb-2">Empezamos como familia.</p>
+              <p class="font-mono text-xs text-ink/50">clamp(30px, 4.5vw, 56px) · títulos de sección</p>
+            </div>
+
+            <div>
+              <p class="mono-caps text-ink/40 mb-3">H3 · 900 BLACK · 24-32PX</p>
+              <p class="display-black text-[28px] text-ink mb-2">Manufactura completa</p>
+              <p class="font-mono text-xs text-ink/50">text-2xl / text-3xl · subtítulos de card</p>
+            </div>
+
+            <div>
+              <p class="mono-caps text-ink/40 mb-3">BODY LARGE · 400 REGULAR · 18PX</p>
+              <p class="text-[18px] text-ink leading-relaxed mb-2 max-w-2xl">Para quienes hacen del camino su forma de vivir. Diseñamos y fabricamos motorhomes a medida en Córdoba, Argentina.</p>
+              <p class="font-mono text-xs text-ink/50">text-lg · bajadas de hero, lead paragraphs</p>
+            </div>
+
+            <div>
+              <p class="mono-caps text-ink/40 mb-3">BODY · 400 REGULAR · 16PX</p>
+              <p class="text-[16px] text-ink/75 leading-relaxed mb-2 max-w-2xl">32 modelos en catálogo. Un taller propio de 2.400 m² en Córdoba. Cada motorhome se diseña y fabrica desde cero según las necesidades del cliente.</p>
+              <p class="font-mono text-xs text-ink/50">text-base · texto general</p>
+            </div>
+
+            <div>
+              <p class="mono-caps text-ink/40 mb-3">SMALL · 400 REGULAR · 13-14PX</p>
+              <p class="text-sm text-ink/60 mb-2">Información secundaria, captions, microcopy de cards.</p>
+              <p class="font-mono text-xs text-ink/50">text-sm · text-xs</p>
+            </div>
+
+            <div>
+              <p class="mono-caps text-orange mb-2">MONO CAPS · 600 SEMIBOLD · LETTER-SPACING 0.16EM</p>
+              <p class="font-mono text-xs text-ink/50">mono-caps · pretitles, etiquetas, badges</p>
+            </div>
+
+          </div>
+
+          <div class="mt-8 p-5 bg-ink rounded-xl">
+            <p class="mono-caps text-orange mb-3">REGLA · MÁXIMO 100PX</p>
+            <p class="text-white/85 text-sm leading-relaxed">
+              Ningún título principal puede exceder los 100px. Para mantener proporción y legibilidad, usá <code class="bg-white/10 px-2 py-0.5 rounded text-orange font-mono text-xs">clamp(min, vw, max)</code> con max ≤ 100px.
+            </p>
+          </div>
+
+          <!-- ============================================ -->
+          <!-- TIPOGRAFÍA CON IMAGEN DE FONDO (KNOCKOUT TEXT) -->
+          <!-- ============================================ -->
+          <div class="mt-12 pt-12 border-t border-ink/10">
+            <div class="flex items-start justify-between gap-4 mb-7">
+              <div>
+                <p class="mono-caps text-orange mb-3">RECURSO DESTACADO</p>
+                <h3 class="display-black text-2xl text-ink mb-2">Tipografía con imagen de fondo</h3>
+                <p class="text-ink/65 text-sm max-w-2xl">
+                  Conocido como <em>knockout text</em>. La imagen se recorta dentro del trazo de las letras, generando un efecto editorial fuerte. Es uno de los recursos más identitarios de la marca — usalo con criterio para momentos clave (manifiestos, declaraciones, cierres).
+                </p>
+              </div>
+              <span class="mono-caps text-orange flex-shrink-0 hidden sm:inline">★ FAVORITO</span>
+            </div>
+
+            <!-- Ejemplo visual sobre fondo oscuro -->
+            <div class="bg-ink rounded-2xl p-8 lg:p-12 mb-5 text-center overflow-hidden">
+              <p class="mono-caps text-orange mb-5">— MANIFIESTO</p>
+              <h4 class="display-black text-[clamp(40px,7vw,84px)] leading-[0.92] tracking-tighter">
+                <span class="block text-white">EL MOTORHOME</span>
+                <span class="block" style="background-image: url('https://www.cinziavehiculos.com/dist/image/product/upload/202310/651acf5080f61.JPG'); background-size: cover; background-position: center; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent;">NO SE COMPRA.</span>
+                <span class="block text-white">SE DISEÑA.</span>
+              </h4>
+            </div>
+
+            <!-- Variantes de ejemplo -->
+            <div class="grid sm:grid-cols-2 gap-5 mb-7">
+
+              <!-- Variante 1: Sobre fondo cream -->
+              <div class="bg-soft rounded-2xl p-8 text-center overflow-hidden">
+                <p class="mono-caps text-orange mb-3 text-[0.6rem]">— SOBRE FONDO CLARO</p>
+                <p class="display-black text-[clamp(28px,4.5vw,56px)] leading-[0.95]">
+                  <span style="background-image: url('https://www.cinziavehiculos.com/dist/image/product/upload/202310/651acf5080f61.JPG'); background-size: cover; background-position: center; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent;">PATAGONIA<br>SIN LÍMITES</span>
+                </p>
+              </div>
+
+              <!-- Variante 2: Solo una palabra knockout -->
+              <div class="bg-soft rounded-2xl p-8 text-center overflow-hidden">
+                <p class="mono-caps text-orange mb-3 text-[0.6rem]">— MIX (PALABRA CLAVE)</p>
+                <p class="display-black text-[clamp(28px,4.5vw,56px)] leading-[0.95] text-ink">
+                  CADA <span style="background-image: url('https://www.cinziavehiculos.com/dist/image/product/upload/202411/672a5c5e113c6.jpg'); background-size: cover; background-position: center; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent;">VIAJE</span><br>ES TUYO.
+                </p>
+              </div>
+
+            </div>
+
+            <!-- Cómo se hace -->
+            <div class="bg-ink text-white rounded-2xl p-6 lg:p-7 mb-5">
+              <p class="mono-caps text-orange mb-4">CÓMO SE IMPLEMENTA</p>
+              <pre class="font-mono text-xs text-white/85 leading-relaxed overflow-x-auto"><code><span class="text-orange">.knockout-text</span> {
+  <span class="text-orange-light">background-image</span>: url('...ruta-imagen.jpg');
+  <span class="text-orange-light">background-size</span>: cover;
+  <span class="text-orange-light">background-position</span>: center;
+  <span class="text-orange-light">-webkit-background-clip</span>: text;
+  <span class="text-orange-light">background-clip</span>: text;
+  <span class="text-orange-light">-webkit-text-fill-color</span>: transparent;
+  <span class="text-orange-light">color</span>: transparent;
+  <span class="text-orange-light">font-weight</span>: 900;
+  <span class="text-orange-light">letter-spacing</span>: -0.04em;
+}</code></pre>
+            </div>
+
+            <!-- Reglas de uso -->
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div class="p-5 bg-orange/5 border border-orange/20 rounded-xl">
+                <p class="font-bold text-ink mb-3 text-sm">✅ Cuándo usarlo</p>
+                <ul class="text-xs text-ink/75 space-y-2">
+                  <li>• <strong>Manifiestos</strong> y declaraciones de marca</li>
+                  <li>• <strong>Heroes editoriales</strong> de página interna</li>
+                  <li>• <strong>1 sola línea</strong> dentro de un titular de 3 líneas (para resaltar la palabra clave)</li>
+                  <li>• <strong>Cierres</strong> de página con impacto visual</li>
+                  <li>• Tipografía bold <strong>weight 900</strong>, mínimo 40px — letras chicas no muestran la imagen</li>
+                </ul>
+              </div>
+              <div class="p-5 bg-soft rounded-xl">
+                <p class="font-bold text-ink mb-3 text-sm">❌ Cuándo NO usarlo</p>
+                <ul class="text-xs text-ink/75 space-y-2">
+                  <li>• Tipografía de <strong>cuerpo</strong> o body text (ilegible)</li>
+                  <li>• <strong>Más de 1 vez por página</strong> — pierde fuerza</li>
+                  <li>• Sobre imágenes con muchos colores claros + texto blanco (sin contraste)</li>
+                  <li>• Tamaño menor a 40px (no se ve la imagen dentro)</li>
+                  <li>• Sobre fondos del mismo color que la imagen (se confunde)</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="mt-5 p-5 bg-ink/5 border border-ink/10 rounded-xl">
+              <p class="mono-caps text-ink/60 mb-2">TIPS DE IMAGEN</p>
+              <ul class="text-sm text-ink/75 space-y-1.5">
+                <li>• Funciona mejor con imágenes de <strong>alto contraste</strong> (paisajes, cielos con nubes, texturas naturales).</li>
+                <li>• Las imágenes outdoor de Cinzia (motorhomes en ruta, tomas del taller) son ideales.</li>
+                <li>• Si la imagen es muy oscura, el texto queda casi negro — combinar con fondo claro.</li>
+                <li>• Si la imagen es muy clara, el texto se pierde — combinar con fondo oscuro <code class="bg-white/60 px-1.5 rounded font-mono text-xs">#0B0B0B</code>.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- 04 ESPACIADO -->
+        <section id="espaciado" class="section-card">
+          <p class="mono-caps text-orange mb-3">04 · ESPACIADO</p>
+          <h2 class="display-black text-3xl text-ink mb-3">Sistema de espaciado</h2>
+          <p class="text-ink/65 mb-7 max-w-2xl">Sistema base 4px. Usar las escalas de Tailwind por defecto. Padding generoso para respirar — minimal 16px entre elementos relacionados, 64px+ entre secciones.</p>
+
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8">
+            <div class="bg-soft rounded-lg p-4 text-center">
+              <div class="bg-orange h-1 mb-3 rounded-full" style="width: 8px;"></div>
+              <p class="font-mono text-xs">8px · space-2</p>
+            </div>
+            <div class="bg-soft rounded-lg p-4 text-center">
+              <div class="bg-orange h-1 mb-3 rounded-full" style="width: 16px;"></div>
+              <p class="font-mono text-xs">16px · space-4</p>
+            </div>
+            <div class="bg-soft rounded-lg p-4 text-center">
+              <div class="bg-orange h-1 mb-3 rounded-full" style="width: 24px;"></div>
+              <p class="font-mono text-xs">24px · space-6</p>
+            </div>
+            <div class="bg-soft rounded-lg p-4 text-center">
+              <div class="bg-orange h-1 mb-3 rounded-full" style="width: 40px;"></div>
+              <p class="font-mono text-xs">40px · space-10</p>
+            </div>
+            <div class="bg-soft rounded-lg p-4 text-center">
+              <div class="bg-orange h-1 mb-3 rounded-full" style="width: 64px;"></div>
+              <p class="font-mono text-xs">64px · space-16</p>
+            </div>
+            <div class="bg-soft rounded-lg p-4 text-center">
+              <div class="bg-orange h-1 mb-3 rounded-full" style="width: 80px;"></div>
+              <p class="font-mono text-xs">80px · space-20</p>
+            </div>
+            <div class="bg-soft rounded-lg p-4 text-center">
+              <div class="bg-orange h-1 mb-3 rounded-full" style="width: 100px;"></div>
+              <p class="font-mono text-xs">112px · space-28</p>
+            </div>
+            <div class="bg-soft rounded-lg p-4 text-center">
+              <div class="bg-orange h-1 mb-3 rounded-full" style="width: 100px;"></div>
+              <p class="font-mono text-xs">128px · space-32</p>
+            </div>
+          </div>
+
+          <div class="grid sm:grid-cols-2 gap-4 text-sm">
+            <div class="p-5 bg-soft rounded-xl">
+              <p class="font-bold text-ink mb-2">Padding de sección (vertical)</p>
+              <ul class="text-ink/70 space-y-1">
+                <li>• Mobile: <span class="font-mono">py-16</span> (64px)</li>
+                <li>• Desktop: <span class="font-mono">py-24 / py-28</span> (96-112px)</li>
+              </ul>
+            </div>
+            <div class="p-5 bg-soft rounded-xl">
+              <p class="font-bold text-ink mb-2">Container ancho máximo</p>
+              <ul class="text-ink/70 space-y-1">
+                <li>• <span class="font-mono">max-w-[1400px] mx-auto</span></li>
+                <li>• <span class="font-mono">px-6 lg:px-10</span> (24-40px)</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- 05 BOTONES -->
+        <section id="botones" class="section-card">
+          <p class="mono-caps text-orange mb-3">05 · BOTONES</p>
+          <h2 class="display-black text-3xl text-ink mb-7">Botones</h2>
+
+          <div class="space-y-7">
+            <div>
+              <p class="mono-caps text-ink/50 mb-3">PRIMARY · Naranja sólido</p>
+              <div class="flex flex-wrap items-center gap-3 mb-3">
+                <a href="#" class="btn-primary">
+                  Diseñá tu motorhome
+                  <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+                <a href="#" class="btn-primary text-sm" style="padding: 10px 18px;">
+                  Smaller
+                  <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+              </div>
+              <p class="text-xs text-ink/50 font-mono">.btn-primary · Para CTAs principales · 1 por sección</p>
+            </div>
+
+            <div>
+              <p class="mono-caps text-ink/50 mb-3">SECONDARY · Outline naranja</p>
+              <div class="flex flex-wrap items-center gap-3 mb-3">
+                <a href="#" class="btn-outline-orange">
+                  Ver modelos
+                  <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+              </div>
+              <p class="text-xs text-ink/50 font-mono">.btn-outline-orange · Para CTAs secundarios sobre fondos claros</p>
+            </div>
+
+            <div>
+              <p class="mono-caps text-ink/50 mb-3">TERTIARY · Outline gris</p>
+              <div class="flex flex-wrap items-center gap-3 mb-3">
+                <a href="#" class="btn-outline-dark">
+                  Conocé más
+                </a>
+              </div>
+              <p class="text-xs text-ink/50 font-mono">.btn-outline-dark · Para acciones complementarias menos importantes</p>
+            </div>
+
+            <div>
+              <p class="mono-caps text-ink/50 mb-3">WHATSAPP · Verde fijo</p>
+              <div class="flex flex-wrap items-center gap-3 mb-3">
+                <a href="#" class="btn-wa">
+                  <i data-lucide="message-circle" class="w-4 h-4"></i>
+                  Escribinos por WhatsApp
+                </a>
+              </div>
+              <p class="text-xs text-ink/50 font-mono">.btn-wa · Solo para WhatsApp. No usar verde en ningún otro contexto.</p>
+            </div>
+
+            <div>
+              <p class="mono-caps text-ink/50 mb-3">SOBRE FONDOS OSCUROS</p>
+              <div class="bg-ink p-7 rounded-2xl">
+                <div class="flex flex-wrap items-center gap-3">
+                  <a href="#" class="btn-primary">
+                    Diseñá tu motorhome
+                    <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                  </a>
+                  <a href="#" style="background: transparent; color: #FFFFFF; padding: 12px 22px; border: 1.5px solid rgba(255,255,255,0.4); border-radius: 999px; font-weight: 600; font-size: 0.9rem;" class="inline-flex items-center gap-2">
+                    Secundario
+                    <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="mt-8 grid sm:grid-cols-2 gap-4">
+            <div class="p-5 bg-soft rounded-xl">
+              <p class="font-bold text-ink mb-2 text-sm">✅ SÍ</p>
+              <ul class="text-xs text-ink/70 space-y-1.5">
+                <li>• Border-radius completo (pill)</li>
+                <li>• Icono + texto cuando aplica</li>
+                <li>• 1 botón primario por sección</li>
+                <li>• Hover suave con translate-y(-1px)</li>
+              </ul>
+            </div>
+            <div class="p-5 bg-soft rounded-xl">
+              <p class="font-bold text-ink mb-2 text-sm">❌ NO</p>
+              <ul class="text-xs text-ink/70 space-y-1.5">
+                <li>• Botones cuadrados o solo redondeados</li>
+                <li>• Más de 2 CTAs en el mismo viewport</li>
+                <li>• Gradients en botones</li>
+                <li>• Sombras profundas o glow</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- 06 TAGS Y PILLS -->
+        <section id="tags" class="section-card">
+          <p class="mono-caps text-orange mb-3">06 · TAGS Y PILLS</p>
+          <h2 class="display-black text-3xl text-ink mb-7">Etiquetas</h2>
+
+          <div class="space-y-6">
+
+            <div>
+              <p class="mono-caps text-ink/50 mb-3">PILL TAG · Tag de categoría</p>
+              <div class="flex flex-wrap items-center gap-2 mb-3">
+                <span class="pill-tag">Campers</span>
+                <span class="pill-tag">Motorhome Chasis</span>
+                <span class="pill-tag">Entrega Inmediata</span>
+              </div>
+              <p class="text-xs text-ink/50 font-mono">.pill-tag · Sobre cards de producto</p>
+            </div>
+
+            <div>
+              <p class="mono-caps text-ink/50 mb-3">FILTER PILL · Filtros de catálogo</p>
+              <div class="flex flex-wrap items-center gap-2 mb-3">
+                <button class="filter-pill active">Todos</button>
+                <button class="filter-pill">Campers</button>
+                <button class="filter-pill">Motorhome Chasis</button>
+                <button class="filter-pill">Motorhome Furgón</button>
+              </div>
+              <p class="text-xs text-ink/50 font-mono">.filter-pill · Estado normal y .active</p>
+            </div>
+
+            <div>
+              <p class="mono-caps text-ink/50 mb-3">BADGE · Sobre imágenes</p>
+              <div class="flex flex-wrap items-center gap-2 mb-3">
+                <span style="background:#E9580C;color:white;font-family:'Inter',monospace;text-transform:uppercase;letter-spacing:0.12em;font-size:0.6rem;font-weight:700;padding:4px 10px;border-radius:999px;">NUEVO</span>
+                <span style="background:#0B0B0B;color:white;font-family:'Inter',monospace;text-transform:uppercase;letter-spacing:0.12em;font-size:0.6rem;font-weight:700;padding:4px 10px;border-radius:999px;">TOP</span>
+                <span style="background:#0B0B0B;color:white;font-family:'Inter',monospace;text-transform:uppercase;letter-spacing:0.12em;font-size:0.6rem;font-weight:700;padding:4px 10px;border-radius:999px;">B2B</span>
+                <span style="background:#E9580C;color:white;font-family:'Inter',monospace;text-transform:uppercase;letter-spacing:0.12em;font-size:0.6rem;font-weight:700;padding:4px 10px;border-radius:999px;">0KM</span>
+              </div>
+              <p class="text-xs text-ink/50 font-mono">Posición absolute sobre el corner de la imagen</p>
+            </div>
+
+            <div>
+              <p class="mono-caps text-ink/50 mb-3">MONO CAPS · Pretitle</p>
+              <p class="mono-caps text-orange">— NUESTRA HISTORIA</p>
+              <p class="text-xs text-ink/50 font-mono mt-2">.mono-caps · Siempre antes del H2 de sección</p>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- 07 CARDS -->
+        <section id="cards" class="section-card">
+          <p class="mono-caps text-orange mb-3">07 · CARDS</p>
+          <h2 class="display-black text-3xl text-ink mb-7">Cards y bloques</h2>
+
+          <div class="grid md:grid-cols-2 gap-5 mb-6">
+
+            <!-- Product card example -->
+            <div>
+              <p class="mono-caps text-ink/50 mb-3">CARD DE PRODUCTO</p>
+              <div class="bg-white rounded-2xl">
+                <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-soft mb-4 relative">
+                  <img src="https://www.cinziavehiculos.com/dist/image/product/upload/202310/651acf5080f61.JPG" alt="" class="w-full h-full object-cover">
+                </div>
+                <div class="flex items-center justify-between mb-2">
+                  <span class="pill-tag">Campers</span>
+                  <span class="mono-caps text-ink/40">4 personas</span>
+                </div>
+                <h3 class="display-black text-xl text-ink mb-1">CHAMPAQUI</h3>
+                <p class="text-xs text-ink/60 mb-3">Camper Doble Cabina</p>
+                <div class="flex items-center justify-between pt-3 border-t border-ink/10">
+                  <span class="font-bold text-ink">US$ 24.119</span>
+                  <span class="text-orange font-semibold text-sm inline-flex items-center gap-1">+ Info <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Info card dark -->
+            <div>
+              <p class="mono-caps text-ink/50 mb-3">CARD DARK</p>
+              <div class="bg-ink text-white rounded-2xl p-6 lg:p-7 h-full">
+                <p class="mono-caps text-orange mb-3">— TALLER PROPIO</p>
+                <h3 class="display-black text-2xl mb-3">2.400 m²<br>en Córdoba.</h3>
+                <p class="text-white/70 text-sm leading-relaxed">Diseño, ingeniería, carpintería y terminaciones bajo el mismo techo.</p>
+              </div>
+            </div>
+
+            <!-- Orange highlight card -->
+            <div>
+              <p class="mono-caps text-ink/50 mb-3">CARD HIGHLIGHT</p>
+              <div class="bg-orange text-white rounded-2xl p-6 lg:p-7 h-full">
+                <p class="mono-caps text-white/85 mb-3">— LO QUE INCLUYE</p>
+                <ul class="space-y-2 text-sm">
+                  <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4"></i> Item 1</li>
+                  <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4"></i> Item 2</li>
+                  <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4"></i> Item 3</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Stat card -->
+            <div>
+              <p class="mono-caps text-ink/50 mb-3">STAT CARD</p>
+              <div class="bg-soft rounded-2xl p-6 lg:p-7 h-full flex flex-col justify-center text-center">
+                <p class="display-black text-5xl text-ink mb-2">2.400</p>
+                <p class="mono-caps text-ink/60">M² DE TALLER</p>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="p-5 bg-soft rounded-xl">
+            <p class="mono-caps text-orange mb-2">PROPIEDADES BASE DE CARD</p>
+            <ul class="text-sm text-ink/70 space-y-1.5">
+              <li>• Border-radius: <span class="font-mono">rounded-2xl</span> (16px) o <span class="font-mono">rounded-3xl</span> (24px)</li>
+              <li>• Padding: <span class="font-mono">p-6</span> (24px) mobile, <span class="font-mono">p-7</span> (28px) desktop</li>
+              <li>• Border: <span class="font-mono">border border-ink/5</span> sutil</li>
+              <li>• Hover: <span class="font-mono">translate-y(-4px)</span> en 280ms cubic-bezier</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- 08 FORMS -->
+        <section id="forms" class="section-card">
+          <p class="mono-caps text-orange mb-3">08 · FORMULARIOS</p>
+          <h2 class="display-black text-3xl text-ink mb-7">Formularios</h2>
+
+          <div class="grid md:grid-cols-2 gap-8">
+
+            <div>
+              <p class="mono-caps text-ink/50 mb-3">INPUT</p>
+              <label style="display:block;font-size:0.7rem;font-weight:600;color:rgba(11,11,11,0.6);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:8px;">Nombre</label>
+              <input type="text" placeholder="María García" style="width:100%;background:white;border:1.5px solid rgba(11,11,11,0.1);border-radius:12px;padding:13px 16px;font-size:0.95rem;color:#0B0B0B;">
+              <p class="text-xs text-ink/50 font-mono mt-2">.form-input · border-radius 12px · focus border #E9580C</p>
+            </div>
+
+            <div>
+              <p class="mono-caps text-ink/50 mb-3">SELECT</p>
+              <label style="display:block;font-size:0.7rem;font-weight:600;color:rgba(11,11,11,0.6);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:8px;">Asunto</label>
+              <select style="width:100%;background:white;border:1.5px solid rgba(11,11,11,0.1);border-radius:12px;padding:13px 16px;font-size:0.95rem;color:#0B0B0B;">
+                <option>Seleccioná un asunto</option>
+                <option>Quiero comprar un motorhome</option>
+              </select>
+              <p class="text-xs text-ink/50 font-mono mt-2">Mismo estilo que input</p>
+            </div>
+
+            <div class="md:col-span-2">
+              <p class="mono-caps text-ink/50 mb-3">TEXTAREA</p>
+              <label style="display:block;font-size:0.7rem;font-weight:600;color:rgba(11,11,11,0.6);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:8px;">Tu consulta</label>
+              <textarea rows="3" placeholder="Contanos en qué podemos ayudarte..." style="width:100%;background:white;border:1.5px solid rgba(11,11,11,0.1);border-radius:12px;padding:13px 16px;font-size:0.95rem;resize:none;"></textarea>
+            </div>
+
+            <div class="md:col-span-2 flex items-start gap-3">
+              <input type="checkbox" id="demo-check" class="mt-1 w-5 h-5 rounded border-ink/20 text-orange focus:ring-orange/30">
+              <label for="demo-check" class="text-sm text-ink/60">Acepto la política de privacidad y autorizo el contacto comercial.</label>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- 09 NAVEGACIÓN -->
+        <section id="navegacion" class="section-card">
+          <p class="mono-caps text-orange mb-3">09 · NAVEGACIÓN</p>
+          <h2 class="display-black text-3xl text-ink mb-3">Header / Navegación</h2>
+          <p class="text-ink/65 mb-7 max-w-2xl">Header tipo "pill flotante" blanco fijo arriba con shadow. CTA principal de rental + nav con dropdown de Modelos.</p>
+
+          <!-- Demo del header -->
+          <div class="bg-orange/10 rounded-2xl p-5 mb-6">
+            <div class="bg-white rounded-full shadow-xl border border-ink/5 pl-5 pr-3 lg:pl-7 lg:pr-4 py-2.5 flex items-center justify-between gap-4">
+              <img src="https://www.cinziavehiculos.com/assets/image/logo.svg" alt="Cinzia" class="h-9 w-auto">
+              <nav class="hidden lg:flex items-center gap-7 text-sm font-semibold text-ink/85">
+                <a href="#" class="hover:text-orange transition-colors inline-flex items-center gap-1">Modelos <i data-lucide="chevron-down" class="w-3.5 h-3.5"></i></a>
+                <a href="#" class="hover:text-orange transition-colors">Nosotros</a>
+                <a href="#" class="hover:text-orange transition-colors">FAQ</a>
+                <a href="#" class="hover:text-orange transition-colors">Contacto</a>
+              </nav>
+              <a href="#" class="btn-primary text-sm" style="padding: 10px 18px;">Alquilá un motorhome <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+            </div>
+          </div>
+
+          <div class="grid sm:grid-cols-2 gap-4 text-sm">
+            <div class="p-5 bg-soft rounded-xl">
+              <p class="font-bold text-ink mb-2">Características</p>
+              <ul class="text-ink/70 space-y-1">
+                <li>• <span class="font-mono">position: fixed</span></li>
+                <li>• <span class="font-mono">top-5 left-5 right-5</span></li>
+                <li>• <span class="font-mono">rounded-full</span></li>
+                <li>• <span class="font-mono">shadow-xl</span> + border sutil</li>
+              </ul>
+            </div>
+            <div class="p-5 bg-soft rounded-xl">
+              <p class="font-bold text-ink mb-2">CTA principal</p>
+              <p class="text-ink/70 leading-relaxed">El CTA del header siempre apunta a Rental (alquiler) — es el hook de conversión más rápido. La venta de motorhome se vende desde el catálogo.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- 10 HERO PATTERNS -->
+        <section id="hero" class="section-card">
+          <p class="mono-caps text-orange mb-3">10 · HERO PATTERNS</p>
+          <h2 class="display-black text-3xl text-ink mb-3">Patrones de Hero</h2>
+          <p class="text-ink/65 mb-7 max-w-2xl">Dos variantes — hero de home (con texto sobre imagen) y hero de página interna (más compacto).</p>
+
+          <div class="space-y-5">
+
+            <div>
+              <p class="mono-caps text-ink/50 mb-3">HERO HOME — Full screen + texto sobre imagen</p>
+              <div class="relative aspect-[21/9] rounded-2xl overflow-hidden">
+                <img src="./cinzia-hero.png" alt="" class="w-full h-full object-cover" onerror="this.style.display='none'">
+                <div class="absolute inset-0 bg-gradient-to-r from-white/70 to-transparent"></div>
+                <div class="absolute inset-0 p-8 lg:p-12 flex flex-col justify-end">
+                  <p class="mono-caps text-orange mb-3">— FÁBRICA · CÓRDOBA · DESDE [AÑO]</p>
+                  <h3 class="display-black text-3xl lg:text-5xl text-ink leading-none max-w-xl">VIAJAR ES UN ESTILO DE VIDA.</h3>
+                </div>
+              </div>
+              <p class="text-xs text-ink/50 font-mono mt-2">100vh · texto negro sobre vignette claro · marquee strip al pie</p>
+            </div>
+
+            <div>
+              <p class="mono-caps text-ink/50 mb-3">HERO PÁGINA INTERNA — Compacto + texto sobre imagen oscura</p>
+              <div class="relative aspect-[21/6] rounded-2xl overflow-hidden">
+                <img src="https://www.cinziavehiculos.com/dist/image/product/upload/202411/672a5c5e113c6.jpg" alt="" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-b from-ink/30 via-ink/40 to-ink/85"></div>
+                <div class="absolute inset-0 p-8 lg:p-12 flex flex-col justify-end text-white">
+                  <p class="mono-caps text-white/70 mb-3 text-sm">INICIO / NOSOTROS</p>
+                  <p class="mono-caps text-orange mb-3">— FÁBRICA FAMILIAR · CÓRDOBA</p>
+                  <h3 class="display-black text-3xl lg:text-5xl leading-none max-w-xl">Somos una familia que fabrica.</h3>
+                </div>
+              </div>
+              <p class="text-xs text-ink/50 font-mono mt-2">min-h 480px · texto blanco sobre vignette oscuro · breadcrumb arriba</p>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- 11 VOZ -->
+        <section id="voz" class="section-card">
+          <p class="mono-caps text-orange mb-3">11 · TONO DE VOZ</p>
+          <h2 class="display-black text-3xl text-ink mb-7">Reglas de copy</h2>
+
+          <div class="grid md:grid-cols-2 gap-5 mb-7">
+            <div class="p-6 bg-orange/5 border border-orange/20 rounded-xl">
+              <p class="mono-caps text-orange mb-3">✅ SÍ</p>
+              <ul class="text-sm text-ink/80 space-y-2">
+                <li>• Vos castellano AR informal pero respetuoso</li>
+                <li>• Frases cortas, una idea por línea</li>
+                <li>• Datos específicos (números, marcas, modelos)</li>
+                <li>• Verbos imperativos en presente</li>
+                <li>• Tono confiado por hechos</li>
+                <li>• "Diseñá", "Fabricamos", "Vos elegís"</li>
+              </ul>
+            </div>
+            <div class="p-6 bg-soft rounded-xl">
+              <p class="mono-caps text-ink mb-3">❌ NO</p>
+              <ul class="text-sm text-ink/80 space-y-2">
+                <li>• "Estilo de vida" sin sustento</li>
+                <li>• "Pasión por viajar"</li>
+                <li>• "Aventureros" / "Sin límites"</li>
+                <li>• "Premium" como adjetivo decorativo</li>
+                <li>• "Líderes del mercado" sin prueba</li>
+                <li>• Subordinadas complejas</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="p-5 bg-ink rounded-xl text-white">
+            <p class="mono-caps text-orange mb-3">EJEMPLOS DE COPY CORRECTO</p>
+            <div class="space-y-3 text-sm">
+              <p>"32 modelos. 25 opcionales por modelo. Un taller. Un equipo."</p>
+              <p>"Sobre chasis Mercedes-Benz, Iveco, Citroën, Fiat y Ford. 10 modelos."</p>
+              <p>"Antes de comprarte uno, alquilá uno."</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- 12 ANIMACIONES -->
+        <section id="animaciones" class="section-card">
+          <p class="mono-caps text-orange mb-3">12 · ANIMACIONES</p>
+          <h2 class="display-black text-3xl text-ink mb-7">Animaciones</h2>
+
+          <div class="space-y-5">
+            <div class="p-5 bg-soft rounded-xl">
+              <p class="font-bold text-ink mb-2">Transition base</p>
+              <p class="font-mono text-xs text-ink/70 bg-white px-3 py-2 rounded mb-2">all 200ms cubic-bezier(0.22, 1, 0.36, 1)</p>
+              <p class="text-sm text-ink/70">Para hover de elementos pequeños (botones, links, iconos).</p>
+            </div>
+
+            <div class="p-5 bg-soft rounded-xl">
+              <p class="font-bold text-ink mb-2">Scroll reveal</p>
+              <p class="font-mono text-xs text-ink/70 bg-white px-3 py-2 rounded mb-2">opacity + translateY(24px → 0) en 900ms</p>
+              <p class="text-sm text-ink/70">Para entrada de elementos en viewport via IntersectionObserver.</p>
+            </div>
+
+            <div class="p-5 bg-soft rounded-xl">
+              <p class="font-bold text-ink mb-2">Card hover</p>
+              <p class="font-mono text-xs text-ink/70 bg-white px-3 py-2 rounded mb-2">transform: translateY(-4px) en 280ms</p>
+              <p class="text-sm text-ink/70">Lift sutil al pasar el cursor. Más alto que botones (que es -1px).</p>
+            </div>
+
+            <div class="p-5 bg-soft rounded-xl">
+              <p class="font-bold text-ink mb-2">Image zoom on hover</p>
+              <p class="font-mono text-xs text-ink/70 bg-white px-3 py-2 rounded mb-2">scale(1.05) en 600ms</p>
+              <p class="text-sm text-ink/70">Para imágenes de cards de producto/categoría al hacer hover.</p>
+            </div>
+          </div>
+
+          <div class="mt-7 p-5 bg-orange/10 border border-orange/20 rounded-xl">
+            <p class="mono-caps text-orange mb-2">REGLA</p>
+            <p class="text-sm text-ink/80">Las animaciones tienen que <strong>servir</strong> al usuario, no decorar. Sutiles, rápidas, con propósito. Si dudás, sacala.</p>
+          </div>
+        </section>
+
+        <!-- 13 NO HACER -->
+        <section id="no-hacer" class="section-card dark">
+          <p class="mono-caps text-orange mb-3">13 · LO QUE NO HACER</p>
+          <h2 class="display-black text-3xl mb-7">Anti-patterns</h2>
+
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="p-5 bg-white/5 rounded-xl border border-white/10">
+              <p class="font-bold mb-2 text-sm">❌ Diseño</p>
+              <ul class="text-xs text-white/70 space-y-1.5">
+                <li>• Grid 3+2 cards estándar (genérico)</li>
+                <li>• Glassmorphism, neumorphism, blobs</li>
+                <li>• Sombras profundas o glow</li>
+                <li>• Más de 3 colores por sección</li>
+                <li>• Iconos decorativos sin propósito</li>
+              </ul>
+            </div>
+            <div class="p-5 bg-white/5 rounded-xl border border-white/10">
+              <p class="font-bold mb-2 text-sm">❌ Tipografía</p>
+              <ul class="text-xs text-white/70 space-y-1.5">
+                <li>• Títulos &gt; 100px</li>
+                <li>• Más de 2 weights por sección</li>
+                <li>• Title Case (siempre sentence case)</li>
+                <li>• Tipografías distintas a Inter</li>
+                <li>• Letter-spacing exagerado</li>
+              </ul>
+            </div>
+            <div class="p-5 bg-white/5 rounded-xl border border-white/10">
+              <p class="font-bold mb-2 text-sm">❌ Animación</p>
+              <ul class="text-xs text-white/70 space-y-1.5">
+                <li>• Scroll-jacking</li>
+                <li>• Parallax exagerado</li>
+                <li>• Fade-in todo al mismo tiempo</li>
+                <li>• Lottie con colores brillantes</li>
+                <li>• Carruseles automáticos forzados</li>
+              </ul>
+            </div>
+            <div class="p-5 bg-white/5 rounded-xl border border-white/10">
+              <p class="font-bold mb-2 text-sm">❌ Copy</p>
+              <ul class="text-xs text-white/70 space-y-1.5">
+                <li>• Clichés outdoor sin sustancia</li>
+                <li>• Paragrafos &gt; 4 líneas</li>
+                <li>• Subordinadas complejas</li>
+                <li>• Adjetivos vagos repetidos</li>
+                <li>• Mismas frases que cualquier competidor</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </div>
+
+    <!-- Footer simple -->
+    <footer class="bg-ink text-white py-12 border-t border-white/10">
+      <div class="max-w-[1400px] mx-auto px-6 lg:px-10 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 text-sm">
+        <p class="text-white/60">Manual de marca Cinzia · v1.0 · 2026</p>
+        <a href="cinzia-landing-v2.html" class="text-orange hover:text-orange-light transition-colors">← Volver al sitio</a>
+      </div>
+    </footer>
+
+  </main>
+
+  <script>
+    lucide.createIcons();
+
+    // Scrollspy para sidebar
+    const links = document.querySelectorAll('.nav-sidebar a');
+    const sections = document.querySelectorAll('section[id]');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const top = section.offsetTop - 100;
+        if (window.scrollY >= top) current = section.id;
+      });
+      links.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) link.classList.add('active');
+      });
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "name": "cinzia-rental-web",
+  "version": "1.0.0",
+  "description": "Sitio web de Cinzia Rental + asistente virtual Cinzi (Netlify Functions)",
+  "private": true,
+  "scripts": {
+    "dev": "netlify dev",
+    "start": "netlify dev"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.32.1"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

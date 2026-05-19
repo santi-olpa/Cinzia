@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cinzia Points — Ruta del Motorhome · 21 paradas en Córdoba</title>
+  <meta name="description" content="Conocé la Ruta del Motorhome de Córdoba: 21 Cinzia Points con carga de agua potable, descarga de aguas grises y negras, y conexión eléctrica opcional. La primera ruta motorhome de Argentina, junto a la Agencia Córdoba Turismo.">
+
+  <meta property="og:title" content="Cinzia Points — Ruta del Motorhome">
+  <meta property="og:description" content="21 paradas equipadas para tu motorhome en toda la provincia de Córdoba.">
+  <meta property="og:image" content="https://cinziavehiculos.com/rental/assets/img/bg-rental-2.jpg">
+  <meta property="og:locale" content="es_AR">
+  <meta name="theme-color" content="#E9580C">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Leaflet (mapa interactivo) -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            orange: { DEFAULT: '#E9580C', dark: '#C84A0A', light: '#FF6F1F' },
+            ink: '#0B0B0B',
+            soft: '#F5F5F5',
+          },
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+        },
+      },
+    };
+  </script>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, sans-serif; color: #0B0B0B; background: #FFFFFF; -webkit-font-smoothing: antialiased; }
+    .display-black { font-weight: 900; letter-spacing: -0.04em; line-height: 0.95; }
+    .mono-caps { font-family: 'Inter', monospace; text-transform: uppercase; letter-spacing: 0.16em; font-size: 0.6875rem; font-weight: 600; }
+
+    .btn-primary { background: #E9580C; color: #FFFFFF; padding: 14px 24px; border-radius: 999px; font-weight: 600; font-size: 0.95rem; display: inline-flex; align-items: center; justify-content: center; gap: 8px; transition: all 200ms cubic-bezier(0.22, 1, 0.36, 1); }
+    .btn-primary:hover { background: #C84A0A; transform: translateY(-1px); }
+    .btn-outline-orange { background: transparent; color: #E9580C; padding: 12px 22px; border: 1.5px solid #E9580C; border-radius: 999px; font-weight: 600; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 8px; transition: all 200ms; }
+    .btn-outline-orange:hover { background: #E9580C; color: white; }
+    .btn-outline-light { background: transparent; color: #FFFFFF; padding: 12px 22px; border: 1.5px solid rgba(255,255,255,0.5); border-radius: 999px; font-weight: 600; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 8px; transition: all 200ms; }
+    .btn-outline-light:hover { background: white; color: #0B0B0B; border-color: white; }
+
+    .float-wa { position: fixed; bottom: 24px; right: 24px; z-index: 60; width: 56px; height: 56px; border-radius: 999px; background: #25D366; color: white; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 24px rgba(37,211,102,0.32); transition: transform 200ms; }
+    .float-wa:hover { transform: scale(1.05); }
+
+    .pill-tag { display: inline-flex; align-items: center; padding: 4px 10px; border-radius: 999px; background: rgba(233,88,12,0.1); color: #C84A0A; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; }
+
+    /* MEGA MENU */
+    .nav-item-with-dropdown { position: relative; }
+    .mega-menu { position: absolute; top: calc(100% + 14px); left: 50%; transform: translateX(-50%) translateY(8px); width: 720px; max-width: calc(100vw - 40px); background: white; border-radius: 24px; box-shadow: 0 20px 60px rgba(11,11,11,0.18); border: 1px solid rgba(11,11,11,0.06); padding: 22px; opacity: 0; pointer-events: none; transition: all 220ms cubic-bezier(0.22, 1, 0.36, 1); z-index: 100; }
+    .nav-item-with-dropdown:hover .mega-menu { opacity: 1; transform: translateX(-50%) translateY(0); pointer-events: auto; }
+    .mega-menu::before { content: ''; position: absolute; top: -14px; left: 0; right: 0; height: 14px; }
+    .mega-link { display: flex; gap: 14px; padding: 14px; border-radius: 14px; transition: background 180ms; }
+    .mega-link:hover { background: #F5F5F5; }
+    .mega-link .ico-wrap { width: 44px; height: 44px; border-radius: 12px; background: rgba(233,88,12,0.1); color: #E9580C; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .mega-link:hover .ico-wrap { background: #E9580C; color: white; }
+
+    [data-reveal] { opacity: 0; transform: translateY(24px); transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1); }
+    [data-reveal].in { opacity: 1; transform: translateY(0); }
+
+    /* HERO */
+    .points-hero { position: relative; overflow: hidden; }
+    .points-hero::before { content: ''; position: absolute; inset: 0; background-image: url('../assets/ruta del motorhome.png'); background-size: cover; background-position: center; z-index: 0; filter: brightness(0.55); }
+    .points-hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(11,11,11,0.85) 0%, rgba(11,11,11,0.55) 60%, rgba(233,88,12,0.45) 100%); z-index: 1; }
+    .points-hero > * { position: relative; z-index: 2; }
+
+    /* STATS */
+    .stat-card { background: rgba(255,255,255,0.08); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.15); border-radius: 18px; padding: 18px 20px; }
+    .stat-card .num { font-weight: 900; letter-spacing: -0.04em; line-height: 1; color: white; }
+    .stat-card .lbl { font-size: 0.75rem; color: rgba(255,255,255,0.7); margin-top: 6px; font-weight: 500; }
+
+    /* MAPA */
+    #cordoba-map { width: 100%; height: 720px; border-radius: 24px; overflow: hidden; box-shadow: 0 20px 60px rgba(11,11,11,0.12); border: 1px solid rgba(11,11,11,0.08); z-index: 1; }
+    @media (max-width: 1023px) { #cordoba-map { height: 480px; } }
+
+    /* Custom Leaflet marker */
+    .cinzia-marker { width: 36px; height: 44px; position: relative; }
+    .cinzia-marker .pin {
+      width: 36px; height: 36px; border-radius: 50% 50% 50% 0;
+      background: #E9580C; transform: rotate(-45deg);
+      border: 3px solid white; box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+      display: flex; align-items: center; justify-content: center;
+      position: absolute; top: 0; left: 0;
+    }
+    .cinzia-marker .pin::after {
+      content: ''; width: 12px; height: 12px; border-radius: 50%; background: white;
+    }
+    .cinzia-marker .pulse {
+      position: absolute; top: 18px; left: 18px; width: 0; height: 0; border-radius: 50%;
+      background: rgba(233,88,12,0.4); transform: translate(-50%, -50%);
+      animation: pulse 2.4s ease-out infinite;
+    }
+    @keyframes pulse {
+      0% { width: 0; height: 0; opacity: 0.6; }
+      100% { width: 70px; height: 70px; opacity: 0; }
+    }
+    .leaflet-popup-content-wrapper {
+      border-radius: 14px !important; box-shadow: 0 12px 32px rgba(11,11,11,0.18) !important;
+      border: 1px solid rgba(11,11,11,0.08); padding: 0;
+    }
+    .leaflet-popup-content { margin: 14px 16px !important; font-family: 'Inter', sans-serif !important; }
+    .leaflet-popup-tip { box-shadow: none !important; }
+    .leaflet-popup-content .pop-title { font-weight: 800; font-size: 0.95rem; color: #0B0B0B; margin-bottom: 4px; letter-spacing: -0.01em; }
+    .leaflet-popup-content .pop-region { font-size: 0.7rem; color: rgba(11,11,11,0.55); font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
+    .leaflet-popup-content .pop-svcs { display: flex; gap: 4px; flex-wrap: wrap; }
+    .leaflet-popup-content .pop-svc { display: inline-flex; align-items: center; gap: 4px; background: rgba(233,88,12,0.1); color: #C84A0A; font-size: 0.65rem; font-weight: 600; padding: 3px 7px; border-radius: 999px; }
+
+    /* LEGEND */
+    .map-legend {
+      background: white; border-radius: 14px; padding: 12px 16px;
+      box-shadow: 0 4px 14px rgba(11,11,11,0.1); border: 1px solid rgba(11,11,11,0.06);
+      display: inline-flex; align-items: center; gap: 12px; font-size: 0.8rem; font-weight: 600;
+    }
+    .map-legend .dot { width: 14px; height: 14px; border-radius: 50%; background: #E9580C; }
+
+    /* SERVICE CARD */
+    .service-card {
+      background: white; border: 1px solid rgba(11,11,11,0.06);
+      border-radius: 24px; padding: 28px; transition: all 280ms cubic-bezier(0.22,1,0.36,1);
+      display: flex; flex-direction: column; gap: 14px;
+    }
+    .service-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(11,11,11,0.08); border-color: rgba(233,88,12,0.2); }
+    .service-card .ico-big { width: 56px; height: 56px; border-radius: 16px; background: rgba(233,88,12,0.1); color: #E9580C; display: flex; align-items: center; justify-content: center; }
+    .service-card:hover .ico-big { background: #E9580C; color: white; }
+
+    /* LOCATION CARD */
+    .location-card {
+      background: white; border: 1px solid rgba(11,11,11,0.07); border-radius: 14px;
+      padding: 14px 16px; display: flex; align-items: center; gap: 12px;
+      transition: all 200ms; cursor: pointer;
+    }
+    .location-card:hover { border-color: #E9580C; background: rgba(233,88,12,0.03); transform: translateY(-2px); }
+    .location-card .num { font-family: 'Inter', monospace; font-size: 0.7rem; font-weight: 700; color: rgba(11,11,11,0.4); width: 22px; flex-shrink: 0; }
+    .location-card .name { font-weight: 700; color: #0B0B0B; font-size: 0.9rem; }
+    .location-card .reg { font-size: 0.7rem; color: rgba(11,11,11,0.5); margin-top: 2px; }
+
+    /* REGION FILTER */
+    .region-pill { padding: 8px 16px; border-radius: 999px; border: 1.5px solid rgba(11,11,11,0.12); font-weight: 600; font-size: 0.82rem; color: rgba(11,11,11,0.7); background: white; cursor: pointer; transition: all 200ms; white-space: nowrap; }
+    .region-pill:hover { border-color: #E9580C; color: #E9580C; }
+    .region-pill.active { background: #0B0B0B; color: white; border-color: #0B0B0B; }
+
+    /* AUDIENCE GRID */
+    .audience-item { display: flex; gap: 14px; padding: 18px; border-radius: 16px; background: white; border: 1px solid rgba(11,11,11,0.06); }
+    .audience-item .ico { width: 42px; height: 42px; border-radius: 12px; background: rgba(233,88,12,0.1); color: #E9580C; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+
+    /* STATION SHOWCASE */
+    .station-photo { aspect-ratio: 3/4; border-radius: 24px; overflow: hidden; background: linear-gradient(180deg, #1a1410 0%, #0B0B0B 100%); position: relative; }
+    .station-photo::before {
+      content: ''; position: absolute; inset: 0;
+      background-image: radial-gradient(circle at 50% 80%, rgba(233,88,12,0.3) 0%, transparent 60%);
+    }
+  
+    /* ============================================ */
+    /* MOBILE MENU                                  */
+    /* ============================================ */
+    .mobile-menu-btn {
+      width: 44px; height: 44px; border-radius: 999px;
+      background: #0B0B0B; color: white;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 200ms;
+      flex-shrink: 0;
+    }
+    .mobile-menu-btn:hover { background: #E9580C; }
+
+    .mobile-menu-backdrop {
+      position: fixed; inset: 0; z-index: 90;
+      background: rgba(11,11,11,0.5);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      opacity: 0; pointer-events: none;
+      transition: opacity 300ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .mobile-menu-backdrop.open { opacity: 1; pointer-events: auto; }
+
+    .mobile-menu {
+      position: fixed; top: 0; right: 0; bottom: 0; z-index: 100;
+      width: min(420px, 92vw);
+      background: white;
+      box-shadow: -20px 0 60px rgba(11,11,11,0.18);
+      transform: translateX(100%);
+      transition: transform 380ms cubic-bezier(0.22, 1, 0.36, 1);
+      display: flex; flex-direction: column;
+      overflow-y: auto;
+    }
+    .mobile-menu.open { transform: translateX(0); }
+
+    .mm-header {
+      padding: 22px 26px;
+      display: flex; align-items: center; justify-content: space-between;
+      border-bottom: 1px solid rgba(11,11,11,0.06);
+      flex-shrink: 0;
+    }
+    .mm-close {
+      width: 40px; height: 40px; border-radius: 999px;
+      background: #F5F5F5; color: #0B0B0B;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 180ms;
+    }
+    .mm-close:hover { background: #E9580C; color: white; transform: rotate(90deg); }
+
+    .mm-body { flex: 1; padding: 20px 26px; }
+    .mm-nav-link {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 0;
+      font-size: 1.1rem; font-weight: 700; color: #0B0B0B;
+      border-bottom: 1px solid rgba(11,11,11,0.06);
+      transition: all 180ms;
+    }
+    .mm-nav-link:last-child { border-bottom: none; }
+    .mm-nav-link:hover { color: #E9580C; padding-left: 8px; }
+    .mm-nav-link.active { color: #E9580C; }
+    .mm-nav-link i { color: rgba(11,11,11,0.3); transition: all 180ms; }
+    .mm-nav-link:hover i { color: #E9580C; transform: translateX(4px); }
+
+    /* Submenu Modelos */
+    .mm-submenu { overflow: hidden; max-height: 0; transition: max-height 380ms cubic-bezier(0.22,1,0.36,1); }
+    .mm-submenu.open { max-height: 800px; }
+    .mm-submenu-inner { padding: 8px 0 4px; }
+    .mm-sublink {
+      display: flex; align-items: center; gap: 12px;
+      padding: 12px 14px; border-radius: 12px;
+      transition: background 180ms;
+    }
+    .mm-sublink:hover { background: #F5F5F5; }
+    .mm-sublink .ico-wrap {
+      width: 36px; height: 36px; border-radius: 10px;
+      background: rgba(233,88,12,0.1); color: #E9580C;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .mm-sublink-text p { font-weight: 700; font-size: 0.88rem; color: #0B0B0B; }
+    .mm-sublink-text span { font-size: 0.7rem; color: rgba(11,11,11,0.55); }
+
+    .mm-modelos-toggle {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 0; cursor: pointer;
+      font-size: 1.1rem; font-weight: 700; color: #0B0B0B;
+      border-bottom: 1px solid rgba(11,11,11,0.06);
+      transition: color 180ms;
+      width: 100%; background: transparent; border-left: none; border-right: none; border-top: none;
+      text-align: left;
+    }
+    .mm-modelos-toggle:hover { color: #E9580C; }
+    .mm-modelos-toggle .chev { transition: transform 380ms cubic-bezier(0.22,1,0.36,1); }
+    .mm-modelos-toggle.open .chev { transform: rotate(180deg); color: #E9580C; }
+
+    .mm-footer {
+      padding: 20px 26px 28px;
+      border-top: 1px solid rgba(11,11,11,0.06);
+      background: #FAFAFA;
+      flex-shrink: 0;
+    }
+    .mm-cta {
+      background: #E9580C; color: white;
+      padding: 16px 24px; border-radius: 999px;
+      font-weight: 700; font-size: 1rem;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      width: 100%; transition: all 200ms;
+      margin-bottom: 16px;
+    }
+    .mm-cta:hover { background: #C84A0A; transform: translateY(-2px); box-shadow: 0 12px 28px rgba(233,88,12,0.28); }
+    .mm-cta.wa { background: #25D366; }
+    .mm-cta.wa:hover { background: #1FBE5C; box-shadow: 0 12px 28px rgba(37,211,102,0.32); }
+    .mm-contact { display: flex; gap: 8px; }
+    .mm-contact a {
+      flex: 1; display: flex; align-items: center; justify-content: center; gap: 6px;
+      padding: 12px 14px; border-radius: 14px;
+      font-size: 0.78rem; font-weight: 600;
+      background: white; border: 1px solid rgba(11,11,11,0.08);
+      color: #0B0B0B; transition: all 180ms;
+    }
+    .mm-contact a:hover { border-color: #E9580C; color: #E9580C; }
+    .mm-contact a.wa { background: #25D366; color: white; border-color: #25D366; }
+    .mm-contact a.wa:hover { filter: brightness(0.92); border-color: #25D366; color: white; }
+
+    body.menu-open { overflow: hidden; }
+  
+  </style>
+</head>
+<body>
+
+  <!-- HEADER PILL FLOTANTE -->
+  <header class="fixed top-5 left-5 right-5 z-50">
+    <div class="max-w-[1400px] mx-auto bg-white rounded-full shadow-xl border border-ink/5 pl-5 pr-3 lg:pl-7 lg:pr-4 py-2.5 flex items-center justify-between gap-4">
+      <a href="index.html" class="flex items-center shrink-0 py-1">
+        <img src="https://www.cinziavehiculos.com/assets/image/logo.svg" alt="Cinzia" class="h-9 w-auto" onerror="this.outerHTML='<div style=&quot;font-weight:900;font-size:1.25rem;letter-spacing:-0.04em;color:#0B0B0B;&quot;>CINZIA</div>'">
+      </a>
+      <nav class="hidden lg:flex items-center gap-7 text-sm font-semibold text-ink/85">
+        <div class="nav-item-with-dropdown">
+          <a href="productos.html" class="hover:text-orange transition-colors inline-flex items-center gap-1">
+            Modelos
+            <i data-lucide="chevron-down" class="w-3.5 h-3.5"></i>
+          </a>
+          <div class="mega-menu">
+            <p class="mono-caps text-ink/40 mb-3 pl-3.5">EXPLORÁ POR CATEGORÍA</p>
+            <div class="grid grid-cols-2 gap-1">
+              <a href="productos.html#campers" class="mega-link"><div class="ico-wrap"><i data-lucide="caravan" class="w-5 h-5"></i></div><div><p class="font-bold text-ink text-sm">Campers</p><p class="text-xs text-ink/60 mt-0.5">4 modelos · Desde US$ 24.119</p></div></a>
+              <a href="productos.html#casas-rodantes" class="mega-link"><div class="ico-wrap"><i data-lucide="home" class="w-5 h-5"></i></div><div><p class="font-bold text-ink text-sm">Casas Rodantes</p><p class="text-xs text-ink/60 mt-0.5">1 modelo · Desde US$ 27.000</p></div></a>
+              <a href="productos.html#motorhome-chasis" class="mega-link"><div class="ico-wrap"><i data-lucide="truck" class="w-5 h-5"></i></div><div><p class="font-bold text-ink text-sm">Motorhome Chasis</p><p class="text-xs text-ink/60 mt-0.5">10 modelos · Desde US$ 40.523</p></div></a>
+              <a href="productos.html#motorhome-furgon" class="mega-link"><div class="ico-wrap"><i data-lucide="bus" class="w-5 h-5"></i></div><div><p class="font-bold text-ink text-sm">Motorhome Furgón</p><p class="text-xs text-ink/60 mt-0.5">6 modelos · Desde US$ 28.120</p></div></a>
+              <a href="productos.html#vehiculos-especiales" class="mega-link"><div class="ico-wrap"><i data-lucide="ambulance" class="w-5 h-5"></i></div><div><p class="font-bold text-ink text-sm">Vehículos Especiales</p><p class="text-xs text-ink/60 mt-0.5">9 modelos · B2B a medida</p></div></a>
+              <a href="productos.html#entrega-inmediata" class="mega-link"><div class="ico-wrap"><i data-lucide="zap" class="w-5 h-5"></i></div><div><p class="font-bold text-ink text-sm">Entrega Inmediata</p><p class="text-xs text-ink/60 mt-0.5">3 unidades · Listo para retirar</p></div></a>
+            </div>
+            <a href="productos.html" class="block mt-3 pt-4 border-t border-ink/5 text-center text-sm font-semibold text-orange hover:text-orange-dark transition-colors">Ver los 32 modelos →</a>
+          </div>
+        </div>
+        <a href="rental.html" class="hover:text-orange transition-colors">Rental</a>
+        <a href="points.html" class="text-orange transition-colors">Points</a>
+        <a href="soporte-viajero.html" class="hover:text-orange transition-colors">Soporte</a>
+        <a href="nosotros.html" class="hover:text-orange transition-colors">Nosotros</a>
+        <a href="preguntas-frecuentes.html" class="hover:text-orange transition-colors">FAQ</a>
+        <a href="contacto.html" class="hover:text-orange transition-colors">Contacto</a>
+      </nav>
+      <div class="flex items-center gap-2">
+        <a href="rental.html" class="btn-primary text-sm hidden lg:inline-flex" style="padding: 10px 18px;">
+          Alquilá un motorhome
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+        <button id="mobile-menu-toggle" class="mobile-menu-btn lg:hidden" aria-label="Abrir menú">
+          <i data-lucide="menu" class="w-5 h-5"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu-backdrop" id="mobile-menu-backdrop"></div>
+  <aside class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <div class="mm-header">
+      <a href="index.html" class="flex items-center shrink-0">
+        <img src="https://www.cinziavehiculos.com/assets/image/logo.svg" alt="Cinzia" class="h-8 w-auto" onerror="this.outerHTML='<div style=&quot;font-weight:900;font-size:1.15rem;letter-spacing:-0.04em;color:#0B0B0B;&quot;>CINZIA</div>'">
+      </a>
+      <button id="mobile-menu-close" class="mm-close" aria-label="Cerrar menú">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+    </div>
+
+    <div class="mm-body">
+      <button class="mm-modelos-toggle" id="mm-modelos-toggle">
+        <span>Modelos</span>
+        <i data-lucide="chevron-down" class="w-4 h-4 chev"></i>
+      </button>
+      <div class="mm-submenu" id="mm-modelos-submenu">
+        <div class="mm-submenu-inner">
+          <a href="productos.html#campers" class="mm-sublink"><div class="ico-wrap"><i data-lucide="caravan" class="w-4 h-4"></i></div><div class="mm-sublink-text"><p>Campers</p><span>4 modelos</span></div></a>
+          <a href="productos.html#casas-rodantes" class="mm-sublink"><div class="ico-wrap"><i data-lucide="home" class="w-4 h-4"></i></div><div class="mm-sublink-text"><p>Casas Rodantes</p><span>1 modelo</span></div></a>
+          <a href="productos.html#motorhome-chasis" class="mm-sublink"><div class="ico-wrap"><i data-lucide="truck" class="w-4 h-4"></i></div><div class="mm-sublink-text"><p>Motorhome Chasis</p><span>10 modelos</span></div></a>
+          <a href="productos.html#motorhome-furgon" class="mm-sublink"><div class="ico-wrap"><i data-lucide="bus" class="w-4 h-4"></i></div><div class="mm-sublink-text"><p>Motorhome Furgón</p><span>6 modelos</span></div></a>
+          <a href="productos.html#vehiculos-especiales" class="mm-sublink"><div class="ico-wrap"><i data-lucide="ambulance" class="w-4 h-4"></i></div><div class="mm-sublink-text"><p>Vehículos Especiales</p><span>9 modelos · B2B</span></div></a>
+          <a href="productos.html#entrega-inmediata" class="mm-sublink"><div class="ico-wrap"><i data-lucide="zap" class="w-4 h-4"></i></div><div class="mm-sublink-text"><p>Entrega Inmediata</p><span>3 unidades</span></div></a>
+          <a href="productos.html" class="mm-sublink" style="justify-content:center; color:#E9580C; font-weight:700; font-size:0.85rem; margin-top:6px;">
+            Ver los 32 modelos →
+          </a>
+        </div>
+      </div>
+
+      <a href="rental.html" class="mm-nav-link">
+        Rental
+        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </a>
+      <a href="points.html" class="mm-nav-link active">
+        Points
+        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </a>
+      <a href="soporte-viajero.html" class="mm-nav-link">
+        Soporte
+        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </a>
+      <a href="nosotros.html" class="mm-nav-link">
+        Nosotros
+        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </a>
+      <a href="preguntas-frecuentes.html" class="mm-nav-link">
+        FAQ
+        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </a>
+      <a href="contacto.html" class="mm-nav-link">
+        Contacto
+        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </a>
+    </div>
+
+    <div class="mm-footer">
+      <a href="rental.html" class="mm-cta">
+        Alquilá un motorhome
+        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </a>
+      <div class="mm-contact">
+        <a href="tel:+5493515293858">
+          <i data-lucide="phone" class="w-3.5 h-3.5"></i>
+          Llamar
+        </a>
+        <a href="https://api.whatsapp.com/send?phone=5493515293858&text=Hola!%20Quiero%20info" class="wa">
+          <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
+          WhatsApp
+        </a>
+      </div>
+    </div>
+  </aside>
+
+
+  <!-- ============================================ -->
+  <!-- HERO -->
+  <!-- ============================================ -->
+  <section class="points-hero min-h-[80vh] flex items-center pt-32 pb-20 lg:pt-40 lg:pb-28 text-white">
+    <div class="max-w-[1400px] mx-auto px-6 lg:px-10 w-full">
+      <div class="max-w-3xl">
+        <div class="inline-flex items-center gap-2 mb-5 bg-white/10 backdrop-blur-sm border border-white/20 px-4 py-1.5 rounded-full">
+          <i data-lucide="map-pin" class="w-3.5 h-3.5 text-orange-light"></i>
+          <span class="mono-caps text-white/90">CINZIA POINTS · PROVINCIA DE CÓRDOBA</span>
+        </div>
+        <h1 class="display-black text-[clamp(40px,7vw,84px)] mb-6 leading-[0.95]">
+          Ruta del<br>
+          <span class="text-orange">Motorhome</span>.
+        </h1>
+        <p class="text-lg lg:text-xl text-white/85 leading-relaxed mb-8 max-w-2xl">
+          La primera ruta motorhome de Argentina, junto a la <strong class="text-white">Agencia Córdoba Turismo</strong>. 21 paradas equipadas conectando los principales atractivos turísticos de la provincia.
+        </p>
+
+        <div class="flex flex-wrap gap-3 mb-10">
+          <a href="#mapa" class="btn-primary">
+            Ver el mapa
+            <i data-lucide="map" class="w-4 h-4"></i>
+          </a>
+          <a href="#paradas" class="btn-outline-light">
+            Ver las 21 paradas
+            <i data-lucide="list" class="w-4 h-4"></i>
+          </a>
+        </div>
+
+        <!-- STATS -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl">
+          <div class="stat-card">
+            <p class="num text-3xl lg:text-4xl">21</p>
+            <p class="lbl">Puntos en la red</p>
+          </div>
+          <div class="stat-card">
+            <p class="num text-3xl lg:text-4xl">3</p>
+            <p class="lbl">Servicios por punto</p>
+          </div>
+          <div class="stat-card">
+            <p class="num text-3xl lg:text-4xl">100%</p>
+            <p class="lbl">Cobertura provincial</p>
+          </div>
+          <div class="stat-card">
+            <p class="num text-3xl lg:text-4xl">24<span class="text-orange-light">/</span>7</p>
+            <p class="lbl">Acceso libre</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- ¿QUÉ ES? -->
+  <!-- ============================================ -->
+  <section class="bg-white py-20 lg:py-28">
+    <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
+      <div class="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+        <div class="lg:col-span-5" data-reveal>
+          <div class="inline-flex items-center gap-2 mb-3 bg-orange/10 border border-orange/20 px-3 py-1 rounded-full">
+            <i data-lucide="info" class="w-3 h-3 text-orange"></i>
+            <span class="mono-caps text-orange">QUÉ ES LA RUTA</span>
+          </div>
+          <h2 class="display-black text-4xl lg:text-5xl mb-5">
+            Un circuito pensado<br>para rodanteros.
+          </h2>
+          <p class="text-ink/70 leading-relaxed">
+            Conecta los principales atractivos turísticos de Córdoba con infraestructura dedicada para vehículos recreacionales: carga de agua potable, descarga de aguas grises y negras, y conexión eléctrica opcional.
+          </p>
+        </div>
+
+        <div class="lg:col-span-7" data-reveal>
+          <div class="bg-soft rounded-3xl p-8 lg:p-10 border border-ink/5">
+            <div class="flex items-start gap-4 mb-6">
+              <div class="w-12 h-12 rounded-2xl bg-white shadow-sm flex items-center justify-center flex-shrink-0">
+                <i data-lucide="award" class="w-5 h-5 text-orange"></i>
+              </div>
+              <div>
+                <p class="mono-caps text-ink/45 mb-1">EN ALIANZA CON</p>
+                <p class="display-black text-2xl text-ink">Agencia Córdoba Turismo</p>
+              </div>
+            </div>
+            <p class="text-ink/70 leading-relaxed mb-5">
+              Es una iniciativa público-privada que articula la oferta turística cordobesa con la red de paradas técnicas Cinzia Point. Cada estación está pensada para que los viajeros en motorhome paren a recargar, descargar residuos y descansar con seguridad.
+            </p>
+            <div class="grid sm:grid-cols-2 gap-3">
+              <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-xl bg-white text-orange flex items-center justify-center flex-shrink-0"><i data-lucide="map" class="w-4 h-4"></i></div>
+                <p class="text-sm font-semibold text-ink">Primera ruta motorhome de Argentina</p>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-xl bg-white text-orange flex items-center justify-center flex-shrink-0"><i data-lucide="badge-check" class="w-4 h-4"></i></div>
+                <p class="text-sm font-semibold text-ink">Acceso gratuito a la red</p>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-xl bg-white text-orange flex items-center justify-center flex-shrink-0"><i data-lucide="route" class="w-4 h-4"></i></div>
+                <p class="text-sm font-semibold text-ink">Trazado circular por toda la provincia</p>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-xl bg-white text-orange flex items-center justify-center flex-shrink-0"><i data-lucide="shield-check" class="w-4 h-4"></i></div>
+                <p class="text-sm font-semibold text-ink">Paradas seguras y señalizadas</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- SERVICIOS POR PUNTO -->
+  <!-- ============================================ -->
+  <section class="bg-soft py-20 lg:py-28 border-t border-ink/5">
+    <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
+      <div class="text-center max-w-2xl mx-auto mb-12" data-reveal>
+        <div class="inline-flex items-center gap-2 mb-3 bg-orange/10 border border-orange/20 px-3 py-1 rounded-full">
+          <i data-lucide="settings-2" class="w-3 h-3 text-orange"></i>
+          <span class="mono-caps text-orange">QUÉ ENCONTRÁS</span>
+        </div>
+        <h2 class="display-black text-3xl lg:text-5xl mb-4">
+          Tres servicios esenciales<br>
+          <span class="text-ink/40">en cada Cinzia Point.</span>
+        </h2>
+        <p class="text-ink/65 leading-relaxed">
+          Cada parada está equipada con el set básico que necesita una unidad recreacional para mantenerse autónoma durante el viaje.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-5 lg:gap-6">
+        <div class="service-card" data-reveal>
+          <div class="ico-big"><i data-lucide="droplets" class="w-7 h-7"></i></div>
+          <h3 class="display-black text-2xl">Carga de agua potable</h3>
+          <p class="text-ink/65 leading-relaxed text-sm">Llená el tanque de la unidad con agua potable apta para consumo. Conexión universal y caudal medido.</p>
+          <div class="mt-auto pt-4 flex items-center justify-between border-t border-ink/8">
+            <span class="text-xs font-semibold text-ink/55">Disponible en</span>
+            <span class="font-bold text-orange text-sm">21 / 21 puntos</span>
+          </div>
+        </div>
+
+        <div class="service-card" data-reveal>
+          <div class="ico-big"><i data-lucide="recycle" class="w-7 h-7"></i></div>
+          <h3 class="display-black text-2xl">Descarga de aguas grises y negras</h3>
+          <p class="text-ink/65 leading-relaxed text-sm">Disposición segura de aguas residuales del baño y la cocina. Sistema cerrado, sin contacto, conectado a red municipal.</p>
+          <div class="mt-auto pt-4 flex items-center justify-between border-t border-ink/8">
+            <span class="text-xs font-semibold text-ink/55">Disponible en</span>
+            <span class="font-bold text-orange text-sm">21 / 21 puntos</span>
+          </div>
+        </div>
+
+        <div class="service-card" data-reveal>
+          <div class="ico-big"><i data-lucide="zap" class="w-7 h-7"></i></div>
+          <h3 class="display-black text-2xl">Electricidad <span class="text-ink/40 text-base font-bold">(opcional)</span></h3>
+          <p class="text-ink/65 leading-relaxed text-sm">Toma de 220 V para recargar baterías y mantener los sistemas internos durante pernoctes prolongados.</p>
+          <div class="mt-auto pt-4 flex items-center justify-between border-t border-ink/8">
+            <span class="text-xs font-semibold text-ink/55">Disponible en</span>
+            <span class="font-bold text-orange text-sm">14 / 21 puntos</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- MAPA + LISTADO (unificado) -->
+  <!-- ============================================ -->
+  <section id="mapa" class="bg-white py-20 lg:py-28 border-t border-ink/5">
+    <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
+
+      <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-5 mb-8" data-reveal>
+        <div>
+          <div class="inline-flex items-center gap-2 mb-3 bg-orange/10 border border-orange/20 px-3 py-1 rounded-full">
+            <i data-lucide="map" class="w-3 h-3 text-orange"></i>
+            <span class="mono-caps text-orange">MAPA INTERACTIVO</span>
+          </div>
+          <h2 class="display-black text-3xl lg:text-5xl">
+            21 paradas en toda la provincia.
+          </h2>
+          <p class="text-ink/60 leading-relaxed mt-3 max-w-xl">Hacé click en cada marcador o en la lista para ver detalle. Usá los filtros para ver puntos por región.</p>
+        </div>
+        <div class="map-legend">
+          <div class="dot"></div>
+          <span>Cinzia Point activo</span>
+          <span class="text-ink/30">·</span>
+          <span class="text-ink/55">Carga · Descarga · Electricidad</span>
+        </div>
+      </div>
+
+      <!-- Region filters -->
+      <div class="flex gap-2 overflow-x-auto pb-3 mb-6" data-reveal>
+        <button class="region-pill active" data-region="todas">Todas las regiones</button>
+        <button class="region-pill" data-region="norte">Norte</button>
+        <button class="region-pill" data-region="sierras-centrales">Sierras Centrales</button>
+        <button class="region-pill" data-region="traslasierra">Traslasierra</button>
+        <button class="region-pill" data-region="calamuchita">Calamuchita</button>
+        <button class="region-pill" data-region="sur">Sur</button>
+        <button class="region-pill" data-region="este">Este</button>
+      </div>
+
+      <!-- Grid: mapa izquierda + listado derecha -->
+      <div class="grid lg:grid-cols-[1fr_400px] xl:grid-cols-[1fr_440px] gap-6 lg:gap-8" data-reveal>
+
+        <!-- MAPA -->
+        <div>
+          <div id="cordoba-map"></div>
+          <p class="text-center text-xs text-ink/45 mt-3">
+            Mapa © OpenStreetMap contributors · Coordenadas aproximadas
+          </p>
+        </div>
+
+        <!-- LISTADO LATERAL -->
+        <aside class="bg-soft rounded-3xl border border-ink/5 p-4 lg:p-5 flex flex-col" style="height: 720px;">
+          <div class="flex items-center justify-between mb-3 px-2 pt-1 flex-shrink-0">
+            <div>
+              <p class="mono-caps text-ink/45">LISTADO COMPLETO</p>
+              <p class="font-bold text-ink text-sm mt-1"><span id="points-count">21</span> Cinzia Points</p>
+            </div>
+            <i data-lucide="list" class="w-4 h-4 text-ink/40"></i>
+          </div>
+          <div class="flex-1 overflow-y-auto space-y-2 pr-1 -mr-1" id="points-list">
+            <!-- Cards generadas por JS -->
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- CTA FINAL -->
+  <!-- ============================================ -->
+  <section class="relative overflow-hidden text-white py-20 lg:py-32">
+    <div class="absolute inset-0 z-0">
+      <img src="cinzia-assets/Banner2.png" alt="" class="w-full h-full object-cover">
+      <div class="absolute inset-0" style="background: linear-gradient(90deg, rgba(11,11,11,0.85) 0%, rgba(11,11,11,0.6) 50%, rgba(11,11,11,0.35) 100%);"></div>
+    </div>
+    <div class="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-10">
+      <div class="grid lg:grid-cols-2 gap-10 items-center">
+        <div data-reveal>
+          <h2 class="display-black text-4xl lg:text-6xl mb-5 leading-[0.95]">
+            Antes de comprarte uno, <span class="text-orange">alquilá uno.</span>
+          </h2>
+          <p class="text-white/85 leading-relaxed max-w-lg">
+            Recorré la Ruta del Motorhome con una unidad Cinzia. Reservá online con seña del 30% y empezá a planear tu próximo viaje.
+          </p>
+        </div>
+        <div class="flex flex-wrap gap-3 lg:justify-end" data-reveal>
+          <a href="rental.html" class="btn-primary">
+            Ver flota
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+          <a href="https://api.whatsapp.com/send?phone=5493515293858&text=Hola!%20Quiero%20info%20sobre%20la%20Ruta%20del%20Motorhome" class="btn-outline-light">
+            <i data-lucide="message-circle" class="w-4 h-4"></i>
+            Hablá con nosotros
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- FOOTER -->
+  <!-- ============================================ -->
+  <footer class="bg-ink text-white py-16 lg:py-20 border-t border-white/10">
+    <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
+      <div class="grid lg:grid-cols-4 gap-10 mb-12">
+        <div>
+          <img src="https://www.cinziavehiculos.com/assets/image/logo.svg" alt="Cinzia" class="h-9 w-auto mb-5" onerror="this.outerHTML='<div style=&quot;font-weight:900;font-size:1.5rem;letter-spacing:-0.04em;color:#FFFFFF;margin-bottom:1.25rem;&quot;>CINZIA</div>'">
+          <p class="text-sm text-white/60 leading-relaxed mb-6">Motorhomes a medida, fabricados en nuestro taller de Córdoba, Argentina.</p>
+          <div class="flex gap-2">
+            <a href="https://www.instagram.com/cinziavehiculos/" aria-label="Instagram" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 transition-colors"><i data-lucide="instagram" class="w-4 h-4"></i></a>
+            <a href="https://www.facebook.com/Cinziavehiculos/" aria-label="Facebook" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 transition-colors"><i data-lucide="facebook" class="w-4 h-4"></i></a>
+            <a href="https://www.youtube.com/channel/UCw8Tz-hH6f0ySvpNWsHCY2Q" aria-label="YouTube" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 transition-colors"><i data-lucide="youtube" class="w-4 h-4"></i></a>
+          </div>
+        </div>
+        <div>
+          <p class="mono-caps text-white/40 mb-5">PRODUCTOS</p>
+          <ul class="space-y-3 text-sm">
+            <li><a href="productos.html#campers" class="text-white/80 hover:text-orange transition-colors">Campers</a></li>
+            <li><a href="productos.html#motorhome-chasis" class="text-white/80 hover:text-orange transition-colors">Motorhome Chasis</a></li>
+            <li><a href="productos.html#motorhome-furgon" class="text-white/80 hover:text-orange transition-colors">Motorhome Furgón</a></li>
+            <li><a href="productos.html" class="text-white/80 hover:text-orange transition-colors">Ver todos los modelos</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="mono-caps text-white/40 mb-5">RENTAL & POINTS</p>
+          <ul class="space-y-3 text-sm">
+            <li><a href="rental.html" class="text-white/80 hover:text-orange transition-colors">Inicio Rental</a></li>
+            <li><a href="rental.html#vehiculos" class="text-white/80 hover:text-orange transition-colors">Ver flota</a></li>
+            <li><a href="points.html" class="text-white/80 hover:text-orange transition-colors">Ruta del Motorhome</a></li>
+            <li><a href="preguntas-frecuentes.html" class="text-white/80 hover:text-orange transition-colors">Preguntas frecuentes</a></li>
+            <li><a href="contacto.html" class="text-white/80 hover:text-orange transition-colors">Contacto</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="mono-caps text-white/40 mb-5">CONTACTO</p>
+          <ul class="space-y-4 text-sm">
+            <li>
+              <p class="text-white/90 font-semibold mb-1">Córdoba · HQ + Taller</p>
+              <p class="text-white/60 leading-relaxed">Alcira Arias 191, Malvinas Argentinas</p>
+              <a href="tel:+5493515293858" class="text-white/80 hover:text-orange transition-colors text-xs font-mono">+54 9 3515 29-3858</a>
+            </li>
+            <li>
+              <p class="text-white/90 font-semibold mb-1">Buenos Aires · Showroom</p>
+              <p class="text-white/60 leading-relaxed">Riobamba 5487, El Triángulo</p>
+              <a href="tel:+5491137716847" class="text-white/80 hover:text-orange transition-colors text-xs font-mono">+54 9 11 3771-6847</a>
+            </li>
+            <li><a href="mailto:rental@cinziavehiculos.com" class="text-white/80 hover:text-orange transition-colors">rental@cinziavehiculos.com</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-white/10 pt-7 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 text-xs text-white/40">
+        <p>© 2026 Cinzia Vehículos · Todos los derechos reservados</p>
+        <div class="flex gap-5">
+          <a href="#" class="hover:text-white/70 transition-colors">Términos y Condiciones</a>
+          <a href="#" class="hover:text-white/70 transition-colors">Privacidad</a>
+          <a href="#" class="hover:text-white/70 transition-colors">Cookies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://api.whatsapp.com/send?phone=5493515293858&text=Hola!%20Quiero%20info%20sobre%20la%20Ruta%20del%20Motorhome" aria-label="WhatsApp" class="float-wa">
+    <i data-lucide="message-circle" class="w-6 h-6"></i>
+  </a>
+
+  <script>
+    lucide.createIcons();
+
+    // ============================================
+    // MOBILE MENU
+    // ============================================
+    (function() {
+      const toggle = document.getElementById('mobile-menu-toggle');
+      const closeBtn = document.getElementById('mobile-menu-close');
+      const backdrop = document.getElementById('mobile-menu-backdrop');
+      const menu = document.getElementById('mobile-menu');
+      const modelosToggle = document.getElementById('mm-modelos-toggle');
+      const modelosSub = document.getElementById('mm-modelos-submenu');
+      if (!toggle || !menu) return;
+
+      function openMenu() {
+        menu.classList.add('open');
+        backdrop.classList.add('open');
+        document.body.classList.add('menu-open');
+        menu.setAttribute('aria-hidden', 'false');
+      }
+      function closeMenu() {
+        menu.classList.remove('open');
+        backdrop.classList.remove('open');
+        document.body.classList.remove('menu-open');
+        menu.setAttribute('aria-hidden', 'true');
+      }
+
+      toggle.addEventListener('click', openMenu);
+      closeBtn.addEventListener('click', closeMenu);
+      backdrop.addEventListener('click', closeMenu);
+
+      menu.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => setTimeout(closeMenu, 120));
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && menu.classList.contains('open')) closeMenu();
+      });
+
+      if (modelosToggle && modelosSub) {
+        modelosToggle.addEventListener('click', () => {
+          modelosToggle.classList.toggle('open');
+          modelosSub.classList.toggle('open');
+        });
+      }
+    })();
+
+
+    // ============================================
+    // REVEAL ON SCROLL
+    // ============================================
+    const revealEls = document.querySelectorAll('[data-reveal]');
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
+    }, { threshold: 0.12, rootMargin: '0px 0px -80px 0px' });
+    revealEls.forEach(el => obs.observe(el));
+
+    // ============================================
+    // DATOS DE LOS 21 PUNTOS
+    // ============================================
+    const POINTS = [
+      // NORTE
+      { id:  1, name: 'Villa de María',     region: 'norte',             coords: [-29.911, -63.691], svcs: ['agua','descarga'] },
+      { id:  2, name: 'Cerro Colorado',     region: 'norte',             coords: [-30.067, -63.917], svcs: ['agua','descarga'] },
+      { id:  3, name: 'Quilino',            region: 'norte',             coords: [-30.217, -64.500], svcs: ['agua','descarga','electricidad'] },
+      { id:  4, name: 'Villa de Tulumba',   region: 'norte',             coords: [-30.367, -64.100], svcs: ['agua','descarga'] },
+      { id:  5, name: 'Villa del Totoral',  region: 'norte',             coords: [-30.683, -63.883], svcs: ['agua','descarga','electricidad'] },
+      { id:  6, name: 'Miramar',            region: 'este',              coords: [-30.917, -62.683], svcs: ['agua','descarga','electricidad'] },
+      // SIERRAS CENTRALES
+      { id:  7, name: 'Serrezuela',         region: 'sierras-centrales', coords: [-30.633, -65.383], svcs: ['agua','descarga'] },
+      { id:  8, name: 'San Marcos Sierras', region: 'sierras-centrales', coords: [-30.783, -64.633], svcs: ['agua','descarga','electricidad'] },
+      { id:  9, name: 'La Granja',          region: 'sierras-centrales', coords: [-31.000, -64.300], svcs: ['agua','descarga','electricidad'] },
+      { id: 10, name: 'La Falda',           region: 'sierras-centrales', coords: [-31.083, -64.517], svcs: ['agua','descarga','electricidad'] },
+      { id: 11, name: 'Tanti',              region: 'sierras-centrales', coords: [-31.350, -64.583], svcs: ['agua','descarga','electricidad'] },
+      { id: 12, name: 'Córdoba',            region: 'sierras-centrales', coords: [-31.420, -64.189], svcs: ['agua','descarga','electricidad'] },
+      // TRASLASIERRA
+      { id: 13, name: 'Salsacate',          region: 'traslasierra',      coords: [-31.283, -65.083], svcs: ['agua','descarga'] },
+      { id: 14, name: 'Copina',             region: 'traslasierra',      coords: [-31.567, -64.733], svcs: ['agua','descarga'] },
+      { id: 15, name: 'San Javier y Yacanto', region: 'traslasierra',    coords: [-32.017, -65.050], svcs: ['agua','descarga','electricidad'] },
+      // CALAMUCHITA
+      { id: 16, name: 'Los Reartes',        region: 'calamuchita',       coords: [-31.933, -64.600], svcs: ['agua','descarga','electricidad'] },
+      { id: 17, name: 'Amboy',              region: 'calamuchita',       coords: [-32.200, -64.567], svcs: ['agua','descarga'] },
+      { id: 18, name: 'Almafuerte',         region: 'calamuchita',       coords: [-32.183, -64.283], svcs: ['agua','descarga','electricidad'] },
+      // SUR / ESTE
+      { id: 19, name: 'Villa María',        region: 'este',              coords: [-32.407, -63.243], svcs: ['agua','descarga','electricidad'] },
+      { id: 20, name: 'Achiras',            region: 'sur',               coords: [-33.167, -64.983], svcs: ['agua','descarga'] },
+      { id: 21, name: 'Río Cuarto',         region: 'sur',               coords: [-33.130, -64.350], svcs: ['agua','descarga','electricidad'] },
+    ];
+
+    const REGION_LABELS = {
+      norte: 'Norte',
+      'sierras-centrales': 'Sierras Centrales',
+      traslasierra: 'Traslasierra',
+      calamuchita: 'Calamuchita',
+      sur: 'Sur',
+      este: 'Este',
+    };
+
+    const SVC_LABELS = {
+      agua: { lbl: 'Agua', ico: '💧' },
+      descarga: { lbl: 'Descarga', ico: '♻️' },
+      electricidad: { lbl: '220V', ico: '⚡' },
+    };
+
+    // ============================================
+    // MAPA LEAFLET
+    // ============================================
+    const map = L.map('cordoba-map', {
+      center: [-31.6, -64.2],
+      zoom: 7,
+      scrollWheelZoom: false,
+      zoomControl: true,
+    });
+
+    // Tiles minimalistas
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+      attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> · © <a href="https://carto.com/attributions">CARTO</a>',
+      subdomains: 'abcd',
+      maxZoom: 19,
+    }).addTo(map);
+
+    // Marcador custom
+    const cinziaIcon = L.divIcon({
+      className: '',
+      html: '<div class="cinzia-marker"><div class="pulse"></div><div class="pin"></div></div>',
+      iconSize: [36, 44],
+      iconAnchor: [18, 40],
+      popupAnchor: [0, -36],
+    });
+
+    const markers = [];
+    POINTS.forEach(p => {
+      const svcsHtml = p.svcs.map(s => `<span class="pop-svc">${SVC_LABELS[s].ico} ${SVC_LABELS[s].lbl}</span>`).join('');
+      const popup = `
+        <div>
+          <p class="pop-region">#${String(p.id).padStart(2,'0')} · ${REGION_LABELS[p.region]}</p>
+          <p class="pop-title">${p.name}</p>
+          <div class="pop-svcs">${svcsHtml}</div>
+        </div>`;
+      const m = L.marker(p.coords, { icon: cinziaIcon })
+        .addTo(map)
+        .bindPopup(popup);
+      m.region = p.region;
+      m.pointData = p;
+      markers.push(m);
+    });
+
+    // Ajustar al bounding box
+    const group = L.featureGroup(markers);
+    map.fitBounds(group.getBounds().pad(0.15));
+
+    // Filtros por región
+    document.querySelectorAll('.region-pill').forEach(pill => {
+      pill.addEventListener('click', () => {
+        document.querySelectorAll('.region-pill').forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+        const region = pill.dataset.region;
+        const visibleMarkers = [];
+        markers.forEach(m => {
+          if (region === 'todas' || m.region === region) {
+            if (!map.hasLayer(m)) map.addLayer(m);
+            visibleMarkers.push(m);
+          } else {
+            map.removeLayer(m);
+          }
+        });
+        if (visibleMarkers.length > 0) {
+          const filteredGroup = L.featureGroup(visibleMarkers);
+          map.fitBounds(filteredGroup.getBounds().pad(0.2));
+        }
+        // Filtrar lista también
+        renderList(region);
+      });
+    });
+
+    // ============================================
+    // LISTADO DE PARADAS
+    // ============================================
+    const listContainer = document.getElementById('points-list');
+    const countEl = document.getElementById('points-count');
+    function renderList(filter = 'todas') {
+      const items = filter === 'todas' ? POINTS : POINTS.filter(p => p.region === filter);
+      if (countEl) countEl.textContent = items.length;
+      listContainer.innerHTML = items.map(p => `
+        <div class="location-card" data-point-id="${p.id}">
+          <span class="num">${String(p.id).padStart(2,'0')}</span>
+          <div class="w-9 h-9 rounded-full bg-orange/10 text-orange flex items-center justify-center flex-shrink-0">
+            <i data-lucide="map-pin" class="w-4 h-4"></i>
+          </div>
+          <div class="min-w-0 flex-1">
+            <p class="name">${p.name}</p>
+            <p class="reg">${REGION_LABELS[p.region]} · ${p.svcs.length} servicios</p>
+          </div>
+          <i data-lucide="chevron-right" class="w-4 h-4 text-ink/30 flex-shrink-0"></i>
+        </div>
+      `).join('');
+      lucide.createIcons();
+
+      // Click en card → centrar mapa + abrir popup (sin scroll, ya están al lado)
+      listContainer.querySelectorAll('.location-card').forEach(card => {
+        card.addEventListener('click', () => {
+          const id = parseInt(card.dataset.pointId, 10);
+          const marker = markers.find(m => m.pointData.id === id);
+          if (marker) {
+            map.setView(marker.getLatLng(), 10, { animate: true });
+            marker.openPopup();
+          }
+        });
+      });
+    }
+    renderList();
+  </script>
+</body>
+</html>

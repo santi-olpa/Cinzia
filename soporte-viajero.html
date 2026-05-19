@@ -1,0 +1,3278 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Soporte al viajero — Cinzia Rental · Asistencia 24/7</title>
+  <meta name="description" content="Centro de ayuda para clientes Cinzia Rental. Resolvé problemas con el motorhome al instante: cubiertas, agua, gas, batería, panel de control y más. Asistente guiado + manual de uso completo.">
+
+  <meta property="og:title" content="Soporte al viajero — Cinzia Rental">
+  <meta property="og:description" content="Asistencia 24/7 para tu motorhome alquilado.">
+  <meta property="og:locale" content="es_AR">
+  <meta name="theme-color" content="#E9580C">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            orange: { DEFAULT: '#E9580C', dark: '#C84A0A', light: '#FF6F1F' },
+            ink: '#0B0B0B',
+            soft: '#F5F5F5',
+          },
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+        },
+      },
+    };
+  </script>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, sans-serif; color: #0B0B0B; background: #FFFFFF; -webkit-font-smoothing: antialiased; }
+    .display-black { font-weight: 900; letter-spacing: -0.04em; line-height: 0.95; }
+    .mono-caps { font-family: 'Inter', monospace; text-transform: uppercase; letter-spacing: 0.16em; font-size: 0.6875rem; font-weight: 600; }
+
+    .btn-primary { background: #E9580C; color: #FFFFFF; padding: 14px 24px; border-radius: 999px; font-weight: 600; font-size: 0.95rem; display: inline-flex; align-items: center; justify-content: center; gap: 8px; transition: all 200ms cubic-bezier(0.22, 1, 0.36, 1); }
+    .btn-primary:hover { background: #C84A0A; transform: translateY(-1px); }
+    .btn-outline-orange { background: transparent; color: #E9580C; padding: 12px 22px; border: 1.5px solid #E9580C; border-radius: 999px; font-weight: 600; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 8px; transition: all 200ms; }
+    .btn-outline-orange:hover { background: #E9580C; color: white; }
+    .btn-wa { background: #25D366; color: white; padding: 12px 22px; border-radius: 999px; font-weight: 600; font-size: 0.9rem; display: inline-flex; align-items: center; justify-content: center; gap: 8px; transition: filter 200ms; }
+    .btn-wa:hover { filter: brightness(0.92); }
+    .btn-emergency { background: #DC2626; color: white; padding: 14px 28px; border-radius: 999px; font-weight: 700; font-size: 0.95rem; display: inline-flex; align-items: center; justify-content: center; gap: 8px; transition: all 200ms; box-shadow: 0 8px 24px rgba(220,38,38,0.25); }
+    .btn-emergency:hover { background: #B91C1C; transform: translateY(-1px); }
+
+    .pill-tag { display: inline-flex; align-items: center; padding: 4px 10px; border-radius: 999px; background: rgba(233,88,12,0.1); color: #C84A0A; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; }
+
+    /* MEGA MENU */
+    .nav-item-with-dropdown { position: relative; }
+    .mega-menu { position: absolute; top: calc(100% + 14px); left: 50%; transform: translateX(-50%) translateY(8px); width: 720px; max-width: calc(100vw - 40px); background: white; border-radius: 24px; box-shadow: 0 20px 60px rgba(11,11,11,0.18); border: 1px solid rgba(11,11,11,0.06); padding: 22px; opacity: 0; pointer-events: none; transition: all 220ms cubic-bezier(0.22, 1, 0.36, 1); z-index: 100; }
+    .nav-item-with-dropdown:hover .mega-menu { opacity: 1; transform: translateX(-50%) translateY(0); pointer-events: auto; }
+    .mega-menu::before { content: ''; position: absolute; top: -14px; left: 0; right: 0; height: 14px; }
+    .mega-link { display: flex; gap: 14px; padding: 14px; border-radius: 14px; transition: background 180ms; }
+    .mega-link:hover { background: #F5F5F5; }
+    .mega-link .ico-wrap { width: 44px; height: 44px; border-radius: 12px; background: rgba(233,88,12,0.1); color: #E9580C; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .mega-link:hover .ico-wrap { background: #E9580C; color: white; }
+
+    [data-reveal] { opacity: 0; transform: translateY(24px); transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1); }
+    [data-reveal].in { opacity: 1; transform: translateY(0); }
+
+    /* HERO */
+    .support-hero {
+      position: relative; overflow: hidden;
+      background: #0B0B0B;
+    }
+    .support-hero::before {
+      content: ''; position: absolute; inset: 0;
+      background-image: url('../assets/Soporte.png');
+      background-size: cover; background-position: center;
+      z-index: 0;
+    }
+    .support-hero::after {
+      content: ''; position: absolute; inset: 0;
+      background:
+        radial-gradient(circle at 80% 30%, rgba(233,88,12,0.30) 0%, transparent 55%),
+        radial-gradient(circle at 15% 75%, rgba(220,38,38,0.18) 0%, transparent 50%),
+        linear-gradient(135deg, rgba(11,11,11,0.85) 0%, rgba(11,11,11,0.55) 50%, rgba(11,11,11,0.75) 100%);
+      z-index: 1;
+    }
+    .support-hero > * { position: relative; z-index: 2; }
+
+    /* EMERGENCY CARD */
+    .emergency-card {
+      background: rgba(255,255,255,0.06); backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.12); border-radius: 22px;
+      padding: 24px;
+    }
+
+    /* QUICK ACTION CARDS */
+    .quick-action {
+      background: white; border: 1px solid rgba(11,11,11,0.07); border-radius: 22px;
+      padding: 24px; transition: all 260ms cubic-bezier(0.22,1,0.36,1);
+      display: flex; flex-direction: column; align-items: flex-start; gap: 14px;
+      cursor: pointer; text-align: left;
+    }
+    .quick-action:hover {
+      transform: translateY(-4px); border-color: rgba(233,88,12,0.3);
+      box-shadow: 0 16px 40px rgba(11,11,11,0.08);
+    }
+    .quick-action .ico-big {
+      width: 56px; height: 56px; border-radius: 16px;
+      background: rgba(233,88,12,0.1); color: #E9580C;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 240ms;
+    }
+    .quick-action:hover .ico-big { background: #E9580C; color: white; }
+    .quick-action.urgent .ico-big { background: rgba(220,38,38,0.1); color: #DC2626; }
+    .quick-action.urgent:hover { border-color: rgba(220,38,38,0.4); }
+    .quick-action.urgent:hover .ico-big { background: #DC2626; color: white; }
+
+    /* SEARCH */
+    .help-search-wrap {
+      display: flex; align-items: center; gap: 10px;
+      background: white;
+      border: 2px solid rgba(11,11,11,0.08);
+      border-radius: 999px;
+      padding: 6px 6px 6px 22px;
+      transition: all 200ms;
+    }
+    .help-search-wrap:focus-within {
+      border-color: #E9580C;
+      box-shadow: 0 0 0 4px rgba(233,88,12,0.08);
+    }
+    .help-search-wrap input {
+      flex: 1; background: transparent; border: none; outline: none;
+      font-size: 0.95rem; font-family: 'Inter', sans-serif; color: #0B0B0B;
+      padding: 12px 0;
+    }
+    .help-search-wrap input::placeholder { color: rgba(11,11,11,0.4); }
+
+    /* ASSISTANT */
+    .assistant-card {
+      background: linear-gradient(135deg, #FFFFFF 0%, #FAFAFA 100%);
+      border: 1.5px solid rgba(233,88,12,0.18);
+      border-radius: 28px;
+      padding: 24px;
+      box-shadow: 0 24px 60px rgba(11,11,11,0.06);
+      position: relative;
+      overflow: hidden;
+    }
+    .assistant-card::before {
+      content: '';
+      position: absolute; top: -120px; right: -120px;
+      width: 280px; height: 280px;
+      background: radial-gradient(circle, rgba(233,88,12,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .assistant-header {
+      display: flex; align-items: center; gap: 12px;
+      padding-bottom: 16px; margin-bottom: 16px;
+      border-bottom: 1px dashed rgba(11,11,11,0.08);
+      position: relative; z-index: 1;
+    }
+    .assistant-avatar {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: linear-gradient(135deg, #E9580C 0%, #FF6F1F 100%);
+      color: white; display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 8px 24px rgba(233,88,12,0.32);
+      position: relative;
+    }
+    .assistant-avatar::after {
+      content: ''; position: absolute; bottom: 2px; right: 2px;
+      width: 10px; height: 10px; border-radius: 50%;
+      background: #22c55e; border: 2px solid white;
+    }
+    .assistant-history-track {
+      position: relative; z-index: 1;
+      max-height: 240px; overflow-y: auto;
+      padding-right: 8px; margin-bottom: 8px;
+      mask-image: linear-gradient(180deg, transparent 0, black 16px, black calc(100% - 0px));
+      -webkit-mask-image: linear-gradient(180deg, transparent 0, black 16px, black calc(100% - 0px));
+    }
+    .assistant-history-track::-webkit-scrollbar { width: 6px; }
+    .assistant-history-track::-webkit-scrollbar-track { background: transparent; }
+    .assistant-history-track::-webkit-scrollbar-thumb { background: rgba(11,11,11,0.12); border-radius: 999px; }
+
+    .msg-row { display: flex; gap: 10px; margin-bottom: 12px; opacity: 0; transform: translateY(8px); animation: msgIn 350ms cubic-bezier(0.22,1,0.36,1) forwards; }
+    .msg-row.user { flex-direction: row-reverse; }
+    .msg-row .msg-av {
+      width: 32px; height: 32px; border-radius: 50%; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .msg-row .msg-av.bot { background: rgba(233,88,12,0.12); color: #E9580C; }
+    .msg-row .msg-av.user { background: rgba(11,11,11,0.08); color: #0B0B0B; }
+    .msg-bubble {
+      max-width: 80%; padding: 12px 16px; border-radius: 16px;
+      font-size: 0.9rem; line-height: 1.5;
+    }
+    .msg-row.bot .msg-bubble {
+      background: white; border: 1px solid rgba(11,11,11,0.06);
+      border-top-left-radius: 4px; color: #0B0B0B;
+      box-shadow: 0 4px 12px rgba(11,11,11,0.04);
+    }
+    .msg-row.user .msg-bubble {
+      background: linear-gradient(135deg, #E9580C 0%, #C84A0A 100%);
+      color: white; font-weight: 600;
+      border-top-right-radius: 4px;
+      box-shadow: 0 4px 16px rgba(233,88,12,0.28);
+    }
+    @keyframes msgIn {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Typing dots */
+    .typing-dots { display: inline-flex; gap: 4px; padding: 4px 0; }
+    .typing-dots span {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: #E9580C; opacity: 0.4;
+      animation: typing 1.2s infinite;
+    }
+    .typing-dots span:nth-child(2) { animation-delay: 0.18s; }
+    .typing-dots span:nth-child(3) { animation-delay: 0.36s; }
+    @keyframes typing {
+      0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+      30% { transform: translateY(-5px); opacity: 1; }
+    }
+
+    .assistant-options-wrap {
+      position: relative; z-index: 1;
+      padding-top: 8px;
+    }
+    .assistant-options-wrap > p {
+      font-size: 0.7rem; font-weight: 700; color: rgba(11,11,11,0.45);
+      letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 10px;
+    }
+    .assistant-option {
+      width: 100%; text-align: left;
+      background: white; border: 1.5px solid rgba(11,11,11,0.08);
+      border-radius: 16px; padding: 14px 16px;
+      display: flex; align-items: center; gap: 12px;
+      transition: all 240ms cubic-bezier(0.22,1,0.36,1); cursor: pointer; font-weight: 600;
+      color: #0B0B0B; font-size: 0.92rem; position: relative;
+      box-shadow: 0 2px 6px rgba(11,11,11,0.02);
+      opacity: 0; transform: translateX(-12px);
+      animation: optIn 420ms cubic-bezier(0.22,1,0.36,1) forwards;
+    }
+    .assistant-option:nth-child(1) { animation-delay: 80ms; }
+    .assistant-option:nth-child(2) { animation-delay: 140ms; }
+    .assistant-option:nth-child(3) { animation-delay: 200ms; }
+    .assistant-option:nth-child(4) { animation-delay: 260ms; }
+    .assistant-option:nth-child(5) { animation-delay: 320ms; }
+    .assistant-option:nth-child(6) { animation-delay: 380ms; }
+    @keyframes optIn {
+      to { opacity: 1; transform: translateX(0); }
+    }
+    .assistant-option:hover {
+      border-color: #E9580C; background: rgba(233,88,12,0.04); transform: translateX(6px);
+      box-shadow: 0 8px 20px rgba(233,88,12,0.12);
+    }
+    .assistant-option .opt-ico {
+      width: 38px; height: 38px; border-radius: 12px;
+      background: rgba(233,88,12,0.1); color: #E9580C;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; transition: all 240ms;
+    }
+    .assistant-option:hover .opt-ico { background: #E9580C; color: white; transform: scale(1.06); }
+    .assistant-option .opt-arrow { color: rgba(11,11,11,0.25); transition: all 240ms; }
+    .assistant-option:hover .opt-arrow { color: #E9580C; transform: translateX(4px); }
+
+    .assistant-option.solution-ok {
+      background: linear-gradient(135deg, rgba(34,197,94,0.08) 0%, rgba(34,197,94,0.02) 100%);
+      border-color: rgba(34,197,94,0.3); cursor: default;
+    }
+    .assistant-option.solution-ok:hover { transform: none; box-shadow: none; }
+    .assistant-option.solution-ok .opt-ico { background: rgba(34,197,94,0.15); color: #16A34A; }
+    .assistant-option.solution-link {
+      background: linear-gradient(135deg, rgba(233,88,12,0.06) 0%, rgba(233,88,12,0.02) 100%);
+      border-color: rgba(233,88,12,0.3); color: #E9580C; font-weight: 700;
+      justify-content: center;
+    }
+    .assistant-option.urgent {
+      background: linear-gradient(135deg, rgba(220,38,38,0.08) 0%, rgba(220,38,38,0.02) 100%);
+      border-color: rgba(220,38,38,0.3);
+    }
+    .assistant-option.urgent .opt-ico { background: rgba(220,38,38,0.12); color: #DC2626; }
+    .assistant-option.urgent:hover { background: rgba(220,38,38,0.1); border-color: #DC2626; }
+    .assistant-option.urgent:hover .opt-ico { background: #DC2626; color: white; }
+    .assistant-option.urgent .opt-arrow { color: rgba(220,38,38,0.4); }
+    .assistant-option.urgent:hover .opt-arrow { color: #DC2626; }
+
+    .assistant-progress {
+      position: relative; z-index: 1;
+      display: flex; align-items: center; gap: 8px;
+      margin-bottom: 14px; font-size: 0.7rem;
+      color: rgba(11,11,11,0.55); font-weight: 600;
+    }
+    .assistant-progress .step-dot {
+      width: 8px; height: 8px; border-radius: 50%; background: rgba(11,11,11,0.15);
+      transition: all 200ms;
+    }
+    .assistant-progress .step-dot.active { background: #E9580C; transform: scale(1.4); box-shadow: 0 0 0 4px rgba(233,88,12,0.15); }
+    .assistant-progress .step-dot.done { background: rgba(233,88,12,0.4); }
+
+    /* CATEGORY TABS */
+    .cat-tab {
+      cursor: pointer;
+      padding: 16px 20px;
+      border-radius: 18px;
+      border: 1.5px solid rgba(11,11,11,0.08);
+      background: white;
+      transition: all 200ms;
+      display: flex; align-items: center; gap: 12px;
+      font-weight: 700; font-size: 0.85rem; color: #0B0B0B;
+      white-space: nowrap;
+    }
+    .cat-tab:hover { border-color: #E9580C; color: #E9580C; }
+    .cat-tab.active { background: #0B0B0B; color: white; border-color: #0B0B0B; }
+    .cat-tab .cat-ico {
+      width: 32px; height: 32px; border-radius: 10px;
+      background: rgba(233,88,12,0.1); color: #E9580C;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+      transition: all 200ms;
+    }
+    .cat-tab.active .cat-ico { background: #E9580C; color: white; }
+    .cat-tab:hover .cat-ico { background: #E9580C; color: white; }
+    .cat-tab .cnt {
+      background: rgba(11,11,11,0.08); color: rgba(11,11,11,0.6);
+      font-size: 0.65rem; font-weight: 700; padding: 2px 8px; border-radius: 999px;
+    }
+    .cat-tab.active .cnt { background: rgba(255,255,255,0.15); color: white; }
+
+    /* TROUBLESHOOTING CARDS */
+    details.ts-item summary {
+      cursor: pointer; list-style: none;
+      display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem;
+    }
+    details.ts-item summary::-webkit-details-marker { display: none; }
+    details.ts-item {
+      background: white; border: 1.5px solid rgba(11,11,11,0.08);
+      border-radius: 20px; padding: 20px 22px;
+      transition: all 280ms cubic-bezier(0.22, 1, 0.36, 1);
+      position: relative; overflow: hidden;
+      box-shadow: 0 2px 8px rgba(11,11,11,0.03);
+    }
+    details.ts-item::before {
+      content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
+      background: #E9580C; opacity: 0; transition: opacity 280ms;
+    }
+    details.ts-item[data-severity="nulo"]::before { background: #22c55e; }
+    details.ts-item[data-severity="leve"]::before { background: #eab308; }
+    details.ts-item[data-severity="medio"]::before { background: #f97316; }
+    details.ts-item[data-severity="alto"]::before { background: #DC2626; }
+    details.ts-item:hover {
+      border-color: rgba(233,88,12,0.3);
+      box-shadow: 0 12px 32px rgba(11,11,11,0.08);
+      transform: translateY(-2px);
+    }
+    details.ts-item:hover::before { opacity: 1; }
+    details.ts-item[open] {
+      border-color: rgba(233,88,12,0.3);
+      box-shadow: 0 16px 48px rgba(11,11,11,0.08);
+      grid-column: 1 / -1; /* span full width when expanded */
+    }
+    details.ts-item[open]::before { opacity: 1; }
+    details.ts-item .ts-toggle {
+      width: 34px; height: 34px; border-radius: 50%;
+      background: rgba(233,88,12,0.1); color: #E9580C;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; transition: all 200ms;
+    }
+    details.ts-item[open] .ts-toggle { background: #E9580C; color: white; transform: rotate(45deg); }
+
+    /* Flash on target jump */
+    @keyframes flashTarget {
+      0%, 100% { transform: translateY(0); box-shadow: 0 16px 48px rgba(11,11,11,0.08); }
+      15% { transform: translateY(-4px); box-shadow: 0 24px 64px rgba(233,88,12,0.35), 0 0 0 4px rgba(233,88,12,0.2); }
+      30% { transform: translateY(0); box-shadow: 0 16px 48px rgba(11,11,11,0.08); }
+      45% { transform: translateY(-2px); box-shadow: 0 20px 56px rgba(233,88,12,0.25), 0 0 0 4px rgba(233,88,12,0.15); }
+      60% { transform: translateY(0); }
+    }
+    details.ts-item.flash-target {
+      animation: flashTarget 1.8s cubic-bezier(0.22, 1, 0.36, 1);
+      border-color: #E9580C !important;
+    }
+    details.ts-item.flash-target::before { opacity: 1; }
+
+    /* Grid 2 columns for ts list */
+    #ts-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      align-items: start;
+    }
+    @media (min-width: 768px) {
+      #ts-list { grid-template-columns: 1fr 1fr; }
+    }
+    @keyframes tsOpen {
+      from { opacity: 0; transform: translateY(-6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    details.ts-item[open] .ts-content {
+      animation: tsOpen 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+    .ts-content { padding-top: 14px; }
+    .ts-step {
+      display: flex; gap: 12px; padding: 12px 0; border-bottom: 1px dashed rgba(11,11,11,0.08);
+    }
+    .ts-step:last-child { border-bottom: none; }
+    .ts-step .step-num {
+      width: 26px; height: 26px; border-radius: 50%;
+      background: #E9580C; color: white;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.75rem; font-weight: 700; flex-shrink: 0;
+    }
+    .severity-tag {
+      display: inline-flex; align-items: center; gap: 4px;
+      font-size: 0.6rem; font-weight: 700; padding: 3px 9px; border-radius: 999px;
+      letter-spacing: 0.06em; text-transform: uppercase;
+    }
+    .severity-nulo { background: rgba(34,197,94,0.1); color: #15803D; }
+    .severity-leve { background: rgba(234,179,8,0.12); color: #A16207; }
+    .severity-medio { background: rgba(249,115,22,0.12); color: #C2410C; }
+    .severity-alto { background: rgba(220,38,38,0.12); color: #B91C1C; }
+
+    /* HIGHLIGHT */
+    mark.help-highlight {
+      background: rgba(233,88,12,0.18); color: inherit; padding: 0 2px; border-radius: 3px;
+    }
+
+    /* FLOATING EMERGENCY (always visible) */
+    .emergency-float {
+      position: fixed; bottom: 24px; left: 24px; z-index: 50;
+      background: #DC2626; color: white; border-radius: 999px;
+      padding: 12px 20px; font-weight: 700; font-size: 0.85rem;
+      box-shadow: 0 12px 32px rgba(220,38,38,0.35);
+      display: flex; align-items: center; gap: 8px;
+      transition: all 200ms;
+    }
+    .emergency-float:hover { background: #B91C1C; transform: translateY(-2px); }
+    @media (max-width: 640px) {
+      .emergency-float { left: 16px; bottom: 16px; padding: 10px 16px; font-size: 0.78rem; }
+    }
+
+    /* WhatsApp float */
+    .float-wa { position: fixed; bottom: 24px; right: 24px; z-index: 60; width: 56px; height: 56px; border-radius: 999px; background: #25D366; color: white; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 24px rgba(37,211,102,0.32); transition: transform 200ms; }
+    .float-wa:hover { transform: scale(1.05); }
+
+    /* PULSE animation for emergency */
+    @keyframes pulse-red {
+      0%, 100% { box-shadow: 0 12px 32px rgba(220,38,38,0.35), 0 0 0 0 rgba(220,38,38,0.4); }
+      50% { box-shadow: 0 12px 32px rgba(220,38,38,0.35), 0 0 0 14px rgba(220,38,38,0); }
+    }
+    .emergency-float { animation: pulse-red 2.6s infinite; }
+
+    /* ============================================ */
+    /* CINZI · ASISTENTE VIRTUAL                    */
+    /* ============================================ */
+    /* Botón flotante */
+    .cinzi-trigger {
+      position: fixed; bottom: 24px; right: 24px; z-index: 65;
+      display: flex; align-items: center; gap: 12px;
+      transition: transform 220ms cubic-bezier(0.22,1,0.36,1);
+    }
+    .cinzi-trigger.hidden-state { transform: translateY(120px); opacity: 0; pointer-events: none; }
+    .cinzi-trigger-btn {
+      position: relative;
+      width: 64px; height: 64px; border-radius: 999px;
+      background: linear-gradient(135deg, #E9580C 0%, #FF6F1F 100%);
+      color: white; display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 12px 32px rgba(233,88,12,0.42);
+      cursor: pointer; transition: all 240ms cubic-bezier(0.22,1,0.36,1);
+      border: 3px solid white;
+    }
+    .cinzi-trigger-btn:hover { transform: translateY(-3px) scale(1.04); box-shadow: 0 20px 40px rgba(233,88,12,0.5); }
+    .cinzi-trigger-btn::after {
+      content: ''; position: absolute; bottom: 4px; right: 4px;
+      width: 14px; height: 14px; border-radius: 50%; background: #22c55e;
+      border: 3px solid white;
+    }
+    @keyframes cinziPulse {
+      0%, 100% { box-shadow: 0 12px 32px rgba(233,88,12,0.42), 0 0 0 0 rgba(233,88,12,0.4); }
+      50% { box-shadow: 0 12px 32px rgba(233,88,12,0.42), 0 0 0 16px rgba(233,88,12,0); }
+    }
+    .cinzi-trigger-btn.pulse { animation: cinziPulse 2.8s infinite; }
+    .cinzi-bubble {
+      background: white; border-radius: 22px;
+      padding: 12px 18px; font-size: 0.85rem; font-weight: 600; color: #0B0B0B;
+      box-shadow: 0 12px 32px rgba(11,11,11,0.12);
+      border: 1px solid rgba(11,11,11,0.05);
+      position: relative; max-width: 220px;
+      opacity: 0; transform: translateY(8px) scale(0.95); pointer-events: none;
+      transition: all 280ms cubic-bezier(0.22,1,0.36,1);
+    }
+    .cinzi-bubble.show { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
+    .cinzi-bubble::after {
+      content: ''; position: absolute; right: -7px; bottom: 22px;
+      width: 14px; height: 14px; background: white;
+      border-right: 1px solid rgba(11,11,11,0.05);
+      border-bottom: 1px solid rgba(11,11,11,0.05);
+      transform: rotate(-45deg);
+    }
+    .cinzi-bubble-close {
+      position: absolute; top: -8px; right: -8px;
+      width: 22px; height: 22px; border-radius: 50%;
+      background: #0B0B0B; color: white;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; transition: all 180ms;
+    }
+    .cinzi-bubble-close:hover { background: #E9580C; transform: rotate(90deg); }
+
+    /* Chat window */
+    .cinzi-chat {
+      position: fixed; bottom: 24px; right: 24px; z-index: 70;
+      width: 400px; height: 640px; max-height: calc(100vh - 48px);
+      background: white; border-radius: 24px;
+      box-shadow: 0 24px 64px rgba(11,11,11,0.24);
+      display: flex; flex-direction: column;
+      overflow: hidden;
+      opacity: 0; transform: translateY(20px) scale(0.96); pointer-events: none;
+      transform-origin: bottom right;
+      transition: all 320ms cubic-bezier(0.22,1,0.36,1);
+    }
+    .cinzi-chat.open { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
+    @media (max-width: 640px) {
+      .cinzi-chat {
+        bottom: 0; right: 0; left: 0; top: 0;
+        width: 100%; height: 100%; max-height: 100%;
+        border-radius: 0;
+      }
+    }
+
+    /* Chat header */
+    .cinzi-header {
+      background: linear-gradient(135deg, #0B0B0B 0%, #1a1410 100%);
+      color: white; padding: 18px 20px;
+      display: flex; align-items: center; gap: 12px;
+      position: relative;
+    }
+    .cinzi-header::before {
+      content: ''; position: absolute; top: 0; right: 0; bottom: 0; left: 0;
+      background: radial-gradient(circle at 80% 50%, rgba(233,88,12,0.18) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .cinzi-header > * { position: relative; }
+    .cinzi-avatar {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: linear-gradient(135deg, #E9580C 0%, #FF6F1F 100%);
+      color: white; display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; box-shadow: 0 4px 12px rgba(233,88,12,0.32);
+      position: relative;
+    }
+    .cinzi-avatar::after {
+      content: ''; position: absolute; bottom: 0; right: 0;
+      width: 12px; height: 12px; border-radius: 50%; background: #22c55e;
+      border: 2px solid #1a1410;
+    }
+    .cinzi-name { font-weight: 800; font-size: 1.05rem; line-height: 1.2; }
+    .cinzi-status { font-size: 0.7rem; color: rgba(255,255,255,0.65); margin-top: 1px; display: flex; align-items: center; gap: 5px; }
+    .cinzi-status::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: #22c55e; display: inline-block; }
+    .cinzi-header-actions { display: flex; gap: 6px; margin-left: auto; }
+    .cinzi-header-btn {
+      width: 32px; height: 32px; border-radius: 999px;
+      background: rgba(255,255,255,0.08); color: white;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 180ms; cursor: pointer; border: none;
+    }
+    .cinzi-header-btn:hover { background: rgba(255,255,255,0.15); }
+
+    /* Chat body */
+    .cinzi-body {
+      flex: 1; overflow-y: auto;
+      padding: 18px 18px 8px;
+      background: linear-gradient(180deg, #FAFAFA 0%, #FFFFFF 100%);
+      scroll-behavior: smooth;
+    }
+    .cinzi-body::-webkit-scrollbar { width: 6px; }
+    .cinzi-body::-webkit-scrollbar-thumb { background: rgba(11,11,11,0.12); border-radius: 999px; }
+
+    /* Messages */
+    .cz-msg {
+      display: flex; gap: 8px; margin-bottom: 14px;
+      opacity: 0; transform: translateY(10px);
+      animation: czMsgIn 340ms cubic-bezier(0.22,1,0.36,1) forwards;
+    }
+    .cz-msg.user { flex-direction: row-reverse; }
+    @keyframes czMsgIn { to { opacity: 1; transform: translateY(0); } }
+    .cz-msg-av {
+      width: 30px; height: 30px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .cz-msg-av.bot { background: linear-gradient(135deg, #E9580C 0%, #FF6F1F 100%); color: white; }
+    .cz-msg-av.user { background: rgba(11,11,11,0.08); color: #0B0B0B; }
+    .cz-bubble {
+      max-width: 78%; padding: 11px 15px; border-radius: 16px;
+      font-size: 0.9rem; line-height: 1.5;
+    }
+    .cz-msg.bot .cz-bubble {
+      background: white; border: 1px solid rgba(11,11,11,0.06); color: #0B0B0B;
+      border-top-left-radius: 4px;
+      box-shadow: 0 2px 6px rgba(11,11,11,0.04);
+    }
+    .cz-msg.user .cz-bubble {
+      background: linear-gradient(135deg, #E9580C 0%, #C84A0A 100%); color: white;
+      border-top-right-radius: 4px; font-weight: 600;
+      box-shadow: 0 4px 12px rgba(233,88,12,0.22);
+    }
+    .cz-bubble strong { font-weight: 700; }
+    .cz-bubble a { color: #E9580C; text-decoration: underline; font-weight: 600; }
+    .cz-msg.user .cz-bubble a { color: white; }
+    .cz-bubble ul, .cz-bubble ol { margin: 6px 0 0 4px; padding-left: 16px; }
+    .cz-bubble li { margin-bottom: 4px; }
+
+    /* Typing */
+    .cz-typing-dots { display: inline-flex; gap: 4px; align-items: center; padding: 4px 2px; }
+    .cz-typing-dots span {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: #E9580C; opacity: 0.4;
+      animation: czTyping 1.2s infinite;
+    }
+    .cz-typing-dots span:nth-child(2) { animation-delay: 0.18s; }
+    .cz-typing-dots span:nth-child(3) { animation-delay: 0.36s; }
+    @keyframes czTyping {
+      0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+      30% { transform: translateY(-5px); opacity: 1; }
+    }
+
+    /* Quick chips inside chat */
+    .cz-chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 4px 0 8px 38px; }
+    .cz-chip {
+      background: white; border: 1.5px solid rgba(11,11,11,0.1);
+      padding: 7px 13px; border-radius: 999px;
+      font-size: 0.78rem; font-weight: 600; color: #0B0B0B;
+      cursor: pointer; transition: all 180ms;
+    }
+    .cz-chip:hover { border-color: #E9580C; color: #E9580C; transform: translateY(-1px); }
+
+    /* Escalation card inside chat */
+    .cz-escalate {
+      margin: 10px 0 4px 38px;
+      background: linear-gradient(135deg, rgba(233,88,12,0.06) 0%, rgba(11,11,11,0.02) 100%);
+      border: 1.5px solid rgba(233,88,12,0.2);
+      border-radius: 16px; padding: 14px;
+    }
+    .cz-escalate p { font-size: 0.82rem; color: #0B0B0B; font-weight: 600; margin-bottom: 8px; }
+    .cz-escalate-actions { display: flex; gap: 6px; }
+    .cz-escalate-actions a {
+      flex: 1; display: flex; align-items: center; justify-content: center; gap: 6px;
+      padding: 9px 12px; border-radius: 999px;
+      font-size: 0.78rem; font-weight: 700; transition: all 180ms;
+    }
+    .cz-escalate-actions a.wa { background: #25D366; color: white; }
+    .cz-escalate-actions a.wa:hover { filter: brightness(0.92); }
+    .cz-escalate-actions a.call { background: #0B0B0B; color: white; }
+    .cz-escalate-actions a.call:hover { background: #E9580C; }
+
+    /* Footer (input) */
+    .cinzi-footer {
+      border-top: 1px solid rgba(11,11,11,0.06);
+      padding: 12px 14px;
+      background: white;
+    }
+    .cinzi-input-wrap {
+      display: flex; align-items: center; gap: 8px;
+      background: #F5F5F5; border: 1.5px solid transparent;
+      border-radius: 999px; padding: 4px 4px 4px 18px;
+      transition: all 200ms;
+    }
+    .cinzi-input-wrap:focus-within { border-color: #E9580C; background: white; }
+    .cinzi-input {
+      flex: 1; background: transparent; border: none; outline: none;
+      font-family: 'Inter', sans-serif; font-size: 0.9rem; color: #0B0B0B;
+      padding: 10px 0;
+    }
+    .cinzi-input::placeholder { color: rgba(11,11,11,0.4); }
+    .cinzi-send {
+      width: 38px; height: 38px; border-radius: 50%;
+      background: #E9580C; color: white;
+      display: flex; align-items: center; justify-content: center;
+      border: none; cursor: pointer; transition: all 180ms;
+      flex-shrink: 0;
+    }
+    .cinzi-send:hover { background: #C84A0A; transform: scale(1.06); }
+    .cinzi-send:disabled { background: rgba(11,11,11,0.2); cursor: not-allowed; }
+    .cinzi-disclaimer {
+      text-align: center; font-size: 0.6rem; color: rgba(11,11,11,0.4);
+      margin-top: 6px; letter-spacing: 0.04em;
+    }
+    .cinzi-disclaimer .ai-badge {
+      display: inline-flex; align-items: center; gap: 3px;
+      background: rgba(233,88,12,0.08); color: #C84A0A;
+      padding: 2px 7px; border-radius: 999px; font-weight: 700;
+      letter-spacing: 0.08em;
+    }
+  
+    /* ============================================ */
+    /* MOBILE MENU                                  */
+    /* ============================================ */
+    .mobile-menu-btn {
+      width: 44px; height: 44px; border-radius: 999px;
+      background: #0B0B0B; color: white;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 200ms;
+      flex-shrink: 0;
+    }
+    .mobile-menu-btn:hover { background: #E9580C; }
+
+    .mobile-menu-backdrop {
+      position: fixed; inset: 0; z-index: 90;
+      background: rgba(11,11,11,0.5);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      opacity: 0; pointer-events: none;
+      transition: opacity 300ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .mobile-menu-backdrop.open { opacity: 1; pointer-events: auto; }
+
+    .mobile-menu {
+      position: fixed; top: 0; right: 0; bottom: 0; z-index: 100;
+      width: min(420px, 92vw);
+      background: white;
+      box-shadow: -20px 0 60px rgba(11,11,11,0.18);
+      transform: translateX(100%);
+      transition: transform 380ms cubic-bezier(0.22, 1, 0.36, 1);
+      display: flex; flex-direction: column;
+      overflow-y: auto;
+    }
+    .mobile-menu.open { transform: translateX(0); }
+
+    .mm-header {
+      padding: 22px 26px;
+      display: flex; align-items: center; justify-content: space-between;
+      border-bottom: 1px solid rgba(11,11,11,0.06);
+      flex-shrink: 0;
+    }
+    .mm-close {
+      width: 40px; height: 40px; border-radius: 999px;
+      background: #F5F5F5; color: #0B0B0B;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 180ms;
+    }
+    .mm-close:hover { background: #E9580C; color: white; transform: rotate(90deg); }
+
+    .mm-body { flex: 1; padding: 20px 26px; }
+    .mm-nav-link {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 0;
+      font-size: 1.1rem; font-weight: 700; color: #0B0B0B;
+      border-bottom: 1px solid rgba(11,11,11,0.06);
+      transition: all 180ms;
+    }
+    .mm-nav-link:last-child { border-bottom: none; }
+    .mm-nav-link:hover { color: #E9580C; padding-left: 8px; }
+    .mm-nav-link.active { color: #E9580C; }
+    .mm-nav-link i { color: rgba(11,11,11,0.3); transition: all 180ms; }
+    .mm-nav-link:hover i { color: #E9580C; transform: translateX(4px); }
+
+    /* Submenu Modelos */
+    .mm-submenu { overflow: hidden; max-height: 0; transition: max-height 380ms cubic-bezier(0.22,1,0.36,1); }
+    .mm-submenu.open { max-height: 800px; }
+    .mm-submenu-inner { padding: 8px 0 4px; }
+    .mm-sublink {
+      display: flex; align-items: center; gap: 12px;
+      padding: 12px 14px; border-radius: 12px;
+      transition: background 180ms;
+    }
+    .mm-sublink:hover { background: #F5F5F5; }
+    .mm-sublink .ico-wrap {
+      width: 36px; height: 36px; border-radius: 10px;
+      background: rgba(233,88,12,0.1); color: #E9580C;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .mm-sublink-text p { font-weight: 700; font-size: 0.88rem; color: #0B0B0B; }
+    .mm-sublink-text span { font-size: 0.7rem; color: rgba(11,11,11,0.55); }
+
+    .mm-modelos-toggle {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 0; cursor: pointer;
+      font-size: 1.1rem; font-weight: 700; color: #0B0B0B;
+      border-bottom: 1px solid rgba(11,11,11,0.06);
+      transition: color 180ms;
+      width: 100%; background: transparent; border-left: none; border-right: none; border-top: none;
+      text-align: left;
+    }
+    .mm-modelos-toggle:hover { color: #E9580C; }
+    .mm-modelos-toggle .chev { transition: transform 380ms cubic-bezier(0.22,1,0.36,1); }
+    .mm-modelos-toggle.open .chev { transform: rotate(180deg); color: #E9580C; }
+
+    .mm-footer {
+      padding: 20px 26px 28px;
+      border-top: 1px solid rgba(11,11,11,0.06);
+      background: #FAFAFA;
+      flex-shrink: 0;
+    }
+    .mm-cta {
+      background: #E9580C; color: white;
+      padding: 16px 24px; border-radius: 999px;
+      font-weight: 700; font-size: 1rem;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      width: 100%; transition: all 200ms;
+      margin-bottom: 16px;
+    }
+    .mm-cta:hover { background: #C84A0A; transform: translateY(-2px); box-shadow: 0 12px 28px rgba(233,88,12,0.28); }
+    .mm-cta.wa { background: #25D366; }
+    .mm-cta.wa:hover { background: #1FBE5C; box-shadow: 0 12px 28px rgba(37,211,102,0.32); }
+    .mm-contact { display: flex; gap: 8px; }
+    .mm-contact a {
+      flex: 1; display: flex; align-items: center; justify-content: center; gap: 6px;
+      padding: 12px 14px; border-radius: 14px;
+      font-size: 0.78rem; font-weight: 600;
+      background: white; border: 1px solid rgba(11,11,11,0.08);
+      color: #0B0B0B; transition: all 180ms;
+    }
+    .mm-contact a:hover { border-color: #E9580C; color: #E9580C; }
+    .mm-contact a.wa { background: #25D366; color: white; border-color: #25D366; }
+    .mm-contact a.wa:hover { filter: brightness(0.92); border-color: #25D366; color: white; }
+
+    body.menu-open { overflow: hidden; }
+  
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="fixed top-5 left-5 right-5 z-50">
+    <div class="max-w-[1400px] mx-auto bg-white rounded-full shadow-xl border border-ink/5 pl-5 pr-3 lg:pl-7 lg:pr-4 py-2.5 flex items-center justify-between gap-4">
+      <a href="index.html" class="flex items-center shrink-0 py-1">
+        <img src="https://www.cinziavehiculos.com/assets/image/logo.svg" alt="Cinzia" class="h-9 w-auto" onerror="this.outerHTML='<div style=&quot;font-weight:900;font-size:1.25rem;letter-spacing:-0.04em;color:#0B0B0B;&quot;>CINZIA</div>'">
+      </a>
+      <nav class="hidden lg:flex items-center gap-7 text-sm font-semibold text-ink/85">
+        <div class="nav-item-with-dropdown">
+          <a href="productos.html" class="hover:text-orange transition-colors inline-flex items-center gap-1">
+            Modelos
+            <i data-lucide="chevron-down" class="w-3.5 h-3.5"></i>
+          </a>
+          <div class="mega-menu">
+            <p class="mono-caps text-ink/40 mb-3 pl-3.5">EXPLORÁ POR CATEGORÍA</p>
+            <div class="grid grid-cols-2 gap-1">
+              <a href="productos.html#campers" class="mega-link"><div class="ico-wrap"><i data-lucide="caravan" class="w-5 h-5"></i></div><div><p class="font-bold text-ink text-sm">Campers</p><p class="text-xs text-ink/60 mt-0.5">4 modelos · Desde US$ 24.119</p></div></a>
+              <a href="productos.html#casas-rodantes" class="mega-link"><div class="ico-wrap"><i data-lucide="home" class="w-5 h-5"></i></div><div><p class="font-bold text-ink text-sm">Casas Rodantes</p><p class="text-xs text-ink/60 mt-0.5">1 modelo · Desde US$ 27.000</p></div></a>
+              <a href="productos.html#motorhome-chasis" class="mega-link"><div class="ico-wrap"><i data-lucide="truck" class="w-5 h-5"></i></div><div><p class="font-bold text-ink text-sm">Motorhome Chasis</p><p class="text-xs text-ink/60 mt-0.5">10 modelos · Desde US$ 40.523</p></div></a>
+              <a href="productos.html#motorhome-furgon" class="mega-link"><div class="ico-wrap"><i data-lucide="bus" class="w-5 h-5"></i></div><div><p class="font-bold text-ink text-sm">Motorhome Furgón</p><p class="text-xs text-ink/60 mt-0.5">6 modelos · Desde US$ 28.120</p></div></a>
+              <a href="productos.html#vehiculos-especiales" class="mega-link"><div class="ico-wrap"><i data-lucide="ambulance" class="w-5 h-5"></i></div><div><p class="font-bold text-ink text-sm">Vehículos Especiales</p><p class="text-xs text-ink/60 mt-0.5">9 modelos · B2B a medida</p></div></a>
+              <a href="productos.html#entrega-inmediata" class="mega-link"><div class="ico-wrap"><i data-lucide="zap" class="w-5 h-5"></i></div><div><p class="font-bold text-ink text-sm">Entrega Inmediata</p><p class="text-xs text-ink/60 mt-0.5">3 unidades · Listo para retirar</p></div></a>
+            </div>
+            <a href="productos.html" class="block mt-3 pt-4 border-t border-ink/5 text-center text-sm font-semibold text-orange hover:text-orange-dark transition-colors">Ver los 32 modelos →</a>
+          </div>
+        </div>
+        <a href="rental.html" class="hover:text-orange transition-colors">Rental</a>
+        <a href="points.html" class="hover:text-orange transition-colors">Points</a>
+        <a href="soporte-viajero.html" class="text-orange transition-colors">Soporte</a>
+        <a href="preguntas-frecuentes.html" class="hover:text-orange transition-colors">FAQ</a>
+        <a href="contacto.html" class="hover:text-orange transition-colors">Contacto</a>
+      </nav>
+      <div class="flex items-center gap-2">
+        <a href="https://api.whatsapp.com/send?phone=5493515293858&text=Hola!%20Necesito%20asistencia%20con%20mi%20motorhome%20alquilado" class="btn-wa text-sm hidden lg:inline-flex" style="padding: 10px 18px;">
+          <i data-lucide="message-circle" class="w-4 h-4"></i>
+          Asistencia
+        </a>
+        <button id="mobile-menu-toggle" class="mobile-menu-btn lg:hidden" aria-label="Abrir menú">
+          <i data-lucide="menu" class="w-5 h-5"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu-backdrop" id="mobile-menu-backdrop"></div>
+  <aside class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <div class="mm-header">
+      <a href="index.html" class="flex items-center shrink-0">
+        <img src="https://www.cinziavehiculos.com/assets/image/logo.svg" alt="Cinzia" class="h-8 w-auto" onerror="this.outerHTML='<div style=&quot;font-weight:900;font-size:1.15rem;letter-spacing:-0.04em;color:#0B0B0B;&quot;>CINZIA</div>'">
+      </a>
+      <button id="mobile-menu-close" class="mm-close" aria-label="Cerrar menú">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+    </div>
+
+    <div class="mm-body">
+      <button class="mm-modelos-toggle" id="mm-modelos-toggle">
+        <span>Modelos</span>
+        <i data-lucide="chevron-down" class="w-4 h-4 chev"></i>
+      </button>
+      <div class="mm-submenu" id="mm-modelos-submenu">
+        <div class="mm-submenu-inner">
+          <a href="productos.html#campers" class="mm-sublink"><div class="ico-wrap"><i data-lucide="caravan" class="w-4 h-4"></i></div><div class="mm-sublink-text"><p>Campers</p><span>4 modelos</span></div></a>
+          <a href="productos.html#casas-rodantes" class="mm-sublink"><div class="ico-wrap"><i data-lucide="home" class="w-4 h-4"></i></div><div class="mm-sublink-text"><p>Casas Rodantes</p><span>1 modelo</span></div></a>
+          <a href="productos.html#motorhome-chasis" class="mm-sublink"><div class="ico-wrap"><i data-lucide="truck" class="w-4 h-4"></i></div><div class="mm-sublink-text"><p>Motorhome Chasis</p><span>10 modelos</span></div></a>
+          <a href="productos.html#motorhome-furgon" class="mm-sublink"><div class="ico-wrap"><i data-lucide="bus" class="w-4 h-4"></i></div><div class="mm-sublink-text"><p>Motorhome Furgón</p><span>6 modelos</span></div></a>
+          <a href="productos.html#vehiculos-especiales" class="mm-sublink"><div class="ico-wrap"><i data-lucide="ambulance" class="w-4 h-4"></i></div><div class="mm-sublink-text"><p>Vehículos Especiales</p><span>9 modelos · B2B</span></div></a>
+          <a href="productos.html#entrega-inmediata" class="mm-sublink"><div class="ico-wrap"><i data-lucide="zap" class="w-4 h-4"></i></div><div class="mm-sublink-text"><p>Entrega Inmediata</p><span>3 unidades</span></div></a>
+          <a href="productos.html" class="mm-sublink" style="justify-content:center; color:#E9580C; font-weight:700; font-size:0.85rem; margin-top:6px;">
+            Ver los 32 modelos →
+          </a>
+        </div>
+      </div>
+
+      <a href="rental.html" class="mm-nav-link">
+        Rental
+        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </a>
+      <a href="points.html" class="mm-nav-link">
+        Points
+        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </a>
+      <a href="soporte-viajero.html" class="mm-nav-link active">
+        Soporte
+        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </a>
+      <a href="nosotros.html" class="mm-nav-link">
+        Nosotros
+        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </a>
+      <a href="preguntas-frecuentes.html" class="mm-nav-link">
+        FAQ
+        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </a>
+      <a href="contacto.html" class="mm-nav-link">
+        Contacto
+        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </a>
+    </div>
+
+    <div class="mm-footer">
+      <a href="https://api.whatsapp.com/send?phone=5493515293858&text=Hola!%20Necesito%20asistencia" class="mm-cta wa">
+        Pedir asistencia
+        <i data-lucide="message-circle" class="w-4 h-4"></i>
+      </a>
+      <div class="mm-contact">
+        <a href="tel:+5493515293858">
+          <i data-lucide="phone" class="w-3.5 h-3.5"></i>
+          Llamar
+        </a>
+        <a href="https://api.whatsapp.com/send?phone=5493515293858&text=Hola!%20Quiero%20info" class="wa">
+          <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
+          WhatsApp
+        </a>
+      </div>
+    </div>
+  </aside>
+
+
+  <!-- ============================================ -->
+  <!-- HERO -->
+  <!-- ============================================ -->
+  <section class="support-hero pt-32 lg:pt-40 pb-16 lg:pb-20 text-white">
+    <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
+      <div class="grid lg:grid-cols-[1.2fr_1fr] gap-10 items-center">
+
+        <div>
+
+          <div class="inline-flex items-center gap-2 mb-5 bg-orange/15 backdrop-blur-sm border border-orange/30 px-4 py-1.5 rounded-full" data-reveal>
+            <span class="relative flex h-2 w-2">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-orange"></span>
+            </span>
+            <span class="mono-caps text-orange">ASISTENCIA 24/7 · CENTRO DE AYUDA</span>
+          </div>
+
+          <h1 class="display-black text-[clamp(36px,6.5vw,76px)] mb-5" data-reveal>
+            ¿Necesitás<br>
+            <span class="text-orange">ayuda en la ruta?</span>
+          </h1>
+
+          <p class="text-lg lg:text-xl text-white/80 leading-relaxed mb-8 max-w-xl" data-reveal>
+            Si algo no anda bien en tu motorhome Cinzia Rental, resolvelo en minutos con nuestro asistente guiado o consultá el manual completo.
+          </p>
+
+          <div class="flex flex-wrap gap-3" data-reveal>
+            <a href="#asistente" class="btn-primary">
+              <i data-lucide="bot" class="w-4 h-4"></i>
+              Probar asistente guiado
+            </a>
+            <a href="#troubleshooting" class="bg-white/10 hover:bg-white/15 backdrop-blur-sm border border-white/20 text-white font-semibold px-6 py-3.5 rounded-full inline-flex items-center gap-2 transition-colors">
+              <i data-lucide="book-open" class="w-4 h-4"></i>
+              Ver guía completa
+            </a>
+          </div>
+        </div>
+
+        <div class="emergency-card" data-reveal>
+          <div class="flex items-center gap-3 mb-5">
+            <div class="w-12 h-12 rounded-2xl bg-red-500/20 text-red-400 flex items-center justify-center flex-shrink-0">
+              <i data-lucide="phone-call" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <p class="mono-caps text-red-400 mb-0.5">EMERGENCIA EN RUTA</p>
+              <p class="font-bold text-white text-lg leading-tight">Línea directa Cinzia</p>
+            </div>
+          </div>
+          <a href="tel:+5493515293858" class="block mb-3 group">
+            <p class="text-white/60 text-xs mb-1">Llamá ya mismo</p>
+            <p class="display-black text-3xl text-white group-hover:text-orange transition-colors">+54 9 3515 29-3858</p>
+          </a>
+          <p class="text-white/65 text-sm leading-relaxed mb-5">
+            Atendemos las 24 horas. Tené a mano la patente y la sucursal donde retiraste la unidad.
+          </p>
+          <div class="grid grid-cols-2 gap-2">
+            <a href="https://api.whatsapp.com/send?phone=5493515293858&text=URGENTE%20-%20Necesito%20asistencia%20con%20mi%20motorhome%20alquilado" class="btn-wa text-sm" style="padding: 11px 16px;">
+              <i data-lucide="message-circle" class="w-4 h-4"></i>
+              WhatsApp
+            </a>
+            <a href="tel:08006662369" class="bg-white/10 hover:bg-white/15 backdrop-blur-sm border border-white/15 text-white text-sm font-semibold px-4 py-2.5 rounded-full inline-flex items-center justify-center gap-2 transition-colors">
+              <i data-lucide="wrench" class="w-4 h-4"></i>
+              MB 24h
+            </a>
+          </div>
+          <p class="text-white/40 text-[0.65rem] mt-3 text-center">
+            MB Assistance 24h: 0800 666 2369 (asistencia mecánica del chasis Mercedes-Benz)
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- ACCIONES RÁPIDAS -->
+  <!-- ============================================ -->
+  <section class="bg-soft py-14 lg:py-20 border-b border-ink/5">
+    <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
+      <div class="mb-8" data-reveal>
+        <div class="inline-flex items-center gap-2 mb-3 bg-orange/10 border border-orange/20 px-3 py-1 rounded-full">
+          <i data-lucide="zap" class="w-3 h-3 text-orange"></i>
+          <span class="mono-caps text-orange">ACCESO RÁPIDO</span>
+        </div>
+        <h2 class="display-black text-3xl lg:text-4xl">Los problemas más comunes.</h2>
+        <p class="text-ink/60 mt-2">Hacé click en el que estés viviendo ahora para ir directo a la solución.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4" data-reveal>
+        <a href="#cubiertas" class="quick-action urgent">
+          <div class="ico-big"><i data-lucide="circle-alert" class="w-7 h-7"></i></div>
+          <div>
+            <p class="display-black text-xl mb-1">Pinchadura</p>
+            <p class="text-ink/55 text-sm leading-relaxed">Cambio de rueda paso a paso + qué hacer si tenés problemas.</p>
+          </div>
+          <span class="mono-caps text-orange mt-2 inline-flex items-center gap-1">Ver guía <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></span>
+        </a>
+
+        <a href="#electrico" class="quick-action">
+          <div class="ico-big"><i data-lucide="battery-low" class="w-7 h-7"></i></div>
+          <div>
+            <p class="display-black text-xl mb-1">Sin energía</p>
+            <p class="text-ink/55 text-sm leading-relaxed">Batería baja, fusibles, 220 V, panel de control y luces del tablero.</p>
+          </div>
+          <span class="mono-caps text-orange mt-2 inline-flex items-center gap-1">Ver guía <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></span>
+        </a>
+
+        <a href="#agua" class="quick-action">
+          <div class="ico-big"><i data-lucide="droplet-off" class="w-7 h-7"></i></div>
+          <div>
+            <p class="display-black text-xl mb-1">Sin agua</p>
+            <p class="text-ink/55 text-sm leading-relaxed">Bomba que no enciende, calefón sin agua caliente, tanques.</p>
+          </div>
+          <span class="mono-caps text-orange mt-2 inline-flex items-center gap-1">Ver guía <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></span>
+        </a>
+
+        <a href="#gas" class="quick-action urgent">
+          <div class="ico-big"><i data-lucide="flame" class="w-7 h-7"></i></div>
+          <div>
+            <p class="display-black text-xl mb-1">Problema con gas</p>
+            <p class="text-ink/55 text-sm leading-relaxed">Garrafa, fuga, cocina o caldera que no enciende.</p>
+          </div>
+          <span class="mono-caps text-orange mt-2 inline-flex items-center gap-1">Ver guía <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- ASISTENTE GUIADO -->
+  <!-- ============================================ -->
+  <section id="asistente" class="bg-white py-16 lg:py-24">
+    <div class="max-w-[1100px] mx-auto px-6 lg:px-10">
+      <div class="text-center mb-10" data-reveal>
+        <div class="inline-flex items-center gap-2 mb-3 bg-orange/10 border border-orange/20 px-3 py-1 rounded-full">
+          <i data-lucide="bot" class="w-3 h-3 text-orange"></i>
+          <span class="mono-caps text-orange">ASISTENTE GUIADO</span>
+        </div>
+        <h2 class="display-black text-3xl lg:text-5xl mb-3">Te ayudamos paso a paso.</h2>
+        <p class="text-ink/65 max-w-xl mx-auto leading-relaxed">
+          Respondé un par de preguntas y te llevamos directo a la solución, basada en el manual oficial de uso.
+        </p>
+      </div>
+
+      <div class="assistant-card" data-reveal>
+        <div class="assistant-header">
+          <div class="assistant-avatar">
+            <i data-lucide="bot" class="w-5 h-5"></i>
+          </div>
+          <div class="flex-1 min-w-0">
+            <p class="font-bold text-ink text-sm leading-tight">Asistente Cinzia</p>
+            <p class="text-xs text-ink/55 flex items-center gap-1.5 mt-0.5">
+              <span class="inline-block w-1.5 h-1.5 rounded-full bg-green-500"></span>
+              En línea · responde al instante
+            </p>
+          </div>
+          <div class="hidden sm:flex items-center gap-1.5 text-[0.7rem] font-semibold text-ink/55">
+            <i data-lucide="message-square-text" class="w-3.5 h-3.5 text-orange"></i>
+            <span>Paso <span id="step-counter" class="text-ink font-bold">1</span></span>
+          </div>
+        </div>
+
+        <div id="assistant-history" class="assistant-history-track">
+          <!-- Mensajes anteriores -->
+        </div>
+
+        <div id="assistant-flow" class="assistant-options-wrap">
+          <!-- Renderizado por JS -->
+        </div>
+
+        <div class="mt-5 pt-5 border-t border-ink/8 flex items-center justify-between gap-3 flex-wrap relative z-10">
+          <button id="assistant-restart" class="text-sm font-semibold text-ink/60 hover:text-orange transition-colors inline-flex items-center gap-2">
+            <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i>
+            Empezar de nuevo
+          </button>
+          <a href="https://api.whatsapp.com/send?phone=5493515293858&text=Necesito%20asistencia%20con%20mi%20motorhome%20alquilado" class="btn-wa text-sm" style="padding: 10px 18px;">
+            <i data-lucide="headset" class="w-4 h-4"></i>
+            Hablar con un humano
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- TROUBLESHOOTING CATEGORIZADO -->
+  <!-- ============================================ -->
+  <section id="troubleshooting" class="bg-soft py-16 lg:py-24 border-t border-ink/5">
+    <div class="max-w-[1200px] mx-auto px-6 lg:px-10">
+
+      <div class="mb-8" data-reveal>
+        <div class="inline-flex items-center gap-2 mb-3 bg-orange/10 border border-orange/20 px-3 py-1 rounded-full">
+          <i data-lucide="book-open" class="w-3 h-3 text-orange"></i>
+          <span class="mono-caps text-orange">GUÍA COMPLETA POR SISTEMA</span>
+        </div>
+        <h2 class="display-black text-3xl lg:text-5xl mb-3">Resolvelo según el sistema afectado.</h2>
+        <p class="text-ink/60 max-w-2xl">Información extraída del manual oficial de uso del motorhome Cinzia. Buscá por sistema o por palabra clave.</p>
+      </div>
+
+      <!-- Buscador -->
+      <div class="help-search-wrap mb-6 max-w-2xl" data-reveal>
+        <i data-lucide="search" class="w-4 h-4 text-ink/45 flex-shrink-0"></i>
+        <input type="text" id="help-search" placeholder="Buscá un problema… (ej: batería, calefón, toldo, pinchadura)">
+        <button id="help-search-clear" class="hidden w-9 h-9 rounded-full bg-soft hover:bg-ink/8 flex items-center justify-center text-ink/55 transition-colors" aria-label="Limpiar">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <!-- Tabs de categoría -->
+      <div class="flex gap-2 overflow-x-auto pb-3 mb-8" data-reveal>
+        <button class="cat-tab active" data-cat="todas">
+          <div class="cat-ico"><i data-lucide="layout-grid" class="w-4 h-4"></i></div>
+          <span>Todas</span>
+          <span class="cnt" id="cnt-todas">0</span>
+        </button>
+        <button class="cat-tab" data-cat="electrico" id="electrico-tab">
+          <div class="cat-ico"><i data-lucide="zap" class="w-4 h-4"></i></div>
+          <span>Eléctrico</span>
+          <span class="cnt" id="cnt-electrico">0</span>
+        </button>
+        <button class="cat-tab" data-cat="agua" id="agua-tab">
+          <div class="cat-ico"><i data-lucide="droplets" class="w-4 h-4"></i></div>
+          <span>Agua</span>
+          <span class="cnt" id="cnt-agua">0</span>
+        </button>
+        <button class="cat-tab" data-cat="gas" id="gas-tab">
+          <div class="cat-ico"><i data-lucide="flame" class="w-4 h-4"></i></div>
+          <span>Gas</span>
+          <span class="cnt" id="cnt-gas">0</span>
+        </button>
+        <button class="cat-tab" data-cat="cubiertas" id="cubiertas-tab">
+          <div class="cat-ico"><i data-lucide="circle-dot" class="w-4 h-4"></i></div>
+          <span>Cubiertas</span>
+          <span class="cnt" id="cnt-cubiertas">0</span>
+        </button>
+        <button class="cat-tab" data-cat="habitabilidad">
+          <div class="cat-ico"><i data-lucide="home" class="w-4 h-4"></i></div>
+          <span>Habitabilidad</span>
+          <span class="cnt" id="cnt-habitabilidad">0</span>
+        </button>
+        <button class="cat-tab" data-cat="ruta">
+          <div class="cat-ico"><i data-lucide="map" class="w-4 h-4"></i></div>
+          <span>En ruta</span>
+          <span class="cnt" id="cnt-ruta">0</span>
+        </button>
+      </div>
+
+      <p class="text-xs text-ink/45 mb-6"><span id="ts-count">Mostrando todas las guías</span></p>
+
+      <div class="space-y-3" id="ts-list" data-reveal>
+
+        <!-- ====================== ELÉCTRICO ====================== -->
+        <details class="ts-item" data-severity="nulo" data-cat="electrico" id="electrico">
+          <summary>
+            <div class="flex-1 min-w-0 flex flex-col gap-1.5">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="mono-caps text-orange">ELÉCTRICO · TABLERO</span>
+                <span class="severity-tag severity-nulo"><i data-lucide="info" class="w-3 h-3"></i> Gravedad nula</span>
+              </div>
+              <span class="font-bold text-base lg:text-lg text-ink leading-snug">Luces del tablero Sprinter encendidas</span>
+            </div>
+            <span class="ts-toggle"><i data-lucide="plus" class="w-4 h-4"></i></span>
+          </summary>
+          <div class="ts-content text-ink/70 text-sm leading-relaxed">
+            <p class="mb-3">Estas luces del tablero son habituales en motorhomes y <strong class="text-ink">no requieren detener el viaje</strong>:</p>
+            <div class="ts-step"><span class="step-num">1</span><div><strong class="text-ink">Asistencia de Frenado Activo Desconectado:</strong> indica que el sistema preventivo está desactivado. Seguí viaje normal.</div></div>
+            <div class="ts-step"><span class="step-num">2</span><div><strong class="text-ink">Luz de batería + "no apagar el motor":</strong> a los 40 segundos el motor empieza a cargar la batería del motorhome, generando mayor consumo detectado por el sistema.</div></div>
+            <div class="ts-step"><span class="step-num">3</span><div><strong class="text-ink">Check Engine:</strong> puede aparecer por la calidad del combustible o la regeneración del DPF. No es urgente. Si aparecen otras luces de temperatura o aceite, sí frená.</div></div>
+            <div class="ts-step"><span class="step-num">4</span><div><strong class="text-ink">Testigo del sistema de retención:</strong> suele encenderse al girar las butacas (sensores de cinturón). Es falsa alerta.</div></div>
+            <div class="ts-step"><span class="step-num">5</span><div><strong class="text-ink">Corte del motor con Vigía:</strong> revisá marcha alta + bajas revoluciones, presión de aceite, alta temperatura o problemas eléctricos.</div></div>
+            <p class="mt-4 text-xs text-ink/55"><i data-lucide="alert-circle" class="w-3 h-3 inline"></i> Si tenés dudas, llamanos antes de continuar. No suspendas el viaje innecesariamente.</p>
+          </div>
+        </details>
+
+        <details class="ts-item" data-severity="leve" data-cat="electrico" id="bateria">
+          <summary>
+            <div class="flex-1 min-w-0 flex flex-col gap-1.5">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="mono-caps text-orange">ELÉCTRICO · BATERÍA</span>
+                <span class="severity-tag severity-leve"><i data-lucide="alert-triangle" class="w-3 h-3"></i> Gravedad leve</span>
+              </div>
+              <span class="font-bold text-base lg:text-lg text-ink leading-snug">La batería del motorhome está baja</span>
+            </div>
+            <span class="ts-toggle"><i data-lucide="plus" class="w-4 h-4"></i></span>
+          </summary>
+          <div class="ts-content text-ink/70 text-sm leading-relaxed">
+            <p class="mb-3">El motorhome tiene una batería secundaria que alimenta luces, heladera, climatizador, bomba de agua, USB y TV (12V). Se carga de <strong class="text-ink">3 maneras</strong>:</p>
+            <div class="ts-step"><span class="step-num">1</span><div><strong class="text-ink">Panel solar</strong> del techo (automático con luz solar, ideal cuando estás detenido).</div></div>
+            <div class="ts-step"><span class="step-num">2</span><div><strong class="text-ink">Encendido del vehículo</strong>: el alternador carga la batería secundaria mientras está en movimiento.</div></div>
+            <div class="ts-step"><span class="step-num">3</span><div><strong class="text-ink">Conexión a red externa 220 V</strong>: enchufá el cable en un camping u hogar para recargar.</div></div>
+            <p class="mt-3 mb-2"><strong class="text-ink">Si la batería sigue baja:</strong></p>
+            <ul class="list-disc pl-5 space-y-1">
+              <li>Verificá el voltaje en el panel naranja (junto al tablero). Si está debajo de 11,5 V hay que recargar.</li>
+              <li>Reseteo del controlador: mantené presionado el botón derecho 5–6 segundos.</li>
+              <li>Apagá artefactos innecesarios.</li>
+              <li>Encendé el motor o conectate a red externa.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="ts-item" data-severity="leve" data-cat="electrico" id="220v">
+          <summary>
+            <div class="flex-1 min-w-0 flex flex-col gap-1.5">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="mono-caps text-orange">ELÉCTRICO · 220V</span>
+                <span class="severity-tag severity-leve"><i data-lucide="alert-triangle" class="w-3 h-3"></i> Gravedad leve</span>
+              </div>
+              <span class="font-bold text-base lg:text-lg text-ink leading-snug">No tengo corriente de 220 V (red externa)</span>
+            </div>
+            <span class="ts-toggle"><i data-lucide="plus" class="w-4 h-4"></i></span>
+          </summary>
+          <div class="ts-content text-ink/70 text-sm leading-relaxed">
+            <p class="mb-3">El enchufe exterior está <strong class="text-ink">del lado de la puerta</strong> del motorhome. Verificá:</p>
+            <div class="ts-step"><span class="step-num">1</span><div>El cable está bien enchufado del lado del motorhome <em>y</em> de la fuente externa.</div></div>
+            <div class="ts-step"><span class="step-num">2</span><div>Hay tensión en el punto externo (probalo con otro artefacto).</div></div>
+            <div class="ts-step"><span class="step-num">3</span><div>En el <strong class="text-ink">panel de control principal</strong> la palanca <em>Inversor/Exterior</em> debe estar hacia abajo (exterior) y la palanca <em>Inversor ON/OFF</em> también hacia abajo (OFF).</div></div>
+            <div class="ts-step"><span class="step-num">4</span><div>La luz testigo de la batería debe estar <strong class="text-ink">roja</strong> (= usando red externa). Si está verde, está usando inversor.</div></div>
+            <div class="ts-step"><span class="step-num">5</span><div>Revisá la <strong class="text-ink">fusilera</strong>: si algún fusible está dañado, reemplazalo (los hay en el compartimento del tablero, ver tabla abajo).</div></div>
+            <div class="mt-4 bg-soft rounded-xl p-4">
+              <p class="mono-caps text-ink/50 mb-2">FUSIBLES DEL TABLERO</p>
+              <table class="w-full text-xs">
+                <tbody>
+                  <tr class="border-b border-ink/8"><td class="py-1.5 font-bold text-ink w-8">1</td><td>Luces internas</td></tr>
+                  <tr class="border-b border-ink/8"><td class="py-1.5 font-bold text-ink">2</td><td>Inversor de corriente</td></tr>
+                  <tr class="border-b border-ink/8"><td class="py-1.5 font-bold text-ink">3</td><td>Heladera</td></tr>
+                  <tr class="border-b border-ink/8"><td class="py-1.5 font-bold text-ink">4</td><td>Climatizador</td></tr>
+                  <tr class="border-b border-ink/8"><td class="py-1.5 font-bold text-ink">5</td><td>Indicadores de tanque</td></tr>
+                  <tr><td class="py-1.5 font-bold text-ink">6</td><td>Fusible libre</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </details>
+
+        <details class="ts-item" data-severity="nulo" data-cat="electrico" id="panel">
+          <summary>
+            <div class="flex-1 min-w-0 flex flex-col gap-1.5">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="mono-caps text-orange">ELÉCTRICO · PANEL</span>
+                <span class="severity-tag severity-nulo"><i data-lucide="info" class="w-3 h-3"></i> Gravedad nula</span>
+              </div>
+              <span class="font-bold text-base lg:text-lg text-ink leading-snug">¿Para qué sirve cada botón del panel de control principal?</span>
+            </div>
+            <span class="ts-toggle"><i data-lucide="plus" class="w-4 h-4"></i></span>
+          </summary>
+          <div class="ts-content text-ink/70 text-sm leading-relaxed">
+            <ul class="space-y-2">
+              <li><strong class="text-ink">Inversor/Exterior</strong>: selector de fuente de 220 V (arriba = inversor desde batería; abajo = red externa).</li>
+              <li><strong class="text-ink">Inversor ON/OFF</strong>: habilita o desactiva el inversor.</li>
+              <li><strong class="text-ink">Agua ON/OFF</strong>: enciende o apaga la bomba. Apagala al dormir.</li>
+              <li><strong class="text-ink">Heladera ON/OFF</strong>: corta la alimentación eléctrica.</li>
+              <li><strong class="text-ink">Luz LED interior / exterior</strong>: control de iluminación.</li>
+              <li><strong class="text-ink">Slideout abierto/cerrado</strong>: módulo extensible (en modelos que lo tienen).</li>
+              <li><strong class="text-ink">Tanque de agua</strong>: muestra nivel de aguas limpias, grises y negras.</li>
+            </ul>
+          </div>
+        </details>
+
+        <!-- ====================== AGUA ====================== -->
+        <details class="ts-item" data-severity="leve" data-cat="agua" id="bomba">
+          <summary>
+            <div class="flex-1 min-w-0 flex flex-col gap-1.5">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="mono-caps text-orange">AGUA · BOMBA</span>
+                <span class="severity-tag severity-leve"><i data-lucide="alert-triangle" class="w-3 h-3"></i> Gravedad leve</span>
+              </div>
+              <span class="font-bold text-base lg:text-lg text-ink leading-snug">No sale agua: la bomba no arranca</span>
+            </div>
+            <span class="ts-toggle"><i data-lucide="plus" class="w-4 h-4"></i></span>
+          </summary>
+          <div class="ts-content text-ink/70 text-sm leading-relaxed">
+            <p class="mb-3">La bomba se activa automáticamente al abrir una canilla o ducha. Si no funciona, revisá en orden:</p>
+            <div class="ts-step"><span class="step-num">1</span><div>La tecla <strong class="text-ink">Agua ON/OFF</strong> del tablero principal debe estar encendida.</div></div>
+            <div class="ts-step"><span class="step-num">2</span><div>El tanque de agua limpia debe tener nivel. Si está muy bajo puede dar lectura incorrecta.</div></div>
+            <div class="ts-step"><span class="step-num">3</span><div>Revisá el <strong class="text-ink">fusible correspondiente</strong> en el tablero (ver tabla de fusibles).</div></div>
+            <div class="ts-step"><span class="step-num">4</span><div>Verificá los terminales de la bomba: positivo y automático. Si alguno está desconectado, la bomba no arranca.</div></div>
+            <p class="mt-3 text-xs text-ink/55"><i data-lucide="lightbulb" class="w-3 h-3 inline"></i> <strong class="text-ink">Tip:</strong> apagá la bomba durante la noche para evitar ruidos y ahorrar energía.</p>
+          </div>
+        </details>
+
+        <details class="ts-item" data-severity="leve" data-cat="agua" id="calefon">
+          <summary>
+            <div class="flex-1 min-w-0 flex flex-col gap-1.5">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="mono-caps text-orange">AGUA · CALEFÓN</span>
+                <span class="severity-tag severity-leve"><i data-lucide="alert-triangle" class="w-3 h-3"></i> Gravedad leve</span>
+              </div>
+              <span class="font-bold text-base lg:text-lg text-ink leading-snug">No sale agua caliente del calefón</span>
+            </div>
+            <span class="ts-toggle"><i data-lucide="plus" class="w-4 h-4"></i></span>
+          </summary>
+          <div class="ts-content text-ink/70 text-sm leading-relaxed">
+            <p class="mb-3">El calefón es sin piloto, automático al abrir la canilla. Si no calienta:</p>
+            <div class="ts-step"><span class="step-num">1</span><div>El regulador de <strong class="text-ink">ingreso de agua</strong> debe estar al mínimo (necesario para activar el sistema).</div></div>
+            <div class="ts-step"><span class="step-num">2</span><div>Revisá el <strong class="text-ink">nivel de gas</strong> de la garrafa. Si está vacía o baja, no enciende.</div></div>
+            <div class="ts-step"><span class="step-num">3</span><div>Chequeá que la manguera de salida de la garrafa <strong class="text-ink">no esté doblada ni obstruida</strong>.</div></div>
+            <div class="ts-step"><span class="step-num">4</span><div>Controlá las <strong class="text-ink">2 pilas</strong> del calefón (parte inferior derecha): si están gastadas o mal colocadas, no generan chispa.</div></div>
+            <p class="mt-3 text-xs text-ink/55"><i data-lucide="settings-2" class="w-3 h-3 inline"></i> Los 3 reguladores frontales ajustan: intensidad de llama, caudal de agua y temperatura.</p>
+          </div>
+        </details>
+
+        <details class="ts-item" data-severity="medio" data-cat="agua" id="caldera">
+          <summary>
+            <div class="flex-1 min-w-0 flex flex-col gap-1.5">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="mono-caps text-orange">AGUA · CALDERA</span>
+                <span class="severity-tag severity-medio"><i data-lucide="alert-octagon" class="w-3 h-3"></i> Gravedad media</span>
+              </div>
+              <span class="font-bold text-base lg:text-lg text-ink leading-snug">La caldera muestra código de error (E01–E10)</span>
+            </div>
+            <span class="ts-toggle"><i data-lucide="plus" class="w-4 h-4"></i></span>
+          </summary>
+          <div class="ts-content text-ink/70 text-sm leading-relaxed">
+            <p class="mb-3">Cuando la pantalla parpadea con un código "EXX":</p>
+            <div class="bg-soft rounded-xl p-4 text-xs">
+              <table class="w-full">
+                <thead>
+                  <tr class="border-b border-ink/12">
+                    <th class="text-left py-2 font-bold text-ink">Código</th>
+                    <th class="text-left py-2 font-bold text-ink">Causa</th>
+                    <th class="text-left py-2 font-bold text-ink">Acción</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-ink/8">
+                  <tr><td class="py-2 font-bold text-orange">E01</td><td>Error de inicio (sin llama)</td><td>Asistencia técnica</td></tr>
+                  <tr><td class="py-2 font-bold text-orange">E02</td><td>Llama se apaga por corte de aceite</td><td>Asistencia técnica</td></tr>
+                  <tr class="bg-orange/5"><td class="py-2 font-bold text-orange">E03</td><td>Voltaje anormal</td><td>Revisar batería (mín. 11,5V), nivel combustible, bajar potencia a 3 y temp. &lt; 28°C</td></tr>
+                  <tr><td class="py-2 font-bold text-orange">E05</td><td>Sensor temp. aire entrada</td><td>Asistencia técnica</td></tr>
+                  <tr><td class="py-2 font-bold text-orange">E06</td><td>Falla bomba de aceite</td><td>Asistencia técnica</td></tr>
+                  <tr><td class="py-2 font-bold text-orange">E07</td><td>Falla del ventilador</td><td>Asistencia técnica</td></tr>
+                  <tr><td class="py-2 font-bold text-orange">E08</td><td>Falla de la bujía</td><td>Asistencia técnica</td></tr>
+                  <tr class="bg-orange/5"><td class="py-2 font-bold text-orange">E09</td><td>Protección temp. ultra alta (&gt;260°C)</td><td>Apagar, esperar a que enfríe y volver a encender</td></tr>
+                  <tr><td class="py-2 font-bold text-orange">E10</td><td>Falla sensor temp. ultra alta</td><td>Asistencia técnica</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="mt-3 text-xs text-ink/55"><i data-lucide="phone-call" class="w-3 h-3 inline"></i> Si el código indica "Asistencia técnica", contactanos.</p>
+          </div>
+        </details>
+
+        <details class="ts-item" data-severity="nulo" data-cat="agua" id="aguas-tanques">
+          <summary>
+            <div class="flex-1 min-w-0 flex flex-col gap-1.5">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="mono-caps text-orange">AGUA · TANQUES</span>
+                <span class="severity-tag severity-nulo"><i data-lucide="info" class="w-3 h-3"></i> Gravedad nula</span>
+              </div>
+              <span class="font-bold text-base lg:text-lg text-ink leading-snug">Cómo cargar agua limpia y descargar aguas grises</span>
+            </div>
+            <span class="ts-toggle"><i data-lucide="plus" class="w-4 h-4"></i></span>
+          </summary>
+          <div class="ts-content text-ink/70 text-sm leading-relaxed">
+            <p class="mb-3 font-bold text-ink">🚐 Si tu motorhome es furgón:</p>
+            <ul class="list-disc pl-5 space-y-1 mb-4">
+              <li><strong class="text-ink">Cargar agua limpia:</strong> tapa en el lateral trasero exterior. Conectar manguera y llenar el tanque.</li>
+              <li><strong class="text-ink">Descargar aguas grises:</strong> válvula esférica en la parte inferior. Girar paralelo a la cañería = abierto, perpendicular = cerrado.</li>
+            </ul>
+            <p class="mb-3 font-bold text-ink">🚐 Si tu motorhome es chasis:</p>
+            <ul class="list-disc pl-5 space-y-1 mb-4">
+              <li><strong class="text-ink">Cargar agua limpia:</strong> manguera guardada en la baulera. Abrir la tapa lateral trasera y conectar.</li>
+              <li><strong class="text-ink">Descargar aguas grises:</strong> llave esclusa (válvula) en el sector inferior. Abrir cuando encuentres lugar habilitado.</li>
+            </ul>
+            <div class="bg-orange/8 rounded-xl p-4 border border-orange/15">
+              <p class="font-bold text-ink text-sm mb-1"><i data-lucide="alert-triangle" class="w-3.5 h-3.5 inline text-orange"></i> Importante</p>
+              <p class="text-xs text-ink/65">No descargar aguas grises en la vía pública. Cerrar bien todas las válvulas luego de cada uso. La red <a href="points.html" class="text-orange font-semibold hover:underline">Cinzia Points</a> tiene 21 paradas con carga y descarga gratuita.</p>
+            </div>
+          </div>
+        </details>
+
+        <details class="ts-item" data-severity="leve" data-cat="agua" id="desagues">
+          <summary>
+            <div class="flex-1 min-w-0 flex flex-col gap-1.5">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="mono-caps text-orange">AGUA · DESAGÜES</span>
+                <span class="severity-tag severity-leve"><i data-lucide="alert-triangle" class="w-3 h-3"></i> Gravedad leve</span>
+              </div>
+              <span class="font-bold text-base lg:text-lg text-ink leading-snug">Se tapó una cañería de la bacha</span>
+            </div>
+            <span class="ts-toggle"><i data-lucide="plus" class="w-4 h-4"></i></span>
+          </summary>
+          <div class="ts-content text-ink/70 text-sm leading-relaxed">
+            <div class="ts-step"><span class="step-num">1</span><div>Verificá que el agua no drena correctamente.</div></div>
+            <div class="ts-step"><span class="step-num">2</span><div>Accedé a la <strong class="text-ink">cañería justo debajo de la bacha</strong> (es visible y accesible).</div></div>
+            <div class="ts-step"><span class="step-num">3</span><div>Desenroscá el <strong class="text-ink">tramo inferior (sifón)</strong>, donde está el filtro interno.</div></div>
+            <div class="ts-step"><span class="step-num">4</span><div>Retirá el filtro, limpialo cuidadosamente (restos de comida o grasa).</div></div>
+            <div class="ts-step"><span class="step-num">5</span><div>Volvé a colocar el filtro y ensamblar la cañería.</div></div>
+            <p class="mt-4 text-xs text-ink/55"><i data-lucide="ban" class="w-3 h-3 inline"></i> <strong class="text-ink">Prohibido</strong> arrojar restos de comida, aceites, papeles, servilletas o cabellos. Usá coladores al cocinar.</p>
+          </div>
+        </details>
+
+        <!-- ====================== GAS ====================== -->
+        <details class="ts-item" data-severity="medio" data-cat="gas" id="gas">
+          <summary>
+            <div class="flex-1 min-w-0 flex flex-col gap-1.5">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="mono-caps text-orange">GAS · GARRAFA</span>
+                <span class="severity-tag severity-medio"><i data-lucide="alert-octagon" class="w-3 h-3"></i> Gravedad media</span>
+              </div>
+              <span class="font-bold text-base lg:text-lg text-ink leading-snug">Cómo abrir y cerrar la garrafa de gas</span>
+            </div>
+            <span class="ts-toggle"><i data-lucide="plus" class="w-4 h-4"></i></span>
+          </summary>
+          <div class="ts-content text-ink/70 text-sm leading-relaxed">
+            <p class="mb-3 font-bold text-ink">Para abrir:</p>
+            <div class="ts-step"><span class="step-num">1</span><div>Localizá el compartimento donde está la garrafa (baulera).</div></div>
+            <div class="ts-step"><span class="step-num">2</span><div>Girá la <strong class="text-ink">válvula superior</strong> para abrir el paso del gas.</div></div>
+            <div class="ts-step"><span class="step-num">3</span><div>Revisá que <strong class="text-ink">no haya olor a gas</strong>. Si percibís algo extraño, no usés ningún artefacto y ventilá la zona.</div></div>
+            <p class="mb-3 mt-4 font-bold text-ink">Para cerrar:</p>
+            <div class="ts-step"><span class="step-num">1</span><div>Girá la válvula superior hasta cerrarla por completo.</div></div>
+            <div class="ts-step"><span class="step-num">2</span><div>Verificá que todos los artefactos a gas estén apagados.</div></div>
+            <div class="mt-4 bg-red-50 rounded-xl p-4 border border-red-200">
+              <p class="font-bold text-red-700 text-sm mb-1"><i data-lucide="alert-triangle" class="w-3.5 h-3.5 inline"></i> Cerrar la garrafa siempre durante:</p>
+              <ul class="list-disc pl-5 text-xs text-ink/75 space-y-0.5 mt-1">
+                <li>La noche, mientras duermen</li>
+                <li>El viaje, cuando el vehículo esté en movimiento</li>
+              </ul>
+            </div>
+          </div>
+        </details>
+
+        <details class="ts-item" data-severity="alto" data-cat="gas" id="fuga-gas">
+          <summary>
+            <div class="flex-1 min-w-0 flex flex-col gap-1.5">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="mono-caps text-orange">GAS · EMERGENCIA</span>
+                <span class="severity-tag severity-alto"><i data-lucide="siren" class="w-3 h-3"></i> Gravedad alta</span>
+              </div>
+              <span class="font-bold text-base lg:text-lg text-ink leading-snug">Siento olor a gas en el motorhome</span>
+            </div>
+            <span class="ts-toggle"><i data-lucide="plus" class="w-4 h-4"></i></span>
+          </summary>
+          <div class="ts-content text-ink/70 text-sm leading-relaxed">
+            <p class="mb-3 font-bold text-red-700">Actuá inmediatamente en este orden:</p>
+            <div class="ts-step"><span class="step-num">1</span><div><strong class="text-ink">No accionés ningún artefacto eléctrico</strong> (luces, motor, fósforos, encendedores).</div></div>
+            <div class="ts-step"><span class="step-num">2</span><div>Abrí <strong class="text-ink">puertas y ventanas</strong> para ventilar.</div></div>
+            <div class="ts-step"><span class="step-num">3</span><div>Cerrá la <strong class="text-ink">válvula superior de la garrafa</strong> girándola por completo.</div></div>
+            <div class="ts-step"><span class="step-num">4</span><div>Salí del motorhome con todos los ocupantes.</div></div>
+            <div class="ts-step"><span class="step-num">5</span><div>Llamanos al <a href="tel:+5493515293858" class="text-orange font-semibold hover:underline">+54 9 3515 29-3858</a> antes de volver a usar la unidad.</div></div>
+            <div class="mt-4 bg-red-50 rounded-xl p-4 border border-red-200">
+              <p class="text-xs text-ink/75"><strong class="text-red-700">No subestimes una fuga.</strong> Aunque sea leve, requiere revisión técnica antes de volver a encender cualquier artefacto a gas (caldera, calefón, cocina).</p>
+            </div>
+          </div>
+        </details>
+
+        <!-- ====================== CUBIERTAS ====================== -->
+        <details class="ts-item" data-severity="medio" data-cat="cubiertas" id="cubiertas">
+          <summary>
+            <div class="flex-1 min-w-0 flex flex-col gap-1.5">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="mono-caps text-orange">CUBIERTAS · PINCHADURA</span>
+                <span class="severity-tag severity-medio"><i data-lucide="alert-octagon" class="w-3 h-3"></i> Gravedad media</span>
+              </div>
+              <span class="font-bold text-base lg:text-lg text-ink leading-snug">Pinché una cubierta en plena ruta</span>
+            </div>
+            <span class="ts-toggle"><i data-lucide="plus" class="w-4 h-4"></i></span>
+          </summary>
+          <div class="ts-content text-ink/70 text-sm leading-relaxed">
+            <div class="ts-step"><span class="step-num">1</span><div>Si <strong class="text-ink">una sola cubierta</strong> está afectada, usá el auxilio del motorhome para continuar.</div></div>
+            <div class="ts-step"><span class="step-num">2</span><div>Si afecta a <strong class="text-ink">más de una</strong>, triangulá con gomerías cercanas para asistencia.</div></div>
+            <div class="ts-step"><span class="step-num">3</span><div>Si no hay supervisor disponible al momento, podés abonar la reparación por tu cuenta. Administración u Operaciones se comunicará luego para resolver el tema económico.</div></div>
+            <div class="ts-step"><span class="step-num">4</span><div>Toda situación con dinero debe consultarse con Administración antes de confirmar.</div></div>
+            <p class="mt-4 mb-2"><strong class="text-ink">Presión recomendada:</strong></p>
+            <div class="grid grid-cols-2 gap-3 text-xs">
+              <div class="bg-soft rounded-xl p-3">
+                <p class="font-bold text-ink mb-1">Furgón</p>
+                <p>Delanteras: 50 Lb<br>Traseras: 60 Lb</p>
+              </div>
+              <div class="bg-soft rounded-xl p-3">
+                <p class="font-bold text-ink mb-1">Chasis</p>
+                <p>Delanteras: 62 Lb<br>Traseras: 72 Lb</p>
+              </div>
+            </div>
+            <p class="mt-3 text-xs text-ink/55"><i data-lucide="info" class="w-3 h-3 inline"></i> Las 5 cubiertas (incluyendo auxilio) deben estar correctamente infladas. Verificá presión antes de cada viaje.</p>
+            <div class="mt-4">
+              <a href="#cambio-rueda" class="text-orange font-semibold hover:underline text-sm inline-flex items-center gap-1">Ver guía completa de cambio de rueda <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></a>
+            </div>
+          </div>
+        </details>
+
+        <details class="ts-item" data-severity="medio" data-cat="cubiertas" id="cambio-rueda">
+          <summary>
+            <div class="flex-1 min-w-0 flex flex-col gap-1.5">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="mono-caps text-orange">CUBIERTAS · CAMBIO</span>
+                <span class="severity-tag severity-medio"><i data-lucide="alert-octagon" class="w-3 h-3"></i> Gravedad media</span>
+              </div>
+              <span class="font-bold text-base lg:text-lg text-ink leading-snug">Cambio de rueda paso a paso (Sprinter)</span>
+            </div>
+            <span class="ts-toggle"><i data-lucide="plus" class="w-4 h-4"></i></span>
+          </summary>
+          <div class="ts-content text-ink/70 text-sm leading-relaxed">
+            <p class="mb-3 font-bold text-ink">Herramientas:</p>
+            <p class="mb-3">Gato + llave para ruedas. Ubicación:</p>
+            <ul class="list-disc pl-5 space-y-1 mb-4">
+              <li><strong class="text-ink">Tracción delantera:</strong> en el reposapiés del acompañante.</li>
+              <li><strong class="text-ink">Tracción trasera:</strong> compartimento sobre el peldaño de puerta del acompañante, o detrás del asiento del conductor.</li>
+            </ul>
+
+            <p class="mb-3 font-bold text-ink">Preparación:</p>
+            <div class="ts-step"><span class="step-num">1</span><div>Vehículo en <strong class="text-ink">superficie firme y plana</strong>, sin pendientes.</div></div>
+            <div class="ts-step"><span class="step-num">2</span><div>Accioná el freno de estacionamiento. Ruedas delanteras en posición recta.</div></div>
+            <div class="ts-step"><span class="step-num">3</span><div>Manual: 1ª marcha o R. Automático: posición P.</div></div>
+            <div class="ts-step"><span class="step-num">4</span><div>Desconectá el vehículo (no se puede encender).</div></div>
+            <div class="ts-step"><span class="step-num">5</span><div>Desenroscá <strong class="text-ink">1 vuelta</strong> los tornillos de la rueda (no por completo).</div></div>
+
+            <p class="mb-3 mt-5 font-bold text-ink">Elevación (gato):</p>
+            <div class="ts-step"><span class="step-num">6</span><div>Colocá el gato en el punto de apoyo del eje correspondiente (delantero o trasero).</div></div>
+            <div class="ts-step"><span class="step-num">7</span><div>Levantá hasta que el neumático se separe del suelo <strong class="text-ink">máximo 3 cm</strong>.</div></div>
+
+            <p class="mb-3 mt-5 font-bold text-ink">Desmontaje y montaje:</p>
+            <div class="ts-step"><span class="step-num">8</span><div>Desenroscá completamente los tornillos. Retirá la rueda.</div></div>
+            <div class="ts-step"><span class="step-num">9</span><div>Limpiá las superficies de apoyo. Montá la rueda nueva.</div></div>
+            <div class="ts-step"><span class="step-num">10</span><div>Enroscá ligeramente los tornillos (no apretar fuerte aún).</div></div>
+
+            <p class="mb-3 mt-5 font-bold text-ink">Bajada y apriete final:</p>
+            <div class="ts-step"><span class="step-num">11</span><div>Bajá el vehículo girando el gato hacia la izquierda. Apartá el gato.</div></div>
+            <div class="ts-step"><span class="step-num">12</span><div><strong class="text-ink">Con la rueda apoyada en el suelo</strong>, apretá los tornillos en cruz al par prescrito.</div></div>
+            <div class="ts-step"><span class="step-num">13</span><div>Verificá la presión del neumático.</div></div>
+            <div class="ts-step"><span class="step-num">14</span><div><strong class="text-ink">Después de 50 km</strong>, volvé a apretar los tornillos al par prescrito.</div></div>
+
+            <div class="mt-4 bg-red-50 rounded-xl p-4 border border-red-200">
+              <p class="font-bold text-red-700 text-sm mb-1"><i data-lucide="alert-triangle" class="w-3.5 h-3.5 inline"></i> Advertencias críticas</p>
+              <ul class="list-disc pl-5 text-xs text-ink/75 space-y-0.5 mt-1">
+                <li>Nunca cambiés rueda en pendientes (el gato puede volcar).</li>
+                <li>No metas manos ni pies debajo del vehículo elevado.</li>
+                <li>No arranques ni soltes el freno con el vehículo elevado.</li>
+                <li>No lubriques ni engrases los tornillos.</li>
+              </ul>
+            </div>
+          </div>
+        </details>
+
+        <!-- ====================== HABITABILIDAD ====================== -->
+        <details class="ts-item" data-severity="leve" data-cat="habitabilidad" id="heladera">
+          <summary>
+            <div class="flex-1 min-w-0 flex flex-col gap-1.5">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="mono-caps text-orange">HABITABILIDAD · HELADERA</span>
+                <span class="severity-tag severity-leve"><i data-lucide="alert-triangle" class="w-3 h-3"></i> Gravedad leve</span>
+              </div>
+              <span class="font-bold text-base lg:text-lg text-ink leading-snug">La heladera no enfría o no enciende</span>
+            </div>
+            <span class="ts-toggle"><i data-lucide="plus" class="w-4 h-4"></i></span>
+          </summary>
+          <div class="ts-content text-ink/70 text-sm leading-relaxed">
+            <p class="mb-3">Se controla desde el panel principal. Algunos modelos tienen además tecla directa sobre la heladera — verificá esa tecla primero.</p>
+            <p class="mt-3 mb-2 font-bold text-ink">Si el compresor no arranca:</p>
+            <ul class="list-disc pl-5 space-y-1 mb-3 text-sm">
+              <li>Revisar conexiones / cables.</li>
+              <li>Batería cargada (mínimo 11,5V).</li>
+              <li>Fusible #3 del tablero (heladera).</li>
+              <li>Termostato no en "0".</li>
+              <li>Conector trasero firme.</li>
+            </ul>
+            <p class="mb-2 font-bold text-ink">Si funciona pero no enfría bien:</p>
+            <ul class="list-disc pl-5 space-y-1 mb-3 text-sm">
+              <li>Reducí aperturas de puerta.</li>
+              <li>No la sobrecargues (permitir circulación de aire).</li>
+              <li>Posible fuga de refrigerante → asistencia técnica.</li>
+            </ul>
+            <p class="text-xs text-ink/55 mt-3">
+              <i data-lucide="lightbulb" class="w-3 h-3 inline"></i>
+              <strong class="text-ink">Normales:</strong> rocío en carcasa por humedad, calor en condensador trasero, sonido de líquido refrigerante. <strong class="text-ink">Tip:</strong> termostato en 1-2-3 para optimizar consumo.
+            </p>
+          </div>
+        </details>
+
+        <details class="ts-item" data-severity="nulo" data-cat="habitabilidad" id="mesa-cama">
+          <summary>
+            <div class="flex-1 min-w-0 flex flex-col gap-1.5">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="mono-caps text-orange">HABITABILIDAD · MESA-CAMA</span>
+                <span class="severity-tag severity-nulo"><i data-lucide="info" class="w-3 h-3"></i> Gravedad nula</span>
+              </div>
+              <span class="font-bold text-base lg:text-lg text-ink leading-snug">Cómo armar la mesa como cama</span>
+            </div>
+            <span class="ts-toggle"><i data-lucide="plus" class="w-4 h-4"></i></span>
+          </summary>
+          <div class="ts-content text-ink/70 text-sm leading-relaxed">
+            <p class="mb-3 font-bold text-ink">Sistema 1 — Base giratoria ajustable:</p>
+            <div class="ts-step"><span class="step-num">1</span><div>Girá la rosca del tubo central para ajustar altura.</div></div>
+            <div class="ts-step"><span class="step-num">2</span><div>Bajá la mesa hasta lo más cerca posible del piso.</div></div>
+            <div class="ts-step"><span class="step-num">3</span><div>Colocá los colchones o almohadones encima.</div></div>
+
+            <p class="mt-5 mb-3 font-bold text-ink">Sistema 2 — Doble soporte removible:</p>
+            <div class="ts-step"><span class="step-num">1</span><div>Quitá los tubos/soportes de la base de la mesa y del piso.</div></div>
+            <div class="ts-step"><span class="step-num">2</span><div>Apoyá la tabla entre los asientos sobre los bordes laterales fijos.</div></div>
+            <div class="ts-step"><span class="step-num">3</span><div>Colocá los colchones encima.</div></div>
+
+            <p class="mt-4 text-xs text-ink/55"><i data-lucide="alert-triangle" class="w-3 h-3 inline text-orange"></i> No te sientes, pares ni apoyés en los extremos de la mesa — pueden dañarse.</p>
+          </div>
+        </details>
+
+        <details class="ts-item" data-severity="nulo" data-cat="habitabilidad" id="butacas">
+          <summary>
+            <div class="flex-1 min-w-0 flex flex-col gap-1.5">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="mono-caps text-orange">HABITABILIDAD · BUTACAS</span>
+                <span class="severity-tag severity-nulo"><i data-lucide="info" class="w-3 h-3"></i> Gravedad nula</span>
+              </div>
+              <span class="font-bold text-base lg:text-lg text-ink leading-snug">Cómo girar las butacas delanteras</span>
+            </div>
+            <span class="ts-toggle"><i data-lucide="plus" class="w-4 h-4"></i></span>
+          </summary>
+          <div class="ts-content text-ink/70 text-sm leading-relaxed">
+            <p class="mb-3">La palanca de giro está en <strong class="text-ink">distinta ubicación según modelo</strong>: furgón = al costado del asiento; Sprinter = al frente, debajo.</p>
+            <div class="ts-step"><span class="step-num">1</span><div>Vehículo detenido.</div></div>
+            <div class="ts-step"><span class="step-num">2</span><div>Soltá el cinturón y colocalo en su soporte (para que no se atrape).</div></div>
+            <div class="ts-step"><span class="step-num">3</span><div>Mové el asiento hacia adelante.</div></div>
+            <div class="ts-step"><span class="step-num">4</span><div>Reclina ligeramente el respaldo para no chocar volante/lateral.</div></div>
+            <div class="ts-step"><span class="step-num">5</span><div>Conductor: bajá el freno de mano.</div></div>
+            <div class="ts-step"><span class="step-num">6</span><div>Accioná la palanca y girá la butaca suavemente.</div></div>
+            <p class="mt-3 text-xs text-ink/55"><i data-lucide="alert-triangle" class="w-3 h-3 inline text-orange"></i> No forces si algo lo traba — el uso incorrecto puede romper mecanismos o cortar el cinturón.</p>
+          </div>
+        </details>
+
+        <details class="ts-item" data-severity="leve" data-cat="habitabilidad" id="inodoro">
+          <summary>
+            <div class="flex-1 min-w-0 flex flex-col gap-1.5">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="mono-caps text-orange">HABITABILIDAD · INODORO</span>
+                <span class="severity-tag severity-leve"><i data-lucide="alert-triangle" class="w-3 h-3"></i> Gravedad leve</span>
+              </div>
+              <span class="font-bold text-base lg:text-lg text-ink leading-snug">Cómo usar y vaciar el inodoro</span>
+            </div>
+            <span class="ts-toggle"><i data-lucide="plus" class="w-4 h-4"></i></span>
+          </summary>
+          <div class="ts-content text-ink/70 text-sm leading-relaxed">
+            <p class="mb-3 font-bold text-ink">🚐 Furgón (inodoro químico portátil):</p>
+            <ul class="list-disc pl-5 space-y-1 mb-3">
+              <li>Levantá la tapa.</li>
+              <li>Abrí la <strong class="text-ink">guillotina</strong> (palanca en la base).</li>
+              <li>Cerrá la guillotina al terminar.</li>
+              <li><strong class="text-ink">Vaciado:</strong> destrabar con manijas laterales, separar la parte inferior (funciona como bidón) y descargar en lugar habilitado (estación de servicio, camping o <a href="points.html" class="text-orange hover:underline font-semibold">Cinzia Point</a>).</li>
+              <li><strong class="text-ink">Después de vaciar:</strong> agregar agua limpia + dosis de químico desodorizante (viene con la unidad).</li>
+            </ul>
+            <p class="mt-4 mb-3 font-bold text-ink">🚐 Chasis (inodoro con descarga y pedal):</p>
+            <ul class="list-disc pl-5 space-y-1 mb-3">
+              <li>Levantá la tapa y usá normalmente.</li>
+              <li>Apretá el <strong class="text-ink">pedal a la derecha</strong>: el inodoro hace enjuague y abre la guillotina interna.</li>
+              <li>Al soltar el pedal, la guillotina se cierra automáticamente.</li>
+              <li><strong class="text-ink">Descarga de aguas negras:</strong> palanca al costado del inodoro, en lugar habilitado.</li>
+            </ul>
+            <p class="text-xs text-ink/55"><i data-lucide="ban" class="w-3 h-3 inline"></i> Nunca tirés papeles ni objetos. No dejes la guillotina abierta.</p>
+          </div>
+        </details>
+
+        <details class="ts-item" data-severity="nulo" data-cat="habitabilidad" id="toldo">
+          <summary>
+            <div class="flex-1 min-w-0 flex flex-col gap-1.5">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="mono-caps text-orange">HABITABILIDAD · TOLDO</span>
+                <span class="severity-tag severity-nulo"><i data-lucide="info" class="w-3 h-3"></i> Gravedad nula</span>
+              </div>
+              <span class="font-bold text-base lg:text-lg text-ink leading-snug">Cómo abrir y cerrar el toldo</span>
+            </div>
+            <span class="ts-toggle"><i data-lucide="plus" class="w-4 h-4"></i></span>
+          </summary>
+          <div class="ts-content text-ink/70 text-sm leading-relaxed">
+            <p class="mb-3 font-bold text-ink">🚐 Furgón:</p>
+            <div class="ts-step"><span class="step-num">1</span><div>Desenroscá los <strong class="text-ink">tornillos mariposa</strong> en ambos extremos (no perderlos).</div></div>
+            <div class="ts-step"><span class="step-num">2</span><div>Tomá la <strong class="text-ink">manija de apertura</strong> (interior del motorhome).</div></div>
+            <div class="ts-step"><span class="step-num">3</span><div>Insertala en el mecanismo y girá suavemente para abrir.</div></div>
+            <div class="ts-step"><span class="step-num">4</span><div>Extendé los <strong class="text-ink">largueros telescópicos</strong> laterales para ajustar longitud.</div></div>
+
+            <p class="mt-5 mb-3 font-bold text-ink">🚐 Chasis:</p>
+            <div class="ts-step"><span class="step-num">1</span><div>Quitá los <strong class="text-ink">bulones con mariposa</strong> que bloquean el toldo durante el viaje. Guardá las mariposas.</div></div>
+            <div class="ts-step"><span class="step-num">2</span><div>Tomá la <strong class="text-ink">manija</strong> de la baulera, insertala en el eje del toldo.</div></div>
+            <div class="ts-step"><span class="step-num">3</span><div>Girá suavemente para abrir progresivamente.</div></div>
+
+            <div class="mt-4 bg-orange/8 rounded-xl p-4 border border-orange/15">
+              <p class="font-bold text-ink text-sm mb-1"><i data-lucide="wind" class="w-3.5 h-3.5 inline text-orange"></i> Recomendaciones</p>
+              <ul class="list-disc pl-5 text-xs text-ink/75 space-y-0.5 mt-1">
+                <li>No abrir con viento fuerte ni en condiciones climáticas adversas.</li>
+                <li>Nunca dejar el toldo abierto durante la noche o ausencias.</li>
+                <li>Volver a trabar con tornillos mariposa al cerrarlo (para evitar accidentes en viaje).</li>
+              </ul>
+            </div>
+          </div>
+        </details>
+
+        <details class="ts-item" data-severity="nulo" data-cat="habitabilidad" id="climatizacion">
+          <summary>
+            <div class="flex-1 min-w-0 flex flex-col gap-1.5">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="mono-caps text-orange">HABITABILIDAD · CLIMA</span>
+                <span class="severity-tag severity-nulo"><i data-lucide="info" class="w-3 h-3"></i> Gravedad nula</span>
+              </div>
+              <span class="font-bold text-base lg:text-lg text-ink leading-snug">Aire acondicionado / climatizador / TV</span>
+            </div>
+            <span class="ts-toggle"><i data-lucide="plus" class="w-4 h-4"></i></span>
+          </summary>
+          <div class="ts-content text-ink/70 text-sm leading-relaxed">
+            <p class="mb-3 font-bold text-ink">Aire acondicionado:</p>
+            <p class="mb-3">Funciona <strong class="text-ink">solo con 220 V externa</strong> o con inversor (si la batería tiene carga suficiente). Se controla desde su frente o control remoto. <em>No recomendado</em> uso prolongado con inversor — consume mucha energía.</p>
+
+            <p class="mb-3 font-bold text-ink">Climatizador:</p>
+            <p class="mb-3">Refresca el ambiente <strong class="text-ink">sin encender el motor</strong>. Funciona eléctrico y consume solo agua. Botón <strong class="text-ink">8</strong> = encender/apagar. Botones <strong class="text-ink">2</strong> y <strong class="text-ink">3</strong> = subir/bajar velocidad de aire.</p>
+
+            <p class="mb-3 font-bold text-ink">TV:</p>
+            <p>Solo reproduce contenido por <strong class="text-ink">USB o HDMI</strong>. No tiene antena ni sintoniza canales de aire o cable.</p>
+          </div>
+        </details>
+
+        <!-- ====================== EN RUTA ====================== -->
+        <details class="ts-item" data-severity="alto" data-cat="ruta" id="caminos">
+          <summary>
+            <div class="flex-1 min-w-0 flex flex-col gap-1.5">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="mono-caps text-orange">EN RUTA · CAMINOS</span>
+                <span class="severity-tag severity-alto"><i data-lucide="siren" class="w-3 h-3"></i> Importante</span>
+              </div>
+              <span class="font-bold text-base lg:text-lg text-ink leading-snug">¿Puedo circular por ripio o caminos de tierra?</span>
+            </div>
+            <span class="ts-toggle"><i data-lucide="plus" class="w-4 h-4"></i></span>
+          </summary>
+          <div class="ts-content text-ink/70 text-sm leading-relaxed">
+            <p class="mb-3"><strong class="text-red-700">No.</strong> Está prohibido circular por caminos de ripio, tierra o rutas no pavimentadas. Esto puede causar daños graves al vehículo y poner en riesgo la seguridad del viaje.</p>
+            <p class="mb-3">Antes de iniciar cualquier trayecto, verificá el estado de las rutas por las que planeás transitar.</p>
+            <div class="bg-red-50 rounded-xl p-4 border border-red-200">
+              <p class="text-xs text-ink/75"><strong class="text-red-700">Advertencia:</strong> el incumplimiento puede <strong class="text-red-700">invalidar la cobertura del seguro</strong> y generar costos adicionales por daños.</p>
+            </div>
+            <p class="mt-3 text-xs text-ink/55"><i data-lucide="phone-call" class="w-3 h-3 inline"></i> Si necesitás autorización excepcional para un tramo de ripio, contactanos antes.</p>
+          </div>
+        </details>
+
+        <details class="ts-item" data-severity="nulo" data-cat="ruta" id="dimensiones">
+          <summary>
+            <div class="flex-1 min-w-0 flex flex-col gap-1.5">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="mono-caps text-orange">EN RUTA · DIMENSIONES</span>
+                <span class="severity-tag severity-nulo"><i data-lucide="info" class="w-3 h-3"></i> Gravedad nula</span>
+              </div>
+              <span class="font-bold text-base lg:text-lg text-ink leading-snug">Dimensiones del motorhome (alturas, túneles, cocheras)</span>
+            </div>
+            <span class="ts-toggle"><i data-lucide="plus" class="w-4 h-4"></i></span>
+          </summary>
+          <div class="ts-content text-ink/70 text-sm leading-relaxed">
+            <div class="grid grid-cols-3 gap-3 mb-4">
+              <div class="bg-soft rounded-xl p-3 text-center">
+                <p class="mono-caps text-ink/45 mb-1">LARGO</p>
+                <p class="font-bold text-ink text-lg">7 m</p>
+              </div>
+              <div class="bg-soft rounded-xl p-3 text-center">
+                <p class="mono-caps text-ink/45 mb-1">ANCHO</p>
+                <p class="font-bold text-ink text-lg">2,27 m</p>
+              </div>
+              <div class="bg-soft rounded-xl p-3 text-center">
+                <p class="mono-caps text-ink/45 mb-1">ALTO</p>
+                <p class="font-bold text-ink text-lg">3,1–3,3 m</p>
+              </div>
+            </div>
+            <p class="text-xs text-ink/65 leading-relaxed">
+              Estas medidas pueden variar levemente según modelo y accesorios en techo. <strong class="text-ink">Antes de ingresar</strong> a túneles, cocheras, estaciones de servicio o puentes con restricción, verificá la altura.
+            </p>
+          </div>
+        </details>
+
+        <details class="ts-item" data-severity="nulo" data-cat="ruta" id="armar-viaje">
+          <summary>
+            <div class="flex-1 min-w-0 flex flex-col gap-1.5">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="mono-caps text-orange">EN RUTA · CONSEJOS</span>
+                <span class="severity-tag severity-nulo"><i data-lucide="info" class="w-3 h-3"></i> Tips</span>
+              </div>
+              <span class="font-bold text-base lg:text-lg text-ink leading-snug">Cómo armar tu viaje en motorhome</span>
+            </div>
+            <span class="ts-toggle"><i data-lucide="plus" class="w-4 h-4"></i></span>
+          </summary>
+          <div class="ts-content text-ink/70 text-sm leading-relaxed">
+            <ul class="list-disc pl-5 space-y-2">
+              <li><strong class="text-ink">Planificá con anticipación:</strong> destinos según intereses y tiempos disponibles.</li>
+              <li><strong class="text-ink">Revisá el clima:</strong> ropa adecuada para cada región.</li>
+              <li><strong class="text-ink">Turismo responsable:</strong> cuidá el medio ambiente, dejá todo como lo encontraste.</li>
+              <li><strong class="text-ink">Pernoctes:</strong> campings y zonas habilitadas. La red <a href="points.html" class="text-orange font-semibold hover:underline">Cinzia Points</a> tiene 21 paradas en Córdoba con carga y descarga gratuitas.</li>
+              <li><strong class="text-ink">Conexión a internet:</strong> identificá puntos con Wi-Fi para mantenerte comunicado.</li>
+            </ul>
+            <p class="mt-3 text-xs text-ink/55"><i data-lucide="map" class="w-3 h-3 inline"></i> Mapa interactivo de pernoctes recomendados disponible en el manual oficial (sección "Como armar tu viaje").</p>
+          </div>
+        </details>
+
+        <div id="ts-empty" class="hidden text-center py-16">
+          <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-orange/10 text-orange mb-4">
+            <i data-lucide="search-x" class="w-7 h-7"></i>
+          </div>
+          <p class="font-bold text-ink mb-1">No encontramos guías con ese criterio.</p>
+          <p class="text-sm text-ink/55 mb-5">Probá con otra palabra o llamanos al +54 9 3515 29-3858.</p>
+          <a href="https://api.whatsapp.com/send?phone=5493515293858&text=Necesito%20asistencia%20con%20mi%20motorhome%20alquilado" class="btn-wa">
+            <i data-lucide="message-circle" class="w-4 h-4"></i>
+            Hablar por WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- MANUAL DESCARGABLE + CONTACTO -->
+  <!-- ============================================ -->
+  <section class="bg-white py-16 lg:py-24 border-t border-ink/5">
+    <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
+      <div class="grid lg:grid-cols-2 gap-6">
+
+        <div class="bg-soft rounded-3xl p-8 lg:p-10 border border-ink/5" data-reveal>
+          <div class="inline-flex items-center gap-2 mb-3 bg-orange/10 border border-orange/20 px-3 py-1 rounded-full">
+            <i data-lucide="file-text" class="w-3 h-3 text-orange"></i>
+            <span class="mono-caps text-orange">MANUAL COMPLETO</span>
+          </div>
+          <h2 class="display-black text-2xl lg:text-4xl mb-4">Descargá el manual oficial.</h2>
+          <p class="text-ink/65 leading-relaxed mb-6">
+            29 páginas con instrucciones detalladas de cada sistema, fallas comunes, cuidados y consejos de viaje. Te lo entregamos en formato PDF para que lo tengas siempre a mano.
+          </p>
+          <div class="flex flex-wrap gap-3">
+            <a href="docs/manual-motorhome.pdf" download="Cinzia-Manual-Motorhome.pdf" class="btn-primary">
+              <i data-lucide="download" class="w-4 h-4"></i>
+              Descargar PDF (29 pp.)
+            </a>
+            <a href="docs/manual-motorhome.pdf" target="_blank" rel="noopener" class="btn-outline-orange">
+              <i data-lucide="external-link" class="w-4 h-4"></i>
+              Ver online
+            </a>
+          </div>
+          <ul class="mt-7 space-y-2 text-sm text-ink/65">
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-orange"></i> Códigos de error de caldera (E01–E10)</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-orange"></i> Tabla de fusibles del tablero</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-orange"></i> Presiones de neumáticos por modelo</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-orange"></i> Cambio de rueda paso a paso (con imágenes)</li>
+          </ul>
+        </div>
+
+        <div class="bg-ink text-white rounded-3xl p-8 lg:p-10 relative overflow-hidden" data-reveal>
+          <div class="absolute -top-10 -right-10 w-48 h-48 rounded-full bg-orange/20 blur-3xl"></div>
+          <div class="relative">
+            <div class="inline-flex items-center gap-2 mb-3 bg-red-500/15 border border-red-500/30 px-3 py-1 rounded-full">
+              <span class="relative flex h-2 w-2">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-red-400"></span>
+              </span>
+              <span class="mono-caps text-red-300">CONTACTO DIRECTO</span>
+            </div>
+            <h2 class="display-black text-2xl lg:text-4xl mb-4">¿Sigue sin resolverse?</h2>
+            <p class="text-white/75 leading-relaxed mb-7">
+              Estamos disponibles las 24 horas para emergencias en ruta. Tené a mano la patente y la sucursal donde retiraste la unidad.
+            </p>
+
+            <div class="space-y-3 mb-7">
+              <a href="tel:+5493515293858" class="flex items-center gap-3 p-4 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
+                <div class="w-11 h-11 rounded-xl bg-orange/15 text-orange flex items-center justify-center flex-shrink-0">
+                  <i data-lucide="phone" class="w-5 h-5"></i>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <p class="text-white/55 text-xs">Línea directa Cinzia · 24/7</p>
+                  <p class="font-bold text-white truncate">+54 9 3515 29-3858</p>
+                </div>
+                <i data-lucide="arrow-right" class="w-4 h-4 text-white/40 flex-shrink-0"></i>
+              </a>
+
+              <a href="https://api.whatsapp.com/send?phone=5493515293858&text=URGENTE%20-%20Necesito%20asistencia%20con%20mi%20motorhome%20alquilado" class="flex items-center gap-3 p-4 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
+                <div class="w-11 h-11 rounded-xl bg-[#25D366]/15 text-[#25D366] flex items-center justify-center flex-shrink-0">
+                  <i data-lucide="message-circle" class="w-5 h-5"></i>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <p class="text-white/55 text-xs">WhatsApp · respuesta rápida</p>
+                  <p class="font-bold text-white">Chatear ahora</p>
+                </div>
+                <i data-lucide="arrow-right" class="w-4 h-4 text-white/40 flex-shrink-0"></i>
+              </a>
+
+              <a href="tel:08006662369" class="flex items-center gap-3 p-4 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
+                <div class="w-11 h-11 rounded-xl bg-white/10 text-white flex items-center justify-center flex-shrink-0">
+                  <i data-lucide="wrench" class="w-5 h-5"></i>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <p class="text-white/55 text-xs">MB Assistance 24h (chasis MB)</p>
+                  <p class="font-bold text-white">0800 666 2369</p>
+                </div>
+                <i data-lucide="arrow-right" class="w-4 h-4 text-white/40 flex-shrink-0"></i>
+              </a>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3 text-sm">
+              <a href="points.html" class="bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl p-3 transition-colors">
+                <i data-lucide="map-pin" class="w-4 h-4 text-orange mb-2"></i>
+                <p class="font-semibold text-white text-sm">Cinzia Points</p>
+                <p class="text-xs text-white/55">21 paradas técnicas</p>
+              </a>
+              <a href="preguntas-frecuentes.html" class="bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl p-3 transition-colors">
+                <i data-lucide="help-circle" class="w-4 h-4 text-orange mb-2"></i>
+                <p class="font-semibold text-white text-sm">FAQ Rental</p>
+                <p class="text-xs text-white/55">Reservas y políticas</p>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- FOOTER -->
+  <!-- ============================================ -->
+  <footer class="bg-ink text-white py-16 lg:py-20 border-t border-white/10">
+    <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
+      <div class="grid lg:grid-cols-4 gap-10 mb-12">
+        <div>
+          <img src="https://www.cinziavehiculos.com/assets/image/logo.svg" alt="Cinzia" class="h-9 w-auto mb-5" onerror="this.outerHTML='<div style=&quot;font-weight:900;font-size:1.5rem;letter-spacing:-0.04em;color:#FFFFFF;margin-bottom:1.25rem;&quot;>CINZIA</div>'">
+          <p class="text-sm text-white/60 leading-relaxed mb-6">Motorhomes a medida, fabricados en nuestro taller de Córdoba, Argentina.</p>
+          <div class="flex gap-2">
+            <a href="https://www.instagram.com/cinziavehiculos/" aria-label="Instagram" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 transition-colors"><i data-lucide="instagram" class="w-4 h-4"></i></a>
+            <a href="https://www.facebook.com/Cinziavehiculos/" aria-label="Facebook" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 transition-colors"><i data-lucide="facebook" class="w-4 h-4"></i></a>
+            <a href="https://www.youtube.com/channel/UCw8Tz-hH6f0ySvpNWsHCY2Q" aria-label="YouTube" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 transition-colors"><i data-lucide="youtube" class="w-4 h-4"></i></a>
+          </div>
+        </div>
+        <div>
+          <p class="mono-caps text-white/40 mb-5">PRODUCTOS</p>
+          <ul class="space-y-3 text-sm">
+            <li><a href="productos.html#campers" class="text-white/80 hover:text-orange transition-colors">Campers</a></li>
+            <li><a href="productos.html#motorhome-chasis" class="text-white/80 hover:text-orange transition-colors">Motorhome Chasis</a></li>
+            <li><a href="productos.html#motorhome-furgon" class="text-white/80 hover:text-orange transition-colors">Motorhome Furgón</a></li>
+            <li><a href="productos.html" class="text-white/80 hover:text-orange transition-colors">Ver todos los modelos</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="mono-caps text-white/40 mb-5">RENTAL</p>
+          <ul class="space-y-3 text-sm">
+            <li><a href="rental.html" class="text-white/80 hover:text-orange transition-colors">Inicio Rental</a></li>
+            <li><a href="rental.html#vehiculos" class="text-white/80 hover:text-orange transition-colors">Ver flota</a></li>
+            <li><a href="points.html" class="text-white/80 hover:text-orange transition-colors">Cinzia Points</a></li>
+            <li><a href="soporte-viajero.html" class="text-orange transition-colors">Soporte al viajero</a></li>
+            <li><a href="preguntas-frecuentes.html" class="text-white/80 hover:text-orange transition-colors">Preguntas frecuentes</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="mono-caps text-white/40 mb-5">CONTACTO</p>
+          <ul class="space-y-4 text-sm">
+            <li>
+              <p class="text-white/90 font-semibold mb-1">Córdoba · HQ + Taller</p>
+              <p class="text-white/60 leading-relaxed">Alcira Arias 191, Malvinas Argentinas</p>
+              <a href="tel:+5493515293858" class="text-white/80 hover:text-orange transition-colors text-xs font-mono">+54 9 3515 29-3858</a>
+            </li>
+            <li>
+              <p class="text-white/90 font-semibold mb-1">Buenos Aires · Showroom</p>
+              <p class="text-white/60 leading-relaxed">Riobamba 5487, El Triángulo</p>
+              <a href="tel:+5491137716847" class="text-white/80 hover:text-orange transition-colors text-xs font-mono">+54 9 11 3771-6847</a>
+            </li>
+            <li><a href="mailto:rental@cinziavehiculos.com" class="text-white/80 hover:text-orange transition-colors">rental@cinziavehiculos.com</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-white/10 pt-7 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 text-xs text-white/40">
+        <p>© 2026 Cinzia Vehículos · Todos los derechos reservados</p>
+        <div class="flex gap-5">
+          <a href="#" class="hover:text-white/70 transition-colors">Términos y Condiciones</a>
+          <a href="#" class="hover:text-white/70 transition-colors">Privacidad</a>
+          <a href="#" class="hover:text-white/70 transition-colors">Cookies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING EMERGENCY -->
+  <a href="tel:+5493515293858" class="emergency-float">
+    <i data-lucide="phone" class="w-4 h-4"></i>
+    Emergencia 24/7
+  </a>
+
+  <!-- CINZI · Asistente virtual -->
+  <div class="cinzi-trigger" id="cinzi-trigger">
+    <div class="cinzi-bubble" id="cinzi-bubble">
+      <span class="cinzi-bubble-close" id="cinzi-bubble-close" aria-label="Cerrar">
+        <i data-lucide="x" class="w-3 h-3"></i>
+      </span>
+      ¡Hola! Soy Cinzi 👋 ¿Te ayudo con algo?
+    </div>
+    <button class="cinzi-trigger-btn pulse" id="cinzi-trigger-btn" aria-label="Abrir chat con Cinzi">
+      <i data-lucide="bot" class="w-7 h-7"></i>
+    </button>
+  </div>
+
+  <div class="cinzi-chat" id="cinzi-chat" aria-hidden="true">
+    <div class="cinzi-header">
+      <div class="cinzi-avatar">
+        <i data-lucide="bot" class="w-5 h-5"></i>
+      </div>
+      <div class="flex-1 min-w-0">
+        <p class="cinzi-name">Cinzi</p>
+        <p class="cinzi-status">Asistente virtual · responde al instante</p>
+      </div>
+      <div class="cinzi-header-actions">
+        <a href="https://api.whatsapp.com/send?phone=5493515293858&text=Hola!%20Quiero%20hablar%20con%20alguien%20del%20equipo" class="cinzi-header-btn" aria-label="Hablar con un humano" title="Hablar con un humano">
+          <i data-lucide="headset" class="w-4 h-4"></i>
+        </a>
+        <button class="cinzi-header-btn" id="cinzi-close" aria-label="Cerrar chat">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="cinzi-body" id="cinzi-body">
+      <!-- Mensajes renderizados por JS -->
+    </div>
+
+    <div class="cinzi-footer">
+      <form id="cinzi-form" class="cinzi-input-wrap" onsubmit="return false;">
+        <input type="text" id="cinzi-input" class="cinzi-input" placeholder="Escribí tu consulta…" autocomplete="off">
+        <button type="submit" id="cinzi-send" class="cinzi-send" aria-label="Enviar">
+          <i data-lucide="send" class="w-4 h-4"></i>
+        </button>
+      </form>
+      <p class="cinzi-disclaimer">
+        <span class="ai-badge"><i data-lucide="sparkles" class="w-2.5 h-2.5"></i> IA</span>
+        Asistente con IA — si no resuelve, te derivamos a un humano
+      </p>
+    </div>
+  </div>
+
+  <script>
+    lucide.createIcons();
+
+    // ============================================
+    // MOBILE MENU
+    // ============================================
+    (function() {
+      const toggle = document.getElementById('mobile-menu-toggle');
+      const closeBtn = document.getElementById('mobile-menu-close');
+      const backdrop = document.getElementById('mobile-menu-backdrop');
+      const menu = document.getElementById('mobile-menu');
+      const modelosToggle = document.getElementById('mm-modelos-toggle');
+      const modelosSub = document.getElementById('mm-modelos-submenu');
+      if (!toggle || !menu) return;
+
+      function openMenu() {
+        menu.classList.add('open');
+        backdrop.classList.add('open');
+        document.body.classList.add('menu-open');
+        menu.setAttribute('aria-hidden', 'false');
+      }
+      function closeMenu() {
+        menu.classList.remove('open');
+        backdrop.classList.remove('open');
+        document.body.classList.remove('menu-open');
+        menu.setAttribute('aria-hidden', 'true');
+      }
+
+      toggle.addEventListener('click', openMenu);
+      closeBtn.addEventListener('click', closeMenu);
+      backdrop.addEventListener('click', closeMenu);
+
+      menu.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => setTimeout(closeMenu, 120));
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && menu.classList.contains('open')) closeMenu();
+      });
+
+      if (modelosToggle && modelosSub) {
+        modelosToggle.addEventListener('click', () => {
+          modelosToggle.classList.toggle('open');
+          modelosSub.classList.toggle('open');
+        });
+      }
+    })();
+
+
+    // ============================================
+    // REVEAL ON SCROLL
+    // ============================================
+    const revealEls = document.querySelectorAll('[data-reveal]');
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+    revealEls.forEach(el => obs.observe(el));
+
+    // ============================================
+    // ASISTENTE GUIADO (árbol de decisión)
+    // ============================================
+    const FLOW = {
+      start: {
+        bot: "¡Hola! Soy el asistente de Cinzia Rental 🚐. Voy a ayudarte a resolver lo que está pasando con tu motorhome. ¿Qué te trae por acá?",
+        options: [
+          { label: "El motorhome no enciende o tiene una luz en el tablero", ico: "alert-triangle", next: "electrico-tablero" },
+          { label: "Algo eléctrico dejó de funcionar (luces, heladera, 220V)", ico: "zap", next: "electrico-falla" },
+          { label: "Sin agua o sin agua caliente", ico: "droplets", next: "agua" },
+          { label: "Problema con el gas (caldera, calefón, cocina, olor)", ico: "flame", next: "gas" },
+          { label: "Pinché una cubierta", ico: "circle-alert", next: "pinchadura" },
+          { label: "Tengo otra duda sobre el uso del motorhome", ico: "help-circle", next: "otro" },
+        ]
+      },
+      'electrico-tablero': {
+        bot: "Entendido. ¿Qué luz o mensaje aparece en el tablero?",
+        options: [
+          { label: "Asistencia de Frenado Activo Desconectado", ico: "shield-off", next: "tablero-nula", payload: "Asistencia de Frenado" },
+          { label: "Luz de batería + 'no apagar el motor'", ico: "battery", next: "tablero-nula", payload: "Luz de batería del motorhome" },
+          { label: "Check Engine encendido", ico: "wrench", next: "tablero-nula", payload: "Check Engine" },
+          { label: "Testigo del sistema de retención", ico: "user", next: "tablero-nula", payload: "Sistema de retención (butacas)" },
+          { label: "Otra / no estoy seguro", ico: "help-circle", next: "tablero-otro" },
+        ]
+      },
+      'tablero-nula': {
+        bot: (p) => `Buena noticia: "${p}" es una luz con <strong>gravedad nula</strong>. No requiere detener el viaje. Es habitual en motorhomes Cinzia y no afecta la conducción. Podés seguir tranquilo.`,
+        type: "solution-ok",
+        link: { href: "#electrico", label: "Ver detalle de luces del tablero →" }
+      },
+      'tablero-otro': {
+        bot: "Mejor verificar con un técnico antes de seguir. Llamanos para confirmar si la luz que ves es un problema real.",
+        type: "solution-warn",
+        action: { href: "tel:+5493515293858", label: "Llamar al +54 9 3515 29-3858" }
+      },
+      'electrico-falla': {
+        bot: "¿Qué dejó de funcionar exactamente?",
+        options: [
+          { label: "Las luces internas", ico: "lightbulb", next: "fusible-check", payload: "Luces internas (fusible #1)" },
+          { label: "La heladera", ico: "refrigerator", next: "fusible-check", payload: "Heladera (fusible #3)" },
+          { label: "El climatizador", ico: "wind", next: "fusible-check", payload: "Climatizador (fusible #4)" },
+          { label: "No hay 220V (red externa)", ico: "plug", next: "220v-falla" },
+          { label: "La batería del motorhome está baja", ico: "battery-low", next: "bateria-baja" },
+        ]
+      },
+      'fusible-check': {
+        bot: (p) => `Probemos esto: revisá el <strong>fusible correspondiente</strong> en el tablero principal (${p}). Si está dañado, reemplazalo. ¿Resolviste el problema?`,
+        options: [
+          { label: "Sí, ya funciona ✓", ico: "check", next: "resuelto" },
+          { label: "El fusible está bien pero sigue sin funcionar", ico: "x", next: "contacto" },
+        ]
+      },
+      '220v-falla': {
+        bot: "Vamos por pasos. Necesito que verifiques en el panel de control:",
+        options: [
+          { label: "Palanca Inversor/Exterior hacia abajo (exterior)", ico: "toggle-left", next: "220v-step2" },
+        ]
+      },
+      '220v-step2': {
+        bot: "Ahora chequeá si la luz testigo de la batería está roja (= corriente externa OK). ¿Cómo está?",
+        options: [
+          { label: "Está roja ✓ pero igual no anda", ico: "circle", next: "220v-step3" },
+          { label: "Está verde", ico: "circle", next: "220v-verde" },
+          { label: "Apagada", ico: "circle-off", next: "220v-step3" },
+        ]
+      },
+      '220v-step3': {
+        bot: "Revisá el cable: enchufado bien de ambos lados y la fuente externa tiene tensión (probalo con otro artefacto). Si todo eso está OK, podría ser un fusible dañado.",
+        options: [
+          { label: "Voy a revisar fusibles", ico: "search", next: "fusible-220v" },
+          { label: "Ya revisé todo, sigue sin andar", ico: "alert-circle", next: "contacto" },
+        ]
+      },
+      '220v-verde': {
+        bot: "Si está verde significa que está usando el <strong>inversor (interno)</strong> en vez de la red externa. Bajá la palanca Inversor ON/OFF para usar la corriente externa.",
+        options: [
+          { label: "Funcionó ✓", ico: "check", next: "resuelto" },
+          { label: "Sigue sin funcionar", ico: "x", next: "contacto" },
+        ]
+      },
+      'fusible-220v': {
+        bot: "Reemplazá el fusible #2 (Inversor de corriente) si está quemado. ¿Resolviste?",
+        options: [
+          { label: "Sí ✓", ico: "check", next: "resuelto" },
+          { label: "No", ico: "x", next: "contacto" },
+        ]
+      },
+      'bateria-baja': {
+        bot: "Tenés 3 formas de cargar la batería secundaria:",
+        options: [
+          { label: "Conectarme a 220V externa (camping/hogar)", ico: "plug", next: "resuelto-info" },
+          { label: "Encender el motor (carga vía alternador)", ico: "key", next: "resuelto-info" },
+          { label: "Esperar carga solar (panel del techo)", ico: "sun", next: "resuelto-info" },
+          { label: "Ya intenté todo, sigue baja", ico: "alert-circle", next: "contacto" },
+        ]
+      },
+      'agua': {
+        bot: "¿Cuál es el problema exacto?",
+        options: [
+          { label: "No sale agua de ninguna canilla", ico: "droplet-off", next: "agua-bomba" },
+          { label: "Sale fría pero no caliente", ico: "thermometer-snowflake", next: "agua-calefon" },
+          { label: "La caldera muestra un código de error (E__)", ico: "alert-triangle", next: "agua-caldera" },
+          { label: "Cómo cargar/descargar tanques", ico: "container", next: "agua-tanques" },
+        ]
+      },
+      'agua-bomba': {
+        bot: "Revisemos la bomba. Primero verificá: ¿la tecla <strong>Agua ON/OFF</strong> del tablero está encendida?",
+        options: [
+          { label: "Sí está encendida", ico: "check", next: "agua-bomba-2" },
+          { label: "Estaba apagada, ya la prendí", ico: "check", next: "resuelto" },
+        ]
+      },
+      'agua-bomba-2': {
+        bot: "¿El tanque de agua limpia tiene nivel?",
+        options: [
+          { label: "Sí, está con agua", ico: "check", next: "agua-bomba-3" },
+          { label: "Está vacío", ico: "x", next: "agua-cargar" },
+        ]
+      },
+      'agua-bomba-3': {
+        bot: "Probemos con el fusible: revisá el fusible de la bomba en el tablero. Si está dañado, reemplazalo. También chequeá los terminales positivo y automático de la bomba.",
+        options: [
+          { label: "Funcionó ✓", ico: "check", next: "resuelto" },
+          { label: "Sigo sin agua", ico: "x", next: "contacto" },
+        ]
+      },
+      'agua-cargar': {
+        bot: "Necesitás cargar el tanque. La <strong>red Cinzia Points</strong> tiene 21 paradas en Córdoba con carga gratuita.",
+        type: "solution-ok",
+        link: { href: "points.html", label: "Ver paradas Cinzia Points →" }
+      },
+      'agua-calefon': {
+        bot: "Verificá en este orden:",
+        options: [
+          { label: "Regulador de agua al mínimo (necesario para activar)", ico: "minus-circle", next: "agua-calefon-2" },
+        ]
+      },
+      'agua-calefon-2': {
+        bot: "¿La garrafa de gas tiene nivel y está abierta?",
+        options: [
+          { label: "Sí, ya verifiqué", ico: "check", next: "agua-calefon-3" },
+          { label: "Estaba cerrada o vacía", ico: "alert-circle", next: "resuelto" },
+        ]
+      },
+      'agua-calefon-3': {
+        bot: "Revisá las <strong>2 pilas del calefón</strong> (parte inferior derecha). Si están gastadas, no genera chispa para encender.",
+        options: [
+          { label: "Las pilas están bien", ico: "check", next: "agua-calefon-4" },
+          { label: "Las pilas estaban mal", ico: "check", next: "resuelto" },
+        ]
+      },
+      'agua-calefon-4': {
+        bot: "Chequeá que la manguera de salida de la garrafa no esté doblada ni obstruida. Si todo eso está OK y sigue sin agua caliente:",
+        action: { href: "tel:+5493515293858", label: "Llamar al +54 9 3515 29-3858" }
+      },
+      'agua-caldera': {
+        bot: "¿Qué código aparece en la pantalla?",
+        options: [
+          { label: "E03 (voltaje anormal)", ico: "battery-warning", next: "caldera-e03" },
+          { label: "E09 (protección temperatura alta)", ico: "thermometer", next: "caldera-e09" },
+          { label: "Otro código (E01, E02, E05–E08, E10)", ico: "alert-octagon", next: "contacto" },
+        ]
+      },
+      'caldera-e03': {
+        bot: "Probá esto: revisá batería (mín. 11,5V), nivel de combustible, bajá potencia a 3 y temperatura a menos de 28°C.",
+        options: [
+          { label: "Funcionó ✓", ico: "check", next: "resuelto" },
+          { label: "Sigue con error", ico: "x", next: "contacto" },
+        ]
+      },
+      'caldera-e09': {
+        bot: "Es protección térmica (la carcasa pasó los 260°C). <strong>Apagá la caldera, esperá que se enfríe</strong> y volvé a encenderla.",
+        options: [
+          { label: "Ya enfrió y funciona ✓", ico: "check", next: "resuelto" },
+          { label: "Sigue mostrando el error", ico: "x", next: "contacto" },
+        ]
+      },
+      'agua-tanques': {
+        bot: "Te llevo directo a la guía de carga y descarga según tu modelo.",
+        link: { href: "#aguas-tanques", label: "Ver guía de tanques →" }
+      },
+      'gas': {
+        bot: "Importante saber esto. ¿Qué pasa?",
+        options: [
+          { label: "🚨 Siento olor a gas", ico: "siren", next: "gas-fuga", urgent: true },
+          { label: "Cómo abrir/cerrar la garrafa", ico: "circle", next: "gas-garrafa" },
+          { label: "La caldera no enciende (ver código)", ico: "flame", next: "agua-caldera" },
+          { label: "El calefón no calienta el agua", ico: "thermometer-snowflake", next: "agua-calefon" },
+        ]
+      },
+      'gas-fuga': {
+        bot: "Actuá <strong>ya mismo</strong> en este orden:<br><strong>1.</strong> No accionés nada eléctrico (luces, fósforos).<br><strong>2.</strong> Abrí puertas y ventanas.<br><strong>3.</strong> Cerrá la válvula superior de la garrafa.<br><strong>4.</strong> Salí del motorhome con todos los ocupantes.<br><strong>5.</strong> Llamanos ANTES de volver a usar la unidad.",
+        type: "solution-warn",
+        action: { href: "tel:+5493515293858", label: "📞 Llamar URGENTE: +54 9 3515 29-3858" }
+      },
+      'gas-garrafa': {
+        link: { href: "#gas", label: "Ver guía completa de la garrafa →" }
+      },
+      'pinchadura': {
+        bot: "¿Cuántas cubiertas están afectadas?",
+        options: [
+          { label: "Solo una cubierta", ico: "circle-dot", next: "pinch-una" },
+          { label: "Más de una", ico: "circle-alert", next: "pinch-varias" },
+        ]
+      },
+      'pinch-una': {
+        bot: "Podés usar el <strong>auxilio del motorhome</strong> para continuar. Tenemos guía paso a paso para el cambio de rueda.",
+        link: { href: "#cambio-rueda", label: "Ver cambio de rueda paso a paso →" }
+      },
+      'pinch-varias': {
+        bot: "Triangulá con una <strong>gomería cercana</strong>. Si no hay supervisor disponible, podés abonar la reparación y Administración se comunica luego para resolver el tema económico.",
+        type: "solution-warn",
+        action: { href: "https://api.whatsapp.com/send?phone=5493515293858&text=Tengo%20m%C3%A1s%20de%20una%20cubierta%20pinchada%20en%20mi%20motorhome", label: "Avisarnos por WhatsApp" }
+      },
+      'otro': {
+        bot: "Mirá la <strong>guía completa por sistema</strong> abajo o buscá tu problema en la barra de búsqueda. Si nada de eso aplica, hablanos directo.",
+        link: { href: "#troubleshooting", label: "Ver guía completa →" }
+      },
+      'resuelto': {
+        bot: "¡Buenísimo! Si te quedó alguna duda más, podés volver a empezar o consultar la guía completa.",
+        type: "solution-ok"
+      },
+      'resuelto-info': {
+        bot: "Perfecto. Mientras tanto, evitá dejar artefactos encendidos innecesariamente para que la batería dure más. Si seguís con problemas:",
+        type: "solution-ok",
+        action: { href: "tel:+5493515293858", label: "Llamar a Cinzia" }
+      },
+      'contacto': {
+        bot: "Mejor te derivamos a un técnico para resolverlo correctamente. Estamos 24/7 para emergencias en ruta.",
+        type: "solution-warn",
+        action: { href: "https://api.whatsapp.com/send?phone=5493515293858&text=Necesito%20asistencia%20con%20mi%20motorhome%20alquilado", label: "Hablar por WhatsApp" }
+      },
+    };
+
+    const flowEl = document.getElementById('assistant-flow');
+    const historyEl = document.getElementById('assistant-history');
+    const stepCounter = document.getElementById('step-counter');
+    const restartBtn = document.getElementById('assistant-restart');
+
+    let stepNum = 1;
+    let history = []; // {who:'bot'|'user', html}
+
+    function escapeAttr(s) { return (s || '').replace(/"/g, '&quot;'); }
+
+    function flashTarget(hash) {
+      // Acepta '#cambio-rueda' o '#aguas-tanques' etc — scrolleamos + abrimos + flash
+      if (!hash || !hash.startsWith('#')) return;
+      const id = hash.slice(1);
+      const target = document.getElementById(id);
+      if (!target) return;
+      // Si es details, abrirlo y cerrar los demás
+      if (target.tagName === 'DETAILS') {
+        document.querySelectorAll('.ts-item').forEach(d => d.open = false);
+        target.open = true;
+      }
+      // Sacar filtros para que aparezca
+      currentCat = 'todas';
+      currentSearch = '';
+      searchInput.value = '';
+      searchClear.classList.add('hidden');
+      catTabs.forEach(t => t.classList.toggle('active', t.dataset.cat === 'todas'));
+      applyFilters();
+      // Scroll + flash animation
+      target.classList.remove('flash-target');
+      setTimeout(() => {
+        target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        // Esperar al scroll antes de flashear
+        setTimeout(() => {
+          target.classList.add('flash-target');
+          setTimeout(() => target.classList.remove('flash-target'), 1900);
+        }, 600);
+      }, 50);
+    }
+
+    function renderHistory() {
+      historyEl.innerHTML = history.map(m => {
+        if (m.who === 'bot') {
+          return `<div class="msg-row bot">
+            <div class="msg-av bot"><i data-lucide="bot" class="w-3.5 h-3.5"></i></div>
+            <div class="msg-bubble">${m.html}</div>
+          </div>`;
+        } else {
+          return `<div class="msg-row user">
+            <div class="msg-av user"><i data-lucide="user" class="w-3.5 h-3.5"></i></div>
+            <div class="msg-bubble">${m.html}</div>
+          </div>`;
+        }
+      }).join('');
+      lucide.createIcons();
+      // Auto-scroll al último
+      historyEl.scrollTop = historyEl.scrollHeight;
+    }
+
+    function showTyping(cb) {
+      const typingHtml = `<div class="msg-row bot" id="typing-row">
+        <div class="msg-av bot"><i data-lucide="bot" class="w-3.5 h-3.5"></i></div>
+        <div class="msg-bubble"><span class="typing-dots"><span></span><span></span><span></span></span></div>
+      </div>`;
+      flowEl.innerHTML = '';
+      const tmpDiv = document.createElement('div');
+      tmpDiv.innerHTML = typingHtml;
+      historyEl.appendChild(tmpDiv.firstChild);
+      lucide.createIcons();
+      historyEl.scrollTop = historyEl.scrollHeight;
+      setTimeout(() => {
+        const row = document.getElementById('typing-row');
+        if (row) row.remove();
+        cb();
+      }, 700);
+    }
+
+    function renderNode(nodeId, payload, userLabel) {
+      const node = FLOW[nodeId];
+      if (!node) return;
+
+      // Si vino de una elección, sumar la respuesta del usuario al historial
+      if (userLabel) {
+        history.push({ who: 'user', html: userLabel });
+        stepNum++;
+      }
+      stepCounter.textContent = stepNum;
+      renderHistory();
+
+      // Mostrar typing y luego el mensaje del bot + opciones
+      showTyping(() => {
+        const botText = typeof node.bot === 'function' ? node.bot(payload) : node.bot;
+        if (botText) {
+          history.push({ who: 'bot', html: botText });
+          renderHistory();
+        }
+
+        // Construir opciones / acciones debajo del chat
+        let html = '';
+        if (node.options && node.options.length) {
+          html += `<p>¿Qué describe mejor tu situación?</p>`;
+          node.options.forEach(opt => {
+            html += `<button class="assistant-option ${opt.urgent ? 'urgent' : ''}" data-next="${opt.next}" data-payload="${escapeAttr(opt.payload)}" data-label="${escapeAttr(opt.label)}">
+              <div class="opt-ico"><i data-lucide="${opt.ico}" class="w-4 h-4"></i></div>
+              <span class="flex-1">${opt.label}</span>
+              <i data-lucide="arrow-right" class="w-4 h-4 opt-arrow"></i>
+            </button>`;
+          });
+        }
+
+        if (node.type === 'solution-ok') {
+          html += `<div class="assistant-option solution-ok">
+            <div class="opt-ico"><i data-lucide="check-circle-2" class="w-4 h-4"></i></div>
+            <span class="flex-1 text-green-700 font-bold">Problema resuelto ✓</span>
+          </div>`;
+        }
+
+        if (node.link) {
+          html += `<button class="assistant-option solution-link" data-jump="${node.link.href}">
+            <i data-lucide="book-open" class="w-4 h-4"></i>
+            <span class="flex-1 text-center">${node.link.label}</span>
+            <i data-lucide="arrow-right" class="w-4 h-4 opt-arrow"></i>
+          </button>`;
+        }
+
+        if (node.action) {
+          html += `<a href="${node.action.href}" class="assistant-option" style="background: linear-gradient(135deg, #E9580C 0%, #C84A0A 100%); color: white; border-color: #E9580C; justify-content: center; margin-top: 6px;">
+            <i data-lucide="phone" class="w-4 h-4"></i>
+            <span class="font-bold text-white">${node.action.label}</span>
+            <i data-lucide="arrow-right" class="w-4 h-4 text-white/80"></i>
+          </a>`;
+        }
+
+        // Si es nodo final sin opciones, mostrar botón restart
+        if (!node.options && !node.link && !node.action && node.type !== 'solution-ok') {
+          html += '';
+        }
+
+        flowEl.innerHTML = html;
+        lucide.createIcons();
+
+        flowEl.querySelectorAll('.assistant-option[data-next]').forEach(btn => {
+          btn.addEventListener('click', () => {
+            renderNode(btn.dataset.next, btn.dataset.payload || '', btn.dataset.label);
+          });
+        });
+        flowEl.querySelectorAll('.assistant-option[data-jump]').forEach(btn => {
+          btn.addEventListener('click', () => {
+            flashTarget(btn.dataset.jump);
+          });
+        });
+      });
+    }
+
+    function resetAssistant() {
+      stepNum = 1;
+      history = [];
+      historyEl.innerHTML = '';
+      stepCounter.textContent = '1';
+      renderNode('start');
+    }
+
+    resetAssistant();
+    restartBtn.addEventListener('click', resetAssistant);
+
+    // ============================================
+    // CATEGORÍAS + BÚSQUEDA EN TROUBLESHOOTING
+    // ============================================
+    const tsItems = Array.from(document.querySelectorAll('.ts-item'));
+    const catTabs = document.querySelectorAll('.cat-tab');
+    const searchInput = document.getElementById('help-search');
+    const searchClear = document.getElementById('help-search-clear');
+    const tsCount = document.getElementById('ts-count');
+    const tsEmpty = document.getElementById('ts-empty');
+
+    let currentCat = 'todas';
+    let currentSearch = '';
+
+    function updateCatCounts() {
+      const cats = ['electrico', 'agua', 'gas', 'cubiertas', 'habitabilidad', 'ruta'];
+      const total = tsItems.length;
+      document.getElementById('cnt-todas').textContent = total;
+      cats.forEach(c => {
+        const n = tsItems.filter(i => i.dataset.cat === c).length;
+        const el = document.getElementById('cnt-' + c);
+        if (el) el.textContent = n;
+      });
+    }
+
+    function clearHighlights() {
+      tsItems.forEach(item => {
+        ['summary', '.ts-content'].forEach(sel => {
+          item.querySelectorAll(sel + ' mark.help-highlight').forEach(m => {
+            const parent = m.parentNode;
+            parent.replaceChild(document.createTextNode(m.textContent), m);
+            parent.normalize();
+          });
+        });
+      });
+    }
+
+    function highlight(text) {
+      if (!text || text.length < 2) return;
+      const re = new RegExp('(' + text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+      tsItems.forEach(item => {
+        if (item.style.display === 'none') return;
+        const summary = item.querySelector('summary .font-bold');
+        const content = item.querySelector('.ts-content');
+        [summary, content].forEach(el => {
+          if (!el) return;
+          el.innerHTML = el.innerHTML.replace(re, '<mark class="help-highlight">$1</mark>');
+        });
+      });
+    }
+
+    function applyFilters() {
+      clearHighlights();
+      let visible = 0;
+      tsItems.forEach(item => {
+        const catOK = currentCat === 'todas' || item.dataset.cat === currentCat;
+        const text = (item.querySelector('summary').textContent + ' ' + item.querySelector('.ts-content').textContent).toLowerCase();
+        const searchOK = !currentSearch || text.includes(currentSearch.toLowerCase());
+
+        if (catOK && searchOK) {
+          item.style.display = '';
+          visible++;
+        } else {
+          item.style.display = 'none';
+          item.open = false;
+        }
+      });
+
+      if (currentSearch && currentSearch.length >= 2) highlight(currentSearch);
+
+      tsEmpty.classList.toggle('hidden', visible !== 0);
+
+      if (tsCount) {
+        if (currentSearch) {
+          tsCount.textContent = visible === 0
+            ? `Sin resultados para "${currentSearch}"`
+            : `${visible} guía${visible === 1 ? '' : 's'} encontrada${visible === 1 ? '' : 's'} para "${currentSearch}"`;
+        } else {
+          tsCount.textContent = `${visible} guía${visible === 1 ? '' : 's'} ${currentCat === 'todas' ? 'disponibles' : 'en esta categoría'}`;
+        }
+      }
+    }
+
+    catTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        catTabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        currentCat = tab.dataset.cat;
+        applyFilters();
+      });
+    });
+
+    let searchDebounce;
+    searchInput.addEventListener('input', (e) => {
+      const val = e.target.value.trim();
+      searchClear.classList.toggle('hidden', !val);
+      clearTimeout(searchDebounce);
+      searchDebounce = setTimeout(() => {
+        currentSearch = val;
+        applyFilters();
+      }, 180);
+    });
+    searchClear.addEventListener('click', () => {
+      searchInput.value = '';
+      currentSearch = '';
+      searchClear.classList.add('hidden');
+      applyFilters();
+      searchInput.focus();
+    });
+
+    // Acordeón: solo uno abierto a la vez
+    tsItems.forEach(item => {
+      item.addEventListener('toggle', () => {
+        if (item.open) {
+          tsItems.forEach(other => {
+            if (other !== item && other.open) other.open = false;
+          });
+        }
+      });
+    });
+
+    // Init
+    updateCatCounts();
+    applyFilters();
+  </script>
+
+  <!-- ============================================================ -->
+  <!-- CINZI — Asistente virtual                                    -->
+  <!-- Bloque aislado para que cualquier error previo no lo afecte. -->
+  <!-- En producción: reemplazar `generateReply` por fetch a un      -->
+  <!-- backend que invoque Claude/GPT con el manual como contexto.  -->
+  <!-- ============================================================ -->
+  <script>
+    // ============================================================
+    // CINZI — Asistente virtual (motor local)
+    // ============================================================
+
+    const CINZI_KB = [
+      // ─── BOMBA DE AGUA ────────────────────────────────────────
+      {
+        id: 'bomba',
+        topic: 'Bomba de agua',
+        triggers: [/\bbomba\b/i, /no sale agua/i, /sin agua\b/i, /agua no/i, /canilla/i, /presi[oó]n/i],
+        response: 'Vamos a revisarlo paso a paso 🔧 La bomba se activa automáticamente al abrir una canilla o ducha. Si no anda, chequeá en este orden:\n<ol><li>¿La tecla <strong>Agua ON/OFF</strong> del panel principal está encendida?</li><li>¿El tanque de agua limpia tiene nivel suficiente?</li><li>Revisá el fusible correspondiente en el tablero.</li><li>Verificá los terminales positivo y automático de la bomba.</li></ol>',
+        chips: ['Sí, ya verifiqué', 'Sigue sin andar', 'Cómo cargar agua'],
+        deepLink: '#bomba'
+      },
+      // ─── CALEFÓN ──────────────────────────────────────────────
+      {
+        id: 'calefon',
+        topic: 'Calefón / agua caliente',
+        triggers: [/calef[oó]n/i, /agua caliente/i, /no calienta/i, /agua fr[ií]a/i],
+        response: 'El calefón es automático: se activa al abrir la canilla. Si no calienta:\n<ol><li>El regulador de <strong>ingreso de agua</strong> debe estar al mínimo (necesario para activar).</li><li>Revisá nivel de gas de la garrafa — si está vacía, no enciende.</li><li>Chequeá la manguera de salida de la garrafa: no debe estar doblada ni obstruida.</li><li>Controlá las <strong>2 pilas</strong> del calefón (parte inferior derecha) — si están gastadas, no genera chispa.</li></ol>',
+        chips: ['Pilas nuevas y sigue sin andar', '¿Cómo abro la garrafa?'],
+        deepLink: '#calefon'
+      },
+      // ─── CALDERA ──────────────────────────────────────────────
+      {
+        id: 'caldera_e03',
+        topic: 'Caldera E03',
+        triggers: [/e\s*0?3\b/i, /voltaje/i, /caldera.*e03/i],
+        response: 'Código <strong>E03</strong>: voltaje anormal. Probá esto:\n<ul><li>Revisá batería (mínimo 11,5V al arranque)</li><li>Verificá nivel de combustible</li><li>Bajá la potencia de 10 a <strong>3</strong></li><li>Bajá la temperatura a menos de <strong>28°C</strong></li></ul>',
+        chips: ['Persiste el error', 'Otro código'],
+        deepLink: '#caldera'
+      },
+      {
+        id: 'caldera_e09',
+        topic: 'Caldera E09',
+        triggers: [/e\s*0?9\b/i, /temperatura alta/i, /sobrecalent/i],
+        response: 'Código <strong>E09</strong>: protección por temperatura ultra alta (la carcasa pasó los 260°C). \n<ol><li><strong>Apagá la caldera</strong> inmediatamente.</li><li>Esperá a que se enfríe completamente.</li><li>Volvé a encender.</li></ol>Si vuelve a aparecer, contactá asistencia técnica.',
+        chips: ['Sigue con error', 'Funcionó ✓'],
+        deepLink: '#caldera'
+      },
+      {
+        id: 'caldera_general',
+        topic: 'Caldera (genérico)',
+        triggers: [/caldera/i, /c[oó]digo.*error/i, /\beXX\b/i],
+        response: 'La caldera muestra códigos del tipo "EXX" cuando hay un problema. ¿Qué código aparece en la pantalla?',
+        chips: ['E03', 'E09', 'Otro código (E01, E02, E05–E08, E10)']
+      },
+      // ─── HELADERA ─────────────────────────────────────────────
+      {
+        id: 'heladera',
+        topic: 'Heladera',
+        triggers: [/heladera/i, /frigor[ií]fico/i, /no enfr[ií]a/i, /refrigerador/i],
+        response: 'Te ayudo con la heladera. Algunos modelos tienen tecla directa sobre la heladera además del panel — verificá esa primero.\n<ul><li>Si <strong>el compresor no arranca:</strong> revisá conexiones, batería (mín. 11,5V), <strong>fusible #3</strong> del tablero, termostato y conector trasero.</li><li>Si <strong>funciona pero no enfría bien:</strong> reducí aperturas de puerta, no la sobrecargues, podría ser fuga de refrigerante.</li></ul>\n<em>Datos normales</em>: rocío en carcasa, calor en condensador y sonido de líquido son NORMALES.',
+        chips: ['Cómo regular el termostato', 'Sigue sin enfriar'],
+        deepLink: '#heladera'
+      },
+      // ─── 220V / RED EXTERNA ──────────────────────────────────
+      {
+        id: 'red220',
+        topic: '220V red externa',
+        triggers: [/220\s*v?/i, /red externa/i, /toma\s*camping/i, /enchufe/i, /no.*corriente/i, /sin luz/i],
+        response: 'Para usar la corriente externa de 220V:\n<ol><li>Localizá el enchufe exterior (del lado de la puerta).</li><li>Conectá el cable de alimentación.</li><li>En el panel principal: palanca <strong>Inversor/Exterior</strong> hacia <em>abajo</em> (Exterior) y palanca <strong>Inversor ON/OFF</strong> también hacia <em>abajo</em> (OFF).</li><li>La luz testigo de la batería debe estar <strong>roja</strong> (= corriente externa OK).</li></ol>Si la luz está verde, está usando el inversor en vez de la red.',
+        chips: ['Está en verde', 'No hay tensión', 'Tabla de fusibles'],
+        deepLink: '#220v'
+      },
+      // ─── BATERÍA ──────────────────────────────────────────────
+      {
+        id: 'bateria',
+        topic: 'Batería',
+        triggers: [/bater[ií]a/i, /sin energ[ií]a/i, /no carga/i, /11\.?5\s*v/i],
+        response: 'La batería secundaria se carga de 3 maneras: 🌞 <strong>Panel solar</strong> (auto durante el día), 🚗 <strong>Motor encendido</strong> (vía alternador), 🔌 <strong>Red 220V externa</strong> (en campings/casa).\n\nVerificá el voltaje en el panel naranja (junto al tablero). Si está bajo 11,5V hay que recargar. Reseteo del controlador: mantené presionado el botón derecho 5–6 segundos.',
+        chips: ['Sigue baja', '¿Qué consume más?'],
+        deepLink: '#bateria'
+      },
+      // ─── PINCHADURA ──────────────────────────────────────────
+      {
+        id: 'pinchadura',
+        topic: 'Pinchadura',
+        triggers: [/pinch/i, /cubierta/i, /neum[aá]tico/i, /rueda/i, /goma/i],
+        response: '🛞 Vamos a resolverlo. ¿Cuántas cubiertas están afectadas?',
+        chips: ['Solo una', 'Más de una']
+      },
+      {
+        id: 'pinch_una',
+        topic: 'Pinchadura (una)',
+        triggers: [/solo una/i, /^una$/i, /1 sola/i],
+        response: 'Podés continuar usando el <strong>auxilio del motorhome</strong>. Tenemos guía paso a paso del cambio de rueda (Sprinter). ¿Querés verla?',
+        chips: ['Ver guía cambio de rueda', 'No, llamar al taller'],
+        deepLink: '#cambio-rueda'
+      },
+      {
+        id: 'pinch_varias',
+        topic: 'Pinchadura (varias)',
+        triggers: [/m[aá]s de una/i, /dos cubiertas/i, /varias/i],
+        response: 'Con más de una cubierta afectada, lo mejor es <strong>triangular con una gomería cercana</strong>. Si no hay supervisor disponible, podés abonar la reparación y Administración se comunica luego para resolver lo económico.',
+        escalate: true,
+        chips: ['Llamar al equipo']
+      },
+      // ─── GAS ──────────────────────────────────────────────────
+      {
+        id: 'fuga_gas',
+        topic: 'Fuga de gas (EMERGENCIA)',
+        triggers: [/olor.*gas/i, /huele a gas/i, /fuga.*gas/i, /escape.*gas/i],
+        response: '🚨 <strong>Importante. Actuá YA en este orden:</strong>\n<ol><li><strong>NO accionés nada eléctrico</strong> (luces, fósforos, motor).</li><li>Abrí <strong>puertas y ventanas</strong> para ventilar.</li><li>Cerrá la <strong>válvula superior de la garrafa</strong>.</li><li>Salí del motorhome con todos los ocupantes.</li><li>Llamanos ANTES de volver a usar la unidad.</li></ol>',
+        escalate: true,
+        chips: ['Llamar urgente']
+      },
+      {
+        id: 'garrafa',
+        topic: 'Garrafa',
+        triggers: [/garrafa/i, /v[aá]lvula/i, /llave.*gas/i],
+        response: '<strong>Para abrir:</strong> girá la válvula superior. Antes de usar, verificá que no haya olor a gas.\n<strong>Para cerrar:</strong> girá la válvula hasta cerrarla completamente. Verificá que todos los artefactos estén apagados.\n\n⚠️ <strong>Cerrá siempre durante:</strong> la noche (mientras duermen) y el viaje (con el vehículo en movimiento).',
+        chips: ['Olor a gas', '¿Cómo encender el calefón?'],
+        deepLink: '#gas'
+      },
+      // ─── TANQUES / AGUAS ─────────────────────────────────────
+      {
+        id: 'tanques',
+        topic: 'Carga/descarga de aguas',
+        triggers: [/tanque/i, /aguas grises/i, /aguas blancas/i, /aguas negras/i, /descarga/i, /cargar agua/i],
+        response: 'Depende del modelo:\n<ul><li><strong>Furgón:</strong> tapa de carga en lateral trasero exterior. Descarga gris: válvula esférica abajo (paralela = abierta).</li><li><strong>Chasis:</strong> manguera en la baulera para cargar; llave esclusa abajo para descargar gris.</li></ul>📍 La red <a href="points.html">Cinzia Points</a> tiene 21 paradas en Córdoba con carga y descarga <strong>gratis</strong>.',
+        chips: ['Ver red de Points', 'Aguas negras (inodoro)'],
+        deepLink: '#aguas-tanques'
+      },
+      // ─── INODORO ──────────────────────────────────────────────
+      {
+        id: 'inodoro',
+        topic: 'Inodoro',
+        triggers: [/inodoro/i, /baño/i, /aguas negras/i, /guillotina/i],
+        response: 'Hay dos sistemas según modelo:\n<ul><li><strong>Furgón (químico portátil):</strong> abrir guillotina con palanca de la base, usar normalmente, cerrar. Vaciado: destrabar con manijas, separar el depósito inferior como bidón, descargar en lugar habilitado. Después: agua limpia + dosis de químico.</li><li><strong>Chasis (con pedal):</strong> pedal derecho hace enjuague y abre guillotina. Descarga aguas negras: palanca al costado, en lugar habilitado.</li></ul>',
+        deepLink: '#inodoro'
+      },
+      // ─── PANEL DE CONTROL ────────────────────────────────────
+      {
+        id: 'panel',
+        topic: 'Panel de control',
+        triggers: [/panel.*control/i, /tablero/i, /interruptor/i, /palanca/i, /fusi/i],
+        response: 'El panel principal controla: <strong>Inversor/Exterior</strong> (selector de fuente 220V), <strong>Inversor ON/OFF</strong>, <strong>Agua ON/OFF</strong> (bomba), <strong>Heladera</strong>, <strong>Luces LED interior/exterior</strong>, <strong>Slideout</strong> y nivel de <strong>tanques</strong>.\n\nLa fusilera está en el tablero. ¿Querés ver qué fusible corresponde a cada componente?',
+        chips: ['Ver tabla de fusibles', '¿Qué es el inversor?'],
+        deepLink: '#panel'
+      },
+      // ─── TOLDO ────────────────────────────────────────────────
+      {
+        id: 'toldo',
+        topic: 'Toldo',
+        triggers: [/toldo/i, /sombra/i, /lateral.*motorhome/i],
+        response: 'Depende del modelo:\n<ul><li><strong>Furgón:</strong> desenroscar tornillos mariposa, tomar la manija (interior), girar para abrir, extender largueros telescópicos.</li><li><strong>Chasis:</strong> quitar bulones con mariposa, manija en la baulera, girar para abrir.</li></ul>⚠️ No abrir con viento fuerte. Nunca dejarlo abierto de noche o sin gente adentro.',
+        deepLink: '#toldo'
+      },
+      // ─── MESA-CAMA / BUTACAS ─────────────────────────────────
+      {
+        id: 'mesa_cama',
+        topic: 'Mesa-cama',
+        triggers: [/mesa/i, /cama/i, /transformar/i, /butaca/i, /girar.*asiento/i],
+        response: 'La mesa se transforma en cama de dos formas según modelo: (1) <strong>Base giratoria ajustable</strong> — girar rosca, bajar mesa al piso, colocar colchones; (2) <strong>Doble soporte removible</strong> — quitar tubos, apoyar tabla entre asientos, colchones encima. Para <strong>girar butacas</strong> hay palanca al costado (furgón) o al frente (Sprinter).',
+        chips: ['Cómo girar butacas', 'Ver detalle'],
+        deepLink: '#mesa-cama'
+      },
+      // ─── A/C / CLIMA ──────────────────────────────────────────
+      {
+        id: 'aire',
+        topic: 'A/C / Climatizador',
+        triggers: [/aire acondicion/i, /\ba\.?c\.?\b/i, /climatiz/i, /calor/i, /enfriar/i],
+        response: 'El <strong>aire acondicionado</strong> funciona solo con 220V externa o inversor (con batería cargada). No se recomienda uso prolongado con inversor — consume mucho.\n\nEl <strong>climatizador</strong> funciona eléctrico sin encender el motor, usa solo agua. Botón <strong>8</strong> = encender/apagar. Botones <strong>2 y 3</strong> = velocidad de aire.',
+        deepLink: '#climatizacion'
+      },
+      // ─── TV ───────────────────────────────────────────────────
+      {
+        id: 'tv',
+        topic: 'TV',
+        triggers: [/\btv\b/i, /televisor/i, /no tiene se[ñn]al/i, /canales/i],
+        response: 'El TV solo reproduce por <strong>USB o HDMI</strong>. No tiene antena ni sintoniza canales de aire o cable. Conectá un pendrive con películas o un dispositivo HDMI (notebook, consola, etc.).',
+        deepLink: '#climatizacion'
+      },
+      // ─── DIMENSIONES ─────────────────────────────────────────
+      {
+        id: 'dimensiones',
+        topic: 'Dimensiones',
+        triggers: [/dimensi/i, /altura/i, /largo/i, /ancho/i, /t[uú]nel/i, /cochera/i],
+        response: 'Aproximadamente: <strong>7 m de largo, 2,27 m de ancho, 3,1–3,3 m de alto</strong>. Antes de entrar a túneles, cocheras o estaciones de servicio con restricción de altura — siempre verificá.',
+        deepLink: '#dimensiones'
+      },
+      // ─── CAMINOS / RIPIO ─────────────────────────────────────
+      {
+        id: 'ripio',
+        topic: 'Caminos y rutas',
+        triggers: [/ripio/i, /tierra/i, /camino.*tierra/i, /ruta.*no pavimen/i, /off road/i],
+        response: '⛔ Está <strong>prohibido</strong> circular por caminos de ripio, tierra o rutas no pavimentadas. Puede causar daños graves al vehículo e invalidar la cobertura del seguro. Si necesitás autorización para un tramo de ripio, consultame.',
+        escalate: true,
+        deepLink: '#caminos'
+      },
+      // ─── CONTRATO / RESERVA / CANCELACIÓN ─────────────────────
+      {
+        id: 'cancelar',
+        topic: 'Cancelación',
+        triggers: [/cancel/i, /devolver.*reserva/i, /reembolso/i],
+        response: 'Política de cancelación:\n<ul><li><strong>Hasta 60 días antes:</strong> se pierde el 50%.</li><li><strong>59 a 31 días antes:</strong> se pierde el 75%.</li><li><strong>Menos de 30 días:</strong> se abona el 100%, esté o no utilizado.</li></ul>',
+        chips: ['Quiero cancelar', 'Modificar fechas']
+      },
+      {
+        id: 'horarios',
+        topic: 'Horarios retiro/devolución',
+        triggers: [/horario/i, /check\s*[- ]?in/i, /check\s*[- ]?out/i, /retiro/i, /devoluci[oó]n/i],
+        response: '<strong>Check-in (retiro):</strong> Lun a Vie, 14:00–17:00 hs.\n<strong>Check-out (devolución):</strong> Lun a Vie, 8:00–10:00 hs.\n\n❗ No se permite devolución los domingos.',
+      },
+      {
+        id: 'kilometraje',
+        topic: 'Kilometraje',
+        triggers: [/kil[oó]metr/i, /\bkm\b/i, /distancia/i],
+        response: 'Tenés <strong>400 km libres por día contratado</strong> (se promedian sobre el total). Si excedés, el costo extra es <strong>USD 0,30 por km</strong>.',
+      },
+      {
+        id: 'combustible',
+        topic: 'Combustible',
+        triggers: [/combustible/i, /nafta/i, /gasoil/i, /diesel/i, /tanque.*lleno/i],
+        response: 'El combustible <strong>no está incluido</strong>. Te entregamos la unidad con el tanque lleno y debe devolverse igual. Si no, se descuenta del depósito al precio del surtidor de la sucursal.',
+      },
+      {
+        id: 'licencia',
+        topic: 'Licencia',
+        triggers: [/licencia/i, /carnet/i, /\bb1\b|\bb2\b/i, /edad/i, /conductor/i],
+        response: 'Necesitás <strong>licencia B1 o B2</strong> vigente con 2 años de antigüedad mínima. Conductor con <strong>mínimo 25 años</strong> cumplidos.',
+      },
+      // ─── PUNTOS ──────────────────────────────────────────────
+      {
+        id: 'points',
+        topic: 'Cinzia Points',
+        triggers: [/points/i, /paradas/i, /ruta.*motorhome/i, /donde.*cargar/i, /donde.*descargar/i],
+        response: 'La red <a href="points.html">Cinzia Points</a> tiene <strong>21 paradas en toda la provincia de Córdoba</strong>: agua potable, descarga de aguas grises y negras, electricidad (en algunos). Gratis para clientes Cinzia Rental.',
+        chips: ['Ver mapa de puntos']
+      },
+      // ─── SALUDOS / DESPEDIDAS ────────────────────────────────
+      {
+        id: 'greeting',
+        topic: 'Saludo',
+        triggers: [/^\s*(hola|buenas|buen d[ií]a|buenos d[ií]as|buenas tardes|buenas noches|hey|qu[eé] tal)\s*[!.?]?\s*$/i],
+        response: '¡Hola! 👋 ¿En qué te puedo ayudar con tu motorhome?'
+      },
+      {
+        id: 'thanks',
+        topic: 'Agradecimiento',
+        triggers: [/^gracias/i, /^muchas gracias/i, /\bperfecto\b/i, /\bgenial\b/i, /^ok\b/i, /^dale/i],
+        response: '¡De nada! Si necesitás algo más, escribime nomás 🚐'
+      },
+      {
+        id: 'farewell',
+        topic: 'Despedida',
+        triggers: [/^chau/i, /^adi[oó]s/i, /^hasta luego/i, /^nos vemos/i, /^bye/i],
+        response: '¡Buen viaje! 🌄 Acordate que estoy acá si me necesitás.'
+      },
+      // ─── HUMANO ──────────────────────────────────────────────
+      {
+        id: 'human',
+        topic: 'Hablar con humano',
+        triggers: [/hablar.*humano/i, /persona real/i, /humano/i, /agente/i, /operador/i, /llamar/i],
+        response: 'Por supuesto. Te conecto con el equipo:',
+        escalate: true
+      },
+    ];
+
+    // Variaciones de "no entendí"
+    const FALLBACKS = [
+      "Mmm, no estoy seguro de haber entendido. ¿Podés contarme un poco más sobre lo que pasa?",
+      "Disculpá, no encontré información sobre eso. ¿Es un problema con el vehículo, una reserva u otra cosa?",
+      "No me queda claro qué necesitás. Probá decirme el problema con otras palabras, o tocá uno de los temas comunes:",
+    ];
+
+    const COMMON_CHIPS = ['Heladera', 'Sin agua', 'Pinchadura', 'Caldera con error', 'No tengo 220V'];
+
+    // ── STATE ──
+    let cinziCtx = {
+      lastTopic: null,
+      missCount: 0,
+      messages: [], // {who:'bot'|'user', html}
+      historyLog: [], // texto plano para detectar repetición
+    };
+
+    // ── DOM refs ──
+    const cinziTrigger = document.getElementById('cinzi-trigger');
+    const cinziTriggerBtn = document.getElementById('cinzi-trigger-btn');
+    const cinziBubble = document.getElementById('cinzi-bubble');
+    const cinziBubbleClose = document.getElementById('cinzi-bubble-close');
+    const cinziChat = document.getElementById('cinzi-chat');
+    const cinziBody = document.getElementById('cinzi-body');
+    const cinziForm = document.getElementById('cinzi-form');
+    const cinziInput = document.getElementById('cinzi-input');
+    const cinziClose = document.getElementById('cinzi-close');
+
+    // ── helpers ──
+    function escapeHtml(s) { return s.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+    function nl2br(s) { return s.replace(/\n/g, '<br>'); }
+
+    function appendMessage(who, html, chips, escalate, deepLink) {
+      cinziCtx.messages.push({ who, html, chips, escalate, deepLink });
+      renderMessages();
+    }
+
+    function renderMessages() {
+      let out = '';
+      cinziCtx.messages.forEach((m, idx) => {
+        if (m.who === 'bot') {
+          out += `<div class="cz-msg bot">
+            <div class="cz-msg-av bot"><i data-lucide="bot" class="w-3.5 h-3.5"></i></div>
+            <div class="cz-bubble">${m.html}</div>
+          </div>`;
+          // Chips (solo en el último mensaje del bot)
+          if (m.chips && m.chips.length && idx === cinziCtx.messages.length - 1) {
+            out += `<div class="cz-chips">`;
+            m.chips.forEach(c => { out += `<button class="cz-chip" data-chip="${escapeHtml(c)}">${c}</button>`; });
+            out += `</div>`;
+          }
+          // Deep link to troubleshooting
+          if (m.deepLink && idx === cinziCtx.messages.length - 1) {
+            out += `<div class="cz-chips"><a href="${m.deepLink}" class="cz-chip" style="text-decoration:none;color:#E9580C;border-color:rgba(233,88,12,0.3);background:rgba(233,88,12,0.05);">
+              📖 Ver guía completa
+            </a></div>`;
+          }
+          // Escalation card
+          if (m.escalate && idx === cinziCtx.messages.length - 1) {
+            out += `<div class="cz-escalate">
+              <p>📞 ¿Te conecto con alguien del equipo?</p>
+              <div class="cz-escalate-actions">
+                <a href="tel:+5493515293858" class="call"><i data-lucide="phone" class="w-3 h-3"></i> Llamar</a>
+                <a href="https://api.whatsapp.com/send?phone=5493515293858&text=Hola!%20Necesito%20asistencia%20con%20mi%20motorhome" class="wa"><i data-lucide="message-circle" class="w-3 h-3"></i> WhatsApp</a>
+              </div>
+            </div>`;
+          }
+        } else {
+          out += `<div class="cz-msg user">
+            <div class="cz-msg-av user"><i data-lucide="user" class="w-3.5 h-3.5"></i></div>
+            <div class="cz-bubble">${m.html}</div>
+          </div>`;
+        }
+      });
+      cinziBody.innerHTML = out;
+      lucide.createIcons();
+      // Auto-scroll
+      cinziBody.scrollTop = cinziBody.scrollHeight;
+
+      // Wire chips
+      cinziBody.querySelectorAll('.cz-chip[data-chip]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          handleUserInput(btn.dataset.chip);
+        });
+      });
+    }
+
+    function showTyping(cb) {
+      const tmpId = 'cz-typing-' + Date.now();
+      const html = `<div class="cz-msg bot" id="${tmpId}">
+        <div class="cz-msg-av bot"><i data-lucide="bot" class="w-3.5 h-3.5"></i></div>
+        <div class="cz-bubble"><span class="cz-typing-dots"><span></span><span></span><span></span></span></div>
+      </div>`;
+      cinziBody.insertAdjacentHTML('beforeend', html);
+      lucide.createIcons();
+      cinziBody.scrollTop = cinziBody.scrollHeight;
+      // Tiempo de respuesta variable: 600-1100ms para sensación humana
+      const delay = 600 + Math.floor(Math.random() * 500);
+      setTimeout(() => {
+        const el = document.getElementById(tmpId);
+        if (el) el.remove();
+        cb();
+      }, delay);
+    }
+
+    // ── Intent matching (motor local) ──
+    function findIntent(text) {
+      const t = text.trim();
+      if (!t) return null;
+      for (const kb of CINZI_KB) {
+        for (const trigger of kb.triggers) {
+          if (trigger.test(t)) return kb;
+        }
+      }
+      return null;
+    }
+
+    // ─────────────────────────────────────────────────────────
+    // Endpoint del backend (Netlify Function)
+    // En local con `netlify dev`, esto resuelve a localhost:8888/api/cinzi
+    // En producción, a /api/cinzi del sitio
+    // ─────────────────────────────────────────────────────────
+    const CINZI_API_ENDPOINT = '/api/cinzi';
+
+    // Render simple de Markdown muy básico (bold, listas, saltos de línea)
+    function mdToHtml(s) {
+      if (!s) return '';
+      s = s
+        .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+        .replace(/__(.+?)__/g, '<strong>$1</strong>')
+        .replace(/`([^`]+)`/g, '<code style="background:rgba(11,11,11,0.06);padding:1px 5px;border-radius:4px;font-size:0.85em;">$1</code>');
+      // Listas numeradas
+      s = s.replace(/(?:^|\n)(?:\d+\.)\s+([^\n]+)/g, '\n<li>$1</li>');
+      s = s.replace(/(<li>.*?<\/li>(?:\n<li>.*?<\/li>)*)/g, m => '<ol>' + m.replace(/\n/g, '') + '</ol>');
+      // Listas con viñetas
+      s = s.replace(/(?:^|\n)[-•]\s+([^\n]+)/g, '\n<li>$1</li>');
+      s = s.replace(/(<li>(?!<\/ol>).*?<\/li>(?:\n<li>.*?<\/li>)*)/g, m => {
+        if (m.includes('</ol>')) return m;
+        return '<ul>' + m.replace(/\n/g, '') + '</ul>';
+      });
+      // Saltos de línea normales
+      s = s.replace(/\n{2,}/g, '<br><br>').replace(/\n/g, '<br>');
+      return s;
+    }
+
+    // ── FALLBACK · Motor local (cuando no hay backend o falla) ──
+    function generateReplyLocal(userText) {
+      const intent = findIntent(userText);
+      if (intent) {
+        cinziCtx.missCount = 0;
+        cinziCtx.lastTopic = intent.topic;
+        return {
+          html: nl2br(intent.response),
+          chips: intent.chips,
+          escalate: intent.escalate,
+          deepLink: intent.deepLink
+        };
+      }
+      cinziCtx.missCount++;
+      let html = nl2br(FALLBACKS[Math.min(cinziCtx.missCount - 1, FALLBACKS.length - 1)]);
+      let chips = COMMON_CHIPS;
+      let escalate = false;
+      if (cinziCtx.missCount >= 2) {
+        html += '<br><br>Si querés, te conecto con alguien del equipo que pueda ayudarte mejor.';
+        escalate = true;
+      }
+      return { html, chips, escalate };
+    }
+
+    // ── Construye el historial para enviar al backend ──
+    //    Solo conversación user/assistant, sin chips/escalate, sin HTML
+    function buildBackendMessages() {
+      const out = [];
+      for (const m of cinziCtx.messages) {
+        if (m.who === 'bot') {
+          out.push({ role: 'assistant', content: stripHtml(m.html) });
+        } else {
+          out.push({ role: 'user', content: stripHtml(m.html) });
+        }
+      }
+      return out;
+    }
+    function stripHtml(s) {
+      const t = document.createElement('div');
+      t.innerHTML = s;
+      return t.textContent || t.innerText || '';
+    }
+
+    // ─────────────────────────────────────────────────────────
+    // STREAM desde el backend (Server-Sent Events)
+    // Pinta el texto palabra por palabra en una burbuja "en vivo"
+    // ─────────────────────────────────────────────────────────
+    async function streamFromBackend(messages, onChunk, onDone, onError) {
+      try {
+        const resp = await fetch(CINZI_API_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ messages, stream: true }),
+        });
+
+        if (!resp.ok) {
+          let errText = 'El asistente no respondió correctamente';
+          try {
+            const j = await resp.json();
+            errText = j.message || errText;
+          } catch {}
+          throw new Error(errText);
+        }
+
+        const reader = resp.body.getReader();
+        const decoder = new TextDecoder();
+        let buffer = '';
+        let fullText = '';
+        let escalate = false;
+
+        while (true) {
+          const { done, value } = await reader.read();
+          if (done) break;
+          buffer += decoder.decode(value, { stream: true });
+
+          // Procesar líneas SSE completas
+          const parts = buffer.split('\n\n');
+          buffer = parts.pop();
+          for (const part of parts) {
+            const line = part.trim();
+            if (!line.startsWith('data:')) continue;
+            const json = line.slice(5).trim();
+            if (!json) continue;
+            try {
+              const obj = JSON.parse(json);
+              if (obj.type === 'chunk') {
+                fullText += obj.text;
+                onChunk(fullText);
+              } else if (obj.type === 'done') {
+                escalate = !!obj.escalate;
+              } else if (obj.type === 'error') {
+                throw new Error(obj.message || 'Error en stream');
+              }
+            } catch (e) {
+              // ignore malformed lines
+            }
+          }
+        }
+
+        onDone(fullText, escalate);
+      } catch (err) {
+        onError(err);
+      }
+    }
+
+    // ─────────────────────────────────────────────────────────
+    // Pinta un mensaje del bot que se va escribiendo en vivo
+    // (devuelve función updateLive para mutar el contenido)
+    // ─────────────────────────────────────────────────────────
+    function appendLiveBotMessage() {
+      const id = 'cz-live-' + Date.now();
+      const html = `<div class="cz-msg bot" id="${id}">
+        <div class="cz-msg-av bot"><i data-lucide="bot" class="w-3.5 h-3.5"></i></div>
+        <div class="cz-bubble"><span class="cz-typing-dots"><span></span><span></span><span></span></span></div>
+      </div>`;
+      cinziBody.insertAdjacentHTML('beforeend', html);
+      lucide.createIcons();
+      cinziBody.scrollTop = cinziBody.scrollHeight;
+      const bubble = document.querySelector(`#${id} .cz-bubble`);
+      return {
+        update: (text) => {
+          if (!bubble) return;
+          bubble.innerHTML = mdToHtml(escapeHtml(text));
+          cinziBody.scrollTop = cinziBody.scrollHeight;
+        },
+        finalize: (text, escalate) => {
+          // Reemplazar el live por un mensaje "oficial" en el array
+          const el = document.getElementById(id);
+          if (el) el.remove();
+          cinziCtx.messages.push({
+            who: 'bot',
+            html: mdToHtml(escapeHtml(text)),
+            chips: null,
+            escalate,
+            deepLink: null,
+          });
+          renderMessages();
+        },
+        remove: () => { const el = document.getElementById(id); if (el) el.remove(); },
+      };
+    }
+
+    // ── Manejo de input del usuario ──
+    async function handleUserInput(text) {
+      const clean = text.trim();
+      if (!clean) return;
+      appendMessage('user', escapeHtml(clean));
+      cinziInput.value = '';
+      cinziInput.disabled = true;
+
+      // 1) Intentar backend (IA real con streaming)
+      const live = appendLiveBotMessage();
+      let backendOk = false;
+
+      await streamFromBackend(
+        buildBackendMessages(),
+        (partial) => { backendOk = true; live.update(partial); },
+        (full, escalate) => {
+          backendOk = true;
+          live.finalize(full, escalate);
+          cinziInput.disabled = false;
+          cinziInput.focus();
+        },
+        (err) => {
+          // 2) Fallback al motor local
+          live.remove();
+          showTyping(() => {
+            const reply = generateReplyLocal(clean);
+            appendMessage('bot', reply.html, reply.chips, reply.escalate, reply.deepLink);
+            cinziInput.disabled = false;
+            cinziInput.focus();
+          });
+        }
+      );
+    }
+
+    // ── Inicialización del chat ──
+    function initCinziChat() {
+      // Mensaje de bienvenida
+      cinziCtx.messages = [{
+        who: 'bot',
+        html: '¡Hola! 👋 Soy <strong>Cinzi</strong>, tu asistente virtual de Cinzia Rental. Estoy acá para ayudarte si tenés algún problema con el motorhome.<br><br>Contame qué pasa o elegí un tema común:',
+        chips: COMMON_CHIPS
+      }];
+      cinziCtx.missCount = 0;
+      cinziCtx.lastTopic = null;
+      renderMessages();
+    }
+
+    // ── UI controls ──
+    function openCinzi() {
+      cinziChat.classList.add('open');
+      cinziChat.setAttribute('aria-hidden', 'false');
+      cinziTrigger.classList.add('hidden-state');
+      cinziBubble.classList.remove('show');
+      if (cinziCtx.messages.length === 0) initCinziChat();
+      setTimeout(() => cinziInput.focus(), 350);
+    }
+    function closeCinzi() {
+      cinziChat.classList.remove('open');
+      cinziChat.setAttribute('aria-hidden', 'true');
+      cinziTrigger.classList.remove('hidden-state');
+    }
+
+    cinziTriggerBtn.addEventListener('click', openCinzi);
+    cinziClose.addEventListener('click', closeCinzi);
+    cinziForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      handleUserInput(cinziInput.value);
+    });
+
+    // Burbuja contextual después de 4s
+    setTimeout(() => {
+      if (!cinziChat.classList.contains('open')) cinziBubble.classList.add('show');
+    }, 4500);
+    cinziBubbleClose.addEventListener('click', (e) => {
+      e.stopPropagation();
+      cinziBubble.classList.remove('show');
+    });
+    cinziBubble.addEventListener('click', (e) => {
+      if (e.target.closest('.cinzi-bubble-close')) return;
+      openCinzi();
+    });
+
+    // Tecla Esc cierra
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && cinziChat.classList.contains('open')) closeCinzi();
+    });
+  </script>
+</body>
+</html>

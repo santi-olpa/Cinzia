@@ -1,0 +1,1794 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cinzia Rental — Alquilá un motorhome · 6 sucursales en 3 países</title>
+  <meta name="description" content="Alquilá un motorhome en Cinzia Rental. 26 unidades disponibles en Córdoba, Buenos Aires, Bariloche, Salta, Miami y Barcelona. Reservá online con seña del 30%.">
+
+  <meta property="og:title" content="Cinzia Rental — Alquilá un motorhome">
+  <meta property="og:description" content="Alquilá el motorhome que fabricamos. 26 unidades en 6 sucursales — Argentina, Miami y Barcelona.">
+  <meta property="og:image" content="https://cinziavehiculos.com/rental/assets/img/bg-rental-2.jpg">
+  <meta property="og:locale" content="es_AR">
+  <meta name="theme-color" content="#E9580C">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            orange: { DEFAULT: '#E9580C', dark: '#C84A0A', light: '#FF6F1F' },
+            ink: '#0B0B0B',
+            soft: '#F5F5F5',
+          },
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+        },
+      },
+    };
+  </script>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, sans-serif; color: #0B0B0B; background: #FFFFFF; -webkit-font-smoothing: antialiased; }
+    .display-black { font-weight: 900; letter-spacing: -0.04em; line-height: 0.95; }
+    .mono-caps { font-family: 'Inter', monospace; text-transform: uppercase; letter-spacing: 0.16em; font-size: 0.6875rem; font-weight: 600; }
+
+    .btn-primary { background: #E9580C; color: #FFFFFF; padding: 14px 24px; border-radius: 999px; font-weight: 600; font-size: 0.95rem; display: inline-flex; align-items: center; gap: 8px; transition: all 200ms cubic-bezier(0.22, 1, 0.36, 1); }
+    .btn-primary:hover { background: #C84A0A; transform: translateY(-1px); }
+    .btn-outline-orange { background: transparent; color: #E9580C; padding: 12px 22px; border: 1.5px solid #E9580C; border-radius: 999px; font-weight: 600; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 8px; transition: all 200ms; }
+    .btn-outline-orange:hover { background: #E9580C; color: white; }
+
+    [data-reveal] { opacity: 0; transform: translateY(24px); transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1); }
+    [data-reveal].in { opacity: 1; transform: translateY(0); }
+
+    .float-wa { position: fixed; bottom: 24px; right: 24px; z-index: 60; width: 56px; height: 56px; border-radius: 999px; background: #25D366; color: white; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 24px rgba(37,211,102,0.32); transition: transform 200ms; }
+    .float-wa:hover { transform: scale(1.05); }
+
+    .pill-tag { display: inline-flex; align-items: center; padding: 4px 10px; border-radius: 999px; background: rgba(233,88,12,0.1); color: #C84A0A; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; }
+
+    /* MEGA MENU */
+    .nav-item-with-dropdown { position: relative; }
+    .mega-menu { position: absolute; top: calc(100% + 14px); left: 50%; transform: translateX(-50%) translateY(8px); width: 720px; max-width: calc(100vw - 40px); background: white; border-radius: 24px; box-shadow: 0 20px 60px rgba(11,11,11,0.18); border: 1px solid rgba(11,11,11,0.06); padding: 22px; opacity: 0; pointer-events: none; transition: all 220ms cubic-bezier(0.22, 1, 0.36, 1); z-index: 100; }
+    .nav-item-with-dropdown:hover .mega-menu { opacity: 1; transform: translateX(-50%) translateY(0); pointer-events: auto; }
+    .mega-menu::before { content: ''; position: absolute; top: -14px; left: 0; right: 0; height: 14px; }
+    .mega-link { display: flex; gap: 14px; padding: 14px; border-radius: 14px; transition: background 180ms; }
+    .mega-link:hover { background: #F5F5F5; }
+    .mega-link .ico-wrap { width: 44px; height: 44px; border-radius: 12px; background: rgba(233,88,12,0.1); color: #E9580C; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .mega-link:hover .ico-wrap { background: #E9580C; color: white; }
+
+    /* HERO SPLIT */
+    .rental-hero { position: relative; overflow: hidden; }
+    .rental-hero::before { content: ''; position: absolute; inset: 0; background-image: url('https://cinziavehiculos.com/rental/assets/img/bg-rental-2.jpg'); background-size: cover; background-position: center; z-index: 0; }
+    .rental-hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(11,11,11,0.85) 0%, rgba(11,11,11,0.6) 50%, rgba(11,11,11,0.3) 100%); z-index: 1; }
+    .rental-hero > * { position: relative; z-index: 2; }
+    @media (max-width: 768px) {
+      .rental-hero::after { background: linear-gradient(180deg, rgba(11,11,11,0.55) 0%, rgba(11,11,11,0.75) 100%); }
+    }
+
+    /* SEARCH FORM (hero) */
+    .search-form { background: #E9580C; border-radius: 28px; padding: 28px; box-shadow: 0 20px 60px rgba(0,0,0,0.25); min-width: 0; }
+    .search-label { display: block; font-size: 0.7rem; font-weight: 600; color: rgba(255,255,255,0.92); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 8px; }
+    .search-input { width: 100%; background: white; border: none; border-radius: 12px; padding: 14px 16px; font-size: 0.95rem; color: #0B0B0B; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 8px; transition: all 200ms; }
+    .search-input:hover { background: #F5F5F5; }
+    .search-input .placeholder { color: rgba(11,11,11,0.4); }
+    @media (max-width: 640px) {
+      .search-form { padding: 20px; border-radius: 22px; }
+    }
+
+    /* STICKY SEARCH BAR (mini) */
+    .sticky-search { position: fixed; bottom: 24px; left: 16px; right: 16px; z-index: 40; background: white; border-radius: 999px; padding: 8px 12px 8px 20px; box-shadow: 0 20px 50px rgba(11,11,11,0.20); border: 1px solid rgba(11,11,11,0.08); max-width: 1100px; margin: 0 auto; transform: translateY(30px); opacity: 0; pointer-events: none; transition: all 320ms cubic-bezier(0.22, 1, 0.36, 1); }
+    .sticky-search.visible { transform: translateY(0); opacity: 1; pointer-events: auto; }
+    .sticky-search-field { display: flex; align-items: center; gap: 8px; padding: 10px 16px; border-right: 1px solid rgba(11,11,11,0.08); cursor: pointer; transition: background 180ms; min-width: 0; flex: 1; }
+    .sticky-search-field:hover { background: rgba(11,11,11,0.04); }
+    .sticky-search-field:last-of-type { border-right: none; }
+    .sticky-search-field .ssf-label { font-size: 0.6rem; font-weight: 600; color: rgba(11,11,11,0.5); text-transform: uppercase; letter-spacing: 0.12em; display: block; margin-bottom: 2px; }
+    .sticky-search-field .ssf-value { font-size: 0.85rem; font-weight: 600; color: #0B0B0B; }
+    .sticky-search-field .ssf-value.empty { color: rgba(11,11,11,0.4); font-weight: 500; }
+    .ssf-select { background: transparent; border: none; outline: none; font-size: 0.85rem; font-weight: 600; color: #0B0B0B; cursor: pointer; appearance: none; -webkit-appearance: none; padding: 0; width: 100%; font-family: 'Inter', sans-serif; }
+    .ssf-select:focus { outline: none; }
+    .ssf-date { background: transparent; border: none; outline: none; font-size: 0.75rem; font-weight: 600; color: #0B0B0B; cursor: pointer; padding: 0; width: 100%; font-family: 'Inter', sans-serif; }
+    .ssf-date:focus { outline: none; }
+    .ssf-date::-webkit-calendar-picker-indicator { opacity: 0.4; cursor: pointer; width: 12px; height: 12px; }
+
+    /* Filter pills */
+    .filter-pill { cursor: pointer; padding: 9px 18px; border-radius: 999px; font-weight: 600; font-size: 0.85rem; border: 1.5px solid rgba(11,11,11,0.12); color: rgba(11,11,11,0.7); background: white; transition: all 200ms; white-space: nowrap; display: inline-flex; align-items: center; gap: 8px; }
+    .filter-pill:hover { border-color: #E9580C; color: #E9580C; }
+    .filter-pill.active { background: #0B0B0B; color: #FFFFFF; border-color: #0B0B0B; }
+    .filter-pill .count { font-size: 0.7rem; font-weight: 700; opacity: 0.6; }
+    .filter-pill.active .count { opacity: 1; color: #E9580C; }
+
+    /* PRODUCT CARD (estilo productos.html) */
+    .product-card { transition: all 280ms cubic-bezier(0.22, 1, 0.36, 1); }
+    .product-card:hover { transform: translateY(-4px); }
+    .product-card .product-img { transition: transform 600ms cubic-bezier(0.22, 1, 0.36, 1); }
+    .product-card:hover .product-img { transform: scale(1.05); }
+
+    .sale-badge { position: absolute; top: 12px; left: 12px; background: #E9580C; color: white; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; padding: 5px 11px; border-radius: 999px; text-transform: uppercase; box-shadow: 0 4px 12px rgba(233,88,12,0.32); }
+    .flag-badge { position: absolute; top: 12px; right: 12px; background: rgba(255,255,255,0.95); backdrop-filter: blur(8px); font-size: 0.7rem; font-weight: 600; padding: 5px 10px; border-radius: 999px; display: inline-flex; align-items: center; gap: 5px; }
+
+    /* OFERTAS SECTION (fondo distinto) */
+    .offers-section { background: linear-gradient(135deg, #0B0B0B 0%, #1a1410 100%); position: relative; overflow: hidden; }
+    .offers-section::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(circle at 80% 20%, rgba(233,88,12,0.18) 0%, transparent 50%); pointer-events: none; }
+    .offers-section > * { position: relative; }
+
+    /* SEARCH SELECTS / DATE INPUTS */
+    .search-select, .search-date { width: 100%; min-width: 0; background: white; border: none; border-radius: 12px; padding: 14px 16px; font-size: 0.95rem; color: #0B0B0B; cursor: pointer; appearance: none; -webkit-appearance: none; transition: all 200ms; font-family: 'Inter', sans-serif; box-sizing: border-box; }
+    .search-select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%230B0B0B' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 42px; }
+    .search-select:focus, .search-date:focus { outline: 2px solid rgba(233,88,12,0.5); outline-offset: 1px; }
+    .search-select:hover, .search-date:hover { background-color: #F5F5F5; }
+    .search-date[type="date"]::-webkit-calendar-picker-indicator { opacity: 0.5; cursor: pointer; }
+    .search-dates-row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .search-dates-row > * { min-width: 0; }
+    @media (max-width: 640px) {
+      .search-select, .search-date { padding: 12px 14px; font-size: 0.88rem; }
+      .search-select { padding-right: 34px; background-position: right 12px center; }
+      .search-dates-row { gap: 6px; }
+    }
+
+    /* PROMO BANNERS */
+    .promo-banner { transition: all 280ms cubic-bezier(0.22, 1, 0.36, 1); }
+    .promo-banner:hover { transform: translateY(-4px); }
+    .promo-banner .promo-img { transition: transform 600ms cubic-bezier(0.22, 1, 0.36, 1); }
+    .promo-banner:hover .promo-img { transform: scale(1.05); }
+
+    /* CARRUSEL DE OFERTAS */
+    .offers-carousel-track { scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scroll-behavior: smooth; scrollbar-width: none; -ms-overflow-style: none; }
+    .offers-carousel-track::-webkit-scrollbar { display: none; }
+    .offers-carousel-item { scroll-snap-align: start; flex-shrink: 0; }
+    .offers-carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border-radius: 999px; background: white; color: #0B0B0B; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 24px rgba(0,0,0,0.12); border: 1px solid rgba(11,11,11,0.08); transition: all 200ms; z-index: 5; cursor: pointer; }
+    .offers-carousel-btn:hover { background: #E9580C; color: white; border-color: #E9580C; }
+    .offers-carousel-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+    .offers-carousel-btn:disabled:hover { background: white; color: #0B0B0B; border-color: rgba(11,11,11,0.08); }
+    .offers-carousel-btn.prev { left: -14px; }
+    .offers-carousel-btn.next { right: -14px; }
+    @media (max-width: 768px) { .offers-carousel-btn { display: none; } }
+    .btn-wa { display: inline-flex; align-items: center; justify-content: center; gap: 6px; color: white; font-weight: 600; text-decoration: none; transition: filter 200ms; }
+    .btn-wa:hover { filter: brightness(0.9); }
+
+    /* ============================================ */
+    /* MOBILE MENU                                  */
+    /* ============================================ */
+    .mobile-menu-btn {
+      width: 44px; height: 44px; border-radius: 999px;
+      background: #0B0B0B; color: white;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 200ms;
+      flex-shrink: 0;
+    }
+    .mobile-menu-btn:hover { background: #E9580C; }
+
+    .mobile-menu-backdrop {
+      position: fixed; inset: 0; z-index: 90;
+      background: rgba(11,11,11,0.5);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      opacity: 0; pointer-events: none;
+      transition: opacity 300ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .mobile-menu-backdrop.open { opacity: 1; pointer-events: auto; }
+
+    .mobile-menu {
+      position: fixed; top: 0; right: 0; bottom: 0; z-index: 100;
+      width: min(420px, 92vw);
+      background: white;
+      box-shadow: -20px 0 60px rgba(11,11,11,0.18);
+      transform: translateX(100%);
+      transition: transform 380ms cubic-bezier(0.22, 1, 0.36, 1);
+      display: flex; flex-direction: column;
+      overflow-y: auto;
+    }
+    .mobile-menu.open { transform: translateX(0); }
+
+    .mm-header {
+      padding: 22px 26px;
+      display: flex; align-items: center; justify-content: space-between;
+      border-bottom: 1px solid rgba(11,11,11,0.06);
+      flex-shrink: 0;
+    }
+    .mm-close {
+      width: 40px; height: 40px; border-radius: 999px;
+      background: #F5F5F5; color: #0B0B0B;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 180ms;
+    }
+    .mm-close:hover { background: #E9580C; color: white; transform: rotate(90deg); }
+
+    .mm-body { flex: 1; padding: 20px 26px; }
+    .mm-nav-link {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 0;
+      font-size: 1.1rem; font-weight: 700; color: #0B0B0B;
+      border-bottom: 1px solid rgba(11,11,11,0.06);
+      transition: all 180ms;
+    }
+    .mm-nav-link:last-child { border-bottom: none; }
+    .mm-nav-link:hover { color: #E9580C; padding-left: 8px; }
+    .mm-nav-link.active { color: #E9580C; }
+    .mm-nav-link i { color: rgba(11,11,11,0.3); transition: all 180ms; }
+    .mm-nav-link:hover i { color: #E9580C; transform: translateX(4px); }
+
+    /* Submenu Modelos */
+    .mm-submenu { overflow: hidden; max-height: 0; transition: max-height 380ms cubic-bezier(0.22,1,0.36,1); }
+    .mm-submenu.open { max-height: 800px; }
+    .mm-submenu-inner { padding: 8px 0 4px; }
+    .mm-sublink {
+      display: flex; align-items: center; gap: 12px;
+      padding: 12px 14px; border-radius: 12px;
+      transition: background 180ms;
+    }
+    .mm-sublink:hover { background: #F5F5F5; }
+    .mm-sublink .ico-wrap {
+      width: 36px; height: 36px; border-radius: 10px;
+      background: rgba(233,88,12,0.1); color: #E9580C;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .mm-sublink-text p { font-weight: 700; font-size: 0.88rem; color: #0B0B0B; }
+    .mm-sublink-text span { font-size: 0.7rem; color: rgba(11,11,11,0.55); }
+
+    .mm-modelos-toggle {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 0; cursor: pointer;
+      font-size: 1.1rem; font-weight: 700; color: #0B0B0B;
+      border-bottom: 1px solid rgba(11,11,11,0.06);
+      transition: color 180ms;
+    }
+    .mm-modelos-toggle:hover { color: #E9580C; }
+    .mm-modelos-toggle .chev { transition: transform 380ms cubic-bezier(0.22,1,0.36,1); }
+    .mm-modelos-toggle.open .chev { transform: rotate(180deg); color: #E9580C; }
+
+    .mm-footer {
+      padding: 20px 26px 28px;
+      border-top: 1px solid rgba(11,11,11,0.06);
+      background: #FAFAFA;
+      flex-shrink: 0;
+    }
+    .mm-cta {
+      background: #E9580C; color: white;
+      padding: 16px 24px; border-radius: 999px;
+      font-weight: 700; font-size: 1rem;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      width: 100%; transition: all 200ms;
+      margin-bottom: 16px;
+    }
+    .mm-cta:hover { background: #C84A0A; transform: translateY(-2px); box-shadow: 0 12px 28px rgba(233,88,12,0.28); }
+    .mm-contact { display: flex; gap: 8px; }
+    .mm-contact a {
+      flex: 1; display: flex; align-items: center; justify-content: center; gap: 6px;
+      padding: 12px 14px; border-radius: 14px;
+      font-size: 0.78rem; font-weight: 600;
+      background: white; border: 1px solid rgba(11,11,11,0.08);
+      color: #0B0B0B; transition: all 180ms;
+    }
+    .mm-contact a:hover { border-color: #E9580C; color: #E9580C; }
+    .mm-contact a.wa { background: #25D366; color: white; border-color: #25D366; }
+    .mm-contact a.wa:hover { filter: brightness(0.92); border-color: #25D366; color: white; }
+
+    /* Body scroll lock cuando menú abierto */
+    body.menu-open { overflow: hidden; }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER PILL FLOTANTE -->
+  <header class="fixed top-5 left-5 right-5 z-50">
+    <div class="max-w-[1400px] mx-auto bg-white rounded-full shadow-xl border border-ink/5 pl-5 pr-3 lg:pl-7 lg:pr-4 py-2.5 flex items-center justify-between gap-4">
+      <a href="index.html" class="flex items-center shrink-0 py-1">
+        <img src="https://www.cinziavehiculos.com/assets/image/logo.svg" alt="Cinzia" class="h-9 w-auto" onerror="this.outerHTML='<div style=&quot;font-weight:900;font-size:1.25rem;letter-spacing:-0.04em;color:#0B0B0B;&quot;>CINZIA</div>'">
+      </a>
+      <nav class="hidden lg:flex items-center gap-7 text-sm font-semibold text-ink/85">
+        <div class="nav-item-with-dropdown">
+          <a href="productos.html" class="hover:text-orange transition-colors inline-flex items-center gap-1">
+            Modelos
+            <i data-lucide="chevron-down" class="w-3.5 h-3.5"></i>
+          </a>
+          <div class="mega-menu">
+            <p class="mono-caps text-ink/40 mb-3 pl-3.5">EXPLORÁ POR CATEGORÍA</p>
+            <div class="grid grid-cols-2 gap-1">
+              <a href="productos.html#campers" class="mega-link"><div class="ico-wrap"><i data-lucide="caravan" class="w-5 h-5"></i></div><div><p class="font-bold text-ink text-sm">Campers</p><p class="text-xs text-ink/60 mt-0.5">4 modelos · Desde US$ 24.119</p></div></a>
+              <a href="productos.html#casas-rodantes" class="mega-link"><div class="ico-wrap"><i data-lucide="home" class="w-5 h-5"></i></div><div><p class="font-bold text-ink text-sm">Casas Rodantes</p><p class="text-xs text-ink/60 mt-0.5">1 modelo · Desde US$ 27.000</p></div></a>
+              <a href="productos.html#motorhome-chasis" class="mega-link"><div class="ico-wrap"><i data-lucide="truck" class="w-5 h-5"></i></div><div><p class="font-bold text-ink text-sm">Motorhome Chasis</p><p class="text-xs text-ink/60 mt-0.5">10 modelos · Desde US$ 40.523</p></div></a>
+              <a href="productos.html#motorhome-furgon" class="mega-link"><div class="ico-wrap"><i data-lucide="bus" class="w-5 h-5"></i></div><div><p class="font-bold text-ink text-sm">Motorhome Furgón</p><p class="text-xs text-ink/60 mt-0.5">6 modelos · Desde US$ 28.120</p></div></a>
+              <a href="productos.html#vehiculos-especiales" class="mega-link"><div class="ico-wrap"><i data-lucide="ambulance" class="w-5 h-5"></i></div><div><p class="font-bold text-ink text-sm">Vehículos Especiales</p><p class="text-xs text-ink/60 mt-0.5">9 modelos · B2B a medida</p></div></a>
+              <a href="productos.html#entrega-inmediata" class="mega-link"><div class="ico-wrap"><i data-lucide="zap" class="w-5 h-5"></i></div><div><p class="font-bold text-ink text-sm">Entrega Inmediata</p><p class="text-xs text-ink/60 mt-0.5">3 unidades · Listo para retirar</p></div></a>
+            </div>
+            <a href="productos.html" class="block mt-3 pt-4 border-t border-ink/5 text-center text-sm font-semibold text-orange hover:text-orange-dark transition-colors">Ver los 32 modelos →</a>
+          </div>
+        </div>
+        <a href="rental.html" class="text-orange transition-colors">Rental</a>
+        <a href="points.html" class="hover:text-orange transition-colors">Points</a>
+        <a href="soporte-viajero.html" class="hover:text-orange transition-colors">Soporte</a>
+        <a href="nosotros.html" class="hover:text-orange transition-colors">Nosotros</a>
+        <a href="preguntas-frecuentes.html" class="hover:text-orange transition-colors">FAQ</a>
+        <a href="contacto.html" class="hover:text-orange transition-colors">Contacto</a>
+      </nav>
+      <div class="flex items-center gap-2">
+        <a href="#vehiculos" class="btn-primary text-sm hidden lg:inline-flex" style="padding: 10px 18px;">
+          Ver disponibilidad
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+        <button id="mobile-menu-toggle" class="mobile-menu-btn lg:hidden" aria-label="Abrir menú">
+          <i data-lucide="menu" class="w-5 h-5"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu-backdrop" id="mobile-menu-backdrop"></div>
+  <aside class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <div class="mm-header">
+      <a href="index.html" class="flex items-center shrink-0">
+        <img src="https://www.cinziavehiculos.com/assets/image/logo.svg" alt="Cinzia" class="h-8 w-auto" onerror="this.outerHTML='<div style=&quot;font-weight:900;font-size:1.15rem;letter-spacing:-0.04em;color:#0B0B0B;&quot;>CINZIA</div>'">
+      </a>
+      <button id="mobile-menu-close" class="mm-close" aria-label="Cerrar menú">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+    </div>
+
+    <div class="mm-body">
+      <!-- Modelos expandible -->
+      <button class="mm-modelos-toggle" id="mm-modelos-toggle">
+        <span>Modelos</span>
+        <i data-lucide="chevron-down" class="w-4 h-4 chev"></i>
+      </button>
+      <div class="mm-submenu" id="mm-modelos-submenu">
+        <div class="mm-submenu-inner">
+          <a href="productos.html#campers" class="mm-sublink"><div class="ico-wrap"><i data-lucide="caravan" class="w-4 h-4"></i></div><div class="mm-sublink-text"><p>Campers</p><span>4 modelos</span></div></a>
+          <a href="productos.html#casas-rodantes" class="mm-sublink"><div class="ico-wrap"><i data-lucide="home" class="w-4 h-4"></i></div><div class="mm-sublink-text"><p>Casas Rodantes</p><span>1 modelo</span></div></a>
+          <a href="productos.html#motorhome-chasis" class="mm-sublink"><div class="ico-wrap"><i data-lucide="truck" class="w-4 h-4"></i></div><div class="mm-sublink-text"><p>Motorhome Chasis</p><span>10 modelos</span></div></a>
+          <a href="productos.html#motorhome-furgon" class="mm-sublink"><div class="ico-wrap"><i data-lucide="bus" class="w-4 h-4"></i></div><div class="mm-sublink-text"><p>Motorhome Furgón</p><span>6 modelos</span></div></a>
+          <a href="productos.html#vehiculos-especiales" class="mm-sublink"><div class="ico-wrap"><i data-lucide="ambulance" class="w-4 h-4"></i></div><div class="mm-sublink-text"><p>Vehículos Especiales</p><span>9 modelos · B2B</span></div></a>
+          <a href="productos.html#entrega-inmediata" class="mm-sublink"><div class="ico-wrap"><i data-lucide="zap" class="w-4 h-4"></i></div><div class="mm-sublink-text"><p>Entrega Inmediata</p><span>3 unidades</span></div></a>
+          <a href="productos.html" class="mm-sublink" style="justify-content:center; color:#E9580C; font-weight:700; font-size:0.85rem; margin-top:6px;">
+            Ver los 32 modelos →
+          </a>
+        </div>
+      </div>
+
+      <a href="rental.html" class="mm-nav-link active">
+        Rental
+        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </a>
+      <a href="points.html" class="mm-nav-link">
+        Points
+        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </a>
+      <a href="soporte-viajero.html" class="mm-nav-link">
+        Soporte
+        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </a>
+      <a href="nosotros.html" class="mm-nav-link">
+        Nosotros
+        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </a>
+      <a href="preguntas-frecuentes.html" class="mm-nav-link">
+        FAQ
+        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </a>
+      <a href="contacto.html" class="mm-nav-link">
+        Contacto
+        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </a>
+    </div>
+
+    <div class="mm-footer">
+      <a href="#vehiculos" class="mm-cta">
+        Ver disponibilidad
+        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </a>
+      <div class="mm-contact">
+        <a href="tel:+5493515293858">
+          <i data-lucide="phone" class="w-3.5 h-3.5"></i>
+          Llamar
+        </a>
+        <a href="https://api.whatsapp.com/send?phone=5493515293858&text=Hola!%20Quiero%20info" class="wa">
+          <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
+          WhatsApp
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- STICKY SEARCH BAR (mini) -->
+  <div id="sticky-search" class="sticky-search hidden lg:flex items-stretch">
+
+    <!-- Fechas -->
+    <div class="sticky-search-field" style="flex: 1.4;">
+      <i data-lucide="calendar" class="w-4 h-4 text-orange flex-shrink-0"></i>
+      <div class="min-w-0 flex-1 flex gap-4">
+        <div class="min-w-0 flex-1">
+          <span class="ssf-label">Retiro</span>
+          <input type="date" id="sticky-retiro" class="ssf-date" style="display:block;">
+        </div>
+        <div class="min-w-0 flex-1 border-l border-ink/8 pl-4">
+          <span class="ssf-label">Devolución</span>
+          <input type="date" id="sticky-devolucion" class="ssf-date" style="display:block;">
+        </div>
+      </div>
+    </div>
+
+    <!-- Tipo de vehículo -->
+    <div class="sticky-search-field" style="flex: 1;">
+      <i data-lucide="truck" class="w-4 h-4 text-orange flex-shrink-0"></i>
+      <div class="min-w-0 flex-1">
+        <span class="ssf-label">Vehículo</span>
+        <select id="sticky-tipo" class="ssf-select">
+          <option value="todos">Todos</option>
+          <option value="chasis">Motorhome Chasis</option>
+          <option value="furgon">Motorhome Furgón</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Sucursal -->
+    <div class="sticky-search-field" style="flex: 1;">
+      <i data-lucide="map-pin" class="w-4 h-4 text-orange flex-shrink-0"></i>
+      <div class="min-w-0 flex-1">
+        <span class="ssf-label">Sucursal</span>
+        <select id="sticky-sucursal" class="ssf-select">
+          <option value="todos">Todas</option>
+          <optgroup label="🇦🇷 Argentina">
+            <option value="cordoba">Córdoba</option>
+            <option value="bsas">Buenos Aires</option>
+            <option value="bariloche">Bariloche</option>
+            <option value="salta">Salta</option>
+          </optgroup>
+          <optgroup label="🇺🇸 Estados Unidos">
+            <option value="miami">Miami</option>
+          </optgroup>
+          <optgroup label="🇪🇸 España">
+            <option value="barcelona">Barcelona</option>
+          </optgroup>
+        </select>
+      </div>
+    </div>
+
+    <button id="sticky-buscar" class="btn-primary text-sm ml-2 flex-shrink-0" style="padding: 10px 22px;">
+      <i data-lucide="search" class="w-4 h-4"></i>
+      Buscar
+    </button>
+  </div>
+
+  <main>
+
+    <!-- ============================================ -->
+    <!-- HERO SPLIT (2 columnas: texto + form) -->
+    <!-- ============================================ -->
+    <section class="rental-hero pt-32 lg:pt-40 pb-16 lg:pb-20 text-white" id="hero-section">
+      <div class="max-w-[1400px] w-full mx-auto px-6 lg:px-10">
+        <div class="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+
+          <!-- Texto (col-span 6) -->
+          <div class="lg:col-span-6" data-reveal>
+            <p class="mono-caps text-orange mb-5">— CINZIA RENTAL · 6 SUCURSALES EN 3 PAÍSES</p>
+            <h1 class="display-black text-[clamp(40px,6.5vw,80px)] mb-6 leading-[0.95]">
+              Antes de comprarte uno,<br>
+              <span class="text-orange">alquilá uno.</span>
+            </h1>
+            <p class="text-lg text-white/85 max-w-xl leading-relaxed mb-8">
+              Cinzia Rental alquila los mismos motorhomes que fabrica. 26 unidades en 6 sucursales — Argentina, Estados Unidos y España. Reserva 100% online con seña del 30%.
+            </p>
+
+            <!-- Trust signals -->
+            <div class="flex flex-wrap gap-x-6 gap-y-3 text-sm">
+              <div class="flex items-center gap-2">
+                <i data-lucide="check-circle" class="w-4 h-4 text-orange"></i>
+                <span class="text-white/90">Reserva en 5 minutos</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <i data-lucide="check-circle" class="w-4 h-4 text-orange"></i>
+                <span class="text-white/90">Seña 30% online</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <i data-lucide="check-circle" class="w-4 h-4 text-orange"></i>
+                <span class="text-white/90">Equipamiento incluido</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <i data-lucide="check-circle" class="w-4 h-4 text-orange"></i>
+                <span class="text-white/90">Seguro RC</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Form (col-span 6) -->
+          <div class="lg:col-span-6 min-w-0" data-reveal>
+            <form id="search-form" class="search-form" onsubmit="return false;">
+
+              <div class="flex items-center gap-3 mb-6 pb-5 border-b border-white/25">
+                <div class="w-11 h-11 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
+                  <i data-lucide="search" class="w-5 h-5 text-white"></i>
+                </div>
+                <h2 class="display-black text-2xl lg:text-3xl text-white">Encontrá tu vehículo</h2>
+              </div>
+
+              <div class="space-y-4">
+
+                <!-- Fechas (2 columnas) -->
+                <div>
+                  <label class="search-label">Fechas de viaje</label>
+                  <div class="search-dates-row">
+                    <div>
+                      <label class="search-label" style="font-size:0.6rem;color:rgba(255,255,255,0.7);margin-bottom:4px;">RETIRO</label>
+                      <input type="date" class="search-date" id="fecha-retiro" min="">
+                    </div>
+                    <div>
+                      <label class="search-label" style="font-size:0.6rem;color:rgba(255,255,255,0.7);margin-bottom:4px;">DEVOLUCIÓN</label>
+                      <input type="date" class="search-date" id="fecha-devolucion" min="">
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Tipo + Sucursal -->
+                <div class="grid sm:grid-cols-2 gap-4">
+                  <div>
+                    <label class="search-label">Tipo de vehículo</label>
+                    <select class="search-select" id="form-tipo">
+                      <option value="todos">Todos los tipos</option>
+                      <option value="chasis">Motorhome Chasis</option>
+                      <option value="furgon">Motorhome Furgón</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label class="search-label">Sucursal</label>
+                    <select class="search-select" id="form-sucursal">
+                      <option value="todos">Todas las sucursales</option>
+                      <optgroup label="🇦🇷 Argentina">
+                        <option value="cordoba">Córdoba</option>
+                        <option value="bsas">Buenos Aires</option>
+                        <option value="bariloche">Bariloche</option>
+                        <option value="salta">Salta</option>
+                      </optgroup>
+                      <optgroup label="🇺🇸 Estados Unidos">
+                        <option value="miami">Miami</option>
+                      </optgroup>
+                      <optgroup label="🇪🇸 España">
+                        <option value="barcelona">Barcelona</option>
+                      </optgroup>
+                    </select>
+                  </div>
+                </div>
+
+                <!-- Checkbox ofertas -->
+                <label class="flex items-center gap-3 cursor-pointer text-white pt-1 group">
+                  <input type="checkbox" id="solo-ofertas" class="w-4 h-4 rounded accent-orange cursor-pointer">
+                  <span class="text-sm font-semibold">Mostrar solo ofertas activas</span>
+                  <span class="mono-caps text-white/50 text-[0.55rem] bg-white/15 px-2 py-0.5 rounded-full">5 disponibles</span>
+                </label>
+
+                <!-- Botón -->
+                <button type="submit" id="form-buscar" class="bg-white text-orange font-bold px-7 py-4 rounded-full hover:bg-white/95 transition-colors inline-flex items-center gap-2 w-full justify-center mt-2">
+                  <i data-lucide="search" class="w-4 h-4"></i>
+                  Buscar disponibilidad
+                </button>
+
+              </div>
+
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- BANNERS DE DESTINO (3 mercados) -->
+    <!-- ============================================ -->
+    <section class="bg-soft py-12 lg:py-16 border-b border-ink/5">
+      <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
+
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8" data-reveal>
+          <div>
+            <p class="mono-caps text-orange mb-2">— PRECIOS POR DESTINO</p>
+            <h2 class="display-black text-[clamp(22px,3vw,36px)] text-ink leading-tight">
+              3 países. 6 sucursales. 26 unidades.
+            </h2>
+          </div>
+          <a href="#ofertas" class="inline-flex items-center gap-2 text-sm font-semibold text-orange hover:text-orange-dark transition-colors flex-shrink-0">
+            <span class="inline-flex items-center gap-1.5 bg-orange/10 border border-orange/20 px-4 py-2 rounded-full">
+              <i data-lucide="tag" class="w-3.5 h-3.5"></i>
+              5 unidades en oferta
+              <i data-lucide="arrow-down" class="w-3.5 h-3.5"></i>
+            </span>
+          </a>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+
+          <!-- Argentina -->
+          <a href="#ofertas" class="promo-banner group bg-white rounded-2xl overflow-hidden border border-ink/5 shadow-sm">
+            <div class="aspect-[16/9] relative overflow-hidden">
+              <img src="https://www.cinziavehiculos.com/dist/image/product/upload/202411/672a5bde491b7.jpg" alt="Motorhome en Argentina" class="promo-img w-full h-full object-cover">
+              <div class="absolute inset-0 bg-gradient-to-t from-ink/65 via-ink/20 to-transparent"></div>
+              <span class="absolute top-3 left-3 bg-white/95 backdrop-blur-sm text-xs font-semibold px-3 py-1.5 rounded-full shadow-sm">🇦🇷 Argentina</span>
+              <div class="absolute bottom-3 left-4 right-4">
+                <p class="mono-caps text-white/70 text-[0.6rem] mb-0.5">DESDE</p>
+                <p class="display-black text-white text-xl leading-none">AR$ 301.500<span class="text-sm font-normal opacity-80">/noche</span></p>
+              </div>
+            </div>
+            <div class="px-4 py-3 flex items-center justify-between">
+              <div>
+                <p class="font-semibold text-ink text-sm">Córdoba · BsAs · Bariloche · Salta</p>
+                <p class="text-xs text-ink/50 mt-0.5">3 unidades en oferta · 17 disponibles</p>
+              </div>
+              <span class="text-orange font-semibold text-sm group-hover:translate-x-1 transition-transform inline-flex items-center gap-1 flex-shrink-0">
+                Ver <i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </span>
+            </div>
+          </a>
+
+          <!-- Miami -->
+          <a href="#ofertas" class="promo-banner group bg-white rounded-2xl overflow-hidden border border-ink/5 shadow-sm">
+            <div class="aspect-[16/9] relative overflow-hidden">
+              <img src="https://www.cinziavehiculos.com/dist/image/product/upload/202310/651acf0099e71.JPG" alt="Motorhome en Miami" class="promo-img w-full h-full object-cover">
+              <div class="absolute inset-0 bg-gradient-to-t from-ink/65 via-ink/20 to-transparent"></div>
+              <span class="absolute top-3 left-3 bg-white/95 backdrop-blur-sm text-xs font-semibold px-3 py-1.5 rounded-full shadow-sm">🇺🇸 Miami</span>
+              <div class="absolute bottom-3 left-4 right-4">
+                <p class="mono-caps text-white/70 text-[0.6rem] mb-0.5">DESDE</p>
+                <p class="display-black text-white text-xl leading-none">US$ 226<span class="text-sm font-normal opacity-80">/noche</span></p>
+              </div>
+            </div>
+            <div class="px-4 py-3 flex items-center justify-between">
+              <div>
+                <p class="font-semibold text-ink text-sm">Florida Keys · Everglades · Miami</p>
+                <p class="text-xs text-ink/50 mt-0.5">1 unidad en oferta · Ford + Chevrolet</p>
+              </div>
+              <span class="text-orange font-semibold text-sm group-hover:translate-x-1 transition-transform inline-flex items-center gap-1 flex-shrink-0">
+                Ver <i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </span>
+            </div>
+          </a>
+
+          <!-- Barcelona -->
+          <a href="#ofertas" class="promo-banner group bg-white rounded-2xl overflow-hidden border border-ink/5 shadow-sm">
+            <div class="aspect-[16/9] relative overflow-hidden">
+              <img src="https://www.cinziavehiculos.com/dist/image/product/upload/202411/672a5c6f6f8eb.jpg" alt="Motorhome en Barcelona" class="promo-img w-full h-full object-cover">
+              <div class="absolute inset-0 bg-gradient-to-t from-ink/65 via-ink/20 to-transparent"></div>
+              <span class="absolute top-3 left-3 bg-white/95 backdrop-blur-sm text-xs font-semibold px-3 py-1.5 rounded-full shadow-sm">🇪🇸 Barcelona</span>
+              <div class="absolute bottom-3 left-4 right-4">
+                <p class="mono-caps text-white/70 text-[0.6rem] mb-0.5">DESDE</p>
+                <p class="display-black text-white text-xl leading-none">US$ 161<span class="text-sm font-normal opacity-80">/noche</span></p>
+              </div>
+            </div>
+            <div class="px-4 py-3 flex items-center justify-between">
+              <div>
+                <p class="font-semibold text-ink text-sm">Costa Brava · Pirineos · Provenza</p>
+                <p class="text-xs text-ink/50 mt-0.5">1 unidad en oferta · Yearling + Mclouis</p>
+              </div>
+              <span class="text-orange font-semibold text-sm group-hover:translate-x-1 transition-transform inline-flex items-center gap-1 flex-shrink-0">
+                Ver <i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </span>
+            </div>
+          </a>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- CATÁLOGO COMPLETO (con filtros) -->
+    <!-- ============================================ -->
+    <section id="vehiculos" class="bg-white py-16 lg:py-24">
+      <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
+
+        <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-5 mb-10" data-reveal>
+          <div>
+            <p class="mono-caps text-orange mb-3">— FLOTA COMPLETA</p>
+            <h2 class="display-black text-[clamp(30px,4.5vw,56px)] text-ink leading-tight">
+              26 vehículos.<br>
+              <span class="text-ink/50">Encontrá el ideal.</span>
+            </h2>
+          </div>
+          <p class="lg:max-w-md text-ink/65">
+            Filtrá por país, sucursal o tipo. Todas las unidades incluyen equipamiento completo, seguro RC y 400 km/día libres.
+          </p>
+        </div>
+
+        <!-- Filtros -->
+        <div class="flex flex-wrap gap-2 lg:gap-3 mb-8 pb-6 border-b border-ink/8" data-reveal>
+          <button class="filter-pill active" data-cat="todos">
+            <i data-lucide="globe" class="w-4 h-4"></i>
+            Todos <span class="count">26</span>
+          </button>
+          <button class="filter-pill" data-cat="argentina">
+            <span>🇦🇷</span>
+            Argentina <span class="count">17</span>
+          </button>
+          <button class="filter-pill" data-cat="usa">
+            <span>🇺🇸</span>
+            Estados Unidos <span class="count">2</span>
+          </button>
+          <button class="filter-pill" data-cat="espana">
+            <span>🇪🇸</span>
+            España <span class="count">5</span>
+          </button>
+          <span class="mx-2 text-ink/20">|</span>
+          <button class="filter-pill" data-cat="chasis">
+            <i data-lucide="truck" class="w-4 h-4"></i>
+            Motorhome Chasis <span class="count">23</span>
+          </button>
+          <button class="filter-pill" data-cat="furgon">
+            <i data-lucide="bus" class="w-4 h-4"></i>
+            Motorhome Furgón <span class="count">2</span>
+          </button>
+          <button class="filter-pill" data-cat="sale">
+            <i data-lucide="tag" class="w-4 h-4"></i>
+            Ofertas <span class="count">5</span>
+          </button>
+        </div>
+
+        <p class="text-sm text-ink/60 mb-6"><span id="result-count" class="font-bold text-ink">26</span> vehículos disponibles</p>
+
+        <!-- Grid de vehículos - estilo productos.html -->
+        <div id="vehicles-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+
+          <!-- 1 — MB Córdoba 8 -->
+          <a href="rental-detail.html" class="product-card group" data-cat="argentina chasis">
+            <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-soft mb-4 relative">
+              <img src="https://www.cinziavehiculos.com/dist/image/product/upload/202411/672a5bde491b7.jpg" alt="" class="product-img w-full h-full object-cover">
+              <span class="flag-badge">🇦🇷 Córdoba</span>
+            </div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="pill-tag">Motorhome Chasis</span>
+              <span class="mono-caps text-ink/40">6 pers</span>
+            </div>
+            <h3 class="display-black text-xl text-ink mb-1">MERCEDES / CITROËN</h3>
+            <p class="text-sm text-ink/60 mb-3">Córdoba · 6 camas</p>
+            <div class="flex items-center justify-between pt-3 border-t border-ink/10">
+              <span class="font-bold text-ink">AR$ 301.500<span class="text-xs text-ink/50 font-normal">/noche</span></span>
+              <span class="text-orange font-semibold text-sm group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">+ Info <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+            </div>
+          </a>
+
+          <!-- 2 — MB BsAs 10 -->
+          <a href="rental-detail.html" class="product-card group" data-cat="argentina chasis">
+            <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-soft mb-4 relative">
+              <img src="https://www.cinziavehiculos.com/dist/image/product/upload/202411/672a5bde491b7.jpg" alt="" class="product-img w-full h-full object-cover">
+              <span class="flag-badge">🇦🇷 Buenos Aires</span>
+            </div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="pill-tag">Motorhome Chasis</span>
+              <span class="mono-caps text-ink/40">6 pers</span>
+            </div>
+            <h3 class="display-black text-xl text-ink mb-1">MERCEDES / CITROËN</h3>
+            <p class="text-sm text-ink/60 mb-3">Buenos Aires · 6 camas</p>
+            <div class="flex items-center justify-between pt-3 border-t border-ink/10">
+              <span class="font-bold text-ink">AR$ 330.000<span class="text-xs text-ink/50 font-normal">/noche</span></span>
+              <span class="text-orange font-semibold text-sm group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">+ Info <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+            </div>
+          </a>
+
+          <!-- 3 — MB Córdoba 12 -->
+          <a href="rental-detail.html" class="product-card group" data-cat="argentina chasis">
+            <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-soft mb-4 relative">
+              <img src="https://www.cinziavehiculos.com/dist/image/product/upload/202411/672a5bde491b7.jpg" alt="" class="product-img w-full h-full object-cover">
+              <span class="flag-badge">🇦🇷 Córdoba</span>
+            </div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="pill-tag">Motorhome Chasis</span>
+              <span class="mono-caps text-ink/40">6 pers</span>
+            </div>
+            <h3 class="display-black text-xl text-ink mb-1">MERCEDES / CITROËN</h3>
+            <p class="text-sm text-ink/60 mb-3">Córdoba · 6 camas</p>
+            <div class="flex items-center justify-between pt-3 border-t border-ink/10">
+              <span class="font-bold text-ink">AR$ 360.000<span class="text-xs text-ink/50 font-normal">/noche</span></span>
+              <span class="text-orange font-semibold text-sm group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">+ Info <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+            </div>
+          </a>
+
+          <!-- 4 — MB Bariloche 14 -->
+          <a href="rental-detail.html" class="product-card group" data-cat="argentina chasis">
+            <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-soft mb-4 relative">
+              <img src="https://www.cinziavehiculos.com/dist/image/product/upload/202411/672a5bde491b7.jpg" alt="" class="product-img w-full h-full object-cover">
+              <span class="flag-badge">🇦🇷 Bariloche</span>
+            </div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="pill-tag">Motorhome Chasis</span>
+              <span class="mono-caps text-ink/40">6 pers</span>
+            </div>
+            <h3 class="display-black text-xl text-ink mb-1">MERCEDES / CITROËN</h3>
+            <p class="text-sm text-ink/60 mb-3">Bariloche · 6 camas</p>
+            <div class="flex items-center justify-between pt-3 border-t border-ink/10">
+              <span class="font-bold text-ink">AR$ 360.000<span class="text-xs text-ink/50 font-normal">/noche</span></span>
+              <span class="text-orange font-semibold text-sm group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">+ Info <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+            </div>
+          </a>
+
+          <!-- 5 — MB Córdoba 15 -->
+          <a href="rental-detail.html" class="product-card group" data-cat="argentina chasis">
+            <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-soft mb-4 relative">
+              <img src="https://www.cinziavehiculos.com/dist/image/product/upload/202411/672a5bde491b7.jpg" alt="" class="product-img w-full h-full object-cover">
+              <span class="flag-badge">🇦🇷 Córdoba</span>
+            </div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="pill-tag">Motorhome Chasis</span>
+              <span class="mono-caps text-ink/40">6 pers</span>
+            </div>
+            <h3 class="display-black text-xl text-ink mb-1">MERCEDES / CITROËN</h3>
+            <p class="text-sm text-ink/60 mb-3">Córdoba · 6 camas</p>
+            <div class="flex items-center justify-between pt-3 border-t border-ink/10">
+              <span class="font-bold text-ink">AR$ 360.000<span class="text-xs text-ink/50 font-normal">/noche</span></span>
+              <span class="text-orange font-semibold text-sm group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">+ Info <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+            </div>
+          </a>
+
+          <!-- 6 — MB BsAs 16 SALE -->
+          <a href="rental-detail.html" class="product-card group" data-cat="argentina chasis sale">
+            <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-soft mb-4 relative">
+              <img src="https://www.cinziavehiculos.com/dist/image/product/upload/202411/672a5bde491b7.jpg" alt="" class="product-img w-full h-full object-cover">
+              <span class="sale-badge">OFERTA</span>
+              <span class="flag-badge">🇦🇷 Buenos Aires</span>
+            </div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="pill-tag">Motorhome Chasis</span>
+              <span class="mono-caps text-ink/40">6 pers</span>
+            </div>
+            <h3 class="display-black text-xl text-ink mb-1">MERCEDES / CITROËN</h3>
+            <p class="text-sm text-ink/60 mb-3">Buenos Aires · 6 camas</p>
+            <div class="flex items-center justify-between pt-3 border-t border-ink/10">
+              <span class="font-bold text-ink">AR$ 360.000<span class="text-xs text-ink/50 font-normal">/noche</span></span>
+              <span class="text-orange font-semibold text-sm group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">+ Info <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+            </div>
+          </a>
+
+          <!-- 7 — Furgón Fiat Córdoba 18 -->
+          <a href="rental-detail.html" class="product-card group" data-cat="argentina furgon">
+            <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-soft mb-4 relative">
+              <img src="https://www.cinziavehiculos.com/dist/image/product/upload/202501/679cfae83dec5.jpg" alt="" class="product-img w-full h-full object-cover">
+              <span class="flag-badge">🇦🇷 Córdoba</span>
+            </div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="pill-tag">Motorhome Furgón</span>
+              <span class="mono-caps text-ink/40">4 pers</span>
+            </div>
+            <h3 class="display-black text-xl text-ink mb-1">FURGÓN FIAT</h3>
+            <p class="text-sm text-ink/60 mb-3">Córdoba · 4 camas</p>
+            <div class="flex items-center justify-between pt-3 border-t border-ink/10">
+              <span class="font-bold text-ink">AR$ 330.000<span class="text-xs text-ink/50 font-normal">/noche</span></span>
+              <span class="text-orange font-semibold text-sm group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">+ Info <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+            </div>
+          </a>
+
+          <!-- 8 — MB BsAs 21 -->
+          <a href="rental-detail.html" class="product-card group" data-cat="argentina chasis">
+            <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-soft mb-4 relative">
+              <img src="https://www.cinziavehiculos.com/dist/image/product/upload/202411/672a5bde491b7.jpg" alt="" class="product-img w-full h-full object-cover">
+              <span class="flag-badge">🇦🇷 Buenos Aires</span>
+            </div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="pill-tag">Motorhome Chasis</span>
+              <span class="mono-caps text-ink/40">6 pers</span>
+            </div>
+            <h3 class="display-black text-xl text-ink mb-1">MERCEDES / CITROËN</h3>
+            <p class="text-sm text-ink/60 mb-3">Buenos Aires · 6 camas</p>
+            <div class="flex items-center justify-between pt-3 border-t border-ink/10">
+              <span class="font-bold text-ink">AR$ 360.000<span class="text-xs text-ink/50 font-normal">/noche</span></span>
+              <span class="text-orange font-semibold text-sm group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">+ Info <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+            </div>
+          </a>
+
+          <!-- 9 — MB BsAs 22 -->
+          <a href="rental-detail.html" class="product-card group" data-cat="argentina chasis">
+            <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-soft mb-4 relative">
+              <img src="https://www.cinziavehiculos.com/dist/image/product/upload/202411/672a5bde491b7.jpg" alt="" class="product-img w-full h-full object-cover">
+              <span class="flag-badge">🇦🇷 Buenos Aires</span>
+            </div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="pill-tag">Motorhome Chasis</span>
+              <span class="mono-caps text-ink/40">6 pers</span>
+            </div>
+            <h3 class="display-black text-xl text-ink mb-1">MERCEDES / CITROËN</h3>
+            <p class="text-sm text-ink/60 mb-3">Buenos Aires · 6 camas</p>
+            <div class="flex items-center justify-between pt-3 border-t border-ink/10">
+              <span class="font-bold text-ink">AR$ 360.000<span class="text-xs text-ink/50 font-normal">/noche</span></span>
+              <span class="text-orange font-semibold text-sm group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">+ Info <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+            </div>
+          </a>
+
+          <!-- 10 — Ford Miami 23 SALE -->
+          <a href="rental-detail.html" class="product-card group" data-cat="usa chasis sale">
+            <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-soft mb-4 relative">
+              <img src="https://www.cinziavehiculos.com/dist/image/product/upload/202310/651acf0099e71.JPG" alt="" class="product-img w-full h-full object-cover">
+              <span class="sale-badge">OFERTA</span>
+              <span class="flag-badge">🇺🇸 Miami</span>
+            </div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="pill-tag">Motorhome Chasis</span>
+              <span class="mono-caps text-ink/40">6 pers</span>
+            </div>
+            <h3 class="display-black text-xl text-ink mb-1">FORD</h3>
+            <p class="text-sm text-ink/60 mb-3">Miami · Florida Keys</p>
+            <div class="flex items-center justify-between pt-3 border-t border-ink/10">
+              <span class="font-bold text-ink">US$ 226<span class="text-xs text-ink/50 font-normal">/noche</span></span>
+              <span class="text-orange font-semibold text-sm group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">+ Info <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+            </div>
+          </a>
+
+          <!-- 11 — MB BsAs 24 -->
+          <a href="rental-detail.html" class="product-card group" data-cat="argentina chasis">
+            <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-soft mb-4 relative">
+              <img src="https://www.cinziavehiculos.com/dist/image/product/upload/202411/672a5bde491b7.jpg" alt="" class="product-img w-full h-full object-cover">
+              <span class="flag-badge">🇦🇷 Buenos Aires</span>
+            </div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="pill-tag">Motorhome Chasis</span>
+              <span class="mono-caps text-ink/40">6 pers</span>
+            </div>
+            <h3 class="display-black text-xl text-ink mb-1">MERCEDES / CITROËN</h3>
+            <p class="text-sm text-ink/60 mb-3">Buenos Aires · 6 camas</p>
+            <div class="flex items-center justify-between pt-3 border-t border-ink/10">
+              <span class="font-bold text-ink">AR$ 360.000<span class="text-xs text-ink/50 font-normal">/noche</span></span>
+              <span class="text-orange font-semibold text-sm group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">+ Info <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+            </div>
+          </a>
+
+          <!-- 12 — MB Córdoba 27 -->
+          <a href="rental-detail.html" class="product-card group" data-cat="argentina chasis">
+            <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-soft mb-4 relative">
+              <img src="https://www.cinziavehiculos.com/dist/image/product/upload/202411/672a5bde491b7.jpg" alt="" class="product-img w-full h-full object-cover">
+              <span class="flag-badge">🇦🇷 Córdoba</span>
+            </div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="pill-tag">Motorhome Chasis</span>
+              <span class="mono-caps text-ink/40">6 pers</span>
+            </div>
+            <h3 class="display-black text-xl text-ink mb-1">MERCEDES / CITROËN</h3>
+            <p class="text-sm text-ink/60 mb-3">Córdoba · 6 camas</p>
+            <div class="flex items-center justify-between pt-3 border-t border-ink/10">
+              <span class="font-bold text-ink">AR$ 360.000<span class="text-xs text-ink/50 font-normal">/noche</span></span>
+              <span class="text-orange font-semibold text-sm group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">+ Info <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+            </div>
+          </a>
+
+          <!-- 13 — Yearling Barcelona 28 -->
+          <a href="rental-detail.html" class="product-card group" data-cat="espana chasis">
+            <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-soft mb-4 relative">
+              <img src="https://www.cinziavehiculos.com/dist/image/product/upload/202411/672a5c5e113c6.jpg" alt="" class="product-img w-full h-full object-cover">
+              <span class="flag-badge">🇪🇸 Barcelona</span>
+            </div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="pill-tag">Motorhome Chasis</span>
+              <span class="mono-caps text-ink/40">5 pers</span>
+            </div>
+            <h3 class="display-black text-xl text-ink mb-1">YEARLING 83 RENAULT</h3>
+            <p class="text-sm text-ink/60 mb-3">Barcelona · 5 camas</p>
+            <div class="flex items-center justify-between pt-3 border-t border-ink/10">
+              <span class="font-bold text-ink">US$ 161<span class="text-xs text-ink/50 font-normal">/noche</span></span>
+              <span class="text-orange font-semibold text-sm group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">+ Info <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+            </div>
+          </a>
+
+          <!-- 14 — Yearling Barcelona 29 -->
+          <a href="rental-detail.html" class="product-card group" data-cat="espana chasis">
+            <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-soft mb-4 relative">
+              <img src="https://www.cinziavehiculos.com/dist/image/product/upload/202411/672a5c5e113c6.jpg" alt="" class="product-img w-full h-full object-cover">
+              <span class="flag-badge">🇪🇸 Barcelona</span>
+            </div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="pill-tag">Motorhome Chasis</span>
+              <span class="mono-caps text-ink/40">5 pers</span>
+            </div>
+            <h3 class="display-black text-xl text-ink mb-1">YEARLING 89 RENAULT</h3>
+            <p class="text-sm text-ink/60 mb-3">Barcelona · 5 camas</p>
+            <div class="flex items-center justify-between pt-3 border-t border-ink/10">
+              <span class="font-bold text-ink">US$ 161<span class="text-xs text-ink/50 font-normal">/noche</span></span>
+              <span class="text-orange font-semibold text-sm group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">+ Info <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+            </div>
+          </a>
+
+          <!-- 15 — Mclouis Barcelona 30 -->
+          <a href="rental-detail.html" class="product-card group" data-cat="espana chasis">
+            <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-soft mb-4 relative">
+              <img src="https://www.cinziavehiculos.com/dist/image/product/upload/202411/672a5c6f6f8eb.jpg" alt="" class="product-img w-full h-full object-cover">
+              <span class="flag-badge">🇪🇸 Barcelona</span>
+            </div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="pill-tag">Motorhome Chasis</span>
+              <span class="mono-caps text-ink/40">7 pers</span>
+            </div>
+            <h3 class="display-black text-xl text-ink mb-1">MCLOUIS GLAMYS 322</h3>
+            <p class="text-sm text-ink/60 mb-3">Barcelona · 7 camas · Fiat</p>
+            <div class="flex items-center justify-between pt-3 border-t border-ink/10">
+              <span class="font-bold text-ink">US$ 161<span class="text-xs text-ink/50 font-normal">/noche</span></span>
+              <span class="text-orange font-semibold text-sm group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">+ Info <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+            </div>
+          </a>
+
+          <!-- 16 — Mclouis Barcelona 31 -->
+          <a href="rental-detail.html" class="product-card group" data-cat="espana chasis">
+            <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-soft mb-4 relative">
+              <img src="https://www.cinziavehiculos.com/dist/image/product/upload/202411/672a5c6f6f8eb.jpg" alt="" class="product-img w-full h-full object-cover">
+              <span class="flag-badge">🇪🇸 Barcelona</span>
+            </div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="pill-tag">Motorhome Chasis</span>
+              <span class="mono-caps text-ink/40">7 pers</span>
+            </div>
+            <h3 class="display-black text-xl text-ink mb-1">MCLOUIS GLAMYS 322</h3>
+            <p class="text-sm text-ink/60 mb-3">Barcelona · 7 camas · Ford</p>
+            <div class="flex items-center justify-between pt-3 border-t border-ink/10">
+              <span class="font-bold text-ink">US$ 161<span class="text-xs text-ink/50 font-normal">/noche</span></span>
+              <span class="text-orange font-semibold text-sm group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">+ Info <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+            </div>
+          </a>
+
+          <!-- 17 — Mclouis 320 Barcelona 32 -->
+          <a href="rental-detail.html" class="product-card group" data-cat="espana chasis">
+            <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-soft mb-4 relative">
+              <img src="https://www.cinziavehiculos.com/dist/image/product/upload/202411/672a5c6f6f8eb.jpg" alt="" class="product-img w-full h-full object-cover">
+              <span class="flag-badge">🇪🇸 Barcelona</span>
+            </div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="pill-tag">Motorhome Chasis</span>
+              <span class="mono-caps text-ink/40">6 pers</span>
+            </div>
+            <h3 class="display-black text-xl text-ink mb-1">MCLOUIS GLAMYS 320</h3>
+            <p class="text-sm text-ink/60 mb-3">Barcelona · 6 camas · Ford</p>
+            <div class="flex items-center justify-between pt-3 border-t border-ink/10">
+              <span class="font-bold text-ink">US$ 161<span class="text-xs text-ink/50 font-normal">/noche</span></span>
+              <span class="text-orange font-semibold text-sm group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">+ Info <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+            </div>
+          </a>
+
+          <!-- 18 — MB Salta 33 SALE -->
+          <a href="rental-detail.html" class="product-card group" data-cat="argentina chasis sale">
+            <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-soft mb-4 relative">
+              <img src="https://www.cinziavehiculos.com/dist/image/product/upload/202411/672a5bde491b7.jpg" alt="" class="product-img w-full h-full object-cover">
+              <span class="sale-badge">OFERTA</span>
+              <span class="flag-badge">🇦🇷 Salta</span>
+            </div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="pill-tag">Motorhome Chasis</span>
+              <span class="mono-caps text-ink/40">6 pers</span>
+            </div>
+            <h3 class="display-black text-xl text-ink mb-1">MERCEDES / CITROËN</h3>
+            <p class="text-sm text-ink/60 mb-3">Salta · 6 camas</p>
+            <div class="flex items-center justify-between pt-3 border-t border-ink/10">
+              <span class="font-bold text-ink">AR$ 360.000<span class="text-xs text-ink/50 font-normal">/noche</span></span>
+              <span class="text-orange font-semibold text-sm group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">+ Info <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+            </div>
+          </a>
+
+          <!-- 19 — Furgón Bariloche 34 -->
+          <a href="rental-detail.html" class="product-card group" data-cat="argentina furgon">
+            <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-soft mb-4 relative">
+              <img src="https://www.cinziavehiculos.com/dist/image/product/upload/202501/679cfae83dec5.jpg" alt="" class="product-img w-full h-full object-cover">
+              <span class="flag-badge">🇦🇷 Bariloche</span>
+            </div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="pill-tag">Motorhome Furgón</span>
+              <span class="mono-caps text-ink/40">4 pers</span>
+            </div>
+            <h3 class="display-black text-xl text-ink mb-1">FURGÓN FIAT</h3>
+            <p class="text-sm text-ink/60 mb-3">Bariloche · 4 camas</p>
+            <div class="flex items-center justify-between pt-3 border-t border-ink/10">
+              <span class="font-bold text-ink">AR$ 330.000<span class="text-xs text-ink/50 font-normal">/noche</span></span>
+              <span class="text-orange font-semibold text-sm group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">+ Info <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+            </div>
+          </a>
+
+          <!-- 20 — MB Bariloche 35 -->
+          <a href="rental-detail.html" class="product-card group" data-cat="argentina chasis">
+            <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-soft mb-4 relative">
+              <img src="https://www.cinziavehiculos.com/dist/image/product/upload/202411/672a5bde491b7.jpg" alt="" class="product-img w-full h-full object-cover">
+              <span class="flag-badge">🇦🇷 Bariloche</span>
+            </div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="pill-tag">Motorhome Chasis</span>
+              <span class="mono-caps text-ink/40">6 pers</span>
+            </div>
+            <h3 class="display-black text-xl text-ink mb-1">MERCEDES / CITROËN</h3>
+            <p class="text-sm text-ink/60 mb-3">Bariloche · 6 camas</p>
+            <div class="flex items-center justify-between pt-3 border-t border-ink/10">
+              <span class="font-bold text-ink">AR$ 360.000<span class="text-xs text-ink/50 font-normal">/noche</span></span>
+              <span class="text-orange font-semibold text-sm group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">+ Info <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+            </div>
+          </a>
+
+          <!-- 21 — MB Córdoba 36 -->
+          <a href="rental-detail.html" class="product-card group" data-cat="argentina chasis">
+            <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-soft mb-4 relative">
+              <img src="https://www.cinziavehiculos.com/dist/image/product/upload/202411/672a5bde491b7.jpg" alt="" class="product-img w-full h-full object-cover">
+              <span class="flag-badge">🇦🇷 Córdoba</span>
+            </div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="pill-tag">Motorhome Chasis</span>
+              <span class="mono-caps text-ink/40">6 pers</span>
+            </div>
+            <h3 class="display-black text-xl text-ink mb-1">MERCEDES / CITROËN</h3>
+            <p class="text-sm text-ink/60 mb-3">Córdoba · 6 camas</p>
+            <div class="flex items-center justify-between pt-3 border-t border-ink/10">
+              <span class="font-bold text-ink">AR$ 360.000<span class="text-xs text-ink/50 font-normal">/noche</span></span>
+              <span class="text-orange font-semibold text-sm group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">+ Info <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+            </div>
+          </a>
+
+          <!-- 22 — MB Bariloche 37 SALE -->
+          <a href="rental-detail.html" class="product-card group" data-cat="argentina chasis sale">
+            <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-soft mb-4 relative">
+              <img src="https://www.cinziavehiculos.com/dist/image/product/upload/202411/672a5bde491b7.jpg" alt="" class="product-img w-full h-full object-cover">
+              <span class="sale-badge">OFERTA</span>
+              <span class="flag-badge">🇦🇷 Bariloche</span>
+            </div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="pill-tag">Motorhome Chasis</span>
+              <span class="mono-caps text-ink/40">6 pers</span>
+            </div>
+            <h3 class="display-black text-xl text-ink mb-1">MERCEDES / CITROËN</h3>
+            <p class="text-sm text-ink/60 mb-3">Bariloche · 6 camas</p>
+            <div class="flex items-center justify-between pt-3 border-t border-ink/10">
+              <span class="font-bold text-ink">AR$ 360.000<span class="text-xs text-ink/50 font-normal">/noche</span></span>
+              <span class="text-orange font-semibold text-sm group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">+ Info <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+            </div>
+          </a>
+
+          <!-- 23 — Chevrolet Miami 38 -->
+          <a href="rental-detail.html" class="product-card group" data-cat="usa chasis">
+            <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-soft mb-4 relative">
+              <img src="https://www.cinziavehiculos.com/dist/image/product/upload/202310/651acf0099e71.JPG" alt="" class="product-img w-full h-full object-cover">
+              <span class="flag-badge">🇺🇸 Miami</span>
+            </div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="pill-tag">Motorhome Chasis</span>
+              <span class="mono-caps text-ink/40">6 pers</span>
+            </div>
+            <h3 class="display-black text-xl text-ink mb-1">CHEVROLET</h3>
+            <p class="text-sm text-ink/60 mb-3">Miami · 6 camas · Florida</p>
+            <div class="flex items-center justify-between pt-3 border-t border-ink/10">
+              <span class="font-bold text-ink">US$ 226<span class="text-xs text-ink/50 font-normal">/noche</span></span>
+              <span class="text-orange font-semibold text-sm group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">+ Info <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+            </div>
+          </a>
+
+          <!-- 24 — MB Córdoba 39 -->
+          <a href="rental-detail.html" class="product-card group" data-cat="argentina chasis">
+            <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-soft mb-4 relative">
+              <img src="https://www.cinziavehiculos.com/dist/image/product/upload/202411/672a5bde491b7.jpg" alt="" class="product-img w-full h-full object-cover">
+              <span class="flag-badge">🇦🇷 Córdoba</span>
+            </div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="pill-tag">Motorhome Chasis</span>
+              <span class="mono-caps text-ink/40">6 pers</span>
+            </div>
+            <h3 class="display-black text-xl text-ink mb-1">MERCEDES / CITROËN</h3>
+            <p class="text-sm text-ink/60 mb-3">Córdoba · 6 camas</p>
+            <div class="flex items-center justify-between pt-3 border-t border-ink/10">
+              <span class="font-bold text-ink">AR$ 360.000<span class="text-xs text-ink/50 font-normal">/noche</span></span>
+              <span class="text-orange font-semibold text-sm group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">+ Info <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+            </div>
+          </a>
+
+          <!-- 25 — MB Bariloche 41 -->
+          <a href="rental-detail.html" class="product-card group" data-cat="argentina chasis">
+            <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-soft mb-4 relative">
+              <img src="https://www.cinziavehiculos.com/dist/image/product/upload/202411/672a5bde491b7.jpg" alt="" class="product-img w-full h-full object-cover">
+              <span class="flag-badge">🇦🇷 Bariloche</span>
+            </div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="pill-tag">Motorhome Chasis</span>
+              <span class="mono-caps text-ink/40">6 pers</span>
+            </div>
+            <h3 class="display-black text-xl text-ink mb-1">MERCEDES / CITROËN</h3>
+            <p class="text-sm text-ink/60 mb-3">Bariloche · 6 camas</p>
+            <div class="flex items-center justify-between pt-3 border-t border-ink/10">
+              <span class="font-bold text-ink">AR$ 360.000<span class="text-xs text-ink/50 font-normal">/noche</span></span>
+              <span class="text-orange font-semibold text-sm group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">+ Info <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+            </div>
+          </a>
+
+          <!-- 26 — Mclouis Barcelona 42 SALE -->
+          <a href="rental-detail.html" class="product-card group" data-cat="espana chasis sale">
+            <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-soft mb-4 relative">
+              <img src="https://www.cinziavehiculos.com/dist/image/product/upload/202411/672a5c6f6f8eb.jpg" alt="" class="product-img w-full h-full object-cover">
+              <span class="sale-badge">OFERTA</span>
+              <span class="flag-badge">🇪🇸 Barcelona</span>
+            </div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="pill-tag">Motorhome Chasis</span>
+              <span class="mono-caps text-ink/40">6 pers</span>
+            </div>
+            <h3 class="display-black text-xl text-ink mb-1">MCLOUIS GLAMYS 320</h3>
+            <p class="text-sm text-ink/60 mb-3">Barcelona · 6 camas · Ford</p>
+            <div class="flex items-center justify-between pt-3 border-t border-ink/10">
+              <span class="font-bold text-ink">US$ 161<span class="text-xs text-ink/50 font-normal">/noche</span></span>
+              <span class="text-orange font-semibold text-sm group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">+ Info <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+            </div>
+          </a>
+
+        </div>
+
+        <!-- Empty state -->
+        <div id="no-results" class="hidden text-center py-20">
+          <i data-lucide="search-x" class="w-12 h-12 mx-auto mb-4 text-ink/30"></i>
+          <p class="text-ink/60">No encontramos vehículos con ese filtro.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- DÍAS EN PROMO (carrusel, debajo del grid) -->
+    <!-- ============================================ -->
+    <section id="ofertas" class="bg-soft py-16 lg:py-24 border-t border-ink/5">
+      <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
+
+        <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-5 mb-10" data-reveal>
+          <div>
+            <div class="inline-flex items-center gap-2 mb-4 bg-orange/10 border border-orange/20 px-4 py-1.5 rounded-full">
+              <i data-lucide="tag" class="w-3.5 h-3.5 text-orange"></i>
+              <span class="mono-caps text-orange">DÍAS EN PROMO</span>
+            </div>
+            <h2 class="display-black text-[clamp(28px,4vw,52px)] text-ink leading-tight">
+              Elegí un período en promoción.<br>
+              <span class="text-ink/40">Descubrí el descuento.</span>
+            </h2>
+          </div>
+          <p class="lg:max-w-sm text-ink/60 text-sm leading-relaxed">
+            Precios reducidos en fechas específicas. Reservá con seña del 30% y abonás el saldo antes del retiro.
+          </p>
+        </div>
+
+        <!-- Carrusel -->
+        <div class="relative">
+
+          <button class="offers-carousel-btn prev" id="offers2-prev" aria-label="Anterior">
+            <i data-lucide="chevron-left" class="w-5 h-5"></i>
+          </button>
+          <button class="offers-carousel-btn next" id="offers2-next" aria-label="Siguiente">
+            <i data-lucide="chevron-right" class="w-5 h-5"></i>
+          </button>
+
+          <div class="offers-carousel-track overflow-x-auto pb-4" id="offers2-carousel">
+            <div class="flex gap-4 px-1">
+
+              <!-- PROMO 1 — MB Córdoba · hasta 25/05/2026 -->
+              <div class="offers-carousel-item bg-white rounded-2xl border border-ink/8 overflow-hidden w-[300px] sm:w-[310px] flex flex-col">
+                <div class="flex gap-3 p-4 pb-3">
+                  <div class="w-20 h-20 rounded-xl overflow-hidden bg-soft flex-shrink-0">
+                    <img src="https://www.cinziavehiculos.com/dist/image/product/upload/202411/672a5bde491b7.jpg" alt="Motorhome Chasis Córdoba" class="w-full h-full object-cover">
+                  </div>
+                  <div class="min-w-0 flex-1">
+                    <p class="font-bold text-ink text-sm leading-tight mb-0.5">Motorhome Chasis</p>
+                    <p class="text-xs text-ink/50 mb-2">Motorhome Chasis</p>
+                    <div class="flex flex-wrap gap-x-3 gap-y-1 text-xs text-ink/65">
+                      <span class="flex items-center gap-1"><i data-lucide="map-pin" class="w-3 h-3 text-orange"></i>🇦🇷 Córdoba</span>
+                      <span class="flex items-center gap-1"><i data-lucide="credit-card" class="w-3 h-3 text-orange"></i>Licencia B1/B2</span>
+                    </div>
+                    <div class="flex gap-3 mt-1.5">
+                      <span class="flex items-center gap-1 text-xs text-ink/65"><i data-lucide="users" class="w-3 h-3 text-orange"></i>Adultos <span class="bg-orange text-white text-[0.6rem] font-bold px-1.5 py-0.5 rounded-full">6</span></span>
+                      <span class="flex items-center gap-1 text-xs text-ink/65"><i data-lucide="bed" class="w-3 h-3 text-orange"></i>Camas <span class="bg-orange text-white text-[0.6rem] font-bold px-1.5 py-0.5 rounded-full">6</span></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="mt-auto bg-orange/8 border-t border-orange/15 p-4">
+                  <p class="mono-caps text-orange text-[0.6rem] mb-1.5">MENOR PRECIO</p>
+                  <p class="text-xs text-ink/60 mb-2">En <span class="inline-flex items-center bg-orange text-white text-xs font-bold px-2 py-0.5 rounded-full">AR$ 360.000</span> el 25/05/2026</p>
+                  <a href="https://cinziavehiculos.com/rental" class="btn-wa text-sm w-full justify-center" style="padding:10px 16px;border-radius:999px;background:#25D366;">
+                    <i data-lucide="message-circle" class="w-4 h-4"></i>
+                    Reservar
+                  </a>
+                </div>
+              </div>
+
+              <!-- PROMO 2 — MB BsAs · hasta 22/05/2026 -->
+              <div class="offers-carousel-item bg-white rounded-2xl border border-ink/8 overflow-hidden w-[300px] sm:w-[310px] flex flex-col">
+                <div class="flex gap-3 p-4 pb-3">
+                  <div class="w-20 h-20 rounded-xl overflow-hidden bg-soft flex-shrink-0">
+                    <img src="https://www.cinziavehiculos.com/dist/image/product/upload/202411/672a5bde491b7.jpg" alt="Motorhome Chasis Buenos Aires" class="w-full h-full object-cover">
+                  </div>
+                  <div class="min-w-0 flex-1">
+                    <p class="font-bold text-ink text-sm leading-tight mb-0.5">Motorhome Chasis</p>
+                    <p class="text-xs text-ink/50 mb-2">Motorhome Chasis</p>
+                    <div class="flex flex-wrap gap-x-3 gap-y-1 text-xs text-ink/65">
+                      <span class="flex items-center gap-1"><i data-lucide="map-pin" class="w-3 h-3 text-orange"></i>🇦🇷 Buenos Aires</span>
+                      <span class="flex items-center gap-1"><i data-lucide="credit-card" class="w-3 h-3 text-orange"></i>Licencia B1/B2</span>
+                    </div>
+                    <div class="flex gap-3 mt-1.5">
+                      <span class="flex items-center gap-1 text-xs text-ink/65"><i data-lucide="users" class="w-3 h-3 text-orange"></i>Adultos <span class="bg-orange text-white text-[0.6rem] font-bold px-1.5 py-0.5 rounded-full">6</span></span>
+                      <span class="flex items-center gap-1 text-xs text-ink/65"><i data-lucide="bed" class="w-3 h-3 text-orange"></i>Camas <span class="bg-orange text-white text-[0.6rem] font-bold px-1.5 py-0.5 rounded-full">6</span></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="mt-auto bg-orange/8 border-t border-orange/15 p-4">
+                  <p class="mono-caps text-orange text-[0.6rem] mb-1.5">MENOR PRECIO</p>
+                  <p class="text-xs text-ink/60 mb-2">En <span class="inline-flex items-center bg-orange text-white text-xs font-bold px-2 py-0.5 rounded-full">AR$ 306.000</span> el 22/05/2026</p>
+                  <a href="https://cinziavehiculos.com/rental" class="btn-wa text-sm w-full justify-center" style="padding:10px 16px;border-radius:999px;background:#25D366;">
+                    <i data-lucide="message-circle" class="w-4 h-4"></i>
+                    Reservar
+                  </a>
+                </div>
+              </div>
+
+              <!-- PROMO 3 — MB BsAs · hasta 22/05/2026 -->
+              <div class="offers-carousel-item bg-white rounded-2xl border border-ink/8 overflow-hidden w-[300px] sm:w-[310px] flex flex-col">
+                <div class="flex gap-3 p-4 pb-3">
+                  <div class="w-20 h-20 rounded-xl overflow-hidden bg-soft flex-shrink-0">
+                    <img src="https://www.cinziavehiculos.com/dist/image/product/upload/202411/672a5bde491b7.jpg" alt="Motorhome Chasis Buenos Aires" class="w-full h-full object-cover">
+                  </div>
+                  <div class="min-w-0 flex-1">
+                    <p class="font-bold text-ink text-sm leading-tight mb-0.5">Motorhome Chasis</p>
+                    <p class="text-xs text-ink/50 mb-2">Motorhome Chasis</p>
+                    <div class="flex flex-wrap gap-x-3 gap-y-1 text-xs text-ink/65">
+                      <span class="flex items-center gap-1"><i data-lucide="map-pin" class="w-3 h-3 text-orange"></i>🇦🇷 Buenos Aires</span>
+                      <span class="flex items-center gap-1"><i data-lucide="credit-card" class="w-3 h-3 text-orange"></i>Licencia B1/B2</span>
+                    </div>
+                    <div class="flex gap-3 mt-1.5">
+                      <span class="flex items-center gap-1 text-xs text-ink/65"><i data-lucide="users" class="w-3 h-3 text-orange"></i>Adultos <span class="bg-orange text-white text-[0.6rem] font-bold px-1.5 py-0.5 rounded-full">6</span></span>
+                      <span class="flex items-center gap-1 text-xs text-ink/65"><i data-lucide="bed" class="w-3 h-3 text-orange"></i>Camas <span class="bg-orange text-white text-[0.6rem] font-bold px-1.5 py-0.5 rounded-full">6</span></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="mt-auto bg-orange/8 border-t border-orange/15 p-4">
+                  <p class="mono-caps text-orange text-[0.6rem] mb-1.5">MENOR PRECIO</p>
+                  <p class="text-xs text-ink/60 mb-2">En <span class="inline-flex items-center bg-orange text-white text-xs font-bold px-2 py-0.5 rounded-full">AR$ 380.000</span> el 22/05/2026</p>
+                  <a href="https://cinziavehiculos.com/rental" class="btn-wa text-sm w-full justify-center" style="padding:10px 16px;border-radius:999px;background:#25D366;">
+                    <i data-lucide="message-circle" class="w-4 h-4"></i>
+                    Reservar
+                  </a>
+                </div>
+              </div>
+
+              <!-- PROMO 4 — Ford Miami · hasta 09/06/2026 -->
+              <div class="offers-carousel-item bg-white rounded-2xl border border-ink/8 overflow-hidden w-[300px] sm:w-[310px] flex flex-col">
+                <div class="flex gap-3 p-4 pb-3">
+                  <div class="w-20 h-20 rounded-xl overflow-hidden bg-soft flex-shrink-0">
+                    <img src="https://www.cinziavehiculos.com/dist/image/product/upload/202310/651acf0099e71.JPG" alt="Motorhome Chasis Miami" class="w-full h-full object-cover">
+                  </div>
+                  <div class="min-w-0 flex-1">
+                    <p class="font-bold text-ink text-sm leading-tight mb-0.5">Motorhome Chasis</p>
+                    <p class="text-xs text-ink/50 mb-2">Motorhome Chasis</p>
+                    <div class="flex flex-wrap gap-x-3 gap-y-1 text-xs text-ink/65">
+                      <span class="flex items-center gap-1"><i data-lucide="map-pin" class="w-3 h-3 text-orange"></i>🇺🇸 Miami</span>
+                      <span class="flex items-center gap-1"><i data-lucide="credit-card" class="w-3 h-3 text-orange"></i>Licencia B1/B2</span>
+                    </div>
+                    <div class="flex gap-3 mt-1.5">
+                      <span class="flex items-center gap-1 text-xs text-ink/65"><i data-lucide="users" class="w-3 h-3 text-orange"></i>Adultos <span class="bg-orange text-white text-[0.6rem] font-bold px-1.5 py-0.5 rounded-full">6</span></span>
+                      <span class="flex items-center gap-1 text-xs text-ink/65"><i data-lucide="bed" class="w-3 h-3 text-orange"></i>Camas <span class="bg-orange text-white text-[0.6rem] font-bold px-1.5 py-0.5 rounded-full">6</span></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="mt-auto bg-orange/8 border-t border-orange/15 p-4">
+                  <p class="mono-caps text-orange text-[0.6rem] mb-1.5">MENOR PRECIO</p>
+                  <p class="text-xs text-ink/60 mb-2">En <span class="inline-flex items-center bg-orange text-white text-xs font-bold px-2 py-0.5 rounded-full">US$ 326</span> el 09/06/2026</p>
+                  <a href="https://cinziavehiculos.com/rental" class="btn-wa text-sm w-full justify-center" style="padding:10px 16px;border-radius:999px;background:#25D366;">
+                    <i data-lucide="message-circle" class="w-4 h-4"></i>
+                    Reservar
+                  </a>
+                </div>
+              </div>
+
+              <!-- PROMO 5 — MB Bariloche · hasta 08/04/2027 -->
+              <div class="offers-carousel-item bg-white rounded-2xl border border-ink/8 overflow-hidden w-[300px] sm:w-[310px] flex flex-col">
+                <div class="flex gap-3 p-4 pb-3">
+                  <div class="w-20 h-20 rounded-xl overflow-hidden bg-soft flex-shrink-0">
+                    <img src="https://www.cinziavehiculos.com/dist/image/product/upload/202411/672a5bde491b7.jpg" alt="Motorhome Chasis Bariloche" class="w-full h-full object-cover">
+                  </div>
+                  <div class="min-w-0 flex-1">
+                    <p class="font-bold text-ink text-sm leading-tight mb-0.5">Motorhome Chasis</p>
+                    <p class="text-xs text-ink/50 mb-2">Motorhome Chasis</p>
+                    <div class="flex flex-wrap gap-x-3 gap-y-1 text-xs text-ink/65">
+                      <span class="flex items-center gap-1"><i data-lucide="map-pin" class="w-3 h-3 text-orange"></i>🇦🇷 Bariloche</span>
+                      <span class="flex items-center gap-1"><i data-lucide="credit-card" class="w-3 h-3 text-orange"></i>Licencia B1/B2</span>
+                    </div>
+                    <div class="flex gap-3 mt-1.5">
+                      <span class="flex items-center gap-1 text-xs text-ink/65"><i data-lucide="users" class="w-3 h-3 text-orange"></i>Adultos <span class="bg-orange text-white text-[0.6rem] font-bold px-1.5 py-0.5 rounded-full">6</span></span>
+                      <span class="flex items-center gap-1 text-xs text-ink/65"><i data-lucide="bed" class="w-3 h-3 text-orange"></i>Camas <span class="bg-orange text-white text-[0.6rem] font-bold px-1.5 py-0.5 rounded-full">6</span></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="mt-auto bg-orange/8 border-t border-orange/15 p-4">
+                  <p class="mono-caps text-orange text-[0.6rem] mb-1.5">MENOR PRECIO</p>
+                  <p class="text-xs text-ink/60 mb-2">En <span class="inline-flex items-center bg-orange text-white text-xs font-bold px-2 py-0.5 rounded-full">AR$ 380.000</span> el 08/04/2027</p>
+                  <a href="https://cinziavehiculos.com/rental" class="btn-wa text-sm w-full justify-center" style="padding:10px 16px;border-radius:999px;background:#25D366;">
+                    <i data-lucide="message-circle" class="w-4 h-4"></i>
+                    Reservar
+                  </a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- CÓMO ALQUILAR (3 pasos — se mantiene) -->
+    <!-- ============================================ -->
+    <section class="bg-soft py-20 lg:py-24">
+      <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
+
+        <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-5 mb-12" data-reveal>
+          <div>
+            <p class="mono-caps text-orange mb-3">— CÓMO ALQUILAR</p>
+            <h2 class="display-black text-[clamp(30px,4.5vw,56px)] text-ink leading-tight">
+              3 pasos. 100% online.
+            </h2>
+          </div>
+          <p class="lg:max-w-md text-ink/65">
+            Reservás en minutos desde tu computadora o teléfono. Sin papeleo, sin esperas en oficina.
+          </p>
+        </div>
+
+        <div class="grid sm:grid-cols-3 gap-5">
+
+          <div class="bg-white rounded-2xl p-7 hover:bg-orange/5 transition-colors group relative" data-reveal>
+            <div class="flex items-center justify-between mb-6">
+              <div class="w-14 h-14 rounded-full bg-orange text-white flex items-center justify-center display-black text-2xl">01</div>
+              <i data-lucide="search" class="w-6 h-6 text-orange opacity-40 group-hover:opacity-100 transition-opacity"></i>
+            </div>
+            <h3 class="display-black text-xl text-ink mb-3 leading-tight">Buscá tu vehículo</h3>
+            <p class="text-sm text-ink/65 leading-relaxed">
+              Elegí fechas, sucursal y tipo de vehículo. Mirá fotos, equipamiento y reseñas de cada unidad disponible.
+            </p>
+          </div>
+
+          <div class="bg-white rounded-2xl p-7 hover:bg-orange/5 transition-colors group relative" data-reveal>
+            <div class="flex items-center justify-between mb-6">
+              <div class="w-14 h-14 rounded-full bg-orange text-white flex items-center justify-center display-black text-2xl">02</div>
+              <i data-lucide="credit-card" class="w-6 h-6 text-orange opacity-40 group-hover:opacity-100 transition-opacity"></i>
+            </div>
+            <h3 class="display-black text-xl text-ink mb-3 leading-tight">Reservá con seña</h3>
+            <p class="text-sm text-ink/65 leading-relaxed">
+              Confirmás la reserva pagando el 30% online con tarjeta. El saldo lo abonás antes del retiro.
+            </p>
+          </div>
+
+          <div class="bg-white rounded-2xl p-7 hover:bg-orange/5 transition-colors group relative" data-reveal>
+            <div class="flex items-center justify-between mb-6">
+              <div class="w-14 h-14 rounded-full bg-orange text-white flex items-center justify-center display-black text-2xl">03</div>
+              <i data-lucide="key" class="w-6 h-6 text-orange opacity-40 group-hover:opacity-100 transition-opacity"></i>
+            </div>
+            <h3 class="display-black text-xl text-ink mb-3 leading-tight">Retirá y viajá</h3>
+            <p class="text-sm text-ink/65 leading-relaxed">
+              Te entregamos el vehículo limpio, con tanque lleno y equipamiento completo. Llegás, salís y disfrutás.
+            </p>
+          </div>
+
+        </div>
+
+        <!-- CTA estratégico -->
+        <div class="mt-10 grid lg:grid-cols-2 gap-5">
+          <div class="bg-white border border-ink/8 rounded-2xl p-6 flex items-center gap-5" data-reveal>
+            <div class="w-12 h-12 rounded-full bg-orange/15 text-orange flex items-center justify-center flex-shrink-0">
+              <i data-lucide="info" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <p class="font-bold text-ink mb-1 text-sm">Edad mínima del conductor: 25 años</p>
+              <p class="text-xs text-ink/65 leading-relaxed">Licencia vigente con +2 años. <a href="preguntas-frecuentes.html" class="text-orange hover:underline">Ver requisitos completos</a></p>
+            </div>
+          </div>
+
+          <a href="#vehiculos" class="bg-ink text-white rounded-2xl p-6 flex items-center justify-between gap-5 hover:bg-ink/90 transition-colors group" data-reveal>
+            <div>
+              <p class="mono-caps text-orange mb-1">EMPEZÁ AHORA</p>
+              <p class="font-bold text-lg">Ver flota disponible</p>
+            </div>
+            <div class="w-12 h-12 rounded-full bg-orange flex items-center justify-center flex-shrink-0 group-hover:rotate-12 transition-transform">
+              <i data-lucide="arrow-right" class="w-5 h-5"></i>
+            </div>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-ink text-white py-16 lg:py-20 border-t border-white/10">
+    <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
+      <div class="grid lg:grid-cols-4 gap-10 mb-12">
+        <div>
+          <img src="https://www.cinziavehiculos.com/assets/image/logo.svg" alt="Cinzia" class="h-9 w-auto mb-5" onerror="this.outerHTML='<div style=&quot;font-weight:900;font-size:1.5rem;letter-spacing:-0.04em;color:#FFFFFF;margin-bottom:1.25rem;&quot;>CINZIA</div>'">
+          <p class="text-sm text-white/60 leading-relaxed mb-6">Motorhomes a medida, fabricados en nuestro taller de Córdoba, Argentina.</p>
+          <div class="flex gap-2">
+            <a href="https://www.instagram.com/cinziavehiculos/" aria-label="Instagram" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 transition-colors"><i data-lucide="instagram" class="w-4 h-4"></i></a>
+            <a href="https://www.facebook.com/Cinziavehiculos/" aria-label="Facebook" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 transition-colors"><i data-lucide="facebook" class="w-4 h-4"></i></a>
+            <a href="https://www.youtube.com/channel/UCw8Tz-hH6f0ySvpNWsHCY2Q" aria-label="YouTube" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 transition-colors"><i data-lucide="youtube" class="w-4 h-4"></i></a>
+          </div>
+        </div>
+        <div>
+          <p class="mono-caps text-white/40 mb-5">PRODUCTOS</p>
+          <ul class="space-y-3 text-sm">
+            <li><a href="productos.html#campers" class="text-white/80 hover:text-orange transition-colors">Campers</a></li>
+            <li><a href="productos.html#motorhome-chasis" class="text-white/80 hover:text-orange transition-colors">Motorhome Chasis</a></li>
+            <li><a href="productos.html#motorhome-furgon" class="text-white/80 hover:text-orange transition-colors">Motorhome Furgón</a></li>
+            <li><a href="productos.html" class="text-white/80 hover:text-orange transition-colors">Ver todos los modelos</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="mono-caps text-white/40 mb-5">RENTAL</p>
+          <ul class="space-y-3 text-sm">
+            <li><a href="rental.html" class="text-white/80 hover:text-orange transition-colors">Inicio Rental</a></li>
+            <li><a href="rental.html#vehiculos" class="text-white/80 hover:text-orange transition-colors">Ver flota</a></li>
+            <li><a href="nosotros.html" class="text-white/80 hover:text-orange transition-colors">Nosotros</a></li>
+            <li><a href="preguntas-frecuentes.html" class="text-white/80 hover:text-orange transition-colors">Preguntas frecuentes</a></li>
+            <li><a href="contacto.html" class="text-white/80 hover:text-orange transition-colors">Contacto</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="mono-caps text-white/40 mb-5">CONTACTO</p>
+          <ul class="space-y-4 text-sm">
+            <li>
+              <p class="text-white/90 font-semibold mb-1">Córdoba · HQ + Taller</p>
+              <p class="text-white/60 leading-relaxed">Alcira Arias 191, Malvinas Argentinas</p>
+              <a href="tel:+5493515293858" class="text-white/80 hover:text-orange transition-colors text-xs font-mono">+54 9 3515 29-3858</a>
+            </li>
+            <li>
+              <p class="text-white/90 font-semibold mb-1">Buenos Aires · Showroom</p>
+              <p class="text-white/60 leading-relaxed">Riobamba 5487, El Triángulo</p>
+              <a href="tel:+5491137716847" class="text-white/80 hover:text-orange transition-colors text-xs font-mono">+54 9 11 3771-6847</a>
+            </li>
+            <li><a href="mailto:rental@cinziavehiculos.com" class="text-white/80 hover:text-orange transition-colors">rental@cinziavehiculos.com</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-white/10 pt-7 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 text-xs text-white/40">
+        <p>© 2026 Cinzia Vehículos · Todos los derechos reservados</p>
+        <div class="flex gap-5">
+          <a href="#" class="hover:text-white/70 transition-colors">Términos y Condiciones</a>
+          <a href="#" class="hover:text-white/70 transition-colors">Privacidad</a>
+          <a href="#" class="hover:text-white/70 transition-colors">Cookies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://api.whatsapp.com/send?phone=5493515293858&text=Hola!%20Quiero%20info%20sobre%20alquiler" aria-label="WhatsApp" class="float-wa">
+    <i data-lucide="message-circle" class="w-6 h-6"></i>
+  </a>
+
+  <script>
+    lucide.createIcons();
+
+    // ============================================
+    // MOBILE MENU
+    // ============================================
+    (function() {
+      const toggle = document.getElementById('mobile-menu-toggle');
+      const closeBtn = document.getElementById('mobile-menu-close');
+      const backdrop = document.getElementById('mobile-menu-backdrop');
+      const menu = document.getElementById('mobile-menu');
+      const modelosToggle = document.getElementById('mm-modelos-toggle');
+      const modelosSub = document.getElementById('mm-modelos-submenu');
+      if (!toggle || !menu) return;
+
+      function openMenu() {
+        menu.classList.add('open');
+        backdrop.classList.add('open');
+        document.body.classList.add('menu-open');
+        menu.setAttribute('aria-hidden', 'false');
+      }
+      function closeMenu() {
+        menu.classList.remove('open');
+        backdrop.classList.remove('open');
+        document.body.classList.remove('menu-open');
+        menu.setAttribute('aria-hidden', 'true');
+      }
+
+      toggle.addEventListener('click', openMenu);
+      closeBtn.addEventListener('click', closeMenu);
+      backdrop.addEventListener('click', closeMenu);
+
+      // Cerrar al clickear cualquier link interno
+      menu.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => {
+          // Pequeño delay para que el ojo perciba la transición
+          setTimeout(closeMenu, 120);
+        });
+      });
+
+      // Cerrar con Escape
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && menu.classList.contains('open')) closeMenu();
+      });
+
+      // Toggle submenú Modelos
+      if (modelosToggle && modelosSub) {
+        modelosToggle.addEventListener('click', () => {
+          modelosToggle.classList.toggle('open');
+          modelosSub.classList.toggle('open');
+        });
+      }
+    })();
+
+    // Reveal
+    const revealEls = document.querySelectorAll('[data-reveal]');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+    revealEls.forEach(el => observer.observe(el));
+
+    // STICKY SEARCH (aparece cuando el hero sale del viewport)
+    const heroSection = document.getElementById('hero-section');
+    const stickySearch = document.getElementById('sticky-search');
+    const heroObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          stickySearch.classList.remove('visible');
+        } else {
+          stickySearch.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.15 });
+    if (heroSection) heroObserver.observe(heroSection);
+
+    // Filtros
+    const pills = document.querySelectorAll('.filter-pill');
+    const cards = document.querySelectorAll('#vehicles-grid .product-card');
+    const resultCount = document.getElementById('result-count');
+    const noResults = document.getElementById('no-results');
+
+    pills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        pills.forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+        const cat = pill.dataset.cat;
+        let visible = 0;
+        cards.forEach(card => {
+          const cardCats = (card.dataset.cat || '').split(' ');
+          if (cat === 'todos' || cardCats.includes(cat)) {
+            card.style.display = '';
+            visible++;
+          } else {
+            card.style.display = 'none';
+          }
+        });
+        resultCount.textContent = visible;
+        noResults.style.display = visible === 0 ? '' : 'none';
+      });
+    });
+
+    // FECHAS: mínimo = hoy
+    const today = new Date().toISOString().split('T')[0];
+    const retiroInput = document.getElementById('fecha-retiro');
+    const devolucionInput = document.getElementById('fecha-devolucion');
+    if (retiroInput) {
+      retiroInput.min = today;
+      retiroInput.addEventListener('change', () => {
+        if (devolucionInput) devolucionInput.min = retiroInput.value;
+      });
+    }
+    if (devolucionInput) devolucionInput.min = today;
+
+    // FILTRO COMBINADO (formulario hero + pills del catálogo)
+    const sucursalToPais = {
+      cordoba: 'argentina', bsas: 'argentina',
+      bariloche: 'argentina', salta: 'argentina',
+      miami: 'usa', barcelona: 'espana'
+    };
+
+    function applyFormFilter() {
+      const tipo       = document.getElementById('form-tipo')?.value || 'todos';
+      const sucursal   = document.getElementById('form-sucursal')?.value || 'todos';
+      const soloOfer   = document.getElementById('solo-ofertas')?.checked || false;
+      const paisFilter = sucursalToPais[sucursal] || null;
+
+      let visible = 0;
+      cards.forEach(card => {
+        const cats = (card.dataset.cat || '').split(' ');
+        const tipoOk  = tipo === 'todos'   || cats.includes(tipo);
+        const paisOk  = !paisFilter        || cats.includes(paisFilter);
+        const saleOk  = !soloOfer          || cats.includes('sale');
+        if (tipoOk && paisOk && saleOk) {
+          card.style.display = '';
+          visible++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      if (resultCount) resultCount.textContent = visible;
+      if (noResults)   noResults.style.display = visible === 0 ? '' : 'none';
+
+      // Sincronizar pills: marcar activo solo si hay match exacto; si no, ninguno
+      pills.forEach(p => p.classList.remove('active'));
+      if (!paisFilter && tipo === 'todos' && !soloOfer) {
+        const todoPill = document.querySelector('.filter-pill[data-cat="todos"]');
+        if (todoPill) todoPill.classList.add('active');
+      }
+    }
+
+    // IDs de los campos en hero y sticky (en orden paralelo)
+    const HERO_TIPO  = 'form-tipo';
+    const HERO_SUC   = 'form-sucursal';
+    const HERO_RET   = 'fecha-retiro';
+    const HERO_DEV   = 'fecha-devolucion';
+    const STK_TIPO   = 'sticky-tipo';
+    const STK_SUC    = 'sticky-sucursal';
+    const STK_RET    = 'sticky-retiro';
+    const STK_DEV    = 'sticky-devolucion';
+
+    function g(id) { return document.getElementById(id); }
+
+    function syncHeroToSticky() {
+      if (g(STK_TIPO)) g(STK_TIPO).value   = g(HERO_TIPO)?.value || 'todos';
+      if (g(STK_SUC))  g(STK_SUC).value    = g(HERO_SUC)?.value  || 'todos';
+      if (g(STK_RET))  g(STK_RET).value    = g(HERO_RET)?.value  || '';
+      if (g(STK_DEV))  g(STK_DEV).value    = g(HERO_DEV)?.value  || '';
+    }
+
+    function syncStickyToHero() {
+      if (g(HERO_TIPO)) g(HERO_TIPO).value  = g(STK_TIPO)?.value || 'todos';
+      if (g(HERO_SUC))  g(HERO_SUC).value   = g(STK_SUC)?.value  || 'todos';
+      if (g(HERO_RET))  g(HERO_RET).value   = g(STK_RET)?.value  || '';
+      if (g(HERO_DEV))  g(HERO_DEV).value   = g(STK_DEV)?.value  || '';
+    }
+
+    // Hero: cambio en cualquier campo → sync sticky → filtrar
+    [HERO_TIPO, HERO_SUC, HERO_RET, HERO_DEV, 'solo-ofertas'].forEach(id => {
+      const el = g(id);
+      if (el) el.addEventListener('change', () => { syncHeroToSticky(); applyFormFilter(); });
+    });
+
+    // Sticky: cambio en cualquier campo → sync hero → filtrar
+    [STK_TIPO, STK_SUC, STK_RET, STK_DEV].forEach(id => {
+      const el = g(id);
+      if (el) el.addEventListener('change', () => { syncStickyToHero(); applyFormFilter(); });
+    });
+
+    // Botón Buscar del hero → filtrar + scroll
+    const formBuscar = g('form-buscar');
+    if (formBuscar) {
+      formBuscar.addEventListener('click', () => {
+        syncHeroToSticky();
+        applyFormFilter();
+        g('vehiculos')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    }
+
+    // Botón Buscar del sticky → filtrar + scroll
+    const stickyBuscar = g('sticky-buscar');
+    if (stickyBuscar) {
+      stickyBuscar.addEventListener('click', () => {
+        syncStickyToHero();
+        applyFormFilter();
+        g('vehiculos')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    }
+
+    // Pills: resetear ambos formularios a "todos"
+    pills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        [HERO_TIPO, STK_TIPO].forEach(id => { if (g(id)) g(id).value = 'todos'; });
+        [HERO_SUC,  STK_SUC ].forEach(id => { if (g(id)) g(id).value = 'todos'; });
+        const sale = g('solo-ofertas');
+        if (sale) sale.checked = false;
+      });
+    });
+
+    // CARRUSEL DE OFERTAS
+    const offers2Track = document.getElementById('offers2-carousel');
+    const offers2Prev = document.getElementById('offers2-prev');
+    const offers2Next = document.getElementById('offers2-next');
+    const STEP = 340;
+
+    function updateOffers2Btns() {
+      if (!offers2Track) return;
+      const max = offers2Track.scrollWidth - offers2Track.clientWidth;
+      if (offers2Prev) offers2Prev.disabled = offers2Track.scrollLeft <= 4;
+      if (offers2Next) offers2Next.disabled = offers2Track.scrollLeft >= max - 4;
+    }
+    if (offers2Prev) offers2Prev.addEventListener('click', () => { offers2Track.scrollBy({ left: -STEP, behavior: 'smooth' }); });
+    if (offers2Next) offers2Next.addEventListener('click', () => { offers2Track.scrollBy({ left: STEP, behavior: 'smooth' }); });
+    if (offers2Track) { offers2Track.addEventListener('scroll', updateOffers2Btns); updateOffers2Btns(); }
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Viajar es un estilo de vida — Cinzia</title>
+  <meta name="description" content="Fabricantes argentinos de motorhomes a medida desde Córdoba. 32 modelos, 25 opcionales por modelo, taller propio de 2.400 m².">
+
+  <meta property="og:title" content="Cinzia · Motorhomes a medida">
+  <meta property="og:description" content="Viajar es un estilo de vida. Fabricamos motorhomes a medida en Córdoba, Argentina.">
+  <meta property="og:image" content="./cinzia-assets/og-cinzia-adventure.jpg">
+  <meta property="og:locale" content="es_AR">
+  <meta name="theme-color" content="#E9580C">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            orange: {
+              DEFAULT: '#E9580C',
+              dark: '#C84A0A',
+              light: '#FF6F1F',
+            },
+            ink: '#0B0B0B',
+            soft: '#F5F5F5',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      color: #0B0B0B;
+      background: #FFFFFF;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    .display-black {
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      line-height: 0.92;
+    }
+
+    .mono-caps {
+      font-family: 'Inter', monospace;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.6875rem;
+      font-weight: 600;
+    }
+
+    .knockout-text {
+      background-image: url('./cinzia-assets/hero-ruta-montanas.jpg');
+      background-size: cover;
+      background-position: center;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+    }
+
+    .btn-primary {
+      background: #E9580C;
+      color: #FFFFFF;
+      padding: 14px 24px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 200ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .btn-primary:hover {
+      background: #C84A0A;
+      transform: translateY(-1px);
+    }
+
+    .btn-outline-orange {
+      background: transparent;
+      color: #E9580C;
+      padding: 12px 22px;
+      border: 1.5px solid #E9580C;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 200ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .btn-outline-orange:hover {
+      background: #E9580C;
+      color: #FFFFFF;
+    }
+
+    .btn-outline-light {
+      background: transparent;
+      color: #FFFFFF;
+      padding: 12px 22px;
+      border: 1.5px solid rgba(255,255,255,0.5);
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 200ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .btn-outline-light:hover {
+      background: rgba(255,255,255,0.12);
+      border-color: rgba(255,255,255,0.9);
+    }
+
+    .card-hover {
+      transition: all 280ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .card-hover:hover {
+      transform: translateY(-4px);
+    }
+
+    .category-card {
+      position: relative;
+      overflow: hidden;
+      transition: all 280ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .category-card .bg-img {
+      transition: transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .category-card:hover .bg-img {
+      transform: scale(1.08);
+    }
+    .category-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(11,11,11,0.05) 0%, rgba(11,11,11,0.55) 60%, rgba(11,11,11,0.85) 100%);
+      pointer-events: none;
+      transition: opacity 280ms;
+    }
+    .category-card:hover::after {
+      opacity: 0.92;
+    }
+
+    .product-card {
+      transition: all 280ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .product-card:hover {
+      transform: translateY(-4px);
+    }
+    .product-card .product-img {
+      transition: transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .product-card:hover .product-img {
+      transform: scale(1.05);
+    }
+
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    [data-reveal].in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .hero-vignette {
+      background:
+        radial-gradient(circle at 75% 52%, rgba(233,88,12,0.20) 0%, rgba(233,88,12,0.00) 34%),
+        linear-gradient(90deg,
+          rgba(5,7,8,0.88) 0%,
+          rgba(5,7,8,0.62) 34%,
+          rgba(5,7,8,0.16) 68%,
+          rgba(5,7,8,0.36) 100%);
+    }
+
+    @media (max-width: 1023px) {
+      .hero-vignette {
+        background: linear-gradient(180deg,
+          rgba(5,7,8,0.86) 0%,
+          rgba(5,7,8,0.55) 45%,
+          rgba(5,7,8,0.30) 100%);
+      }
+    }
+
+    /* Tag styling for product category */
+    .pill-tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(233, 88, 12, 0.1);
+      color: #C84A0A;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .scroll-snap-x {
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+    }
+    .scroll-snap-x > * { scroll-snap-align: start; }
+
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+    /* Floating header pill */
+    .header-pill {
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      background: rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      box-shadow: 0 10px 40px rgba(11, 11, 11, 0.10);
+    }
+
+
+
+    .image-board-frame {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+    }
+    .image-board-frame::before {
+      content: '';
+      position: absolute;
+      inset: -35%;
+      background: radial-gradient(circle at 30% 30%, rgba(233,88,12,0.18), transparent 38%), radial-gradient(circle at 70% 60%, rgba(184,212,226,0.25), transparent 42%);
+      z-index: -1;
+    }
+
+    .photo-lift {
+      box-shadow: 0 34px 90px rgba(11, 11, 11, 0.22);
+    }
+
+    /* Floating WhatsApp */
+    .float-wa {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 60;
+      width: 56px;
+      height: 56px;
+      border-radius: 999px;
+      background: #25D366;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 24px rgba(37, 211, 102, 0.32);
+      transition: transform 200ms;
+    }
+    .float-wa:hover { transform: scale(1.05); }
+
+    /* Marquee strip */
+    @keyframes marqueeX {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: marqueeX 40s linear infinite;
+    }
+  
+    /* ============================================ */
+    /* MOBILE MENU                                  */
+    /* ============================================ */
+    .mobile-menu-btn {
+      width: 44px; height: 44px; border-radius: 999px;
+      background: #0B0B0B; color: white;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 200ms;
+      flex-shrink: 0;
+    }
+    .mobile-menu-btn:hover { background: #E9580C; }
+
+    .mobile-menu-backdrop {
+      position: fixed; inset: 0; z-index: 90;
+      background: rgba(11,11,11,0.5);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      opacity: 0; pointer-events: none;
+      transition: opacity 300ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .mobile-menu-backdrop.open { opacity: 1; pointer-events: auto; }
+
+    .mobile-menu {
+      position: fixed; top: 0; right: 0; bottom: 0; z-index: 100;
+      width: min(420px, 92vw);
+      background: white;
+      box-shadow: -20px 0 60px rgba(11,11,11,0.18);
+      transform: translateX(100%);
+      transition: transform 380ms cubic-bezier(0.22, 1, 0.36, 1);
+      display: flex; flex-direction: column;
+      overflow-y: auto;
+    }
+    .mobile-menu.open { transform: translateX(0); }
+
+    .mm-header {
+      padding: 22px 26px;
+      display: flex; align-items: center; justify-content: space-between;
+      border-bottom: 1px solid rgba(11,11,11,0.06);
+      flex-shrink: 0;
+    }
+    .mm-close {
+      width: 40px; height: 40px; border-radius: 999px;
+      background: #F5F5F5; color: #0B0B0B;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 180ms;
+    }
+    .mm-close:hover { background: #E9580C; color: white; transform: rotate(90deg); }
+
+    .mm-body { flex: 1; padding: 20px 26px; }
+    .mm-nav-link {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 0;
+      font-size: 1.1rem; font-weight: 700; color: #0B0B0B;
+      border-bottom: 1px solid rgba(11,11,11,0.06);
+      transition: all 180ms;
+    }
+    .mm-nav-link:last-child { border-bottom: none; }
+    .mm-nav-link:hover { color: #E9580C; padding-left: 8px; }
+    .mm-nav-link.active { color: #E9580C; }
+    .mm-nav-link i { color: rgba(11,11,11,0.3); transition: all 180ms; }
+    .mm-nav-link:hover i { color: #E9580C; transform: translateX(4px); }
+
+    /* Submenu Modelos */
+    .mm-submenu { overflow: hidden; max-height: 0; transition: max-height 380ms cubic-bezier(0.22,1,0.36,1); }
+    .mm-submenu.open { max-height: 800px; }
+    .mm-submenu-inner { padding: 8px 0 4px; }
+    .mm-sublink {
+      display: flex; align-items: center; gap: 12px;
+      padding: 12px 14px; border-radius: 12px;
+      transition: background 180ms;
+    }
+    .mm-sublink:hover { background: #F5F5F5; }
+    .mm-sublink .ico-wrap {
+      width: 36px; height: 36px; border-radius: 10px;
+      background: rgba(233,88,12,0.1); color: #E9580C;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .mm-sublink-text p { font-weight: 700; font-size: 0.88rem; color: #0B0B0B; }
+    .mm-sublink-text span { font-size: 0.7rem; color: rgba(11,11,11,0.55); }
+
+    .mm-modelos-toggle {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 0; cursor: pointer;
+      font-size: 1.1rem; font-weight: 700; color: #0B0B0B;
+      border-bottom: 1px solid rgba(11,11,11,0.06);
+      transition: color 180ms;
+      width: 100%; background: transparent; border-left: none; border-right: none; border-top: none;
+      text-align: left;
+    }
+    .mm-modelos-toggle:hover { color: #E9580C; }
+    .mm-modelos-toggle .chev { transition: transform 380ms cubic-bezier(0.22,1,0.36,1); }
+    .mm-modelos-toggle.open .chev { transform: rotate(180deg); color: #E9580C; }
+
+    .mm-footer {
+      padding: 20px 26px 28px;
+      border-top: 1px solid rgba(11,11,11,0.06);
+      background: #FAFAFA;
+      flex-shrink: 0;
+    }
+    .mm-cta {
+      background: #E9580C; color: white;
+      padding: 16px 24px; border-radius: 999px;
+      font-weight: 700; font-size: 1rem;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      width: 100%; transition: all 200ms;
+      margin-bottom: 16px;
+    }
+    .mm-cta:hover { background: #C84A0A; transform: translateY(-2px); box-shadow: 0 12px 28px rgba(233,88,12,0.28); }
+    .mm-cta.wa { background: #25D366; }
+    .mm-cta.wa:hover { background: #1FBE5C; box-shadow: 0 12px 28px rgba(37,211,102,0.32); }
+    .mm-contact { display: flex; gap: 8px; }
+    .mm-contact a {
+      flex: 1; display: flex; align-items: center; justify-content: center; gap: 6px;
+      padding: 12px 14px; border-radius: 14px;
+      font-size: 0.78rem; font-weight: 600;
+      background: white; border: 1px solid rgba(11,11,11,0.08);
+      color: #0B0B0B; transition: all 180ms;
+    }
+    .mm-contact a:hover { border-color: #E9580C; color: #E9580C; }
+    .mm-contact a.wa { background: #25D366; color: white; border-color: #25D366; }
+    .mm-contact a.wa:hover { filter: brightness(0.92); border-color: #25D366; color: white; }
+
+    body.menu-open { overflow: hidden; }
+  
+  </style>
+</head>
+<body>
+
+  <!-- ============================================ -->
+  <!-- HEADER PILL FLOTANTE BLANCO (fixed, siempre visible) -->
+  <!-- ============================================ -->
+  <header class="fixed top-5 left-5 right-5 z-50">
+    <div class="max-w-[1400px] mx-auto bg-white rounded-full shadow-xl border border-ink/5 pl-5 pr-3 lg:pl-7 lg:pr-4 py-2.5 flex items-center justify-between gap-4">
+
+      <a href="#" class="flex items-center shrink-0 py-1">
+        <img src="https://www.cinziavehiculos.com/assets/image/logo.svg" alt="Cinzia" class="h-9 w-auto" onerror="this.outerHTML='<div style=&quot;font-weight:900;font-size:1.25rem;letter-spacing:-0.04em;color:#0B0B0B;&quot;>CINZIA</div>'">
+      </a>
+
+      <nav class="hidden lg:flex items-center gap-7 text-sm font-semibold text-ink/85">
+        <a href="#categorias" class="hover:text-orange transition-colors">Modelos</a>
+        <a href="#destacados" class="hover:text-orange transition-colors">Destacados</a>
+        <a href="rental.html" class="hover:text-orange transition-colors">Rental</a>
+        <a href="points.html" class="hover:text-orange transition-colors">Points</a>
+        <a href="soporte-viajero.html" class="hover:text-orange transition-colors">Soporte</a>
+        <a href="nosotros.html" class="hover:text-orange transition-colors">Nosotros</a>
+        <a href="preguntas-frecuentes.html" class="hover:text-orange transition-colors">FAQ</a>
+        <a href="contacto.html" class="hover:text-orange transition-colors">Contacto</a>
+      </nav>
+
+      <div class="flex items-center gap-2">
+        <div class="hidden md:flex items-center gap-1.5 text-xs font-bold text-ink/70 px-3 py-1.5 rounded-full border border-ink/15">
+          <span>🇦🇷</span>
+          <span>ESP</span>
+        </div>
+        <a href="#rental" class="btn-primary text-sm hidden lg:inline-flex" style="padding: 10px 18px;">
+          Alquilá un motorhome
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+        <button id="mobile-menu-toggle" class="mobile-menu-btn lg:hidden" aria-label="Abrir menú">
+          <i data-lucide="menu" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+    </div>
+  </header>
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu-backdrop" id="mobile-menu-backdrop"></div>
+  <aside class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <div class="mm-header">
+      <a href="index.html" class="flex items-center shrink-0">
+        <img src="https://www.cinziavehiculos.com/assets/image/logo.svg" alt="Cinzia" class="h-8 w-auto" onerror="this.outerHTML='<div style=&quot;font-weight:900;font-size:1.15rem;letter-spacing:-0.04em;color:#0B0B0B;&quot;>CINZIA</div>'">
+      </a>
+      <button id="mobile-menu-close" class="mm-close" aria-label="Cerrar menú">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+    </div>
+
+    <div class="mm-body">
+      <button class="mm-modelos-toggle" id="mm-modelos-toggle">
+        <span>Modelos</span>
+        <i data-lucide="chevron-down" class="w-4 h-4 chev"></i>
+      </button>
+      <div class="mm-submenu" id="mm-modelos-submenu">
+        <div class="mm-submenu-inner">
+          <a href="productos.html#campers" class="mm-sublink"><div class="ico-wrap"><i data-lucide="caravan" class="w-4 h-4"></i></div><div class="mm-sublink-text"><p>Campers</p><span>4 modelos</span></div></a>
+          <a href="productos.html#casas-rodantes" class="mm-sublink"><div class="ico-wrap"><i data-lucide="home" class="w-4 h-4"></i></div><div class="mm-sublink-text"><p>Casas Rodantes</p><span>1 modelo</span></div></a>
+          <a href="productos.html#motorhome-chasis" class="mm-sublink"><div class="ico-wrap"><i data-lucide="truck" class="w-4 h-4"></i></div><div class="mm-sublink-text"><p>Motorhome Chasis</p><span>10 modelos</span></div></a>
+          <a href="productos.html#motorhome-furgon" class="mm-sublink"><div class="ico-wrap"><i data-lucide="bus" class="w-4 h-4"></i></div><div class="mm-sublink-text"><p>Motorhome Furgón</p><span>6 modelos</span></div></a>
+          <a href="productos.html#vehiculos-especiales" class="mm-sublink"><div class="ico-wrap"><i data-lucide="ambulance" class="w-4 h-4"></i></div><div class="mm-sublink-text"><p>Vehículos Especiales</p><span>9 modelos · B2B</span></div></a>
+          <a href="productos.html#entrega-inmediata" class="mm-sublink"><div class="ico-wrap"><i data-lucide="zap" class="w-4 h-4"></i></div><div class="mm-sublink-text"><p>Entrega Inmediata</p><span>3 unidades</span></div></a>
+          <a href="productos.html" class="mm-sublink" style="justify-content:center; color:#E9580C; font-weight:700; font-size:0.85rem; margin-top:6px;">
+            Ver los 32 modelos →
+          </a>
+        </div>
+      </div>
+
+      <a href="rental.html" class="mm-nav-link">
+        Rental
+        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </a>
+      <a href="points.html" class="mm-nav-link">
+        Points
+        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </a>
+      <a href="soporte-viajero.html" class="mm-nav-link">
+        Soporte
+        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </a>
+      <a href="nosotros.html" class="mm-nav-link">
+        Nosotros
+        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </a>
+      <a href="preguntas-frecuentes.html" class="mm-nav-link">
+        FAQ
+        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </a>
+      <a href="contacto.html" class="mm-nav-link">
+        Contacto
+        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </a>
+    </div>
+
+    <div class="mm-footer">
+      <a href="#rental" class="mm-cta">
+        Alquilá un motorhome
+        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </a>
+      <div class="mm-contact">
+        <a href="tel:+5493515293858">
+          <i data-lucide="phone" class="w-3.5 h-3.5"></i>
+          Llamar
+        </a>
+        <a href="https://api.whatsapp.com/send?phone=5493515293858&text=Hola!%20Quiero%20info" class="wa">
+          <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
+          WhatsApp
+        </a>
+      </div>
+    </div>
+  </aside>
+
+
+  <!-- ============================================ -->
+  <!-- HERO -->
+  <!-- ============================================ -->
+  <section class="relative min-h-screen overflow-hidden bg-soft">
+
+    <!-- Background image hero -->
+    <div class="absolute inset-0">
+      <img src="../assets/Banner1.png" alt="Motorhome Cinzia en ruta, preparado para viajar, alquilar o comprar" class="w-full h-full object-cover">
+    </div>
+
+    <!-- Vignette para legibilidad -->
+    <div class="absolute inset-0 hero-vignette"></div>
+
+    <!-- Hero content -->
+    <div class="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-10 min-h-screen flex flex-col justify-center py-32 lg:py-40">
+      <div class="max-w-4xl">
+        <p class="mono-caps text-orange mb-6" data-reveal>FÁBRICA · ALQUILER · VENTA · CÓRDOBA, AR</p>
+        <h1 class="display-black text-white text-[clamp(48px,8vw,100px)] mb-7 drop-shadow-[0_10px_35px_rgba(0,0,0,0.35)]" data-reveal>
+          VIAJAR<br>
+          ES UN ESTILO<br>
+          DE VIDA.
+        </h1>
+        <p class="text-lg md:text-xl text-white/85 max-w-2xl mb-9 drop-shadow-[0_6px_18px_rgba(0,0,0,0.35)]" data-reveal>
+          Alquilá o comprá tu motorhome y salí a vivir la ruta a tu manera. Diseño, fabricación propia y unidades pensadas para parejas, familias, amigos y proyectos especiales.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-3" data-reveal>
+          <a href="#categorias" class="btn-primary">
+            Conocé los modelos
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+          <a href="#rental" class="btn-outline-light">
+            Alquilá antes de comprar
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Marquee strip al pie del hero -->
+    <div class="absolute bottom-0 left-0 right-0 bg-ink text-white py-4 overflow-hidden">
+      <div class="marquee-track">
+        <div class="flex items-center gap-12 px-6 whitespace-nowrap text-sm font-medium">
+          <span class="text-orange">●</span><span>32 MODELOS PROPIOS</span>
+          <span class="text-orange">●</span><span>25 OPCIONALES POR MODELO</span>
+          <span class="text-orange">●</span><span>TALLER 2.400 m²</span>
+          <span class="text-orange">●</span><span>6 SUCURSALES RENTAL EN 3 PAÍSES</span>
+          <span class="text-orange">●</span><span>FABRICANTES DESDE CÓRDOBA</span>
+          <span class="text-orange">●</span><span>SOPORTE POST-VENTA</span>
+        </div>
+        <div class="flex items-center gap-12 px-6 whitespace-nowrap text-sm font-medium" aria-hidden="true">
+          <span class="text-orange">●</span><span>32 MODELOS PROPIOS</span>
+          <span class="text-orange">●</span><span>25 OPCIONALES POR MODELO</span>
+          <span class="text-orange">●</span><span>TALLER 2.400 m²</span>
+          <span class="text-orange">●</span><span>6 SUCURSALES RENTAL EN 3 PAÍSES</span>
+          <span class="text-orange">●</span><span>FABRICANTES DESDE CÓRDOBA</span>
+          <span class="text-orange">●</span><span>SOPORTE POST-VENTA</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- ============================================ -->
+  <!-- CATEGORÍAS — CINCO MANERAS DE VIAJAR -->
+  <!-- ============================================ -->
+  <section id="categorias" class="bg-soft py-24 lg:py-32">
+    <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
+
+      <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-14" data-reveal>
+        <div>
+          <p class="mono-caps text-orange mb-4">— NUESTROS VEHÍCULOS</p>
+          <h2 class="display-black text-[clamp(40px,6vw,80px)] text-ink">
+            CINCO MANERAS<br>DE VIAJAR.
+          </h2>
+        </div>
+        <p class="text-ink/70 max-w-md lg:text-right">
+          Cada categoría se diseña desde una pregunta: ¿con quién vas a viajar y qué tan lejos vas a ir?
+        </p>
+      </div>
+
+      <!-- Grid de categorías -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+
+        <!-- Card 1 — Campers (grande, ocupa 2 columnas en desktop) -->
+        <a href="#" class="category-card rounded-3xl overflow-hidden h-[440px] lg:row-span-2 lg:h-auto relative group">
+          <div class="bg-img absolute inset-0 bg-cover bg-center" style="background-image: url('../assets/Campers.png');"></div>
+          <div class="relative z-10 h-full flex flex-col justify-between p-7 text-white">
+            <div class="flex items-start justify-between">
+              <div class="w-14 h-14 flex items-center justify-center">
+                <img src="https://www.cinziavehiculos.com/dist/image/category/icon-campers.png" alt="" class="w-full h-full object-contain brightness-0 invert opacity-95">
+              </div>
+              <span class="mono-caps text-white/80">01 / 05</span>
+            </div>
+            <div>
+              <h3 class="display-black text-4xl lg:text-6xl mb-3">CAMPERS</h3>
+              <p class="text-white/85 mb-4 max-w-sm">
+                Llegá a donde la ruta termina. Para parejas y viajeros solitarios. 4 modelos.
+              </p>
+              <p class="mono-caps text-orange mb-5">DESDE US$ 24.119</p>
+              <span class="inline-flex items-center gap-2 text-sm font-semibold">
+                Explorar Campers
+                <span class="w-8 h-8 rounded-full bg-orange flex items-center justify-center group-hover:translate-x-1 transition-transform">
+                  <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </span>
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Card 2 — Motorhome Chasis -->
+        <a href="#" class="category-card rounded-3xl overflow-hidden h-[280px] relative group">
+          <div class="bg-img absolute inset-0 bg-cover bg-center" style="background-image: url('../assets/Chasis.png');"></div>
+          <div class="relative z-10 h-full flex flex-col justify-between p-6 text-white">
+            <div class="flex items-start justify-between">
+              <div class="w-12 h-12 flex items-center justify-center">
+                <img src="https://www.cinziavehiculos.com/dist/image/category/icon-motor-home.png" alt="" class="w-full h-full object-contain brightness-0 invert opacity-95">
+              </div>
+              <span class="mono-caps text-white/80">02 / 05</span>
+            </div>
+            <div>
+              <h3 class="display-black text-3xl lg:text-4xl mb-2">MOTORHOME CHASIS</h3>
+              <p class="text-white/80 text-sm mb-3">10 modelos. Familias 4 a 7 personas.</p>
+              <p class="mono-caps text-orange text-xs">DESDE US$ 40.523 →</p>
+            </div>
+          </div>
+        </a>
+
+        <!-- Card 3 — Motorhome Furgón -->
+        <a href="#" class="category-card rounded-3xl overflow-hidden h-[280px] relative group">
+          <div class="bg-img absolute inset-0 bg-cover bg-center" style="background-image: url('../assets/Furgón.png');"></div>
+          <div class="relative z-10 h-full flex flex-col justify-between p-6 text-white">
+            <div class="flex items-start justify-between">
+              <div class="w-12 h-12 flex items-center justify-center">
+                <img src="https://www.cinziavehiculos.com/dist/image/category/icon-motor-home.png" alt="" class="w-full h-full object-contain brightness-0 invert opacity-95">
+              </div>
+              <span class="mono-caps text-white/80">03 / 05</span>
+            </div>
+            <div>
+              <h3 class="display-black text-3xl lg:text-4xl mb-2">MOTORHOME FURGÓN</h3>
+              <p class="text-white/80 text-sm mb-3">Manejable como van. Equipado como departamento.</p>
+              <p class="mono-caps text-orange text-xs">DESDE US$ 28.120 →</p>
+            </div>
+          </div>
+        </a>
+
+        <!-- Card 4 — Casas Rodantes -->
+        <a href="#" class="category-card rounded-3xl overflow-hidden h-[260px] relative group">
+          <div class="bg-img absolute inset-0 bg-cover bg-center" style="background-image: url('../assets/Casa rodante.png');"></div>
+          <div class="relative z-10 h-full flex flex-col justify-between p-6 text-white">
+            <div class="flex items-start justify-between">
+              <div class="w-12 h-12 flex items-center justify-center">
+                <img src="https://www.cinziavehiculos.com/dist/image/category/icon-casa-rodante.png" alt="" class="w-full h-full object-contain brightness-0 invert opacity-95">
+              </div>
+              <span class="mono-caps text-white/80">04 / 05</span>
+            </div>
+            <div>
+              <h3 class="display-black text-3xl mb-2">CASAS RODANTES</h3>
+              <p class="text-white/80 text-sm mb-3">Tu casa, sin volante. Trailer remolcable.</p>
+              <p class="mono-caps text-orange text-xs">DESDE US$ 27.000 →</p>
+            </div>
+          </div>
+        </a>
+
+        <!-- Card 5 — Equipamientos especiales / B2B -->
+        <a href="#" class="category-card rounded-3xl overflow-hidden h-[260px] relative group">
+          <div class="bg-img absolute inset-0 bg-cover bg-center" style="background-image: url('../assets/Equipamiento especiales.png');"></div>
+          <div class="relative z-10 h-full flex flex-col justify-between p-6 text-white">
+            <div class="flex items-start justify-between">
+              <div class="w-12 h-12 flex items-center justify-center">
+                <img src="https://www.cinziavehiculos.com/dist/image/category/icon-ambulancia.png" alt="" class="w-full h-full object-contain brightness-0 invert opacity-95">
+              </div>
+              <span class="mono-caps text-white/80">05 / 05</span>
+            </div>
+            <div>
+              <h3 class="display-black text-3xl mb-2">VEHÍCULOS ESPECIALES</h3>
+              <p class="text-white/80 text-sm mb-3">Ambulancias, foodtrucks, eventos. B2B.</p>
+              <p class="mono-caps text-orange text-xs">PROYECTOS A MEDIDA →</p>
+            </div>
+          </div>
+        </a>
+
+      </div>
+
+      <!-- Banda "Entrega Inmediata" abajo del grid -->
+      <a href="#" class="block mt-5 bg-ink text-white rounded-3xl p-8 lg:p-10 flex flex-col lg:flex-row lg:items-center justify-between gap-6 hover:bg-ink/90 transition-colors group">
+        <div class="flex items-center gap-6">
+          <div class="w-16 h-16 flex items-center justify-center flex-shrink-0">
+            <img src="https://www.cinziavehiculos.com/dist/image/category/icon-deal.png" alt="" class="w-full h-full object-contain brightness-0 invert opacity-95">
+          </div>
+          <div>
+            <p class="mono-caps text-orange mb-2">ENTREGA INMEDIATA</p>
+            <h3 class="display-black text-3xl lg:text-4xl mb-1">Listos para retirar.</h3>
+            <p class="text-white/70 text-sm">Unidades 0km o usados certificados disponibles ya.</p>
+          </div>
+        </div>
+        <span class="inline-flex items-center gap-3 self-start lg:self-auto">
+          <span class="font-semibold text-sm">Ver disponibilidad</span>
+          <span class="w-12 h-12 rounded-full bg-orange flex items-center justify-center group-hover:translate-x-1 transition-transform">
+            <i data-lucide="arrow-right" class="w-5 h-5"></i>
+          </span>
+        </span>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- ============================================ -->
+  <!-- NUESTRO PROPÓSITO — FRASE FULL-BLEED -->
+  <!-- ============================================ -->
+  <section id="proposito" class="relative min-h-[620px] lg:min-h-[720px] overflow-hidden bg-ink text-white flex items-center">
+
+    <div class="absolute inset-0">
+      <img src="../assets/sección frase.png" alt="Motorhome Cinzia frente a la fábrica, símbolo de diseño y fabricación propia" class="w-full h-full object-cover">
+    </div>
+    <div class="absolute inset-0 bg-gradient-to-r from-ink/95 via-ink/70 to-ink/20"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(233,88,12,0.30),transparent_34%)]"></div>
+
+    <div class="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-10 py-24 lg:py-32 w-full">
+      <div class="max-w-5xl" data-reveal>
+        <p class="mono-caps text-orange mb-7">— NUESTRO PROPÓSITO</p>
+        <h2 class="display-black text-[clamp(48px,8.5vw,116px)] leading-[0.9] tracking-tighter drop-shadow-[0_14px_45px_rgba(0,0,0,0.45)]">
+          EL MOTORHOME<br>
+          <span class="text-orange">NO SE COMPRA.</span><br>
+          SE DISEÑA.
+        </h2>
+      </div>
+    </div>
+
+    <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-ink to-transparent pointer-events-none"></div>
+  </section>
+
+  <!-- MINI CATÁLOGO -->
+  <!-- ============================================ -->
+  <section id="destacados" class="bg-white py-24 lg:py-32">
+    <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
+
+      <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-14" data-reveal>
+        <div>
+          <p class="mono-caps text-orange mb-4">— MODELOS DESTACADOS</p>
+          <h2 class="display-black text-[clamp(40px,6vw,80px)] text-ink">
+            ELEGÍ POR DÓNDE<br>EMPEZAR.
+          </h2>
+        </div>
+        <a href="#" class="btn-outline-orange self-start lg:self-auto">
+          Ver los 32 modelos
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+      </div>
+
+      <!-- Grid de productos destacados (alineado con el sitio actual de Cinzia) -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- Producto 1: Camper Pegasso 0km Entrega Inmediata -->
+        <a href="https://www.cinziavehiculos.com/AR/180/Productos/Entrega-Inmediata/Camper-Pegasso-0km-Entrega-Inmediata" class="product-card group">
+          <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-soft mb-4">
+            <img src="https://www.cinziavehiculos.com/dist/image/product/upload/202601/695feb26c2014.jpg" alt="Camper Pegasso 0km Entrega Inmediata" class="product-img w-full h-full object-cover">
+          </div>
+          <div class="flex items-center justify-between mb-2">
+            <span class="pill-tag">Entrega Inmediata</span>
+            <span class="mono-caps text-ink/40">01</span>
+          </div>
+          <h3 class="display-black text-2xl text-ink mb-1 leading-tight">CAMPER PEGASSO 0KM</h3>
+          <p class="text-sm text-ink/60 mb-3">0km · Listo para retirar · 4 personas</p>
+          <div class="flex items-center justify-between pt-3 border-t border-ink/10">
+            <span class="font-bold text-ink">Consultar precio</span>
+            <span class="text-orange font-semibold text-sm group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
+              + Info
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </span>
+          </div>
+        </a>
+
+        <!-- Producto 2: Pegasso (Motorhome Furgón) -->
+        <a href="https://www.cinziavehiculos.com/AR/159/Productos/Motorhome-Furg%C3%B3n/Pegasso" class="product-card group">
+          <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-soft mb-4">
+            <img src="https://www.cinziavehiculos.com/dist/image/product/upload/202501/679cfae83dec5.jpg" alt="Motorhome Pegasso Furgón" class="product-img w-full h-full object-cover">
+          </div>
+          <div class="flex items-center justify-between mb-2">
+            <span class="pill-tag">Motorhome Furgón</span>
+            <span class="mono-caps text-ink/40">02</span>
+          </div>
+          <h3 class="display-black text-2xl text-ink mb-1">PEGASSO</h3>
+          <p class="text-sm text-ink/60 mb-3">Sprinter 517 · Premium · Familiar</p>
+          <div class="flex items-center justify-between pt-3 border-t border-ink/10">
+            <span class="font-bold text-ink">US$ 55.000</span>
+            <span class="text-orange font-semibold text-sm group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
+              + Info
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </span>
+          </div>
+        </a>
+
+        <!-- Producto 3: Xplorer (Motorhome Furgón) -->
+        <a href="https://www.cinziavehiculos.com/AR/132/Productos/Motorhome-Furg%C3%B3n/Xplorer" class="product-card group">
+          <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-soft mb-4">
+            <img src="https://www.cinziavehiculos.com/dist/image/product/upload/202603/69c42e90bc2d5.jpg" alt="Motorhome Xplorer Furgón" class="product-img w-full h-full object-cover">
+          </div>
+          <div class="flex items-center justify-between mb-2">
+            <span class="pill-tag">Motorhome Furgón</span>
+            <span class="mono-caps text-ink/40">03</span>
+          </div>
+          <h3 class="display-black text-2xl text-ink mb-1">XPLORER</h3>
+          <p class="text-sm text-ink/60 mb-3">Furgón Off-Road · 4 personas</p>
+          <div class="flex items-center justify-between pt-3 border-t border-ink/10">
+            <span class="font-bold text-ink">US$ 45.849</span>
+            <span class="text-orange font-semibold text-sm group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
+              + Info
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </span>
+          </div>
+        </a>
+
+        <!-- Producto 4: Monoambiente 4,60mts - MHC10 -->
+        <a href="https://www.cinziavehiculos.com/AR/112/Productos/Motorhome-Chasis/Monoambiente-4,60mts---MHC10" class="product-card group">
+          <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-soft mb-4">
+            <img src="https://www.cinziavehiculos.com/dist/image/product/upload/202510/68ffc9ba8ccf8.jpg" alt="Motorhome Monoambiente MHC10" class="product-img w-full h-full object-cover">
+          </div>
+          <div class="flex items-center justify-between mb-2">
+            <span class="pill-tag">Motorhome Chasis</span>
+            <span class="mono-caps text-ink/40">04</span>
+          </div>
+          <h3 class="display-black text-2xl text-ink mb-1 leading-tight">MONOAMBIENTE MHC10</h3>
+          <p class="text-sm text-ink/60 mb-3">4,60m · Diseño monoambiente · Multi-chasis</p>
+          <div class="flex items-center justify-between pt-3 border-t border-ink/10">
+            <span class="font-bold text-ink">US$ 49.000</span>
+            <span class="text-orange font-semibold text-sm group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
+              + Info
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </span>
+          </div>
+        </a>
+
+        <!-- Producto 5: Champaqui (Campers) -->
+        <a href="https://www.cinziavehiculos.com/AR/2/Productos/Campers/Champaqui" class="product-card group">
+          <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-soft mb-4">
+            <img src="https://www.cinziavehiculos.com/dist/image/product/upload/202310/651acf5080f61.JPG" alt="Camper Champaqui" class="product-img w-full h-full object-cover">
+          </div>
+          <div class="flex items-center justify-between mb-2">
+            <span class="pill-tag">Campers</span>
+            <span class="mono-caps text-ink/40">05</span>
+          </div>
+          <h3 class="display-black text-2xl text-ink mb-1">CHAMPAQUI</h3>
+          <p class="text-sm text-ink/60 mb-3">Camper Doble Cabina · 4 personas</p>
+          <div class="flex items-center justify-between pt-3 border-t border-ink/10">
+            <span class="font-bold text-ink">US$ 24.119</span>
+            <span class="text-orange font-semibold text-sm group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
+              + Info
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </span>
+          </div>
+        </a>
+
+        <!-- Producto 6: Uritorco (Campers) -->
+        <a href="https://www.cinziavehiculos.com/AR/4/Productos/Campers/Uritorco" class="product-card group">
+          <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-soft mb-4">
+            <img src="https://www.cinziavehiculos.com/dist/image/product/upload/202204/62570c8b42b7d.JPG" alt="Camper Uritorco" class="product-img w-full h-full object-cover">
+          </div>
+          <div class="flex items-center justify-between mb-2">
+            <span class="pill-tag">Campers</span>
+            <span class="mono-caps text-ink/40">06</span>
+          </div>
+          <h3 class="display-black text-2xl text-ink mb-1">URITORCO</h3>
+          <p class="text-sm text-ink/60 mb-3">Camper Cabina Simple · Solo viajero</p>
+          <div class="flex items-center justify-between pt-3 border-t border-ink/10">
+            <span class="font-bold text-ink">US$ 25.000</span>
+            <span class="text-orange font-semibold text-sm group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
+              + Info
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </span>
+          </div>
+        </a>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CINZIA RENTAL — BUSCADOR ESTILO RENTAL ACTUAL -->
+  <!-- ============================================ -->
+  <section id="rental" class="relative overflow-hidden">
+
+    <!-- Background image full-bleed -->
+    <div class="absolute inset-0">
+      <img src="../assets/banner final.png" alt="Grupo compartiendo un viaje en motorhome Cinzia junto a un fogón en la montaña" class="w-full h-full object-cover">
+    </div>
+    <div class="absolute inset-0 bg-gradient-to-r from-ink/85 via-ink/55 to-ink/25"></div>
+
+    <div class="relative max-w-[1400px] mx-auto px-6 lg:px-10 py-24 lg:py-32 min-h-[560px] lg:min-h-[640px]">
+
+      <div class="grid lg:grid-cols-12 gap-10 items-center">
+
+        <!-- Izquierda: texto -->
+        <div class="lg:col-span-6 text-white" data-reveal>
+          <p class="mono-caps text-orange mb-5">— CINZIA RENTAL · PRUEBA ANTES DE COMPRAR</p>
+          <h2 class="display-black text-[clamp(40px,6.5vw,80px)] leading-[0.95] mb-6">
+            Alquilá un vehículo<br>
+            y explorá <span class="text-orange">sin límites.</span>
+          </h2>
+          <p class="text-lg text-white/85 leading-relaxed mb-8 max-w-lg">
+            Alquilamos los mismos motorhomes que fabricamos. 6 sucursales en 3 países: Argentina, Estados Unidos y España. Equipamiento completo incluido — sábanas, vajilla y kit camping.
+          </p>
+
+          <div class="flex flex-wrap gap-6 text-sm">
+            <div class="flex items-center gap-2">
+              <i data-lucide="map-pin" class="w-4 h-4 text-orange"></i>
+              <span>6 sucursales · 3 países</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <i data-lucide="route" class="w-4 h-4 text-orange"></i>
+              <span>400 km/día libres</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <i data-lucide="credit-card" class="w-4 h-4 text-orange"></i>
+              <span>Seña 30% online</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Derecha: card buscador naranja -->
+        <div class="lg:col-span-6 lg:pl-8" data-reveal>
+          <div class="bg-orange text-white rounded-3xl p-7 lg:p-9 shadow-2xl">
+
+            <div class="flex items-center gap-3 mb-7 pb-5 border-b border-white/25">
+              <div class="w-11 h-11 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
+                <i data-lucide="search" class="w-5 h-5"></i>
+              </div>
+              <h3 class="display-black text-2xl lg:text-3xl">Encontrá tu vehículo</h3>
+            </div>
+
+            <!-- Fecha -->
+            <div class="mb-5">
+              <label class="block text-xs font-semibold text-white/90 mb-2 uppercase tracking-wider">
+                Seleccioná las noches de búsqueda
+              </label>
+              <button type="button" class="w-full bg-white text-ink rounded-xl px-4 py-3.5 flex items-center justify-between hover:bg-white/95 transition-colors">
+                <span class="flex items-center gap-3">
+                  <i data-lucide="calendar" class="w-5 h-5 text-orange"></i>
+                  <span class="text-ink/50">Fecha de retiro y devolución</span>
+                </span>
+                <i data-lucide="chevron-down" class="w-4 h-4 text-ink/40"></i>
+              </button>
+            </div>
+
+            <!-- Tipo vehículo + Sucursal -->
+            <div class="grid sm:grid-cols-2 gap-3 mb-5">
+              <div>
+                <label class="block text-xs font-semibold text-white/90 mb-2 uppercase tracking-wider">
+                  Tipo de Vehículo
+                </label>
+                <div class="bg-white rounded-xl px-4 py-3 flex items-center justify-between">
+                  <div>
+                    <p class="text-xs text-ink/50 uppercase tracking-wide">Todos</p>
+                  </div>
+                  <i data-lucide="chevron-down" class="w-4 h-4 text-ink/40"></i>
+                </div>
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-white/90 mb-2 uppercase tracking-wider">
+                  Sucursal
+                </label>
+                <div class="bg-white rounded-xl px-4 py-3 flex items-center justify-between">
+                  <div>
+                    <p class="text-xs text-ink/50 uppercase tracking-wide">Todas</p>
+                  </div>
+                  <i data-lucide="chevron-down" class="w-4 h-4 text-ink/40"></i>
+                </div>
+              </div>
+            </div>
+
+            <!-- Checkbox Ofertas -->
+            <label class="flex items-center gap-3 bg-white/15 rounded-xl px-4 py-3 mb-5 cursor-pointer hover:bg-white/20 transition-colors">
+              <div class="w-5 h-5 rounded border-2 border-white/70 bg-white/0 flex items-center justify-center">
+                <i data-lucide="check" class="w-3 h-3 text-white opacity-0"></i>
+              </div>
+              <span class="text-sm font-semibold">Buscar solo ofertas</span>
+            </label>
+
+            <!-- Botones de acción -->
+            <div class="grid grid-cols-1 sm:grid-cols-[1fr_auto] gap-3">
+              <button type="button" class="bg-white text-orange font-bold px-6 py-3.5 rounded-xl hover:bg-white/95 transition-colors flex items-center justify-center gap-2">
+                <i data-lucide="search" class="w-4 h-4"></i>
+                Buscar disponibilidad
+              </button>
+              <a href="https://cinziavehiculos.com/rental" class="border-2 border-white text-white font-semibold px-5 py-3 rounded-xl hover:bg-white/10 transition-colors text-center text-sm flex items-center justify-center gap-2">
+                Ver flota
+                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </a>
+            </div>
+
+            <!-- Pie con sucursales mini -->
+            <div class="mt-6 pt-5 border-t border-white/25 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-white/85">
+              <span class="font-semibold uppercase tracking-wider">Disponible en</span>
+              <span class="flex items-center gap-1.5"><span>🇦🇷</span> AR</span>
+              <span class="flex items-center gap-1.5"><span>🇺🇸</span> US</span>
+              <span class="flex items-center gap-1.5"><span>🇪🇸</span> ES</span>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Banda decorativa naranja al fondo (curva irregular) -->
+    <div class="absolute bottom-0 left-0 right-0 pointer-events-none">
+      <svg viewBox="0 0 1440 80" preserveAspectRatio="none" class="w-full h-12 lg:h-16 block">
+        <path d="M0,40 C120,10 240,70 360,40 C480,15 600,65 720,40 C840,20 960,60 1080,40 C1200,15 1320,70 1440,40 L1440,80 L0,80 Z" fill="#E9580C"/>
+      </svg>
+      <div class="bg-orange h-2"></div>
+    </div>
+
+  </section>
+
+  <!-- ============================================ -->
+  <!-- FOOTER -->
+  <!-- ============================================ -->
+  <footer class="bg-ink text-white py-16 lg:py-20 border-t border-white/10">
+    <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
+
+      <div class="grid lg:grid-cols-4 gap-10 mb-12">
+
+        <div>
+          <img src="https://www.cinziavehiculos.com/assets/image/logo.svg" alt="Cinzia" class="h-9 w-auto mb-5" onerror="this.outerHTML='<div style=&quot;font-weight:900;font-size:1.5rem;letter-spacing:-0.04em;color:#FFFFFF;margin-bottom:1.25rem;&quot;>CINZIA</div>'">
+          <p class="text-sm text-white/60 leading-relaxed mb-6">
+            Motorhomes a medida, fabricados en nuestro taller de Córdoba, Argentina.
+          </p>
+          <div class="flex gap-2">
+            <a href="https://www.instagram.com/cinziavehiculos/" aria-label="Instagram" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 transition-colors">
+              <i data-lucide="instagram" class="w-4 h-4"></i>
+            </a>
+            <a href="https://www.facebook.com/Cinziavehiculos/" aria-label="Facebook" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 transition-colors">
+              <i data-lucide="facebook" class="w-4 h-4"></i>
+            </a>
+            <a href="https://www.youtube.com/channel/UCw8Tz-hH6f0ySvpNWsHCY2Q" aria-label="YouTube" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 transition-colors">
+              <i data-lucide="youtube" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <p class="mono-caps text-white/40 mb-5">PRODUCTOS</p>
+          <ul class="space-y-3 text-sm">
+            <li><a href="#" class="text-white/80 hover:text-orange transition-colors">Campers</a></li>
+            <li><a href="#" class="text-white/80 hover:text-orange transition-colors">Casas Rodantes</a></li>
+            <li><a href="#" class="text-white/80 hover:text-orange transition-colors">Motorhome Chasis</a></li>
+            <li><a href="#" class="text-white/80 hover:text-orange transition-colors">Motorhome Furgón</a></li>
+            <li><a href="#" class="text-white/80 hover:text-orange transition-colors">Vehículos Especiales</a></li>
+            <li><a href="#" class="text-white/80 hover:text-orange transition-colors">Entrega Inmediata</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <p class="mono-caps text-white/40 mb-5">EMPRESA</p>
+          <ul class="space-y-3 text-sm">
+            <li><a href="https://cinziavehiculos.com/rental" class="text-white/80 hover:text-orange transition-colors">Cinzia Rental</a></li>
+            <li><a href="#" class="text-white/80 hover:text-orange transition-colors">Nosotros</a></li>
+            <li><a href="#" class="text-white/80 hover:text-orange transition-colors">El taller</a></li>
+            <li><a href="#" class="text-white/80 hover:text-orange transition-colors">Empresas y Gobierno</a></li>
+            <li><a href="#" class="text-white/80 hover:text-orange transition-colors">Soporte post-venta</a></li>
+            <li><a href="#" class="text-white/80 hover:text-orange transition-colors">Comunidad</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <p class="mono-caps text-white/40 mb-5">CONTACTO</p>
+          <ul class="space-y-4 text-sm">
+            <li>
+              <p class="text-white/90 font-semibold mb-1">Córdoba · HQ + Taller</p>
+              <p class="text-white/60 leading-relaxed">Alcira Arias 191, Malvinas Argentinas</p>
+              <a href="tel:+5493515293858" class="text-white/80 hover:text-orange transition-colors text-xs font-mono">+54 9 3515 29-3858</a>
+            </li>
+            <li>
+              <p class="text-white/90 font-semibold mb-1">Buenos Aires · Showroom</p>
+              <p class="text-white/60 leading-relaxed">Riobamba 5487, El Triángulo</p>
+              <a href="tel:+5491137716847" class="text-white/80 hover:text-orange transition-colors text-xs font-mono">+54 9 11 3771-6847</a>
+            </li>
+            <li>
+              <a href="mailto:ventas@cinziavehiculos.com" class="text-white/80 hover:text-orange transition-colors">ventas@cinziavehiculos.com</a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="border-t border-white/10 pt-7 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 text-xs text-white/40">
+        <p>© 2026 Cinzia Vehículos · Todos los derechos reservados</p>
+        <div class="flex gap-5">
+          <a href="#" class="hover:text-white/70 transition-colors">Términos y Condiciones</a>
+          <a href="#" class="hover:text-white/70 transition-colors">Privacidad</a>
+          <a href="#" class="hover:text-white/70 transition-colors">Cookies</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- WhatsApp floating button -->
+  <a href="https://api.whatsapp.com/send?phone=5493515293858&text=Hola!" aria-label="WhatsApp" class="float-wa">
+    <i data-lucide="message-circle" class="w-6 h-6"></i>
+  </a>
+
+  <script>
+    lucide.createIcons();
+
+    // ============================================
+    // MOBILE MENU
+    // ============================================
+    (function() {
+      const toggle = document.getElementById('mobile-menu-toggle');
+      const closeBtn = document.getElementById('mobile-menu-close');
+      const backdrop = document.getElementById('mobile-menu-backdrop');
+      const menu = document.getElementById('mobile-menu');
+      const modelosToggle = document.getElementById('mm-modelos-toggle');
+      const modelosSub = document.getElementById('mm-modelos-submenu');
+      if (!toggle || !menu) return;
+
+      function openMenu() {
+        menu.classList.add('open');
+        backdrop.classList.add('open');
+        document.body.classList.add('menu-open');
+        menu.setAttribute('aria-hidden', 'false');
+      }
+      function closeMenu() {
+        menu.classList.remove('open');
+        backdrop.classList.remove('open');
+        document.body.classList.remove('menu-open');
+        menu.setAttribute('aria-hidden', 'true');
+      }
+
+      toggle.addEventListener('click', openMenu);
+      closeBtn.addEventListener('click', closeMenu);
+      backdrop.addEventListener('click', closeMenu);
+
+      menu.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => setTimeout(closeMenu, 120));
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && menu.classList.contains('open')) closeMenu();
+      });
+
+      if (modelosToggle && modelosSub) {
+        modelosToggle.addEventListener('click', () => {
+          modelosToggle.classList.toggle('open');
+          modelosSub.classList.toggle('open');
+        });
+      }
+    })();
+
+
+    const revealEls = document.querySelectorAll('[data-reveal]');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+    revealEls.forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>

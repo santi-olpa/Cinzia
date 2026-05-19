@@ -1,0 +1,50 @@
+# =========================================================
+# Configuración de Netlify para Cinzia Rental
+# =========================================================
+
+[build]
+  # Carpeta que contiene los HTML (sitio estático)
+  publish = "."
+  # Donde viven las serverless functions
+  functions = "netlify/functions"
+
+# Redirect amigable para el endpoint de Cinzi
+# (permite llamar a /api/cinzi en vez de /.netlify/functions/cinzi)
+[[redirects]]
+  from = "/api/cinzi"
+  to = "/.netlify/functions/cinzi"
+  status = 200
+
+# Cache control para los HTML — siempre fresco
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# Cache largo para imágenes y PDFs (no cambian frecuentemente)
+[[headers]]
+  for = "/cinzia-assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/docs/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
+
+# Headers de seguridad globales
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+
+# Config específica para las functions (timeout y memoria)
+[functions]
+  node_bundler = "esbuild"
+
+[functions."cinzi"]
+  # Hasta 26 segundos por request (default es 10s) — para streaming largo
+  timeout = 26

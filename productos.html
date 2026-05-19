@@ -1,0 +1,1228 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modelos — Cinzia · Catálogo completo de motorhomes</title>
+  <meta name="description" content="Catálogo completo de motorhomes Cinzia. 32 modelos en 6 categorías. Campers, motorhomes chasis y furgón, vehículos especiales y entrega inmediata. Filtrá y elegí el tuyo.">
+
+  <meta property="og:title" content="Modelos — Cinzia">
+  <meta property="og:description" content="32 modelos en catálogo. Filtrá por categoría y elegí el tuyo.">
+  <meta property="og:image" content="./cinzia-hero.png">
+  <meta property="og:locale" content="es_AR">
+  <meta name="theme-color" content="#E9580C">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            orange: {
+              DEFAULT: '#E9580C',
+              dark: '#C84A0A',
+              light: '#FF6F1F',
+            },
+            ink: '#0B0B0B',
+            soft: '#F5F5F5',
+          },
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+        },
+      },
+    };
+  </script>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, sans-serif; color: #0B0B0B; background: #FFFFFF; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+    .display-black { font-weight: 900; letter-spacing: -0.04em; line-height: 0.95; }
+    .mono-caps { font-family: 'Inter', monospace; text-transform: uppercase; letter-spacing: 0.16em; font-size: 0.6875rem; font-weight: 600; }
+    .btn-primary { background: #E9580C; color: #FFFFFF; padding: 14px 24px; border-radius: 999px; font-weight: 600; font-size: 0.95rem; display: inline-flex; align-items: center; gap: 8px; transition: all 200ms cubic-bezier(0.22, 1, 0.36, 1); }
+    .btn-primary:hover { background: #C84A0A; transform: translateY(-1px); }
+    [data-reveal] { opacity: 0; transform: translateY(24px); transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1); }
+    [data-reveal].in { opacity: 1; transform: translateY(0); }
+    .float-wa { position: fixed; bottom: 24px; right: 24px; z-index: 60; width: 56px; height: 56px; border-radius: 999px; background: #25D366; color: white; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 24px rgba(37, 211, 102, 0.32); transition: transform 200ms; }
+    .float-wa:hover { transform: scale(1.05); }
+
+    /* Hero con imagen de fondo */
+    .page-hero { position: relative; min-height: 440px; display: flex; align-items: flex-end; overflow: hidden; }
+    .page-hero::before { content: ''; position: absolute; inset: 0; background-image: url('https://www.cinziavehiculos.com/dist/image/product/upload/202310/651acf5080f61.JPG'); background-size: cover; background-position: center; z-index: 0; }
+    .page-hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(11,11,11,0.4) 0%, rgba(11,11,11,0.3) 40%, rgba(11,11,11,0.85) 100%); z-index: 1; }
+    .page-hero > * { position: relative; z-index: 2; }
+
+    /* Filtros */
+    .filter-bar { position: sticky; top: 96px; z-index: 30; background: rgba(255,255,255,0.92); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid rgba(11,11,11,0.06); }
+    .filter-pill { cursor: pointer; padding: 9px 18px; border-radius: 999px; font-weight: 600; font-size: 0.85rem; border: 1.5px solid rgba(11,11,11,0.12); color: rgba(11,11,11,0.7); background: white; transition: all 200ms; white-space: nowrap; display: inline-flex; align-items: center; gap: 8px; }
+    .filter-pill:hover { border-color: #E9580C; color: #E9580C; }
+    .filter-pill.active { background: #0B0B0B; color: #FFFFFF; border-color: #0B0B0B; }
+    .filter-pill .count { font-size: 0.7rem; font-weight: 700; opacity: 0.6; }
+    .filter-pill.active .count { opacity: 1; color: #E9580C; }
+
+    /* Product card */
+    .product-card { transition: all 280ms cubic-bezier(0.22, 1, 0.36, 1); }
+    .product-card:hover { transform: translateY(-4px); }
+    .product-card .product-img { transition: transform 600ms cubic-bezier(0.22, 1, 0.36, 1); }
+    .product-card:hover .product-img { transform: scale(1.05); }
+    .pill-tag { display: inline-flex; align-items: center; padding: 4px 10px; border-radius: 999px; background: rgba(233, 88, 12, 0.1); color: #C84A0A; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; }
+
+    /* MEGA MENU */
+    .nav-item-with-dropdown { position: relative; }
+    .mega-menu { position: absolute; top: calc(100% + 14px); left: 50%; transform: translateX(-50%) translateY(8px); width: 720px; max-width: calc(100vw - 40px); background: white; border-radius: 24px; box-shadow: 0 20px 60px rgba(11,11,11,0.18); border: 1px solid rgba(11,11,11,0.06); padding: 22px; opacity: 0; pointer-events: none; transition: all 220ms cubic-bezier(0.22, 1, 0.36, 1); z-index: 100; }
+    .nav-item-with-dropdown:hover .mega-menu { opacity: 1; transform: translateX(-50%) translateY(0); pointer-events: auto; }
+    .mega-menu::before { content: ''; position: absolute; top: -14px; left: 0; right: 0; height: 14px; }
+    .mega-link { display: flex; gap: 14px; padding: 14px; border-radius: 14px; transition: background 180ms; }
+    .mega-link:hover { background: #F5F5F5; }
+    .mega-link .ico-wrap { width: 44px; height: 44px; border-radius: 12px; background: rgba(233, 88, 12, 0.1); color: #E9580C; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .mega-link:hover .ico-wrap { background: #E9580C; color: white; }
+  
+    /* ============================================ */
+    /* MOBILE MENU                                  */
+    /* ============================================ */
+    .mobile-menu-btn {
+      width: 44px; height: 44px; border-radius: 999px;
+      background: #0B0B0B; color: white;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 200ms;
+      flex-shrink: 0;
+    }
+    .mobile-menu-btn:hover { background: #E9580C; }
+
+    .mobile-menu-backdrop {
+      position: fixed; inset: 0; z-index: 90;
+      background: rgba(11,11,11,0.5);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      opacity: 0; pointer-events: none;
+      transition: opacity 300ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .mobile-menu-backdrop.open { opacity: 1; pointer-events: auto; }
+
+    .mobile-menu {
+      position: fixed; top: 0; right: 0; bottom: 0; z-index: 100;
+      width: min(420px, 92vw);
+      background: white;
+      box-shadow: -20px 0 60px rgba(11,11,11,0.18);
+      transform: translateX(100%);
+      transition: transform 380ms cubic-bezier(0.22, 1, 0.36, 1);
+      display: flex; flex-direction: column;
+      overflow-y: auto;
+    }
+    .mobile-menu.open { transform: translateX(0); }
+
+    .mm-header {
+      padding: 22px 26px;
+      display: flex; align-items: center; justify-content: space-between;
+      border-bottom: 1px solid rgba(11,11,11,0.06);
+      flex-shrink: 0;
+    }
+    .mm-close {
+      width: 40px; height: 40px; border-radius: 999px;
+      background: #F5F5F5; color: #0B0B0B;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 180ms;
+    }
+    .mm-close:hover { background: #E9580C; color: white; transform: rotate(90deg); }
+
+    .mm-body { flex: 1; padding: 20px 26px; }
+    .mm-nav-link {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 0;
+      font-size: 1.1rem; font-weight: 700; color: #0B0B0B;
+      border-bottom: 1px solid rgba(11,11,11,0.06);
+      transition: all 180ms;
+    }
+    .mm-nav-link:last-child { border-bottom: none; }
+    .mm-nav-link:hover { color: #E9580C; padding-left: 8px; }
+    .mm-nav-link.active { color: #E9580C; }
+    .mm-nav-link i { color: rgba(11,11,11,0.3); transition: all 180ms; }
+    .mm-nav-link:hover i { color: #E9580C; transform: translateX(4px); }
+
+    /* Submenu Modelos */
+    .mm-submenu { overflow: hidden; max-height: 0; transition: max-height 380ms cubic-bezier(0.22,1,0.36,1); }
+    .mm-submenu.open { max-height: 800px; }
+    .mm-submenu-inner { padding: 8px 0 4px; }
+    .mm-sublink {
+      display: flex; align-items: center; gap: 12px;
+      padding: 12px 14px; border-radius: 12px;
+      transition: background 180ms;
+    }
+    .mm-sublink:hover { background: #F5F5F5; }
+    .mm-sublink .ico-wrap {
+      width: 36px; height: 36px; border-radius: 10px;
+      background: rgba(233,88,12,0.1); color: #E9580C;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .mm-sublink-text p { font-weight: 700; font-size: 0.88rem; color: #0B0B0B; }
+    .mm-sublink-text span { font-size: 0.7rem; color: rgba(11,11,11,0.55); }
+
+    .mm-modelos-toggle {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 0; cursor: pointer;
+      font-size: 1.1rem; font-weight: 700; color: #0B0B0B;
+      border-bottom: 1px solid rgba(11,11,11,0.06);
+      transition: color 180ms;
+      width: 100%; background: transparent; border-left: none; border-right: none; border-top: none;
+      text-align: left;
+    }
+    .mm-modelos-toggle:hover { color: #E9580C; }
+    .mm-modelos-toggle .chev { transition: transform 380ms cubic-bezier(0.22,1,0.36,1); }
+    .mm-modelos-toggle.open .chev { transform: rotate(180deg); color: #E9580C; }
+
+    .mm-footer {
+      padding: 20px 26px 28px;
+      border-top: 1px solid rgba(11,11,11,0.06);
+      background: #FAFAFA;
+      flex-shrink: 0;
+    }
+    .mm-cta {
+      background: #E9580C; color: white;
+      padding: 16px 24px; border-radius: 999px;
+      font-weight: 700; font-size: 1rem;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      width: 100%; transition: all 200ms;
+      margin-bottom: 16px;
+    }
+    .mm-cta:hover { background: #C84A0A; transform: translateY(-2px); box-shadow: 0 12px 28px rgba(233,88,12,0.28); }
+    .mm-cta.wa { background: #25D366; }
+    .mm-cta.wa:hover { background: #1FBE5C; box-shadow: 0 12px 28px rgba(37,211,102,0.32); }
+    .mm-contact { display: flex; gap: 8px; }
+    .mm-contact a {
+      flex: 1; display: flex; align-items: center; justify-content: center; gap: 6px;
+      padding: 12px 14px; border-radius: 14px;
+      font-size: 0.78rem; font-weight: 600;
+      background: white; border: 1px solid rgba(11,11,11,0.08);
+      color: #0B0B0B; transition: all 180ms;
+    }
+    .mm-contact a:hover { border-color: #E9580C; color: #E9580C; }
+    .mm-contact a.wa { background: #25D366; color: white; border-color: #25D366; }
+    .mm-contact a.wa:hover { filter: brightness(0.92); border-color: #25D366; color: white; }
+
+    body.menu-open { overflow: hidden; }
+  
+  </style>
+</head>
+<body>
+
+  <!-- HEADER con mega menú -->
+  <header class="fixed top-5 left-5 right-5 z-50">
+    <div class="max-w-[1400px] mx-auto bg-white rounded-full shadow-xl border border-ink/5 pl-5 pr-3 lg:pl-7 lg:pr-4 py-2.5 flex items-center justify-between gap-4">
+      <a href="index.html" class="flex items-center shrink-0 py-1">
+        <img src="https://www.cinziavehiculos.com/assets/image/logo.svg" alt="Cinzia" class="h-9 w-auto" onerror="this.outerHTML='<div style=&quot;font-weight:900;font-size:1.25rem;letter-spacing:-0.04em;color:#0B0B0B;&quot;>CINZIA</div>'">
+      </a>
+
+      <nav class="hidden lg:flex items-center gap-7 text-sm font-semibold text-ink/85">
+        <!-- Modelos con mega menú -->
+        <div class="nav-item-with-dropdown">
+          <a href="productos.html" class="text-orange transition-colors inline-flex items-center gap-1">
+            Modelos
+            <i data-lucide="chevron-down" class="w-3.5 h-3.5"></i>
+          </a>
+          <div class="mega-menu">
+            <p class="mono-caps text-ink/40 mb-3 pl-3.5">EXPLORÁ POR CATEGORÍA</p>
+            <div class="grid grid-cols-2 gap-1">
+              <a href="productos.html#campers" class="mega-link">
+                <div class="ico-wrap"><i data-lucide="caravan" class="w-5 h-5"></i></div>
+                <div>
+                  <p class="font-bold text-ink text-sm">Campers</p>
+                  <p class="text-xs text-ink/60 mt-0.5">4 modelos · Desde US$ 24.119</p>
+                </div>
+              </a>
+              <a href="productos.html#casas-rodantes" class="mega-link">
+                <div class="ico-wrap"><i data-lucide="home" class="w-5 h-5"></i></div>
+                <div>
+                  <p class="font-bold text-ink text-sm">Casas Rodantes</p>
+                  <p class="text-xs text-ink/60 mt-0.5">1 modelo · Desde US$ 27.000</p>
+                </div>
+              </a>
+              <a href="productos.html#motorhome-chasis" class="mega-link">
+                <div class="ico-wrap"><i data-lucide="truck" class="w-5 h-5"></i></div>
+                <div>
+                  <p class="font-bold text-ink text-sm">Motorhome Chasis</p>
+                  <p class="text-xs text-ink/60 mt-0.5">10 modelos · Desde US$ 40.523</p>
+                </div>
+              </a>
+              <a href="productos.html#motorhome-furgon" class="mega-link">
+                <div class="ico-wrap"><i data-lucide="bus" class="w-5 h-5"></i></div>
+                <div>
+                  <p class="font-bold text-ink text-sm">Motorhome Furgón</p>
+                  <p class="text-xs text-ink/60 mt-0.5">6 modelos · Desde US$ 28.120</p>
+                </div>
+              </a>
+              <a href="productos.html#vehiculos-especiales" class="mega-link">
+                <div class="ico-wrap"><i data-lucide="ambulance" class="w-5 h-5"></i></div>
+                <div>
+                  <p class="font-bold text-ink text-sm">Vehículos Especiales</p>
+                  <p class="text-xs text-ink/60 mt-0.5">9 modelos · B2B a medida</p>
+                </div>
+              </a>
+              <a href="productos.html#entrega-inmediata" class="mega-link">
+                <div class="ico-wrap"><i data-lucide="zap" class="w-5 h-5"></i></div>
+                <div>
+                  <p class="font-bold text-ink text-sm">Entrega Inmediata</p>
+                  <p class="text-xs text-ink/60 mt-0.5">3 unidades · Listo para retirar</p>
+                </div>
+              </a>
+            </div>
+            <a href="productos.html" class="block mt-3 pt-4 border-t border-ink/5 text-center text-sm font-semibold text-orange hover:text-orange-dark transition-colors">
+              Ver los 32 modelos →
+            </a>
+          </div>
+        </div>
+
+        <a href="index.html#destacados" class="hover:text-orange transition-colors">Destacados</a>
+        <a href="rental.html" class="hover:text-orange transition-colors">Rental</a>
+        <a href="points.html" class="hover:text-orange transition-colors">Points</a>
+        <a href="soporte-viajero.html" class="hover:text-orange transition-colors">Soporte</a>
+        <a href="nosotros.html" class="hover:text-orange transition-colors">Nosotros</a>
+        <a href="preguntas-frecuentes.html" class="hover:text-orange transition-colors">FAQ</a>
+        <a href="contacto.html" class="hover:text-orange transition-colors">Contacto</a>
+      </nav>
+
+      <div class="flex items-center gap-2">
+        <div class="hidden md:flex items-center gap-1.5 text-xs font-bold text-ink/70 px-3 py-1.5 rounded-full border border-ink/15">
+          <span>🇦🇷</span>
+          <span>ESP</span>
+        </div>
+        <a href="rental.html" class="btn-primary text-sm hidden lg:inline-flex" style="padding: 10px 18px;">
+          Alquilá un motorhome
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+        <button id="mobile-menu-toggle" class="mobile-menu-btn lg:hidden" aria-label="Abrir menú">
+          <i data-lucide="menu" class="w-5 h-5"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu-backdrop" id="mobile-menu-backdrop"></div>
+  <aside class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <div class="mm-header">
+      <a href="index.html" class="flex items-center shrink-0">
+        <img src="https://www.cinziavehiculos.com/assets/image/logo.svg" alt="Cinzia" class="h-8 w-auto" onerror="this.outerHTML='<div style=&quot;font-weight:900;font-size:1.15rem;letter-spacing:-0.04em;color:#0B0B0B;&quot;>CINZIA</div>'">
+      </a>
+      <button id="mobile-menu-close" class="mm-close" aria-label="Cerrar menú">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+    </div>
+
+    <div class="mm-body">
+      <button class="mm-modelos-toggle" id="mm-modelos-toggle">
+        <span>Modelos</span>
+        <i data-lucide="chevron-down" class="w-4 h-4 chev"></i>
+      </button>
+      <div class="mm-submenu" id="mm-modelos-submenu">
+        <div class="mm-submenu-inner">
+          <a href="productos.html#campers" class="mm-sublink"><div class="ico-wrap"><i data-lucide="caravan" class="w-4 h-4"></i></div><div class="mm-sublink-text"><p>Campers</p><span>4 modelos</span></div></a>
+          <a href="productos.html#casas-rodantes" class="mm-sublink"><div class="ico-wrap"><i data-lucide="home" class="w-4 h-4"></i></div><div class="mm-sublink-text"><p>Casas Rodantes</p><span>1 modelo</span></div></a>
+          <a href="productos.html#motorhome-chasis" class="mm-sublink"><div class="ico-wrap"><i data-lucide="truck" class="w-4 h-4"></i></div><div class="mm-sublink-text"><p>Motorhome Chasis</p><span>10 modelos</span></div></a>
+          <a href="productos.html#motorhome-furgon" class="mm-sublink"><div class="ico-wrap"><i data-lucide="bus" class="w-4 h-4"></i></div><div class="mm-sublink-text"><p>Motorhome Furgón</p><span>6 modelos</span></div></a>
+          <a href="productos.html#vehiculos-especiales" class="mm-sublink"><div class="ico-wrap"><i data-lucide="ambulance" class="w-4 h-4"></i></div><div class="mm-sublink-text"><p>Vehículos Especiales</p><span>9 modelos · B2B</span></div></a>
+          <a href="productos.html#entrega-inmediata" class="mm-sublink"><div class="ico-wrap"><i data-lucide="zap" class="w-4 h-4"></i></div><div class="mm-sublink-text"><p>Entrega Inmediata</p><span>3 unidades</span></div></a>
+          <a href="productos.html" class="mm-sublink" style="justify-content:center; color:#E9580C; font-weight:700; font-size:0.85rem; margin-top:6px;">
+            Ver los 32 modelos →
+          </a>
+        </div>
+      </div>
+
+      <a href="rental.html" class="mm-nav-link">
+        Rental
+        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </a>
+      <a href="points.html" class="mm-nav-link">
+        Points
+        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </a>
+      <a href="soporte-viajero.html" class="mm-nav-link">
+        Soporte
+        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </a>
+      <a href="nosotros.html" class="mm-nav-link">
+        Nosotros
+        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </a>
+      <a href="preguntas-frecuentes.html" class="mm-nav-link">
+        FAQ
+        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </a>
+      <a href="contacto.html" class="mm-nav-link">
+        Contacto
+        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </a>
+    </div>
+
+    <div class="mm-footer">
+      <a href="rental.html" class="mm-cta">
+        Alquilá un motorhome
+        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </a>
+      <div class="mm-contact">
+        <a href="tel:+5493515293858">
+          <i data-lucide="phone" class="w-3.5 h-3.5"></i>
+          Llamar
+        </a>
+        <a href="https://api.whatsapp.com/send?phone=5493515293858&text=Hola!%20Quiero%20info" class="wa">
+          <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
+          WhatsApp
+        </a>
+      </div>
+    </div>
+  </aside>
+
+
+  <main>
+
+    <!-- HERO -->
+    <section class="page-hero pt-32 lg:pt-40 pb-12 lg:pb-14 text-white">
+      <div class="max-w-[1400px] w-full mx-auto px-6 lg:px-10">
+        <div class="flex items-center gap-2 mb-7 mono-caps text-white/70" data-reveal>
+          <a href="index.html" class="hover:text-orange transition-colors">Inicio</a>
+          <span>/</span>
+          <span class="text-orange">Modelos</span>
+        </div>
+        <p class="mono-caps text-orange mb-4" data-reveal>— CATÁLOGO COMPLETO</p>
+        <h1 class="display-black text-[clamp(40px,6vw,80px)] max-w-3xl" data-reveal>
+          32 modelos.<br>
+          Encontrá el tuyo.
+        </h1>
+      </div>
+    </section>
+
+    <!-- BARRA DE FILTROS (sticky) -->
+    <div class="filter-bar py-5">
+      <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
+        <div class="flex items-center gap-5 flex-wrap">
+          <span class="mono-caps text-ink/50 flex items-center gap-2 shrink-0">
+            <i data-lucide="filter" class="w-3.5 h-3.5"></i>
+            FILTRAR
+          </span>
+          <div class="flex flex-wrap gap-2">
+            <button class="filter-pill active" data-cat="todos">Todos <span class="count">32</span></button>
+            <button class="filter-pill" data-cat="campers">Campers <span class="count">4</span></button>
+            <button class="filter-pill" data-cat="casas-rodantes">Casas Rodantes <span class="count">1</span></button>
+            <button class="filter-pill" data-cat="motorhome-chasis">Motorhome Chasis <span class="count">10</span></button>
+            <button class="filter-pill" data-cat="motorhome-furgon">Motorhome Furgón <span class="count">6</span></button>
+            <button class="filter-pill" data-cat="vehiculos-especiales">Vehículos Especiales <span class="count">9</span></button>
+            <button class="filter-pill" data-cat="entrega-inmediata">Entrega Inmediata <span class="count">3</span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GRID DE PRODUCTOS -->
+    <section class="bg-soft py-12 lg:py-16">
+      <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
+
+        <div class="flex items-center justify-between mb-7 text-sm text-ink/60">
+          <p><span id="result-count" class="font-bold text-ink">32</span> modelos disponibles</p>
+          <div class="flex items-center gap-2">
+            <span class="mono-caps">ORDENAR</span>
+            <select id="sort-select" class="bg-white border border-ink/10 rounded-full px-4 py-1.5 text-sm font-semibold focus:outline-none focus:border-orange">
+              <option value="default">Por defecto</option>
+              <option value="price-asc">Precio (menor a mayor)</option>
+              <option value="price-desc">Precio (mayor a menor)</option>
+              <option value="name">Nombre A-Z</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
+
+          <!-- ========== CAMPERS (4) ========== -->
+
+          <a href="https://www.cinziavehiculos.com/AR/2/Productos/Campers/Champaqui" class="product-card group" data-cat="campers" data-price="24119" data-name="Champaqui">
+            <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-soft mb-4 relative">
+              <img src="https://www.cinziavehiculos.com/dist/image/product/upload/202310/651acf5080f61.JPG" alt="Champaqui" class="product-img w-full h-full object-cover">
+            </div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="pill-tag">Campers</span>
+              <span class="mono-caps text-ink/40">4 personas</span>
+            </div>
+            <h3 class="display-black text-xl text-ink mb-1">CHAMPAQUI</h3>
+            <p class="text-xs text-ink/60 mb-3">Camper Doble Cabina</p>
+            <div class="flex items-center justify-between pt-3 border-t border-ink/10">
+              <span class="font-bold text-ink">US$ 24.119</span>
+              <span class="text-orange font-semibold text-sm group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">+ Info <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+            </div>
+          </a>
+
+          <a href="https://www.cinziavehiculos.com/AR/3/Productos/Campers/Tronador" class="product-card group" data-cat="campers" data-price="25625" data-name="Tronador">
+            <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-soft mb-4 relative">
+              <img src="https://www.cinziavehiculos.com/dist/image/product/upload/202310/651acf5080f61.JPG" alt="Tronador" class="product-img w-full h-full object-cover">
+            </div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="pill-tag">Campers</span>
+              <span class="mono-caps text-ink/40">2-4 personas</span>
+            </div>
+            <h3 class="display-black text-xl text-ink mb-1">TRONADOR</h3>
+            <p class="text-xs text-ink/60 mb-3">Camper Cabina Simple</p>
+            <div class="flex items-center justify-between pt-3 border-t border-ink/10">
+              <span class="font-bold text-ink">US$ 25.625</span>
+              <span class="text-orange font-semibold text-sm group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">+ Info <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+            </div>
+          </a>
+
+          <a href="https://www.cinziavehiculos.com/AR/4/Productos/Campers/Uritorco" class="product-card group" data-cat="campers" data-price="25000" data-name="Uritorco">
+            <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-soft mb-4 relative">
+              <img src="https://www.cinziavehiculos.com/dist/image/product/upload/202204/62570c8b42b7d.JPG" alt="Uritorco" class="product-img w-full h-full object-cover">
+            </div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="pill-tag">Campers</span>
+              <span class="mono-caps text-ink/40">2 personas</span>
+            </div>
+            <h3 class="display-black text-xl text-ink mb-1">URITORCO</h3>
+            <p class="text-xs text-ink/60 mb-3">Camper Cabina Simple</p>
+            <div class="flex items-center justify-between pt-3 border-t border-ink/10">
+              <span class="font-bold text-ink">US$ 25.000</span>
+              <span class="text-orange font-semibold text-sm group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">+ Info <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+            </div>
+          </a>
+
+          <a href="https://www.cinziavehiculos.com/AR/150/Productos/Campers/Camper-Pegasso" class="product-card group" data-cat="campers" data-price="33000" data-name="Camper Pegasso">
+            <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-soft mb-4 relative">
+              <img src="https://www.cinziavehiculos.com/dist/image/product/upload/202411/672a5bcd7ff32.jpg" alt="Camper Pegasso" class="product-img w-full h-full object-cover">
+            </div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="pill-tag">Campers</span>
+              <span class="mono-caps text-ink/40">2-4 personas</span>
+            </div>
+            <h3 class="display-black text-xl text-ink mb-1">CAMPER PEGASSO</h3>
+            <p class="text-xs text-ink/60 mb-3">Top de gama · Premium</p>
+            <div class="flex items-center justify-between pt-3 border-t border-ink/10">
+              <span class="font-bold text-ink">US$ 33.000</span>
+              <span class="text-orange font-semibold text-sm group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">+ Info <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+            </div>
+          </a>
+
+          <!-- ========== CASAS RODANTES (1) ========== -->
+
+          <a href="https://www.cinziavehiculos.com/AR/187/Productos/Casas-Rodantes/Casa-rodante-4,10mts" class="product-card group" data-cat="casas-rodantes" data-price="27000" data-name="Casa rodante 4,10mts">
+            <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-soft mb-4 relative">
+              <img src="https://www.cinziavehiculos.com/dist/image/product/upload/202411/672a5c10191a1.jpg" alt="Casa rodante 4,10mts" class="product-img w-full h-full object-cover">
+            </div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="pill-tag">Casas Rodantes</span>
+              <span class="mono-caps text-ink/40">4 personas</span>
+            </div>
+            <h3 class="display-black text-xl text-ink mb-1">CASA RODANTE 4,10M</h3>
+            <p class="text-xs text-ink/60 mb-3">Trailer remolcable</p>
+            <div class="flex items-center justify-between pt-3 border-t border-ink/10">
+              <span class="font-bold text-ink">US$ 27.000</span>
+              <span class="text-orange font-semibold text-sm group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">+ Info <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+            </div>
+          </a>
+
+          <!-- ========== MOTORHOME CHASIS (10) ========== -->
+
+          <a href="https://www.cinziavehiculos.com/AR/103/Productos/Motorhome-Chasis/Sprinter---Sin-Buche" class="product-card group" data-cat="motorhome-chasis" data-price="64132" data-name="Sprinter Sin Buche">
+            <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-soft mb-4 relative">
+              <img src="https://www.cinziavehiculos.com/dist/image/product/upload/202510/68ffc9ba8ccf8.jpg" alt="Sprinter Sin Buche" class="product-img w-full h-full object-cover">
+            </div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="pill-tag">Motorhome Chasis</span>
+              <span class="mono-caps text-ink/40">4-6 pers</span>
+            </div>
+            <h3 class="display-black text-xl text-ink mb-1">SPRINTER SIN BUCHE</h3>
+            <p class="text-xs text-ink/60 mb-3">Mercedes-Benz Sprinter</p>
+            <div class="flex items-center justify-between pt-3 border-t border-ink/10">
+              <span class="font-bold text-ink">US$ 64.132</span>
+              <span class="text-orange font-semibold text-sm group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">+ Info <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+            </div>
+          </a>
+
+          <a href="https://www.cinziavehiculos.com/AR/107/Productos/Motorhome-Chasis/Monoambiente-5,20mts---MHC06" class="product-card group" data-cat="motorhome-chasis" data-price="58258" data-name="MHC06">
+            <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-soft mb-4 relative">
+              <img src="https://www.cinziavehiculos.com/dist/image/product/upload/202411/672a5bd52b74e.jpg" alt="Monoambiente MHC06" class="product-img w-full h-full object-cover">
+            </div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="pill-tag">Motorhome Chasis</span>
+              <span class="mono-caps text-ink/40">4 personas</span>
+            </div>
+            <h3 class="display-black text-xl text-ink mb-1">MHC06 · 5,20M</h3>
+            <p class="text-xs text-ink/60 mb-3">Monoambiente · Mercedes-Benz</p>
+            <div class="flex items-center justify-between pt-3 border-t border-ink/10">
+              <span class="font-bold text-ink">US$ 58.258</span>
+              <span class="text-orange font-semibold text-sm group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">+ Info <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+            </div>
+          </a>
+
+          <a href="https://www.cinziavehiculos.com/AR/112/Productos/Motorhome-Chasis/Monoambiente-4,60mts---MHC10" class="product-card group" data-cat="motorhome-chasis" data-price="49000" data-name="MHC10">
+            <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-soft mb-4 relative">
+              <img src="https://www.cinziavehiculos.com/dist/image/product/upload/202510/68ffc9ba8ccf8.jpg" alt="Monoambiente MHC10" class="product-img w-full h-full object-cover">
+            </div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="pill-tag">Motorhome Chasis</span>
+              <span class="mono-caps text-ink/40">4 personas</span>
+            </div>
+            <h3 class="display-black text-xl text-ink mb-1">MHC10 · 4,60M</h3>
+            <p class="text-xs text-ink/60 mb-3">Monoambiente compacto</p>
+            <div class="flex items-center justify-between pt-3 border-t border-ink/10">
+              <span class="font-bold text-ink">US$ 49.000</span>
+              <span class="text-orange font-semibold text-sm group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">+ Info <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+            </div>
+          </a>
+
+          <a href="https://www.cinziavehiculos.com/AR/114/Productos/Motorhome-Chasis/Pegasso" class="product-card group" data-cat="motorhome-chasis" data-price="98607" data-name="Pegasso Chasis">
+            <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-soft mb-4 relative">
+              <img src="https://www.cinziavehiculos.com/dist/image/product/upload/202411/672a5bde491b7.jpg" alt="Pegasso Chasis" class="product-img w-full h-full object-cover">
+              <span class="absolute top-3 left-3 bg-ink text-white mono-caps px-2.5 py-1 rounded-full">TOP</span>
+            </div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="pill-tag">Motorhome Chasis</span>
+              <span class="mono-caps text-ink/40">6 personas</span>
+            </div>
+            <h3 class="display-black text-xl text-ink mb-1">PEGASSO CHASIS</h3>
+            <p class="text-xs text-ink/60 mb-3">Sprinter 517 · Premium</p>
+            <div class="flex items-center justify-between pt-3 border-t border-ink/10">
+              <span class="font-bold text-ink">US$ 98.607</span>
+              <span class="text-orange font-semibold text-sm group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">+ Info <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+            </div>
+          </a>
+
+          <a href="https://www.cinziavehiculos.com/AR/120/Productos/Motorhome-Chasis/Xplorer-cabina-simple" class="product-card group" data-cat="motorhome-chasis" data-price="40523" data-name="Xplorer cabina simple">
+            <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-soft mb-4 relative">
+              <img src="https://www.cinziavehiculos.com/dist/image/product/upload/202411/672a5bd52b74e.jpg" alt="Xplorer Cabina Simple" class="product-img w-full h-full object-cover">
+            </div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="pill-tag">Motorhome Chasis</span>
+              <span class="mono-caps text-ink/40">4 pers</span>
+            </div>
+            <h3 class="display-black text-xl text-ink mb-1">XPLORER CABINA SIMPLE</h3>
+            <p class="text-xs text-ink/60 mb-3">Mercedes-Benz · Off-road</p>
+            <div class="flex items-center justify-between pt-3 border-t border-ink/10">
+              <span class="font-bold text-ink">US$ 40.523</span>
+              <span class="text-orange font-semibold text-sm group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">+ Info <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+            </div>
+          </a>
+
+          <a href="https://www.cinziavehiculos.com/AR/123/Productos/Motorhome-Chasis/Xplorer-cabina-doble" class="product-card group" data-cat="motorhome-chasis" data-price="40523" data-name="Xplorer cabina doble">
+            <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-soft mb-4 relative">
+              <img src="https://www.cinziavehiculos.com/dist/image/product/upload/202411/672a5bd52b74e.jpg" alt="Xplorer Cabina Doble" class="product-img w-full h-full object-cover">
+            </div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="pill-tag">Motorhome Chasis</span>
+              <span class="mono-caps text-ink/40">4-6 pers</span>
+            </div>
+            <h3 class="display-black text-xl text-ink mb-1">XPLORER CABINA DOBLE</h3>
+            <p class="text-xs text-ink/60 mb-3">Camioneta · Cabina doble</p>
+            <div class="flex items-center justify-between pt-3 border-t border-ink/10">
+              <span class="font-bold text-ink">US$ 40.523</span>
+              <span class="text-orange font-semibold text-sm group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">+ Info <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+            </div>
+          </a>
+
+          <a href="https://www.cinziavehiculos.com/AR/178/Productos/Motorhome-Chasis/Xplorer-cabina-simple-2.0" class="product-card group" data-cat="motorhome-chasis" data-price="40523" data-name="Xplorer 2.0">
+            <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-soft mb-4 relative">
+              <img src="https://www.cinziavehiculos.com/dist/image/product/upload/202411/672a5bd52b74e.jpg" alt="Xplorer 2.0" class="product-img w-full h-full object-cover">
+            </div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="pill-tag">Motorhome Chasis</span>
+              <span class="mono-caps text-ink/40">4 pers</span>
+            </div>
+            <h3 class="display-black text-xl text-ink mb-1">XPLORER 2.0</h3>
+            <p class="text-xs text-ink/60 mb-3">Versión renovada · Mercedes-Benz</p>
+            <div class="flex items-center justify-between pt-3 border-t border-ink/10">
+              <span class="font-bold text-ink">US$ 40.523</span>
+              <span class="text-orange font-semibold text-sm group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">+ Info <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+            </div>
+          </a>
+
+          <a href="https://www.cinziavehiculos.com/AR/21/Productos/Motorhome-Chasis/Cama-transversal-5,20---MHC09" class="product-card group" data-cat="motorhome-chasis" data-price="0" data-name="MHC09 Cama transversal">
+            <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-soft mb-4 relative">
+              <img src="https://www.cinziavehiculos.com/dist/image/product/upload/202510/68ffc9ba8ccf8.jpg" alt="MHC09 Cama transversal" class="product-img w-full h-full object-cover">
+            </div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="pill-tag">Motorhome Chasis</span>
+              <span class="mono-caps text-ink/40">4 pers</span>
+            </div>
+            <h3 class="display-black text-xl text-ink mb-1">MHC09 · 5,20M</h3>
+            <p class="text-xs text-ink/60 mb-3">Cama transversal · Sprinter 515</p>
+            <div class="flex items-center justify-between pt-3 border-t border-ink/10">
+              <span class="font-bold text-ink">Consultar</span>
+              <span class="text-orange font-semibold text-sm group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">+ Info <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+            </div>
+          </a>
+
+          <a href="https://www.cinziavehiculos.com/AR/54/Productos/Motorhome-Chasis/Cama-longitudinal-5,20mts---MHC08" class="product-card group" data-cat="motorhome-chasis" data-price="63012" data-name="MHC08 Cama longitudinal">
+            <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-soft mb-4 relative">
+              <img src="https://www.cinziavehiculos.com/dist/image/product/upload/202510/68ffc9ba8ccf8.jpg" alt="MHC08 Cama longitudinal" class="product-img w-full h-full object-cover">
+            </div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="pill-tag">Motorhome Chasis</span>
+              <span class="mono-caps text-ink/40">4 pers</span>
+            </div>
+            <h3 class="display-black text-xl text-ink mb-1">MHC08 · 5,20M</h3>
+            <p class="text-xs text-ink/60 mb-3">Cama longitudinal · Citroën Jumper</p>
+            <div class="flex items-center justify-between pt-3 border-t border-ink/10">
+              <span class="font-bold text-ink">US$ 63.012</span>
+              <span class="text-orange font-semibold text-sm group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">+ Info <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+            </div>
+          </a>
+
+          <a href="https://www.cinziavehiculos.com/AR/56/Productos/Motorhome-Chasis/Camas-individuales-5,20mts---MHC07" class="product-card group" data-cat="motorhome-chasis" data-price="63012" data-name="MHC07 Camas individuales">
+            <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-soft mb-4 relative">
+              <img src="https://www.cinziavehiculos.com/dist/image/product/upload/202510/68ffc9ba8ccf8.jpg" alt="MHC07 Camas individuales" class="product-img w-full h-full object-cover">
+            </div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="pill-tag">Motorhome Chasis</span>
+              <span class="mono-caps text-ink/40">6 personas</span>
+            </div>
+            <h3 class="display-black text-xl text-ink mb-1">MHC07 · 5,20M</h3>
+            <p class="text-xs text-ink/60 mb-3">Camas individuales · Iveco/MB</p>
+            <div class="flex items-center justify-between pt-3 border-t border-ink/10">
+              <span class="font-bold text-ink">US$ 63.012</span>
+              <span class="text-orange font-semibold text-sm group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">+ Info <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+            </div>
+          </a>
+
+          <!-- ========== MOTORHOME FURGÓN (6) ========== -->
+
+          <a href="https://www.cinziavehiculos.com/AR/27/Productos/Motorhome-Furg%C3%B3n/Sprinter-414-517-MHF02" class="product-card group" data-cat="motorhome-furgon" data-price="28120" data-name="MHF02 Sprinter">
+            <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-soft mb-4 relative">
+              <img src="https://www.cinziavehiculos.com/dist/image/product/upload/202501/679cfae83dec5.jpg" alt="MHF02 Sprinter" class="product-img w-full h-full object-cover">
+            </div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="pill-tag">Motorhome Furgón</span>
+              <span class="mono-caps text-ink/40">2-4 pers</span>
+            </div>
+            <h3 class="display-black text-xl text-ink mb-1">MHF02 · SPRINTER</h3>
+            <p class="text-xs text-ink/60 mb-3">Mercedes-Benz 414/517</p>
+            <div class="flex items-center justify-between pt-3 border-t border-ink/10">
+              <span class="font-bold text-ink">US$ 28.120</span>
+              <span class="text-orange font-semibold text-sm group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">+ Info <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+            </div>
+          </a>
+
+          <a href="https://www.cinziavehiculos.com/AR/38/Productos/Motorhome-Furg%C3%B3n/Iveco-MHF03" class="product-card group" data-cat="motorhome-furgon" data-price="28120" data-name="MHF03 Iveco">
+            <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-soft mb-4 relative">
+              <img src="https://www.cinziavehiculos.com/dist/image/product/upload/202501/679cfae83dec5.jpg" alt="MHF03 Iveco" class="product-img w-full h-full object-cover">
+            </div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="pill-tag">Motorhome Furgón</span>
+              <span class="mono-caps text-ink/40">2-4 pers</span>
+            </div>
+            <h3 class="display-black text-xl text-ink mb-1">MHF03 · IVECO</h3>
+            <p class="text-xs text-ink/60 mb-3">Iveco Daily</p>
+            <div class="flex items-center justify-between pt-3 border-t border-ink/10">
+              <span class="font-bold text-ink">US$ 28.120</span>
+              <span class="text-orange font-semibold text-sm group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">+ Info <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+            </div>
+          </a>
+
+          <a href="https://www.cinziavehiculos.com/AR/48/Productos/Motorhome-Furg%C3%B3n/Transit-MHF01" class="product-card group" data-cat="motorhome-furgon" data-price="28120" data-name="MHF01 Transit">
+            <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-soft mb-4 relative">
+              <img src="https://www.cinziavehiculos.com/dist/image/product/upload/202501/679cfae83dec5.jpg" alt="MHF01 Transit" class="product-img w-full h-full object-cover">
+            </div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="pill-tag">Motorhome Furgón</span>
+              <span class="mono-caps text-ink/40">2-4 pers</span>
+            </div>
+            <h3 class="display-black text-xl text-ink mb-1">MHF01 · TRANSIT</h3>
+            <p class="text-xs text-ink/60 mb-3">Ford Transit</p>
+            <div class="flex items-center justify-between pt-3 border-t border-ink/10">
+              <span class="font-bold text-ink">US$ 28.120</span>
+              <span class="text-orange font-semibold text-sm group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">+ Info <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+            </div>
+          </a>
+
+          <a href="https://www.cinziavehiculos.com/AR/118/Productos/Motorhome-Furg%C3%B3n/Jumper-Ducato-Boxer-Sprinter-317-MHF01" class="product-card group" data-cat="motorhome-furgon" data-price="28120" data-name="MHF01 Multi">
+            <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-soft mb-4 relative">
+              <img src="https://www.cinziavehiculos.com/dist/image/product/upload/202501/679cfae83dec5.jpg" alt="MHF01 Multi-chasis" class="product-img w-full h-full object-cover">
+            </div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="pill-tag">Motorhome Furgón</span>
+              <span class="mono-caps text-ink/40">2-4 pers</span>
+            </div>
+            <h3 class="display-black text-xl text-ink mb-1">MHF01 · MULTI</h3>
+            <p class="text-xs text-ink/60 mb-3">Jumper / Ducato / Boxer / Sprinter 317</p>
+            <div class="flex items-center justify-between pt-3 border-t border-ink/10">
+              <span class="font-bold text-ink">US$ 28.120</span>
+              <span class="text-orange font-semibold text-sm group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">+ Info <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+            </div>
+          </a>
+
+          <a href="https://www.cinziavehiculos.com/AR/132/Productos/Motorhome-Furg%C3%B3n/Xplorer" class="product-card group" data-cat="motorhome-furgon" data-price="45849" data-name="Xplorer Furgon">
+            <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-soft mb-4 relative">
+              <img src="https://www.cinziavehiculos.com/dist/image/product/upload/202603/69c42e90bc2d5.jpg" alt="Xplorer Furgón" class="product-img w-full h-full object-cover">
+            </div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="pill-tag">Motorhome Furgón</span>
+              <span class="mono-caps text-ink/40">4 pers</span>
+            </div>
+            <h3 class="display-black text-xl text-ink mb-1">XPLORER FURGÓN</h3>
+            <p class="text-xs text-ink/60 mb-3">Furgón Off-Road</p>
+            <div class="flex items-center justify-between pt-3 border-t border-ink/10">
+              <span class="font-bold text-ink">US$ 45.849</span>
+              <span class="text-orange font-semibold text-sm group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">+ Info <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+            </div>
+          </a>
+
+          <a href="https://www.cinziavehiculos.com/AR/159/Productos/Motorhome-Furg%C3%B3n/Pegasso" class="product-card group" data-cat="motorhome-furgon" data-price="55000" data-name="Pegasso Furgon">
+            <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-soft mb-4 relative">
+              <img src="https://www.cinziavehiculos.com/dist/image/product/upload/202501/679cfae83dec5.jpg" alt="Pegasso Furgón" class="product-img w-full h-full object-cover">
+              <span class="absolute top-3 left-3 bg-ink text-white mono-caps px-2.5 py-1 rounded-full">PREMIUM</span>
+            </div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="pill-tag">Motorhome Furgón</span>
+              <span class="mono-caps text-ink/40">4 personas</span>
+            </div>
+            <h3 class="display-black text-xl text-ink mb-1">PEGASSO FURGÓN</h3>
+            <p class="text-xs text-ink/60 mb-3">Sprinter 517 · Premium</p>
+            <div class="flex items-center justify-between pt-3 border-t border-ink/10">
+              <span class="font-bold text-ink">US$ 55.000</span>
+              <span class="text-orange font-semibold text-sm group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">+ Info <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+            </div>
+          </a>
+
+          <!-- ========== VEHÍCULOS ESPECIALES (9) ========== -->
+
+          <a href="https://www.cinziavehiculos.com/AR/124/Productos/Equipamientos-especiales/Executive" class="product-card group" data-cat="vehiculos-especiales" data-price="15647" data-name="Executive">
+            <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-soft mb-4 relative">
+              <img src="https://www.cinziavehiculos.com/dist/image/product/upload/202411/672a5c2369d42.jpg" alt="Executive" class="product-img w-full h-full object-cover">
+            </div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="pill-tag">Vehículos Especiales</span>
+              <span class="mono-caps text-ink/40">B2C</span>
+            </div>
+            <h3 class="display-black text-xl text-ink mb-1">EXECUTIVE</h3>
+            <p class="text-xs text-ink/60 mb-3">Premium · Personalización avanzada</p>
+            <div class="flex items-center justify-between pt-3 border-t border-ink/10">
+              <span class="font-bold text-ink">US$ 15.647</span>
+              <span class="text-orange font-semibold text-sm group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">+ Info <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+            </div>
+          </a>
+
+          <a href="https://www.cinziavehiculos.com/AR/126/Productos/Equipamientos-especiales/Ambulancia-sobre-Furg%C3%B3n" class="product-card group" data-cat="vehiculos-especiales" data-price="0" data-name="Ambulancia Furgon">
+            <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-soft mb-4 relative">
+              <img src="https://www.cinziavehiculos.com/dist/image/product/upload/202411/672a5c2369d42.jpg" alt="Ambulancia sobre furgón" class="product-img w-full h-full object-cover">
+              <span class="absolute top-3 left-3 bg-ink text-white mono-caps px-2.5 py-1 rounded-full">B2B</span>
+            </div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="pill-tag">Vehículos Especiales</span>
+              <span class="mono-caps text-ink/40">B2B/B2G</span>
+            </div>
+            <h3 class="display-black text-xl text-ink mb-1">AMBULANCIA FURGÓN</h3>
+            <p class="text-xs text-ink/60 mb-3">Sobre chasis furgón</p>
+            <div class="flex items-center justify-between pt-3 border-t border-ink/10">
+              <span class="font-bold text-ink">Consultar</span>
+              <span class="text-orange font-semibold text-sm group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">+ Info <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+            </div>
+          </a>
+
+          <a href="https://www.cinziavehiculos.com/AR/127/Productos/Equipamientos-especiales/Ambulancia-sobre-camioneta-4x4" class="product-card group" data-cat="vehiculos-especiales" data-price="0" data-name="Ambulancia 4x4">
+            <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-soft mb-4 relative">
+              <img src="https://www.cinziavehiculos.com/dist/image/product/upload/202411/672a5c2369d42.jpg" alt="Ambulancia 4x4" class="product-img w-full h-full object-cover">
+              <span class="absolute top-3 left-3 bg-ink text-white mono-caps px-2.5 py-1 rounded-full">B2B</span>
+            </div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="pill-tag">Vehículos Especiales</span>
+              <span class="mono-caps text-ink/40">B2B/B2G</span>
+            </div>
+            <h3 class="display-black text-xl text-ink mb-1">AMBULANCIA 4X4</h3>
+            <p class="text-xs text-ink/60 mb-3">Sobre camioneta 4x4</p>
+            <div class="flex items-center justify-between pt-3 border-t border-ink/10">
+              <span class="font-bold text-ink">Consultar</span>
+              <span class="text-orange font-semibold text-sm group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">+ Info <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+            </div>
+          </a>
+
+          <a href="https://www.cinziavehiculos.com/AR/33/Productos/Equipamientos-especiales/Mitad-taller-de-motos,-mitad-motorhome" class="product-card group" data-cat="vehiculos-especiales" data-price="51693" data-name="Taller de motos">
+            <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-soft mb-4 relative">
+              <img src="https://www.cinziavehiculos.com/dist/image/product/upload/202411/672a5c2369d42.jpg" alt="Taller de motos" class="product-img w-full h-full object-cover">
+            </div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="pill-tag">Vehículos Especiales</span>
+              <span class="mono-caps text-ink/40">Nicho</span>
+            </div>
+            <h3 class="display-black text-xl text-ink mb-1">TALLER MOTOS</h3>
+            <p class="text-xs text-ink/60 mb-3">Mitad taller, mitad motorhome</p>
+            <div class="flex items-center justify-between pt-3 border-t border-ink/10">
+              <span class="font-bold text-ink">US$ 51.693</span>
+              <span class="text-orange font-semibold text-sm group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">+ Info <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+            </div>
+          </a>
+
+          <a href="https://www.cinziavehiculos.com/AR/41/Productos/Equipamientos-especiales/Motorhome-con-baulera-para-motos" class="product-card group" data-cat="vehiculos-especiales" data-price="0" data-name="Baulera motos">
+            <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-soft mb-4 relative">
+              <img src="https://www.cinziavehiculos.com/dist/image/product/upload/202411/672a5c2369d42.jpg" alt="Motorhome baulera motos" class="product-img w-full h-full object-cover">
+            </div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="pill-tag">Vehículos Especiales</span>
+              <span class="mono-caps text-ink/40">Nicho</span>
+            </div>
+            <h3 class="display-black text-xl text-ink mb-1">MOTORHOME + BAULERA</h3>
+            <p class="text-xs text-ink/60 mb-3">Para llevar motos</p>
+            <div class="flex items-center justify-between pt-3 border-t border-ink/10">
+              <span class="font-bold text-ink">Consultar</span>
+              <span class="text-orange font-semibold text-sm group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">+ Info <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+            </div>
+          </a>
+
+          <a href="https://www.cinziavehiculos.com/AR/43/Productos/Equipamientos-especiales/Motorhome-2-pisos" class="product-card group" data-cat="vehiculos-especiales" data-price="0" data-name="Motorhome 2 pisos">
+            <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-soft mb-4 relative">
+              <img src="https://www.cinziavehiculos.com/dist/image/product/upload/202411/672a5c2369d42.jpg" alt="Motorhome 2 pisos" class="product-img w-full h-full object-cover">
+              <span class="absolute top-3 left-3 bg-orange text-white mono-caps px-2.5 py-1 rounded-full">ÚNICO</span>
+            </div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="pill-tag">Vehículos Especiales</span>
+              <span class="mono-caps text-ink/40">Eventos</span>
+            </div>
+            <h3 class="display-black text-xl text-ink mb-1">MOTORHOME 2 PISOS</h3>
+            <p class="text-xs text-ink/60 mb-3">Eventos y presentaciones</p>
+            <div class="flex items-center justify-between pt-3 border-t border-ink/10">
+              <span class="font-bold text-ink">Consultar</span>
+              <span class="text-orange font-semibold text-sm group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">+ Info <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+            </div>
+          </a>
+
+          <a href="https://www.cinziavehiculos.com/AR/44/Productos/Equipamientos-especiales/Foodtruck" class="product-card group" data-cat="vehiculos-especiales" data-price="0" data-name="Foodtruck">
+            <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-soft mb-4 relative">
+              <img src="https://www.cinziavehiculos.com/dist/image/product/upload/202411/672a5c2369d42.jpg" alt="Foodtruck" class="product-img w-full h-full object-cover">
+              <span class="absolute top-3 left-3 bg-ink text-white mono-caps px-2.5 py-1 rounded-full">B2B</span>
+            </div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="pill-tag">Vehículos Especiales</span>
+              <span class="mono-caps text-ink/40">Gastronomía</span>
+            </div>
+            <h3 class="display-black text-xl text-ink mb-1">FOODTRUCK</h3>
+            <p class="text-xs text-ink/60 mb-3">Premium · Emprendedores</p>
+            <div class="flex items-center justify-between pt-3 border-t border-ink/10">
+              <span class="font-bold text-ink">Consultar</span>
+              <span class="text-orange font-semibold text-sm group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">+ Info <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+            </div>
+          </a>
+
+          <a href="https://www.cinziavehiculos.com/AR/45/Productos/Equipamientos-especiales/Ford-4000" class="product-card group" data-cat="vehiculos-especiales" data-price="38462" data-name="Ford 4000">
+            <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-soft mb-4 relative">
+              <img src="https://www.cinziavehiculos.com/dist/image/product/upload/202411/672a5c2369d42.jpg" alt="Ford 4000" class="product-img w-full h-full object-cover">
+            </div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="pill-tag">Vehículos Especiales</span>
+              <span class="mono-caps text-ink/40">Clásico</span>
+            </div>
+            <h3 class="display-black text-xl text-ink mb-1">FORD 4000</h3>
+            <p class="text-xs text-ink/60 mb-3">Vehículo de aventura clásico</p>
+            <div class="flex items-center justify-between pt-3 border-t border-ink/10">
+              <span class="font-bold text-ink">US$ 38.462</span>
+              <span class="text-orange font-semibold text-sm group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">+ Info <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+            </div>
+          </a>
+
+          <a href="productos.html" class="product-card group" data-cat="vehiculos-especiales" data-price="0" data-name="Otros proyectos">
+            <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-ink mb-4 relative flex items-center justify-center">
+              <div class="text-center text-white p-6">
+                <i data-lucide="plus" class="w-10 h-10 mx-auto mb-3 text-orange"></i>
+                <p class="mono-caps text-orange mb-1">¿NO LO VES?</p>
+                <p class="text-sm">Cotizamos cualquier<br>proyecto B2B a medida.</p>
+              </div>
+            </div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="pill-tag">Vehículos Especiales</span>
+              <span class="mono-caps text-ink/40">A medida</span>
+            </div>
+            <h3 class="display-black text-xl text-ink mb-1">OTROS PROYECTOS</h3>
+            <p class="text-xs text-ink/60 mb-3">Cotización a medida para empresas y gobierno</p>
+            <div class="flex items-center justify-between pt-3 border-t border-ink/10">
+              <span class="font-bold text-orange">Cotizar</span>
+              <span class="text-orange font-semibold text-sm group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">Contacto <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+            </div>
+          </a>
+
+          <!-- ========== ENTREGA INMEDIATA (3) ========== -->
+
+          <a href="https://www.cinziavehiculos.com/AR/164/Productos/Entrega-Inmediata/Motorhome-Chasis-Citro%C3%ABn-Jumper-2021-Entrega-Mayo" class="product-card group" data-cat="entrega-inmediata" data-price="0" data-name="Citroen Jumper 2021">
+            <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-soft mb-4 relative">
+              <img src="https://www.cinziavehiculos.com/dist/image/product/upload/202601/695feb26c2014.jpg" alt="Motorhome Chasis Citroën Jumper 2021" class="product-img w-full h-full object-cover">
+              <span class="absolute top-3 left-3 bg-orange text-white mono-caps px-2.5 py-1 rounded-full">DISPONIBLE</span>
+            </div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="pill-tag">Entrega Inmediata</span>
+              <span class="mono-caps text-ink/40">Usado</span>
+            </div>
+            <h3 class="display-black text-xl text-ink mb-1">CITROËN JUMPER 2021</h3>
+            <p class="text-xs text-ink/60 mb-3">Motorhome Chasis · Listo para retirar</p>
+            <div class="flex items-center justify-between pt-3 border-t border-ink/10">
+              <span class="font-bold text-ink">Consultar</span>
+              <span class="text-orange font-semibold text-sm group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">+ Info <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+            </div>
+          </a>
+
+          <a href="https://www.cinziavehiculos.com/AR/180/Productos/Entrega-Inmediata/Camper-Pegasso-0km-Entrega-Inmediata" class="product-card group" data-cat="entrega-inmediata" data-price="0" data-name="Camper Pegasso 0km">
+            <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-soft mb-4 relative">
+              <img src="https://www.cinziavehiculos.com/dist/image/product/upload/202601/695feb26c2014.jpg" alt="Camper Pegasso 0km" class="product-img w-full h-full object-cover">
+              <span class="absolute top-3 left-3 bg-orange text-white mono-caps px-2.5 py-1 rounded-full">0KM</span>
+            </div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="pill-tag">Entrega Inmediata</span>
+              <span class="mono-caps text-ink/40">0km</span>
+            </div>
+            <h3 class="display-black text-xl text-ink mb-1">CAMPER PEGASSO 0KM</h3>
+            <p class="text-xs text-ink/60 mb-3">Nuevo · Listo para retirar</p>
+            <div class="flex items-center justify-between pt-3 border-t border-ink/10">
+              <span class="font-bold text-ink">Consultar</span>
+              <span class="text-orange font-semibold text-sm group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">+ Info <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+            </div>
+          </a>
+
+          <a href="https://www.cinziavehiculos.com/AR/189/Productos/Entrega-Inmediata/Motorhome-Furgon-Fiat-Ducato-Entrega-Inmediata" class="product-card group" data-cat="entrega-inmediata" data-price="0" data-name="Fiat Ducato">
+            <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-soft mb-4 relative">
+              <img src="https://www.cinziavehiculos.com/dist/image/product/upload/202601/695feb26c2014.jpg" alt="Fiat Ducato Furgón" class="product-img w-full h-full object-cover">
+              <span class="absolute top-3 left-3 bg-orange text-white mono-caps px-2.5 py-1 rounded-full">DISPONIBLE</span>
+            </div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="pill-tag">Entrega Inmediata</span>
+              <span class="mono-caps text-ink/40">Disponible</span>
+            </div>
+            <h3 class="display-black text-xl text-ink mb-1">FIAT DUCATO FURGÓN</h3>
+            <p class="text-xs text-ink/60 mb-3">Motorhome Furgón · Disponible</p>
+            <div class="flex items-center justify-between pt-3 border-t border-ink/10">
+              <span class="font-bold text-ink">Consultar</span>
+              <span class="text-orange font-semibold text-sm group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">+ Info <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+            </div>
+          </a>
+
+        </div>
+
+        <!-- Empty state -->
+        <div id="no-results" class="hidden text-center py-20">
+          <i data-lucide="search-x" class="w-12 h-12 mx-auto mb-4 text-ink/30"></i>
+          <p class="text-ink/60">No encontramos modelos en esta categoría.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="bg-ink text-white py-20 lg:py-24">
+      <div class="max-w-[1400px] mx-auto px-6 lg:px-10 text-center">
+        <p class="mono-caps text-orange mb-4" data-reveal>— NO ENCONTRÁS LO QUE BUSCÁS</p>
+        <h2 class="display-black text-[clamp(30px,4.5vw,56px)] mb-6" data-reveal>
+          Diseñamos uno a tu medida.
+        </h2>
+        <p class="text-white/80 max-w-2xl mx-auto mb-9" data-reveal>
+          Cada Cinzia se construye desde cero según tu uso, tu presupuesto y tu chasis preferido. Si ningún modelo del catálogo encaja, lo hacemos a tu medida.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-3 justify-center" data-reveal>
+          <a href="contacto.html" class="btn-primary">
+            Empezar un proyecto
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+          <a href="https://api.whatsapp.com/send?phone=5493515293858&text=Hola!" class="bg-[#25D366] text-white font-semibold px-7 py-3.5 rounded-full hover:bg-[#1FBE5C] transition-colors inline-flex items-center justify-center gap-2">
+            <i data-lucide="message-circle" class="w-4 h-4"></i>
+            Hablar por WhatsApp
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-ink text-white py-16 lg:py-20 border-t border-white/10">
+    <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
+      <div class="grid lg:grid-cols-4 gap-10 mb-12">
+        <div>
+          <img src="https://www.cinziavehiculos.com/assets/image/logo.svg" alt="Cinzia" class="h-9 w-auto mb-5" onerror="this.outerHTML='<div style=&quot;font-weight:900;font-size:1.5rem;letter-spacing:-0.04em;color:#FFFFFF;margin-bottom:1.25rem;&quot;>CINZIA</div>'">
+          <p class="text-sm text-white/60 leading-relaxed mb-6">Motorhomes a medida, fabricados en nuestro taller de Córdoba, Argentina.</p>
+          <div class="flex gap-2">
+            <a href="https://www.instagram.com/cinziavehiculos/" aria-label="Instagram" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 transition-colors"><i data-lucide="instagram" class="w-4 h-4"></i></a>
+            <a href="https://www.facebook.com/Cinziavehiculos/" aria-label="Facebook" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 transition-colors"><i data-lucide="facebook" class="w-4 h-4"></i></a>
+            <a href="https://www.youtube.com/channel/UCw8Tz-hH6f0ySvpNWsHCY2Q" aria-label="YouTube" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 transition-colors"><i data-lucide="youtube" class="w-4 h-4"></i></a>
+          </div>
+        </div>
+        <div>
+          <p class="mono-caps text-white/40 mb-5">PRODUCTOS</p>
+          <ul class="space-y-3 text-sm">
+            <li><a href="productos.html#campers" class="text-white/80 hover:text-orange transition-colors">Campers</a></li>
+            <li><a href="productos.html#casas-rodantes" class="text-white/80 hover:text-orange transition-colors">Casas Rodantes</a></li>
+            <li><a href="productos.html#motorhome-chasis" class="text-white/80 hover:text-orange transition-colors">Motorhome Chasis</a></li>
+            <li><a href="productos.html#motorhome-furgon" class="text-white/80 hover:text-orange transition-colors">Motorhome Furgón</a></li>
+            <li><a href="productos.html#vehiculos-especiales" class="text-white/80 hover:text-orange transition-colors">Vehículos Especiales</a></li>
+            <li><a href="productos.html#entrega-inmediata" class="text-white/80 hover:text-orange transition-colors">Entrega Inmediata</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="mono-caps text-white/40 mb-5">EMPRESA</p>
+          <ul class="space-y-3 text-sm">
+            <li><a href="rental.html" class="text-white/80 hover:text-orange transition-colors">Cinzia Rental</a></li>
+            <li><a href="nosotros.html" class="text-white/80 hover:text-orange transition-colors">Nosotros</a></li>
+            <li><a href="preguntas-frecuentes.html" class="text-white/80 hover:text-orange transition-colors">Preguntas frecuentes</a></li>
+            <li><a href="contacto.html" class="text-white/80 hover:text-orange transition-colors">Contacto</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="mono-caps text-white/40 mb-5">CONTACTO</p>
+          <ul class="space-y-4 text-sm">
+            <li>
+              <p class="text-white/90 font-semibold mb-1">Córdoba · HQ + Taller</p>
+              <p class="text-white/60 leading-relaxed">Alcira Arias 191, Malvinas Argentinas</p>
+              <a href="tel:+5493515293858" class="text-white/80 hover:text-orange transition-colors text-xs font-mono">+54 9 3515 29-3858</a>
+            </li>
+            <li>
+              <p class="text-white/90 font-semibold mb-1">Buenos Aires · Showroom</p>
+              <p class="text-white/60 leading-relaxed">Riobamba 5487, El Triángulo</p>
+              <a href="tel:+5491137716847" class="text-white/80 hover:text-orange transition-colors text-xs font-mono">+54 9 11 3771-6847</a>
+            </li>
+            <li><a href="mailto:ventas@cinziavehiculos.com" class="text-white/80 hover:text-orange transition-colors">ventas@cinziavehiculos.com</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-white/10 pt-7 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 text-xs text-white/40">
+        <p>© 2026 Cinzia Vehículos · Todos los derechos reservados</p>
+        <div class="flex gap-5">
+          <a href="#" class="hover:text-white/70 transition-colors">Términos y Condiciones</a>
+          <a href="#" class="hover:text-white/70 transition-colors">Privacidad</a>
+          <a href="#" class="hover:text-white/70 transition-colors">Cookies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://api.whatsapp.com/send?phone=5493515293858&text=Hola!" aria-label="WhatsApp" class="float-wa">
+    <i data-lucide="message-circle" class="w-6 h-6"></i>
+  </a>
+
+  <script>
+    lucide.createIcons();
+
+    // ============================================
+    // MOBILE MENU
+    // ============================================
+    (function() {
+      const toggle = document.getElementById('mobile-menu-toggle');
+      const closeBtn = document.getElementById('mobile-menu-close');
+      const backdrop = document.getElementById('mobile-menu-backdrop');
+      const menu = document.getElementById('mobile-menu');
+      const modelosToggle = document.getElementById('mm-modelos-toggle');
+      const modelosSub = document.getElementById('mm-modelos-submenu');
+      if (!toggle || !menu) return;
+
+      function openMenu() {
+        menu.classList.add('open');
+        backdrop.classList.add('open');
+        document.body.classList.add('menu-open');
+        menu.setAttribute('aria-hidden', 'false');
+      }
+      function closeMenu() {
+        menu.classList.remove('open');
+        backdrop.classList.remove('open');
+        document.body.classList.remove('menu-open');
+        menu.setAttribute('aria-hidden', 'true');
+      }
+
+      toggle.addEventListener('click', openMenu);
+      closeBtn.addEventListener('click', closeMenu);
+      backdrop.addEventListener('click', closeMenu);
+
+      menu.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => setTimeout(closeMenu, 120));
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && menu.classList.contains('open')) closeMenu();
+      });
+
+      if (modelosToggle && modelosSub) {
+        modelosToggle.addEventListener('click', () => {
+          modelosToggle.classList.toggle('open');
+          modelosSub.classList.toggle('open');
+        });
+      }
+    })();
+
+
+    // Scroll reveal
+    const revealEls = document.querySelectorAll('[data-reveal]');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+    revealEls.forEach(el => observer.observe(el));
+
+    // Filtros + Ordenamiento
+    const pills = document.querySelectorAll('.filter-pill');
+    const grid = document.getElementById('products-grid');
+    const cards = Array.from(grid.querySelectorAll('.product-card'));
+    const resultCount = document.getElementById('result-count');
+    const noResults = document.getElementById('no-results');
+    const sortSelect = document.getElementById('sort-select');
+
+    let activeCat = 'todos';
+
+    function applyFilters() {
+      let visible = 0;
+      cards.forEach(card => {
+        const cardCat = card.dataset.cat;
+        if (activeCat === 'todos' || cardCat === activeCat) {
+          card.style.display = '';
+          visible++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+      resultCount.textContent = visible;
+      noResults.style.display = visible === 0 ? '' : 'none';
+    }
+
+    function applySort(method) {
+      let sortedCards = [...cards];
+      if (method === 'price-asc') {
+        sortedCards.sort((a, b) => {
+          const pa = parseInt(a.dataset.price) || 999999;
+          const pb = parseInt(b.dataset.price) || 999999;
+          return pa - pb;
+        });
+      } else if (method === 'price-desc') {
+        sortedCards.sort((a, b) => {
+          const pa = parseInt(a.dataset.price) || 0;
+          const pb = parseInt(b.dataset.price) || 0;
+          return pb - pa;
+        });
+      } else if (method === 'name') {
+        sortedCards.sort((a, b) => a.dataset.name.localeCompare(b.dataset.name));
+      } else {
+        // default order - reset to original
+        sortedCards = cards;
+      }
+      sortedCards.forEach(c => grid.appendChild(c));
+    }
+
+    pills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        pills.forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+        activeCat = pill.dataset.cat;
+        applyFilters();
+        // Actualizar hash en URL
+        const hash = activeCat === 'todos' ? '' : '#' + activeCat;
+        history.replaceState(null, '', window.location.pathname + hash);
+      });
+    });
+
+    sortSelect.addEventListener('change', (e) => applySort(e.target.value));
+
+    // Detectar hash al cargar (desde mega menu)
+    function readHash() {
+      const hash = window.location.hash.replace('#', '');
+      if (hash) {
+        const targetPill = document.querySelector(`.filter-pill[data-cat="${hash}"]`);
+        if (targetPill) {
+          targetPill.click();
+        }
+      }
+    }
+    readHash();
+    window.addEventListener('hashchange', readHash);
+  </script>
+</body>
+</html>

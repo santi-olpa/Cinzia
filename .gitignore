@@ -1,0 +1,29 @@
+# Dependencias instaladas por npm — NO se suben (Netlify las instala solas)
+node_modules/
+
+# Carpeta de build local de Netlify
+.netlify/
+
+# Variables de entorno locales — NUNCA subir credenciales al repo
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+npm-debug.log*
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editores
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Backups locales
+/tmp/
+*.bak
