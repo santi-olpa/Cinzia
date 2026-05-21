@@ -27,3 +27,11 @@ desktop.ini
 # Backups locales
 /tmp/
 *.bak
+
+# WhatsApp AI — Python
+whatsapp-ai/venv/
+whatsapp-ai/__pycache__/
+whatsapp-ai/**/__pycache__/
+whatsapp-ai/*.pyc
+whatsapp-ai/cinzia.db
+whatsapp-ai/.env
