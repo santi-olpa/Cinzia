@@ -18,7 +18,7 @@ EMERGENCY_KEYWORDS = {
            "emergency", "injured", "medical", "ambulance"],
 }
 
-MAX_TROUBLESHOOTING_ATTEMPTS = 2
+MAX_TROUBLESHOOTING_ATTEMPTS = 3
 
 
 async def handle_incoming_message(parsed: dict, db: Session) -> None:
@@ -79,10 +79,16 @@ async def handle_incoming_message(parsed: dict, db: Session) -> None:
         customer.language = detected_lang
         db.commit()
 
-    # --- Check for emergency keywords ---
+    # --- Hard emergency keywords ONLY (no AI classification for this) ---
     lang = customer.language
     emergency_words = EMERGENCY_KEYWORDS.get(lang, EMERGENCY_KEYWORDS["es"])
     is_emergency = any(kw in user_text.lower() for kw in emergency_words)
+
+    # Customer explicitly asking for a person
+    wants_human = any(kw in user_text.lower() for kw in [
+        "hablar con alguien", "hablar con una persona", "quiero hablar", "pasame con",
+        "speak to someone", "talk to a person", "human", "agent"
+    ])
 
     # --- Save user message ---
     db.add(Conversation(
@@ -93,23 +99,24 @@ async def handle_incoming_message(parsed: dict, db: Session) -> None:
     ))
     db.commit()
 
-    # --- Count troubleshooting attempts ---
-    troubleshooting_count = db.query(EscalationCase).filter(
-        EscalationCase.wa_id == wa_id,
-        EscalationCase.resolved == False,
+    # --- Count actual troubleshooting exchanges (assistant responses in this session) ---
+    troubleshooting_count = db.query(Conversation).filter(
+        Conversation.wa_id == wa_id,
+        Conversation.role == "assistant",
+        ~Conversation.content.like("[ESCALADO%"),
     ).count()
 
-    # --- Classify intent ---
+    # --- Classify intent (only for routing, NOT for escalation decision) ---
     intent = await claude_service.classify_intent(user_text, lang)
-    logger.info(f"[{wa_id}] intent={intent}, emergency={is_emergency}")
+    logger.info(f"[{wa_id}] intent={intent}, emergency={is_emergency}, attempts={troubleshooting_count}")
 
-    # --- Escalation decision ---
+    # --- Escalation: hard keywords or explicit request or 3+ failed attempts ---
     should_escalate_jorge = (
         is_emergency
-        or intent == "emergencia"
+        or wants_human
         or troubleshooting_count >= MAX_TROUBLESHOOTING_ATTEMPTS
     )
-    should_escalate_paulo = intent in ("reclamo",) and "seguro" in user_text.lower()
+    should_escalate_paulo = "seguro" in user_text.lower() and intent == "reclamo"
 
     if should_escalate_paulo:
         await _escalate(wa_id, customer, db, user_text, level="paulo")
@@ -284,22 +291,28 @@ async def handle_bridge_message(parsed: dict, db: Session) -> str:
         customer.language = lang
         db.commit()
 
-    # Emergency check
+    # Hard emergency keywords only — no AI classification for escalation
     emergency_words = EMERGENCY_KEYWORDS.get(lang, EMERGENCY_KEYWORDS["es"])
     is_emergency = any(kw in user_text.lower() for kw in emergency_words)
+    wants_human = any(kw in user_text.lower() for kw in [
+        "hablar con alguien", "hablar con una persona", "quiero hablar", "pasame con",
+        "speak to someone", "talk to a person", "human", "agent"
+    ])
 
     db.add(Conversation(wa_id=wa_id, role="user", content=user_text, message_type=msg_type))
     db.commit()
 
-    troubleshooting_count = db.query(EscalationCase).filter(
-        EscalationCase.wa_id == wa_id, EscalationCase.resolved == False
+    troubleshooting_count = db.query(Conversation).filter(
+        Conversation.wa_id == wa_id,
+        Conversation.role == "assistant",
+        ~Conversation.content.like("[ESCALADO%"),
     ).count()
 
     intent = await claude_service.classify_intent(user_text, lang)
 
     should_escalate_jorge = (
         is_emergency
-        or intent == "emergencia"
+        or wants_human
         or troubleshooting_count >= MAX_TROUBLESHOOTING_ATTEMPTS
     )
     should_escalate_paulo = intent == "reclamo" and "seguro" in user_text.lower()
