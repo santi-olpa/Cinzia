@@ -45,7 +45,8 @@ async def handle_incoming_message(parsed: dict, db: Session) -> None:
         user_text = parsed.get("text", "")
 
     elif msg_type == "audio":
-        media_bytes = await whatsapp.download_media(parsed["media_id"])
+        # Bridge sends bytes directly; webhook path downloads via media_id
+        media_bytes = parsed.get("media_bytes") or await whatsapp.download_media(parsed.get("media_id", ""))
         if media_bytes:
             transcribed = await transcription.transcribe_audio(
                 media_bytes, parsed.get("mime_type", "audio/ogg")
@@ -225,3 +226,175 @@ async def _escalate(wa_id: str, customer: Customer, db: Session, problem_text: s
         message_type="text",
     ))
     db.commit()
+
+
+async def handle_bridge_message(parsed: dict, db: Session) -> str:
+    """
+    Bridge variant: same logic as handle_incoming_message but returns
+    the response text instead of sending it via WhatsApp Cloud API.
+    The Node.js bridge handles the actual sending.
+    """
+    wa_id = parsed["wa_id"]
+    name = parsed.get("name", "")
+    msg_type = parsed["type"]
+
+    customer = db.query(Customer).filter(Customer.wa_id == wa_id).first()
+    if not customer:
+        customer = Customer(wa_id=wa_id, name=name)
+        db.add(customer)
+        db.commit()
+
+    if name and not customer.name:
+        customer.name = name
+        db.commit()
+
+    lang = customer.language or "es"
+    user_text = ""
+
+    if msg_type == "text":
+        user_text = parsed.get("text", "")
+
+    elif msg_type == "audio":
+        media_bytes = parsed.get("media_bytes")
+        if media_bytes:
+            transcribed = await transcription.transcribe_audio(
+                media_bytes, parsed.get("mime_type", "audio/ogg")
+            )
+            if transcribed:
+                user_text = f"[Audio transcripto]: {transcribed}"
+            else:
+                return (
+                    "No pude procesar tu audio. ¿Podés escribirme lo que necesitás?"
+                    if lang == "es"
+                    else "I couldn't process your audio. Could you write your message instead?"
+                )
+
+    elif msg_type == "image":
+        caption = parsed.get("caption", "")
+        user_text = f"[El cliente envió una foto{': ' + caption if caption else ''}]"
+
+    if not user_text:
+        return ""
+
+    # Detect language on first message
+    if customer.language == "es" and db.query(Conversation).filter(
+        Conversation.wa_id == wa_id
+    ).count() == 0:
+        lang = await claude_service.detect_language(user_text)
+        customer.language = lang
+        db.commit()
+
+    # Emergency check
+    emergency_words = EMERGENCY_KEYWORDS.get(lang, EMERGENCY_KEYWORDS["es"])
+    is_emergency = any(kw in user_text.lower() for kw in emergency_words)
+
+    db.add(Conversation(wa_id=wa_id, role="user", content=user_text, message_type=msg_type))
+    db.commit()
+
+    troubleshooting_count = db.query(EscalationCase).filter(
+        EscalationCase.wa_id == wa_id, EscalationCase.resolved == False
+    ).count()
+
+    intent = await claude_service.classify_intent(user_text, lang)
+
+    should_escalate_jorge = (
+        is_emergency
+        or intent == "emergencia"
+        or troubleshooting_count >= MAX_TROUBLESHOOTING_ATTEMPTS
+    )
+    should_escalate_paulo = intent == "reclamo" and "seguro" in user_text.lower()
+
+    if should_escalate_paulo or should_escalate_jorge:
+        level = "paulo" if should_escalate_paulo else "jorge"
+        escalation_msg = await _escalate_bridge(wa_id, customer, db, user_text, level, lang)
+        return escalation_msg
+
+    history_rows = (
+        db.query(Conversation)
+        .filter(Conversation.wa_id == wa_id)
+        .order_by(Conversation.created_at)
+        .all()
+    )
+    history = [{"role": r.role, "content": r.content} for r in history_rows]
+
+    kb_section = knowledge_base.get_knowledge_section(customer.fleet or "argentina")
+    system = build_system_prompt(
+        fleet=customer.fleet or "argentina",
+        customer_name=customer.name or "",
+        vehicle=customer.vehicle or "",
+        stage=customer.stage or CustomerStage.UNKNOWN,
+        language=lang,
+        knowledge_section=kb_section,
+        troubleshooting_attempts=troubleshooting_count,
+    )
+
+    response_text = await claude_service.get_response(
+        system, history, use_haiku=(intent == "consulta_informativa")
+    )
+
+    if not response_text:
+        return (
+            "Perdón, tuve un problema técnico. Intento de nuevo en un momento."
+            if lang == "es"
+            else "Sorry, I had a technical issue. Please try again in a moment."
+        )
+
+    db.add(Conversation(wa_id=wa_id, role="assistant", content=response_text, message_type="text"))
+    db.commit()
+    return response_text
+
+
+async def _escalate_bridge(
+    wa_id: str, customer: Customer, db: Session, problem_text: str, level: str, lang: str
+) -> str:
+    attempts = db.query(Conversation).filter(
+        Conversation.wa_id == wa_id, Conversation.role == "assistant"
+    ).count()
+
+    case = EscalationCase(
+        wa_id=wa_id,
+        customer_name=customer.name,
+        vehicle=customer.vehicle,
+        problem_summary=problem_text[:500],
+        attempts=attempts,
+        level=level,
+    )
+    db.add(case)
+    db.commit()
+
+    # In bridge mode, escalation notifications to Jorge/Paulo go via WhatsApp Cloud API
+    # if configured — or are just logged if not yet set up
+    target_number = (
+        settings.escalation_jorge_number if level == "jorge" else settings.escalation_paulo_number
+    )
+    if target_number and settings.whatsapp_token:
+        summary = build_escalation_summary(
+            customer_name=customer.name or wa_id,
+            vehicle=customer.vehicle or "N/A",
+            problem_summary=problem_text[:300],
+            attempts=attempts,
+            level=level,
+        )
+        await whatsapp.send_text_message(target_number, summary)
+        case.notified = True
+        db.commit()
+    else:
+        logger.warning(f"Escalation to {level} — no notification sent (token or number not set)")
+
+    db.add(Conversation(
+        wa_id=wa_id, role="assistant",
+        content=f"[ESCALADO A {level.upper()}]", message_type="text"
+    ))
+    db.commit()
+
+    if level == "jorge":
+        return (
+            "Estoy comunicando tu caso a Jorge ahora mismo. Te va a contactar en breve."
+            if lang == "es"
+            else "I'm escalating your case to Jorge right now. He will contact you shortly."
+        )
+    return (
+        "Estoy comunicando tu situación a Paulo ahora mismo. Te contactará a la brevedad."
+        if lang == "es"
+        else "I'm escalating your situation to Paulo right now. He will be in touch shortly."
+    )

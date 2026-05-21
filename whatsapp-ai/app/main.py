@@ -1,14 +1,17 @@
+import base64
 import logging
 from contextlib import asynccontextmanager
+from typing import Optional
 
 from fastapi import FastAPI, Request, HTTPException, Depends
 from fastapi.responses import PlainTextResponse
+from pydantic import BaseModel
 from sqlalchemy.orm import Session
 
 from app.config import get_settings
 from app.database import create_tables, get_db
 from app.services import whatsapp, knowledge_base
-from app.handlers.message_handler import handle_incoming_message
+from app.handlers.message_handler import handle_incoming_message, handle_bridge_message
 
 logging.basicConfig(
     level=logging.INFO,
@@ -69,6 +72,43 @@ async def receive_message(request: Request, db: Session = Depends(get_db)):
 
     # Always return 200 to Meta — otherwise it retries
     return {"status": "ok"}
+
+
+# ── QR Bridge endpoint (used by whatsapp-bridge Node.js) ────────────────────
+class BridgeMessage(BaseModel):
+    wa_id: str
+    name: Optional[str] = ""
+    type: str                        # text | audio | image
+    text: Optional[str] = None
+    media_data: Optional[str] = None  # base64 encoded
+    mime_type: Optional[str] = "audio/ogg"
+    caption: Optional[str] = ""
+
+
+@app.post("/bridge/message")
+async def bridge_message(msg: BridgeMessage, db: Session = Depends(get_db)):
+    parsed = {
+        "wa_id": msg.wa_id,
+        "name": msg.name or "",
+        "type": msg.type,
+    }
+
+    if msg.type == "text":
+        parsed["text"] = msg.text or ""
+    elif msg.type == "audio":
+        parsed["media_bytes"] = base64.b64decode(msg.media_data) if msg.media_data else None
+        parsed["mime_type"] = msg.mime_type or "audio/ogg"
+    elif msg.type == "image":
+        parsed["caption"] = msg.caption or ""
+
+    logger.info(f"Bridge message from {msg.wa_id} type={msg.type}")
+
+    try:
+        response_text = await handle_bridge_message(parsed, db)
+        return {"response": response_text}
+    except Exception as e:
+        logger.error(f"Bridge error for {msg.wa_id}: {e}", exc_info=True)
+        return {"response": "Tuve un problema técnico. Intento de nuevo en un momento."}
 
 
 # ── Admin endpoints ──────────────────────────────────────────────────────────
