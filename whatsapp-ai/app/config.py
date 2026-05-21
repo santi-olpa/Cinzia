@@ -12,8 +12,8 @@ class Settings(BaseSettings):
     # Anthropic
     anthropic_api_key: str = ""
 
-    # OpenAI (Whisper)
-    openai_api_key: str = ""
+    # Groq (Whisper transcription — free tier)
+    groq_api_key: str = ""
 
     # Escalation numbers (WhatsApp international format, e.g. 5491155551234)
     escalation_jorge_number: str = ""
