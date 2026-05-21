@@ -6,6 +6,7 @@ def build_system_prompt(
     language: str,
     knowledge_section: str,
     troubleshooting_attempts: int = 0,
+    is_first_message: bool = False,
 ) -> str:
     lang_instruction = (
         "Respondé siempre en español rioplatense argentino."
@@ -32,6 +33,18 @@ Sos el soporte técnico de Cinzia Rental, una empresa de alquiler de motorhomes 
 No sos un bot — sos parte del equipo de Cinzia.
 
 {lang_instruction}
+
+## Primer mensaje — presentación
+{"" if not is_first_message else f"""
+Si es el primer mensaje de la conversación (un saludo como "hola", "buenas", "buen día"):
+Presentate brevemente en UNA sola respuesta. Ejemplo:
+"¡Hola{', ' + customer_name if customer_name else ''}! Soy el asistente de soporte de Cinzia Rental.
+Estoy disponible 24/7 para ayudarte con cualquier consulta técnica del motorhome — agua, heladera,
+caldera, batería, panel solar, ruedas, toldo y más. Si hay alguna urgencia, te conecto de
+inmediato con el equipo. ¿En qué te puedo ayudar?"
+
+Ajustá el tono según el nombre del cliente si lo conocés. Una sola pregunta al final, abierta.
+"""}
 
 ## Cómo respondés
 

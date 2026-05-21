@@ -135,6 +135,9 @@ async def handle_incoming_message(parsed: dict, db: Session) -> None:
     )
     history = [{"role": row.role, "content": row.content} for row in history_rows]
 
+    # First message = only the one we just saved (the user message)
+    is_first_message = len(history_rows) == 1
+
     # --- Load knowledge base ---
     kb_section = knowledge_base.get_knowledge_section(customer.fleet or "argentina")
 
@@ -147,6 +150,7 @@ async def handle_incoming_message(parsed: dict, db: Session) -> None:
         language=lang,
         knowledge_section=kb_section,
         troubleshooting_attempts=troubleshooting_count,
+        is_first_message=is_first_message,
     )
 
     # Use Haiku for simple informational queries to save cost
@@ -330,6 +334,8 @@ async def handle_bridge_message(parsed: dict, db: Session) -> str:
     )
     history = [{"role": r.role, "content": r.content} for r in history_rows]
 
+    is_first_message = len(history_rows) == 1
+
     kb_section = knowledge_base.get_knowledge_section(customer.fleet or "argentina")
     system = build_system_prompt(
         fleet=customer.fleet or "argentina",
@@ -339,6 +345,7 @@ async def handle_bridge_message(parsed: dict, db: Session) -> str:
         language=lang,
         knowledge_section=kb_section,
         troubleshooting_attempts=troubleshooting_count,
+        is_first_message=is_first_message,
     )
 
     response_text = await claude_service.get_response(
