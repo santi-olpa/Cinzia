@@ -1,0 +1,1494 @@
+Manual de Uso del Motorhome – Cinzia Vehículos
+
+¡Bienvenido/a a la experiencia Cinzia!
+
+Gracias por elegirnos para acompañarte en tu viaje. Este manual fue diseñado para que puedas
+aprovechar al máximo tu motorhome de forma segura, cómoda y sencilla. Aquí vas a encontrar toda
+la información necesaria sobre el uso del vehículo, recomendaciones prácticas y consejos útiles para
+disfrutar cada momento del recorrido.
+
+¡Buen viaje y que disfrutes la ruta!
+
+www.cinziavehiculos.com
+
+
+
+
+
+
+
+
+
+
+ÍNDICE
+
+Luces en en el tablero sprinter.................................................................................................3
+Caldera.....................................................................................................................................4
+Bomba de Agua....................................................................................................................... 5
+Calefon.....................................................................................................................................6
+Presión de la cubiertas.............................................................................................................7
+Pinchadura o problema con una cubierta................................................................................ 7
+Cambio de Ruedas: Guia paso a paso.................................................................................... 8
+Garrafa................................................................................................................................... 13
+Heladera.................................................................................................................................14
+Armado de mesa....................................................................................................................16
+Girado de Butacas................................................................................................................. 17
+Uso del Inodoro......................................................................................................................19
+Panel de control principal.......................................................................................................20
+Enchufe 220v al exterior........................................................................................................ 21
+Batería....................................................................................................................................22
+Carga y descarga de aguas................................................................................................... 23
+Desagües............................................................................................................................... 24
+Dimensiones del vehículo...................................................................................................... 24
+Toldo.......................................................................................................................................25
+Aire acondicionado.................................................................................................................26
+Tv........................................................................................................................................... 26
+Climatizador........................................................................................................................... 26
+Caminos y rutas..................................................................................................................... 27
+Como armar tu viaje...............................................................................................................27
+
+www.cinziavehiculos.com
+
+
+
+
+Fallas en el
+tablero de
+Mercedes
+
+Luces en en el tablero sprinter
+
+La luz de "Asistencia de Frenado Activo
+Desconectado" en una Sprinter indica que
+el sistema de asistencia de frenado activo,
+que ayuda a prevenir colisiones, no está
+funcionando correctamente o ha sido
+desactivado.
+NIVEL DE GRAVEDAD NULO
+
+La luz de batería encendida en el tablero de
+una Sprinter, junto con el mensaje "no
+apagar el motor", generalmente indica un
+problema con el sistema de carga,
+específicamente con el alternador. En el
+caso de los motorhome puede ser
+debido a que a los 40 segundos se
+empieza a cargar la batería del
+motorhome, entonces detecta un mayor
+consumo.
+NIVEL DE GRAVEDAD NULO
+
+La luz de "Check Engine" puede activarse
+por diversos motivos. Entre ellos, puede ser
+debido a la calidad del combustible y a la
+engorrosa tarea de regeneración que tiene
+el dpf. Para algunas unidades hemos tenido
+que llegar a anular el sistema y así evitar
+cualquier tipo de inconveniente en el viaje
+de nuestros clientes. Para cualquier
+problema como la temperatura o el aceite
+que son los importante seguiremos las otras
+luces de los tableros o bien el sistema
+VIGÍA en el caso de tenerlo.
+NIVEL DE GRAVEDAD NULO
+
+Corte del motor con el Vigía. Puede ser por
+varias razones.
+
+●  Andar en marcha alta y bajas
+
+revoluciones.
+●  Presión de aceite.
+●  Alta temperatura.
+●  Fallas en sensores o componentes
+●  Problemas eléctricos
+
+Testigo luminoso de advertencia de sistema
+de retención.
+Puede encenderse en el tablero como
+resultado de la manipulación de las butacas
+giratorias, ya que estas tienen sensores de
+cinturón que pueden generar una falsa
+alerta al girarlas o moverlas.
+NIVEL DE GRAVEDAD NULO
+
+www.cinziavehiculos.com
+
+
+
+
+
+
+
+
+
+Caldera
+
+Código de falla: Cuando el calentador es anormal, la pantalla parpadeará y mostrará el código de
+falla, el formato del código de falla es “EXX”, por ejemplo: “E08” significa código de falla 08. (Mire la
+siguiente tabla).
+
+Código
+
+Causa de falla (detallada)
+
+Solución/Acción
+
+1
+
+2
+
+3
+
+5
+
+6
+
+7
+
+8
+
+9
+
+Error de inicio: después del proceso de
+encendido, no se detecta ninguna llama
+
+Asistencia técnica
+
+La llama se apaga luego de ingresar a la
+combustión fija, por corte de aceite u otro.
+
+Asistencia técnica
+
+Voltaje Anormal
+
+-Revisar el nivel de carga de la
+batería (al menos de 11,5V al
+arranque).
+-Revisar el nivel de
+combustible.
+-Bajar potencia de 10 (la
+inicial) a 3.
+Bajar la temperatura a menos
+de 28 grados.
+
+El sensor de temperatura del aire de entrada
+está en cortocircuito o abierto.
+
+Asistencia técnica
+
+Falla de la bomba de aceite: el circuito de la
+bomba está roto o en cortocircuito.
+
+Asistencia técnica
+
+Falla del ventilador: el circuito del ventilador está
+abierto o en cortocircuito, o el circuito de
+velocidad está defectuoso.
+
+Asistencia técnica
+
+Falla de la bujía de encendido: bujía abierta o en
+cortocircuito, o falla en circuito de transmisión.
+
+Asistencia técnica
+
+Protección de temperatura ultra alta: la carcasa
+supera los 260 °C.
+
+Apagar, esperar que se enfríe y
+volver a encender.
+
+10
+
+Falla del sensor de temperatura ultra alta:
+circuito abierto o en cortocircuito.
+
+Asistencia técnica
+
+www.cinziavehiculos.com
+
+
+
+
+
+
+Bomba de Agua
+
+El motorhome cuenta con una bomba de agua automática que mantiene todo el sistema presurizado.
+Cuando se abre una canilla o se acciona la ducha, la bomba detecta automáticamente la caída de
+presión y se activa para permitir la salida del agua.
+
+Encendido y apagado
+
+●  La bomba se enciende y apaga desde el tablero principal
+●  Generalmente se encuentra habilitada por defecto.
+
+Diagnóstico básico (si no funciona):
+
+Si notas que no hay salida de agua o la bomba no arranca, revisá lo siguiente:
+
+●  Que la tecla del tablero esté encendida.
+●  Que los tanques de agua estén llenos. Si el nivel está bajo, puede marcar incorrectamente.
+●  Que el fusible (componente que protege el sistema eléctrico del motorhome) esté en buen
+
+estado.
+
+●  Revisar los terminales de conexión de la bomba: terminal positivo y terminal automático. Si
+
+alguno de estos está desconectado, la bomba no va a funcionar, aunque el resto del sistema
+esté encendido correctamente.
+
+RECOMENDACIÓN PARA TENER EN CUENTA:
+
+IMAGEN BOMBA DE AGUA
+
+Se sugiere apagar la bomba durante la noche o cuando no se vaya a usar por períodos prolongados
+para:
+
+●  Evitar ruidos molestos.
+●  Ahorrar energía.
+
+www.cinziavehiculos.com
+
+
+
+
+
+
+El motorhome está equipado con un calefón sin piloto. Su encendido es totalmente automático: se
+activa en el momento en que se abre una canilla o se acciona la ducha y comienza a circular agua.
+
+Calefon
+
+Funcionamiento general:
+
+El calefón cuenta con un botón de encendido
+ubicado en la parte inferior izquierda.
+
+En la parte inferior derecha se encuentran dos
+pilas, que generan la chispa para el encendido
+automático.
+
+En el frente del calefón hay tres reguladores
+que permiten ajustar:
+
+-La intensidad de la llama
+
+-El caudal de agua
+
+-La temperatura deseada
+
+¿No sale agua caliente? Acciones a realizar:
+
+Si el calefón no funciona correctamente, proba lo siguiente:
+
+●  Verificá que la regulación de ingreso de agua esté al mínimo: esta posición es necesaria para
+
+que se active el sistema.
+
+●  Revisá el nivel de gas en la garrafa: si está vacía o baja, puede no encender.
+●  Chequeá que la manguera de salida de la garrafa no esté doblada ni obstruida.
+●  Controlá las pilas del calefón: si están gastadas o mal colocadas, no se generará chispa
+
+www.cinziavehiculos.com
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Presión de la cubiertas
+
+Es importante mantener la presión adecuada en las cubiertas para garantizar la seguridad y el
+correcto desempeño del motorhome.
+
+A continuación, se detallan los valores recomendados según el tipo de vehículo:
+
+●  Furgón:
+
+○  Delanteras: 50 Lb (libras)
+
+○  Traseras: 60 Lb (libras)
+
+●  Chasis:
+
+○  Delanteras: 62 Lb (libras)
+
+○  Traseras: 72 Lb (libras)
+
+Las cinco cubiertas (incluyendo la de auxilio) deben mantenerse infladas correctamente.
+
+Pinchadura o problema con una cubierta
+
+Se recomienda lo siguiente:
+
+1.  Si el problema es en una sola cubierta, utilice el auxilio del motorhome para continuar su
+
+viaje de forma segura.
+
+2.  Si el problema afecta a más de una cubierta, triangular con gomerías cercanas para obtener
+
+asistencia.
+
+3.  Si no hay ningún supervisor disponible al momento del inconveniente, puede abonar la
+reparación por su cuenta y el área de Administración u Operaciones se comunicará con
+usted para resolver posteriormente el tema económico.
+
+4.  Toda situación que involucre dinero debe ser consultada con el equipo de Administración y
+
+Operaciones de Cinzia Vehículos antes de dar confirmaciones definitivas.
+
+Recomendación: verificar siempre la presión de las cubiertas antes de iniciar el viaje, utilizando el
+valor sugerido que figura en los stickers colocados sobre cada rueda o viéndolo desde este manual
+en el apartado "Presión de las cubiertas"
+
+www.cinziavehiculos.com
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Cambio de Ruedas: Guia paso a paso
+
+Para Sprinter:
+
+1.Herramientas necesarias:
+
+●  Gato: la carga máxima soportada por el gato figura en una etiqueta adhesiva. No
+
+requiere mantenimiento.
+
+●  Llave para ruedas.
+
+Ubicación de las herramientas:
+
+●  Vehículos con tracción delantera: las herramientas se encuentran en el
+
+espacio reposapiés del lado del acompañante.
+
+●  Vehículos con tracción trasera: las herramientas se encuentran en el
+compartimento guardaobjetos sobre el peldaño de la puerta del
+acompañante, en el compartimento guardaobjetos del lado del acompañante
+en el espacio reposapiés, o detrás del asiento del conductor.
+
+2.Preparacion del vehiculo para el cambio de rueda
+
+Requisitos previos:
+
+●  Asegúrate de tener las herramientas necesarias y la rueda de repuesto disponible.
+●  El vehículo debe estar en una superficie firme, plana, no resbaladiza y sin pendientes o
+
+declives.
+
+●  Acciona el freno de estacionamiento.
+●  Coloca las ruedas delanteras en posición recta.
+●  Vehículos con cambio manual: acopla la 1.ª marcha o la marcha atrás (R).
+●  Vehículos con cambio automático: acopla la posición de cambio "P".
+●  Desconecta el vehículo y asegúrate de que no se pueda encender.
+
+Pasos para la preparación:
+
+1.  Saca las herramientas de a bordo de su ubicación (según el tipo de tracción de tu vehículo).
+2.  Si es necesario, retirar el embellecedor de la rueda.
+
+www.cinziavehiculos.com
+
+
+
+
+
+3.  Ensambla la barra central de la palanca para la bomba del gato de tres piezas con la barra
+
+4.
+
+de mayor diámetro a modo de prolongación de la llave para ruedas.
+Introduce la prolongación de la llave para ruedas con la barra central hasta el tope en la llave
+para ruedas.
+
+5.  Desenrosca aproximadamente una vuelta los tornillos o las tuercas de la rueda que vayas a
+
+cambiar con la llave para ruedas. No desenroscar por completo.
+
+3.Elevación del Vehículo para el Cambio de Rueda (Uso del Gato)
+
+ADVERTENCIAS IMPORTANTES:
+
+●  Nunca cambies una rueda en pendientes o declives, ya que el gato podría volcar.
+●  Asegúrate de que la base del gato se encuentre directamente debajo del punto de apoyo
+
+previsto en el vehículo.
+
+●  Para vehículos con suspensión neumática, pulsa la tecla de servicio en el telemando del
+
+fuelle de suspensión neumática antes de levantar el vehículo para evitar que la suspensión
+compense la altura y el gato vuelque.
+
+●  Nunca coloques las manos ni los pies debajo del vehículo cuando esté levantado. No te
+
+tiendas debajo del vehículo.
+
+●  No arranques el vehículo ni sueltes el freno de estacionamiento con el vehículo elevado.
+●  No abras ni cierres ninguna puerta con el vehículo elevado
+
+Puntos de apoyo del gato: se encuentran en el eje delantero y trasero del vehículo.
+
+A.  Vehiculos con traccion delantera
+
+1.  En caso necesario, gira el cabezal de alojamiento del gato.
+2.  Coloca el gato en el punto de apoyo correspondiente (eje delantero o trasero).
+
+www.cinziavehiculos.com
+
+
+
+
+3.  Gira la rueda de mano del gato hasta que el plato del gato quede apoyado en el punto de
+
+apoyo.
+
+4.  Para el eje delantero: Inserta la llave anular de carraca 3 de las herramientas para cambio de
+
+rueda en el hexágono del gato, con la inscripción "AUF" (arriba) visible.
+
+5.  Para el eje trasero: Inserta la barra de prolongación y la llave de tubo de las herramientas en
+el hexágono del gato, luego la llave anular de carraca (3) en la barra de prolongación, con la
+inscripción "AUF" (arriba) visible.
+
+6.  Gira la llave anular de carraca (3) hacia la derecha hasta que el gato (2) se apoye por
+
+completo y la base quede uniforme sobre la superficie.
+
+7.  Sigue girando hasta que el neumático se haya separado del suelo un máximo de 3 cm.
+8.  Suelte y desmonte la rueda
+
+B. Vehículos con tracción trasera
+
+1.  Utiliza solo la barra central y la barra con la palanca de la bomba de mayor diámetro para el
+gato como prolongación de la llave para ruedas. Inserta sólo la barra central y siempre hasta
+el tope en la llave para ruedas.
+
+2.  Preparación del gato hidráulico: introduzca la tercera barra de la palanca de la bomba (1)
+
+para el gato en la prolongación de la llave para ruedas.
+
+3.  Cierra el tornillo de vaciado girandolo por la entalladura de la palanca de la bomba hacia la
+
+4.
+
+derecha hasta el tope (no desenroscar más de una o dos vueltas).
+Introduce la palanca de la bomba con la barra más grande en el alojamiento del gato y
+asegurala girándola hacia la derecha.
+
+5.  Coloca el gato en posición vertical debajo de los puntos de apoyo del gato.
+
+6.  Para vehículos con tracción integral: gira el eje del gato hacia la izquierda hasta alcanzar el
+
+tope.
+
+7.  Levanta el vehículo hasta que el neumático se aleje del suelo un máximo de 3 cm.
+
+4. Desmontaje de la Rueda
+
+I.
+
+Desenroscar completamente los tornillos o las tuercas de rueda con la llave de tuercas de
+rueda.
+
+www.cinziavehiculos.com
+
+
+
+
+II.
+III.
+
+En el caso de ruedas delanteras con tuercas de rueda, retira la cubierta de las tuercas.
+Retira la rueda.
+
+5. Montaje de una Rueda Nueva
+
+ADVERTENCIA IMPORTANTE:
+
+●  Nunca lubrique ni engrase los tornillos de rueda.
+●  Aprieta los tornillos o las tuercas de rueda solamente con el vehículo bajado, no con el
+
+vehículo elevado.
+
+Pasos para el montaje:
+
+1.  Limpia las superficies de apoyo de la rueda y del cubo de rueda.
+2.  Vehículos con neumáticos superanchos en el eje trasero: Primero desmonta el adaptador en
+
+la rueda de repuesto y móntalo en el cubo de rueda del eje trasero.
+Introduce la rueda nueva en el cubo de rueda o en el adaptador (si aplica) y ejerce presión.
+3.
+4.  Vehículos con llantas de acero: Utiliza los tornillos de rueda cortos para la llanta de acero de
+
+las herramientas de a bordo.
+
+5.  Vehículos con llantas de aleación: Utiliza los tornillos de rueda largos para la llanta de
+
+aleación ligera de las herramientas de a bordo.
+
+6.  Enrosca los tornillos o las tuercas de rueda y aprieta ligeramente.
+7.  En ruedas con tuercas de rueda y cubierta: desplaza la cubierta sobre los pernos de rueda,
+
+enrosca tres tuercas de rueda sobre las arandelas de ajuste de la cubierta, gira la rueda para
+centrar los pernos y luego enrosca el resto de las tuercas.
+8.  Aprieta ligeramente todos los tornillos o tuercas de rueda.
+
+6. Bajada del Vehículo después del Cambio de Rueda
+
+ADVERTENCIA IMPORTANTE:
+
+●  Asegúrate de apretar los tornillos o las tuercas de rueda con el par de apriete prescrito para
+evitar que las ruedas se suelten. Si tienes dudas, contacta un taller especializado y no
+muevas el vehículo.
+
+Pasos para la bajada y apriete final:
+
+A. Vehículos con Tracción Delantera:
+
+1.  Eje delantero: Saca la llave anular de carraca e insertala en el hexágono del gato con la
+
+inscripción "AB" (abajo) visible.
+
+www.cinziavehiculos.com
+
+
+
+2.  Eje trasero: Inserta la barra de prolongación en el hexágono del gato, luego la llave anular de
+
+carraca en la barra de prolongación con la inscripción "AB" visible.
+
+3.  Baja el vehículo girando hacia la izquierda la llave anular de carraca del gato.
+4.  Una vez que el vehículo esté completamente bajado y apoyado en el suelo, aprieta los
+tornillos o las tuercas de rueda uniformemente en el orden indicado en la imagen.
+
+B. Vehículos con Tracción Trasera:
+
+1.  Abre despacio aproximadamente una vuelta el tornillo de vaciado del gato con la palanca de
+
+la bomba y baja el vehículo con cuidado.
+
+2.  Aparta el gato a un lado.
+3.  Separa la barra de menor diámetro de la palanca de la bomba; la palanca acortada sirve
+
+4.
+
+como prolongación de la llave para ruedas.
+Introduce la prolongación de la llave para ruedas con la barra central hasta el tope en la llave
+para ruedas.
+
+5.  Aprieta los tornillos o las tuercas de rueda uniformemente en el orden indicado en la imagen
+
+6.
+
+Introduce de nuevo el émbolo del gato hidráulico y enrosca el tornillo de vaciado.
+
+www.cinziavehiculos.com
+
+
+
+
+
+7.  Vehículos con tracción integral: gira hacia atrás el eje del gato hacia la derecha hasta
+
+alcanzar el tope.
+
+8.  Si aplica, montar el tapacubos de rueda completa o el embellecedor que cubre la parte
+
+central de la rueda.
+
+9.  Fija la rueda pinchada en el soporte de la rueda de repuesto (los vehículos con neumáticos
+Super-Single deben transportar la rueda trasera pinchada en la superficie de carga, ya que
+es demasiado grande para el soporte).
+
+10.  Comprueba la presión de la rueda recién montada y ajustarla si es necesario.
+11.  Después de recorrer 50 km, aprieta los tornillos o las tuercas de rueda al par de apriete
+
+prescrito.
+
+12.  Si utilizas una rueda o rueda de repuesto con una llanta de disco nueva o recién pintada:
+vuelve a apretar los tornillos o las tuercas de rueda al cabo de 1.000 km a 5.000 km.
+13.  Vehículos con control de la presión de los neumáticos: todas las ruedas montadas deben
+
+estar equipadas con sensores operativos.
+
+¿Cómo abrir la garrafa?
+
+Garrafa
+
+1.  Localiza el compartimento donde está instalada la garrafa (baulera).
+2.  Gira la válvula superior de la garrafa para abrir el paso del gas.
+3.  Revisá que no haya olor a gas o fugas. Si percibes algo extraño, no utilices ningún artefacto
+
+y ventila la zona inmediatamente.
+
+ ¿Cómo cerrar la garrafa?
+
+1.  Gira la válvula superior hasta cerrarla por completo.
+2.  Verificá que todos los artefactos a gas estén apagados.
+
+CIERRE LA GARRAFA!!
+
+Por seguridad, la garrafa de gas debe permanecer cerrada en los siguientes casos:
+
+●  Durante la noche, mientras todos duermen
+
+●  Durante el viaje, cuando el vehículo esté en movimiento
+
+Esta indicación se establece tanto por normativa del fabricante como por prevención ante posibles
+fugas o movimientos inesperados.
+
+Antes de volver a utilizar gas (cocina, calefón, caldera), recordá abrir la llave de paso nuevamente.
+
+www.cinziavehiculos.com
+
+
+
+
+
+Heladera
+
+Nota importante sobre el encendido de la heladera:
+
+En la mayoría de los motorhomes, la heladera se controla desde el panel de control principal, donde
+puede encenderse o apagarse según se necesite. Sin embargo, algunos modelos tienen una tecla de
+encendido directa sobre la heladera. En este último caso, si la heladera esta apagada, verificar
+primero esta tecla.
+
+Manual de Instrucciones de la Heladera LTC ICE
+Para asegurar el correcto funcionamiento y disfrutar de su heladera durante el viaje en motorhome,
+siga estas instrucciones:
+
+1. Conexión y Alimentación
+
+Se enciende desde el tablero principal. Es fundamental que la heladera reciba energía de manera
+adecuada. Se recomienda conectarla directamente al banco de baterías del motorhome para
+garantizar un suministro estable. Evite usar la salida auxiliar del regulador de carga.
+
+forma ideal de conexión para su funcionamiento con el sistema de 12V/24
+
+2. Conociendo su Heladera: Partes Principales
+
+Familiarizarse con las partes de la heladera le ayudará a usarla eficientemente.
+
+www.cinziavehiculos.com
+
+
+
+
+
+
+3. Puesta en Marcha y Consejos de Uso
+
+●  Puesta en marcha inicial: conectar la alimentación, girar en el sentido de las agujas del reloj
+la perilla de control de temperatura, poner el engranaje en la posición 1  (la primera vez
+funcionará más tiempo debido al calor del cuerpo de la unidad).
+
+●  Encendido: Una vez conectada correctamente, el compresor se activará automáticamente
+
+para empezar a enfriar.
+
+●  Termostato: se utiliza para ajustar la temperatura. Para optimizar el consumo eléctrico de las
+
+baterías siempre recomendamos utilizar el termostato en números bajos (1,2,3). Comience
+con un ajuste medio y ajustelo según sus necesidades y la cantidad de alimentos.
+●  Cámara de enfriamiento: primero limpiar los alimentos y luego ponerlos en la cámara (el
+tiempo de almacenamiento no debe ser tan largo). Evite sobrecargar la heladera para
+permitir una correcta circulación del aire frío. Coloque los alimentos de manera que no
+bloqueen las salidas de aire.
+
+●  Minimice aperturas: Abra la puerta sólo cuando sea necesario y cierrela rápidamente para
+
+mantener la temperatura interna y conservar la energía de las baterías.
+
+●  Prestar atención a que el recipiente de eliminación de agua debe verter agua regularmente.
+
+No deje alimentos en el.
+
+●  Desescarche: Si observa una acumulación excesiva de hielo en el congelador, proceda al
+desescarche para mantener la eficiencia. (se debe realizar con el vehículo apagado y la
+heladera desconectada para evitar un drenaje excesivo de batería).
+
+●  Si la unidad es apagada intencionalmente o accidentalmente mientras el compresor estaba
+
+funcionando espere 5 minutos para prenderla nuevamente.
+
+PRECAUCIONES
+
+●  No rocíe agua directamente en el interior o en el exterior del frigorífico porque podría causar
+
+daños o cortocircuito.
+
+●  No rocíe nada inflamable cerca del frigorífico en caso de incendio
+●  No almacene alcohol, gasolina, gas para encendedores, etc, en caso de explosion.
+●  No almacene materiales que sobrevivan sólo a temperaturas exactas.
+
+Fallas comunes y manejo
+
+Nu
+
+1
+
+2
+
+3
+
+Problema
+
+Posibles causas
+
+Solución
+
+No enfría (el compresor no
+arranca)
+
+El compresor funciona, pero
+no enfría bien
+
+El compresor no se detiene,
+los productos están fríos
+
+- Cable o empalme mal
+conectado.
+- Cable de calibre incorrecto.
+- Batería baja o con poca
+carga.
+- Fusible externo quemado.
+- Termostato en “0”
+- Conector trasero flojo.
+
+- Apertura frecuente de la
+puerta
+- Heladera sobrecargada
+- Fuga de gas refrigerante
+
+- Revisar y arreglar
+conexiones.
+- Verificar calibre del cable.
+- Cargar la batería..
+- Reemplazar fusible
+- Girar la rueda del termostato.
+- Asegurar el conector trasero.
+
+- Abrir menos la puerta
+- Retirar parte de la carga
+- Soldar y recargar
+
+- Temperatura ambiente muy
+alta
+- Termostato ajustado a frío
+máximo
+- Termostato no funciona
+
+- Bajar el nivel del termostato
+- Reemplazar termostato
+- Si no responde, contactar
+servicio técnico
+
+www.cinziavehiculos.com
+
+
+4
+
+Hace mucho ruido
+
+- El equipo está inclinado
+- Cables tensos o mal
+colocados
+- Compresor flojo
+
+- Nivelar bien el equipo
+- Reacomodar los cables
+- Ajustar tornillos del
+compresor
+
+Situaciones normales que no indican mal funcionamiento (para evitar alarmas innecesarias):
+
+●  Rocío en la carcasa o puerta: Si la humedad ambiental es alta, puede aparecer rocío.
+
+Límpielo con un paño seco.
+
+●  Calor en el condensador trasero/laterales: Es normal que el condensador (ubicado en la
+
+parte trasera o en los lados de la caja) emita calor cuando la heladera está en
+funcionamiento.
+
+●  Sonido de agua corriendo: Es el sonido del flujo del refrigerante en el evaporador.
+●  Compresor caliente: La temperatura del compresor puede llegar hasta los 90 grados en
+
+funcionamiento normal.
+
+Armado de mesa
+
+En los motorhome de Cinzia existen dos sistemas diferentes de mesas, ambos diseñados para ser
+funcionales tanto como mesa como base de cama. A continuación, te explicamos cómo funciona
+cada uno.
+
+Sistema 1 – Mesa con base giratoria ajustable
+
+Este sistema cuenta con un soporte metálico central ajustable, el cual se regula mediante una rosca
+giratoria ubicada a mitad del tubo. Esta rosca permite subir o bajar la altura de la mesa.
+
+Instrucciones:
+
+1.  Girar la rosca para ajustar la altura.
+2.  Bajar la mesa hasta que quede lo más cerca posible del piso.
+3.  Colocar los colchones o almohadones sobre la tabla para completar la cama.
+
+www.cinziavehiculos.com
+
+
+
+
+
+Sistema 2 – Mesa con doble soporte removible
+
+En este caso, la mesa tiene dos tubos/soportes desmontables que encajan en huecos del suelo.
+Estos tubos también están fijados a la parte inferior de la tabla de la mesa, pero se pueden quitar
+fácilmente.
+
+Instrucciones:
+
+1.  Quitar los tubos/soportes de la base de la mesa y del piso.
+2.  Colocar la tabla de la mesa entre los asientos, apoyándola sobre los bordes laterales fijos.
+3.  Colocar los colchones o almohadones por encima para completar la cama.
+
+Advertencia: independientemente del sistema de mesa que tenga el motorhome, es fundamental
+evitar sentarse, pararse o apoyarse sobre los extremos de la mesa ya que podrían dañarse o
+romperse.
+
+Giro de butacas (conductor y acompañante)
+
+Girado de Butacas
+
+Tanto en modelos furgón como en Sprinter, las butacas delanteras pueden girarse hacia el interior del
+habitáculo para convertir el espacio en una zona de estar.
+
+El sistema es el mismo en ambos casos, solo cambia la ubicación de la palanca que permite el giro:
+
+www.cinziavehiculos.com
+
+
+
+
+
+
+●  En el furgón, la palanca está en el costado del asiento
+
+●  En la Sprinter, la palanca está al frente, debajo del asiento
+
+Pasos para girar la butaca correctamente:
+
+1.  Asegurarse de que el motorhome esté detenido.
+2.  Soltar el cinturón de seguridad y dejarlo fuera del recorrido del asiento.
+
+ Recomendación: colocarlo en su soporte para evitar que quede atrapado y se corte.
+
+3.  Mover el asiento hacia adelante con la corredera.
+4.  Reclinar ligeramente el respaldo hacia adelante, para que no choque con el volante o el
+
+lateral.
+
+5.  En caso del asiento del conductor, bajar el freno de mano.
+
+○  El freno puede estar ubicado a la derecha o a la izquierda, según el modelo.
+
+6.  Accionar la palanca de giro (al costado en furgón, al frente en Sprinter).
+7.  Girar la butaca suavemente hacia adentro del habitáculo hasta la posición deseada.
+
+Advertencia importante: no forzar el asiento si algo lo traba. Asegurarse de que el cinturón no esté
+enredado y que el freno de mano esté liberado en el caso del conductor. El uso incorrecto puede
+provocar roturas en los mecanismos o cortes en el cinturón.
+
+www.cinziavehiculos.com
+
+
+
+
+
+Uso del Inodoro
+
+Según el modelo de motorhome, el sistema de inodoro puede variar. A continuación, te explicamos
+cómo utilizarlo correctamente en cada caso:
+
+Furgón – Inodoro químico portátil
+
+Este tipo de inodoro es completamente independiente y cuenta con dos partes: una superior (asiento
+y depósito de agua limpia) y una inferior (depósito de residuos).
+
+Modo de uso:
+
+1.  Levantar la tapa del inodoro.
+2.  Abrir la guillotina (palanca ubicada en la base) para habilitar la caída de residuos al
+
+compartimiento inferior.
+
+3.  Realiza tus necesidades normalmente.
+
+ Podés utilizar el duchador como bidet, si lo deseas.
+4.  Una vez finalizado, cerrar nuevamente la guillotina.
+
+Vaciado del inodoro:
+
+Cuando el depósito inferior está lleno:
+
+1.  Destrabar el depósito usando las manijas laterales.
+2.  Separar la parte inferior, que funciona como un “bidón”.
+3.  Transportarlo con el asa y descargar el contenido en un inodoro de estación de servicio,
+
+camping u otro lugar habilitado.
+
+Mantenimiento después del vaciado:
+
+Una vez que se haya vaciado el depósito de aguas negras (parte inferior del inodoro químico), es
+muy importante realizar el siguiente paso antes de volver a utilizarlo:
+
+1.  Agregar agua limpia al depósito inferior.
+2.  Añadir la dosis correspondiente del químico desodorizante y desintegrador, tal como se
+
+indica en el envase.
+
+Estos productos ayudan a eliminar olores, descomponer los residuos y mantener el sistema limpio
+por más tiempo.
+
+Chasis – Inodoro con descarga y pedal
+
+Este tipo de inodoro funciona de forma más similar a uno domiciliario, pero con un sistema adaptado
+para motorhome.
+
+Modo de uso:
+
+1.  Levantar la tapa del inodoro.
+2.  Realizar tus necesidades.
+3.  Una vez finalizado, presionar el pedal ubicado a la derecha con el pie:
+
+○  El inodoro hace un enjuague de agua.
+○  Al mismo tiempo, se abre la guillotina interna para permitir la descarga.
+
+4.  Al dejar de presionar, la guillotina se cierra automáticamente.
+
+www.cinziavehiculos.com
+
+
+Descarga de aguas negras:
+
+1.  Buscar un lugar habilitado para vaciar aguas negras (estación de servicio, camping, etc.).
+2.  Accionar la palanca ubicada al costado del inodoro.
+3.  Esto liberará el contenido hacia el punto de descarga.
+
+Recomendaciones importantes:
+
+●  No tirar objetos ni papeles dentro del inodoro.
+●  No dejar la guillotina abierta.
+●  Realizar las descargas únicamente en lugares habilitados.
+
+Panel de control principal
+
+Este es el panel desde donde podés activar y administrar las funciones principales del motorhome. A
+continuación, te explicamos para qué sirve cada interruptor y cómo utilizarlo correctamente:
+
+Selección de corriente 220 V:
+
+●
+
+Inversor/Exterior: este selector determina de dónde se toma la energía de 220 V.
+
+○  Palanca hacia arriba: se toma corriente desde el inversor (energía interna,
+
+alimentada por batería).
+
+○  Palanca hacia abajo: se toma corriente desde el exterior (cuando está conectado a
+
+red eléctrica externa).
+
+●
+
+Inversor ON/OFF:
+
+○  ON: habilita el inversor para utilizar energía de 220 V desde las baterías.
+○  OFF: desactiva el inversor; solo se usa corriente externa.
+
+Otros comandos del panel:
+
+●  Agua ON/OFF: enciende o apaga la bomba de agua del sistema.
+
+ Recomendamos apagarla al dormir o cuando no se va a usar por un período prolongado.
+
+●  Heladera ON/OFF: permite cortar la alimentación eléctrica de la heladera.
+●  Luz LED interior ON/OFF: enciende o apaga las luces internas del motorhome.
+●  Luz exterior ON/OFF: activa o desactiva la luz que ilumina el exterior del vehículo.
+●  Slideout ABIERTO/CERRADO: habilita o retrae el módulo extensible (slideout) en los
+
+modelos que lo poseen.
+
+●  Tanque de agua: desde aquí podés visualizar el nivel de agua limpia, y controlar también el
+
+estado de los tanques de aguas grises y negras, según el modelo.
+
+www.cinziavehiculos.com
+
+
+
+Controlador solar y batería auxiliar (panel naranja)
+
+Este módulo (generalmente de color naranja o similar) está ubicado junto al tablero principal y
+gestiona la batería secundaria y la energía solar del motorhome.
+
+Información que muestra:
+
+●  Voltaje actual de la batería secundaria (por ejemplo, 11.4 V).
+●
+
+Indicadores de carga: muestra si los paneles solares están cargando activamente la batería
+mediante íconos o flechas en pantalla.
+
+Funciones adicionales:
+
+●  Cuenta con dos puertos USB para carga directa de dispositivos.
+●  Si el sistema presenta alguna falla o comportamiento anómalo, podés hacer un reseteo del
+
+controlador:
+
+○  Mantener presionado el botón derecho durante aproximadamente 5 a 6 segundos.
+○  Soltarlo, y el equipo se reiniciará para corregir posibles errores simples.
+
+Fusibles en el tablero
+
+El motorhome cuenta con una fusilera ubicada en el tablero principal, que se encarga de proteger los
+elementos eléctricos del sistema ante posibles sobrecargas.
+
+Cada fusible corresponde a un componente específico:
+
+Nº  Componente protegido
+
+1
+
+2
+
+3
+
+4
+
+5
+
+6
+
+Luces internas
+
+Inversor de corriente
+
+Heladera
+
+Climatizador
+
+Indicadores de tanque
+
+Fusible libre
+
+En caso de que algún componente eléctrico deje de funcionar, es recomendable revisar primero su
+fusible correspondiente.
+
+Enchufe 220v al exterior
+
+El motorhome puede alimentarse con energía eléctrica desde una fuente externa (por ejemplo, una
+toma de camping o domicilio). A continuación te explicamos cómo hacerlo correctamente y cómo
+verificar que el sistema está funcionando:
+
+Pasos para conectar a 220 V desde el exterior:
+
+1.  Localizar el enchufe exterior, ubicado del lado de la puerta del motorhome.
+
+www.cinziavehiculos.com
+
+
+
+
+
+
+
+
+
+
+
+2.  Conectar allí el cable de alimentación.
+
+3.  Verificar en el panel de control principal que:
+
+○  La palanca Inversor/Exterior esté hacia abajo, lo que indica que se utilizará corriente
+
+externa.
+
+○  La palanca Inversor ON/OFF esté también hacia abajo, lo que desactiva el inversor
+
+interno.
+
+4.  Observar la luz testigo de la batería:
+
+○  Si está roja, significa que se está utilizando corriente externa correctamente (y no
+
+desde el inversor).
+
+5.  Para confirmar que el sistema está funcionando, encender un artefacto eléctrico, como el
+
+televisor o alguna luz interior.
+
+¿Cómo detectar si hay una falla?
+
+●  Si no hay energía aunque esté todo conectado, revisar:
+
+○  Que el cable esté bien enchufado del lado del motorhome y de la fuente externa.
+
+○  Que haya tensión en el punto de suministro externo (puede probarse con otro
+
+artefacto).
+
+○  Que la fusilera no tenga ningún fusible dañado.
+
+●  Si la luz de la batería está verde, significa que se está utilizando energía del inversor y no
+
+está ingresando corriente externa.
+
+El motorhome está equipado con una batería secundaria que alimenta todos los sistemas internos sin
+necesidad de encender el motor. Esta batería se puede cargar de tres maneras distintas, lo cual
+permite mantener la autonomía durante el viaje:
+
+Batería
+
+1.  Panel solar: el motorhome cuenta con un panel solar ubicado en el techo, que permite cargar
+
+la batería secundaria de forma automática durante el día con luz solar.
+Ideal para mantener la carga mientras el vehículo está detenido.
+
+2.  Encendido del vehículo: al poner en marcha el motor, se activa el alternador que comienza a
+
+cargar también la batería secundaria.
+Esta opción recarga mientras se está en movimiento.
+
+3.  Conexión a red externa: al enchufar el cable exterior (ubicado junto a la puerta del
+
+motorhome) a una toma de red eléctrica, el cargador integrado recarga la batería secundaria.
+Ideal cuando se estaciona en campings u hogares con energía disponible.
+
+www.cinziavehiculos.com
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+¿Qué elementos están conectados a la batería?
+
+La batería secundaria alimenta los siguientes sistemas eléctricos del motorhome:
+
+●  Luces interiores
+●  Heladera
+●  Climatizador
+●  Bomba de agua
+●
+●  Puertos USB
+●  Televisor (en caso de no estar conectado a 220 V)
+
+Indicadores de niveles de tanques
+
+Importante:
+
+●  Verificar el nivel de carga desde el panel de control auxiliar..
+●  Evitar dejar artefactos encendidos innecesariamente para prolongar la duración de la batería.
+●  Si la batería está baja y no se carga con el panel solar, se recomienda encender el motor o
+
+conectar a red externa.
+
+Carga y descarga de aguas
+
+El motorhome está equipado con sistemas diferenciados según el modelo (furgón o chasis) para el
+manejo de aguas blancas (limpias) y aguas grises (residuales del lavado o uso sanitario).
+
+Furgón
+
+Carga de aguas blancas:
+
+●  En la parte exterior lateral trasera del vehículo se encuentra una tapa de carga.
+●  Conectar la manguera directamente a esa toma para llenar el tanque de agua limpia.
+
+Descarga de aguas grises:
+
+●  En la parte inferior del motorhome hay una válvula esférica.
+●  Para abrir la válvula (y permitir la descarga), girarla hasta que quede paralela al sentido de la
+
+cañería.
+
+●  Para cerrar la válvula, colocarla en posición perpendicular a la cañería.
+●  Recordá realizar esta descarga únicamente en lugares habilitados.
+
+Chasis
+
+Carga de aguas blancas:
+
+●  Tomar la manguera guardada en la baulera.
+●  Abrir la tapa ubicada en la parte exterior lateral trasera del motorhome.
+●  Conectar la manguera directamente a esa toma y proceder al llenado del tanque.
+
+Descarga de aguas grises:
+
+●  Buscar un sitio habilitado para la descarga.
+●  Ubicar la llave esclusa (válvula) en el sector inferior del vehículo.
+●  Abrir la válvula para liberar el agua gris acumulada.
+●  Si se encuentra cerca de un drenaje, se puede conectar un trozo de manguera a la salida
+
+para direccionar el vertido al lugar adecuado.
+
+www.cinziavehiculos.com
+
+
+Recomendaciones importantes:
+
+●  No descargar aguas grises en la vía pública o espacios no autorizados.
+●  Revisar periódicamente el nivel de aguas blancas desde el panel de control.
+●  Asegurarse de cerrar bien todas las válvulas luego de cada uso para evitar pérdidas.
+
+Desagües
+Las bachas del motorhome están conectadas a un sistema de desagüe con cañerías internas. Para
+evitar taponamientos y garantizar un correcto funcionamiento, es importante seguir algunas
+recomendaciones simples.
+
+¿Qué hacer si se tapa una cañería?
+
+1.  Verificar si el agua no drena correctamente en la bacha.
+2.  Acceder a la cañería que está justo debajo de la bacha (es visible y accesible).
+3.  Desenroscar o quitar el tramo inferior (sifón), donde se encuentra un filtro interno.
+4.  Retirar el filtro, limpiarlo cuidadosamente (eliminando restos de comida o grasa acumulada).
+5.  Volver a colocar el filtro y ensamblar nuevamente la cañería tal como estaba.
+
+Luego de realizar esta limpieza, el sistema debería funcionar con normalidad.
+
+Advertencia importante: está prohibido arrojar restos de comida, aceites, papeles, servilletas,
+cabellos u otros objetos sólidos por las bachas. Estos elementos pueden obstruir las cañerías y
+generar malos olores, desbordes o problemas en el sistema de aguas grises.
+
+Usá coladores si cocinas, y desecha los restos en cestos, no en las bachas.
+
+Dimensiones del vehículo
+
+El motorhome cuenta con las siguientes dimensiones aproximadas:
+
+●  Largo total: 7 metros
+●  Ancho exterior: 2,27 metros
+●  Alto total (incluyendo accesorios en techo): entre 3,1 y 3,3 metros
+
+Estas medidas pueden variar levemente según el modelo y el equipamiento instalado. Por ello, se
+recomienda tener en cuenta las dimensiones del vehículo al momento de circular, estacionar o
+maniobrar, especialmente en caminos angostos. Asimismo, es fundamental tener en cuenta la altura
+del mismo antes de ingresar a túneles, cocheras, estaciones de servicio o puentes con restricciones
+de altura.
+
+www.cinziavehiculos.com
+
+
+
+
+Cómo abrir el toldo del motorhome
+
+Toldo
+
+El motorhome está equipado con un toldo lateral que brinda sombra y protección. El sistema varía
+levemente según el modelo: furgón o chasis. A continuación, te detallamos el paso a paso para cada
+caso:
+
+Furgón
+
+1.  Localizar los tornillos mariposa ubicados en ambos extremos del toldo.
+2.  Desenroscar ambos tornillos para liberar el sistema (importante: no perderlos).
+3.  Tomar la manija de apertura, que se encuentra en el interior del motorhome.
+4.
+
+Insertar la manija en el mecanismo correspondiente y comenzar a girar suavemente para
+abrir el toldo.
+
+5.  A medida que se despliega, el toldo se irá extendiendo hacia afuera.
+6.  Una vez abierto, extender los largueros telescópicos que se encuentran en ambos laterales
+
+para ajustar la longitud y horizontalidad del toldo.
+
+Chasis
+
+1.  Ubicar y retirar los bulones (tornillos con mariposa) que bloquean el toldo durante el viaje, en
+
+ambos lados del soporte.
+
+○  Colocar la mariposa nuevamente en los tornillos al quitarlos y guardarlos en la
+
+baulera para no perderlos.
+
+2.  Tomar la manija de apertura ubicada en la baulera.
+3.
+Insertar la manija en el eje correspondiente del toldo.
+4.  Girar la manija suavemente para comenzar a abrir el toldo.
+5.  El toldo se irá extendiendo de manera progresiva hacia afuera hasta alcanzar su apertura
+
+total.
+
+Recomendaciones importantes:
+
+●  No abrir el toldo con viento fuerte o en condiciones climáticas adversas.
+●  Nunca dejar el toldo abierto durante la noche o cuando no hay nadie en el motorhome.
+●  Asegurarse de volver a trabar el toldo con los tornillos mariposa o bulones al cerrarlo, para
+
+evitar accidentes durante el viaje.
+
+www.cinziavehiculos.com
+
+
+
+Aire acondicionado
+
+El aire acondicionado del motorhome funciona únicamente cuando el vehículo está conectado a
+corriente externa (220 V) o si se está utilizando el inversor (con suficiente carga en la batería).
+
+●  Encendido y apagado: el sistema se enciende o apaga desde su control frontal o control
+
+remoto, sin necesidad de hacer configuraciones adicionales.
+
+●  No se recomienda su uso prolongado con el inversor, ya que consume mucha energía.
+
+Tv
+
+El televisor del motorhome está habilitado solo para reproducir contenido a través de USB o HDMI.
+No está conectado a antena ni habilitado para sintonizar canales de aire o cable.
+
+●  Fuentes disponibles:
+
+○  HDMI: conectar un dispositivo (como notebook, consola o reproductor externo).
+○  USB: reproducir películas, música o fotos desde un pendrive.
+
+Climatizador
+
+El climatizador del vehículo sirve para refrescar el ambiente interior sin necesidad de encender el
+motor, ya que funciona de forma eléctrica y consume únicamente agua. Es ideal para mantener el
+confort durante el descanso o mientras el vehículo está detenido.
+
+Para su uso básico:
+
+●  Presiona el botón 8 para encender o apagar el climatizador.
+●  Usa el botón 2 para aumentar la velocidad del aire.
+●  Usa el botón 3 para disminuir la velocidad del aire.
+
+www.cinziavehiculos.com
+
+
+
+
+
+
+
+Condiciones de uso en ruta
+
+Caminos y rutas
+
+Está prohibido circular con el motorhome por caminos de ripio, tierra o rutas no pavimentadas, ya que
+esto puede causar daños graves al vehículo y poner en riesgo la seguridad del viaje.
+
+Antes de iniciar cualquier trayecto, es importante verificar el estado de las rutas por las que se planea
+transitar.
+
+Para consultar el estado actualizado de caminos y rutas, ingresá a:
+
+Desde allí podés buscar tu recorrido, ver el estado actual de las rutas y planificar un viaje seguro.
+
+Advertencia: el incumplimiento de esta condición puede invalidar la cobertura del seguro y
+generar costos adicionales por daños.
+
+Como armar tu viaje
+
+Viajar en motorhome es una experiencia única, pero para aprovecharla al máximo no hace falta que
+planifiques todo de forma rígida. Lo ideal es organizar tu recorrido con tiempo, pero dejando lugar a la
+improvisación y a las sorpresas del camino.
+
+¿Están listos para explorar Argentina? Les dejamos algunos recursos y consejos para que
+disfruten su viaje al máximo:
+
+Alojamiento, conexión y lugares recomendados
+
+En este enlace encontrarán una guía con sugerencias de otros viajeros para dormir, conectarse y
+descubrir lugares increíbles en todo el país:
+
+www.cinziavehiculos.com
+
+
+
+
+●  Alojamiento gratuito: Pueden dormir bajo las estrellas en campings o zonas de pernocte sin
+
+costo.
+
+●  Conexión a internet: Identifiquen puntos con Wi-Fi para mantenerse comunicados.
+
+●  Lugares recomendados: Descubran restaurantes, estaciones de servicio, paisajes, y otros
+
+puntos compartidos por viajeros como ustedes.
+
+Mapa interactivo para explorar
+
+Accedan a este mapa interactivo que muestra todos estos puntos directamente sobre el territorio:
+
+https://www.google.com/maps/d/viewer?mid=1Q9rn9nU769aNbV1EL_-CbbnkJdMopiZ8&shorturl=1&ll
+=-38.23121580348836%2C-80.15629784276986&z=4
+
+●  Recomendación: abrir el mapa desde navegadores como Chrome o similares.
+●  Nota: no abrirlo directamente con Google Maps móvil, ya que desde la
+
+computadora se visualiza mejor y tiene más detalles por punto.
+
+www.cinziavehiculos.com
+
+
+
+
+
+
+
+Consejos para un viaje inolvidable:
+
+●  Planifica con anticipación: elegí tus destinos según tus intereses y tiempos disponibles.
+
+●  Revisá el clima: prepará la ropa adecuada según la región que visites.
+
+●  Practica turismo responsable: cuidá el medio ambiente, dejá todo como lo encontraste.
+
+●  Disfrutá al máximo: anímate a explorar, desviar el rumbo y vivir nuevas experiencias.
+
+Importante: la información del mapa interactivo puede modificarse con el tiempo. Se
+recomienda verificar cada punto antes de visitarlo.
+
+¡Buen viaje y que disfrutes cada kilómetro!
+
+www.cinziavehiculos.com
